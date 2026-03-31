@@ -41,6 +41,7 @@ npx skills@latest add amit-t/skills -g
 | [`prd-draft`](./prd-draft) | Create modern, AI-era PRDs through guided interview |
 | [`prd-review-panel`](./prd-review-panel) | Multi-agent PRD review from 7 perspectives |
 | [`prd-approve`](./prd-approve) | Approve a reviewed PRD and update pipeline |
+| [`prd-to-plan`](./prd-to-plan) | Turn a PRD into a phased implementation plan using tracer-bullet vertical slices |
 | [`write-a-prd`](./write-a-prd) | Create a PRD through interview, codebase exploration, and module design |
 
 ### Project Management
@@ -57,6 +58,8 @@ npx skills@latest add amit-t/skills -g
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
 | [`ubiquitous-language`](./ubiquitous-language) | Extract DDD-style ubiquitous language glossary |
+| [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
+| [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
 
 ### UX Design
