@@ -70,6 +70,12 @@ npx skills@latest add amit-t/skills -g
 | [`design-draft`](./design-draft) | Full UXD workflow from design interview to developer handoff |
 | [`design-review`](./design-review) | Multi-agent design review from 5 perspectives |
 
+### Agent Behavior
+
+| Skill | Description |
+|-------|-------------|
+| [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
+
 ### AI Agent
 
 | Skill | Description |
