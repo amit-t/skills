@@ -914,6 +914,70 @@ body.dark .footer code {
   border-color: rgba(255,255,255,0.1);
 }
 
+/* ===== COPY BUTTON ===== */
+pre {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid var(--border-dark);
+  background: var(--surface-dark);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.14s, box-shadow 0.14s;
+  box-shadow: 2px 2px 0 var(--border-dark);
+  z-index: 1;
+}
+
+pre:hover .copy-btn,
+.copy-btn:focus-visible {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--border-dark);
+}
+
+.copy-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0 0 0 var(--border-dark);
+}
+
+.copy-btn.copied {
+  background: var(--lime-green);
+  color: #000;
+  border-color: var(--border-light);
+  opacity: 1;
+}
+
+body.dark .copy-btn.copied {
+  background: #3d6600;
+  color: #fff;
+  border-color: var(--border-dark);
+}
+
+.copy-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ===== BODY LOCK ===== */
 body.drawer-open {
   overflow: hidden;
