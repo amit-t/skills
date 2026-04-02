@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agent Skills — amit-t/skills</title>
+    <meta name="description" content="Browse every skill in amit-t/skills. Neo-brutalist doc index with install instructions, README details, and changelog.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./site.css">
+  </head>
+  <body>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode"></button>
+
+    <!-- ===== HERO ===== -->
+    <header class="container hero">
+      <div>
+        <span class="hero-eyebrow">GitHub Pages Doc Index</span>
+        <h1>Agent skills, stripped of guesswork.</h1>
+        <p class="hero-desc">
+          Browse every skill in <code>amit-t/skills</code>, open install instructions in one click,
+          and scan the README and changelog without leaving the page.
+        </p>
+        <div class="hero-actions">
+          <a class="neo-btn neo-btn-primary" href="https://github.com/amit-t/skills" target="_blank" rel="noreferrer">Open Repo</a>
+          <a class="neo-btn" href="#readme-section">README</a>
+          <a class="neo-btn" href="#changelog-section">Changelog</a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value" id="skill-count">0</span>
+          <span class="stat-label">Skills</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="category-count">0</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">2026-04-02</span>
+          <span class="stat-label">Last Update</span>
+        </div>
+      </div>
+    </header>
+
+    <hr class="divider container">
+
+    <main>
+
+      <!-- ===== README ===== -->
+      <section class="container section" id="readme-section">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow eyebrow-readme">README</span>
+            <h2>What the repository promises</h2>
+          </div>
+          <a class="section-link" href="https://github.com/amit-t/skills/blob/main/README.md" target="_blank" rel="noreferrer">Open full README</a>
+        </div>
+
+        <div class="readme-card">
+          <div class="readme-grid">
+            <div class="readme-text">
+              <p>
+                This repository packages reusable agent skills for AI coding agents. Skills are
+                self-contained units of functionality that teach agents how to perform specific tasks.
+                Each skill is a <code>SKILL.md</code> file with optional companion files.
+              </p>
+              <p>
+                Compatible with any tool that supports the
+                <a href="https://github.com/vercel-labs/skills" target="_blank" rel="noreferrer">Agent Skills</a> format:
+              </p>
+              <div class="chip-row">
+                <span class="chip">Devin</span>
+                <span class="chip">Claude Code</span>
+                <span class="chip">Cursor</span>
+                <span class="chip">Codex</span>
+                <span class="chip">Gemini CLI</span>
+                <span class="chip">Windsurf</span>
+                <span class="chip">GitHub Copilot</span>
+                <span class="chip">Cline</span>
+                <span class="chip">Roo</span>
+              </div>
+            </div>
+
+            <div class="install-commands">
+              <h3>Quick Install</h3>
+              <pre><code>npx skills@latest add amit-t/skills</code></pre>
+              <pre><code>npx skills@latest add amit-t/skills --skill tdd</code></pre>
+              <pre><code>npx skills@latest add amit-t/skills --agent claude-code cursor</code></pre>
+              <pre><code>npx skills@latest add amit-t/skills -g</code></pre>
+            </div>
+          </div>
+
+          <div style="overflow-x: auto">
+            <table class="manual-table">
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Project Path</th>
+                  <th>Global Path</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Devin / Windsurf</td>
+                  <td><code>.cognition/skills/</code> or <code>.windsurf/skills/</code></td>
+                  <td><code>~/.config/cognition/skills/</code></td>
+                </tr>
+                <tr>
+                  <td>Claude Code</td>
+                  <td><code>.claude/skills/</code></td>
+                  <td><code>~/.claude/skills/</code></td>
+                </tr>
+                <tr>
+                  <td>Cursor</td>
+                  <td><code>.cursor/skills/</code></td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Codex</td>
+                  <td><code>AGENTS.md</code></td>
+                  <td>&mdash;</td>
+                </tr>
+                <tr>
+                  <td>Gemini CLI</td>
+                  <td><code>GEMINI.md</code></td>
+                  <td>&mdash;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider container">
+
+      <!-- ===== SKILL EXPLORER ===== -->
+      <section class="container section" id="skills-section">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow eyebrow-eng">Skills</span>
+            <h2>Click any skill for install instructions</h2>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--muted-light)">Filter by category or search by name.</p>
+        </div>
+
+        <div class="controls">
+          <label>
+            <span class="sr-only">Search skills</span>
+            <input class="search-input" id="search-input" type="search" placeholder="Search skills...">
+          </label>
+          <div class="filters" id="category-filters"></div>
+        </div>
+
+        <div class="skill-grid" id="skills-grid"></div>
+      </section>
+
+      <hr class="divider container">
+
+      <!-- ===== CHANGELOG ===== -->
+      <section class="container section" id="changelog-section">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow eyebrow-changelog">Changelog</span>
+            <h2>Recent changes</h2>
+          </div>
+          <a class="section-link" href="https://github.com/amit-t/skills/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Open full changelog</a>
+        </div>
+
+        <div class="change-grid" id="change-list"></div>
+      </section>
+
+    </main>
+
+    <!-- ===== DRAWER ===== -->
+    <aside class="drawer" id="skill-drawer">
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+      <div class="drawer-panel">
+        <button class="drawer-close" id="drawer-close" type="button" aria-label="Close">&times;</button>
+        <div class="drawer-content" id="drawer-content"></div>
+      </div>
+    </aside>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="container footer">
+      <p>MIT licensed. Source of truth: the repo <code>README.md</code>, per-skill READMEs, and each <code>SKILL.md</code>.</p>
+    </footer>
+
+    <script src="./site.js"></script>
+  </body>
+</html>
