@@ -75,6 +75,7 @@ npx skills@latest add amit-t/skills -g
 | Skill | Description |
 |-------|-------------|
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
+| [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
 
 ### AI Agent
 
