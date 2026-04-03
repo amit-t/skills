@@ -361,6 +361,7 @@ function openDrawer(skill) {
     </section>
   `;
 
+  addCopyButtons(drawerContent);
   drawer.classList.add("open");
   document.body.classList.add("drawer-open");
   drawerCloseBtn.focus();
@@ -411,7 +412,54 @@ cp -r ${slug} .cursor/skills/${slug}</code></pre>
   `;
 }
 
+/* ===== COPY TO CLIPBOARD ===== */
+const COPY_ICON = `<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+const CHECK_ICON = `<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+  // Fallback for older browsers / restricted contexts
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.cssText = "position:fixed;left:-9999px;top:-9999px;opacity:0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (_) { /* best-effort */ }
+  document.body.removeChild(ta);
+  return Promise.resolve();
+}
+
+function flashCopied(btn) {
+  btn.innerHTML = `${CHECK_ICON}<span>Copied</span>`;
+  btn.classList.add("copied");
+  setTimeout(() => {
+    btn.innerHTML = `${COPY_ICON}<span>Copy</span>`;
+    btn.classList.remove("copied");
+  }, 1500);
+}
+
+function addCopyButtons(root = document) {
+  root.querySelectorAll("pre").forEach((pre) => {
+    if (pre.querySelector(".copy-btn")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "copy-btn";
+    btn.setAttribute("aria-label", "Copy to clipboard");
+    btn.innerHTML = `${COPY_ICON}<span>Copy</span>`;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const code = pre.querySelector("code");
+      const text = (code || pre).textContent;
+      copyText(text).then(() => flashCopied(btn)).catch(() => flashCopied(btn));
+    });
+    pre.appendChild(btn);
+  });
+}
+
 /* ===== BOOT ===== */
 renderFilters();
 renderSkills();
 renderChanges();
+addCopyButtons();
