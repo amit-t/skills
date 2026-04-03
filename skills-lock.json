@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "write-a-skill": {
+      "source": "amit-t/skills",
+      "sourceType": "github",
+      "computedHash": "024fdd43e958d500396fbf2041b389531fd012af06e3e12677f0d5fac6b428b2"
+    }
+  }
+}
