@@ -106,6 +106,14 @@ const skills = [
     usage: "/grill-me",
   },
   {
+    slug: "package-scout",
+    name: "package-scout",
+    category: "Engineering",
+    tagline: "Research, compare, and select the best packages before installing.",
+    detail: "Stops the agent from blindly installing packages. Searches the web for alternatives, compares stars, downloads, bundle size, vulnerabilities, and maintenance — then presents a comparison table so the user picks the right dependency.",
+    usage: "/package-scout",
+  },
+  {
     slug: "design-interview",
     name: "design-interview",
     category: "UX Design",
@@ -160,6 +168,7 @@ const changes = [
     date: "2026-04-03",
     items: [
       "Added precision-mode skill — universal conciseness directive for all LLM output.",
+      "Added package-scout skill — research and compare packages before installing any dependency.",
     ],
   },
   {
