@@ -339,8 +339,28 @@ function renderChanges() {
   }
 }
 
+/* ===== PERMALINK ===== */
+const SHARE_ICON = `<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
+
+function getSkillPermalink(slug) {
+  const url = new URL(window.location.href);
+  url.hash = `skill=${slug}`;
+  return url.toString();
+}
+
+function openSkillFromHash() {
+  const hash = window.location.hash;
+  if (!hash.startsWith("#skill=")) return;
+  const slug = decodeURIComponent(hash.slice(7));
+  const skill = skills.find((s) => s.slug === slug);
+  if (skill) openDrawer(skill, true);
+}
+
 /* ===== DRAWER ===== */
-function openDrawer(skill) {
+function openDrawer(skill, fromHash) {
+  if (!fromHash) {
+    history.replaceState(null, "", `#skill=${skill.slug}`);
+  }
   drawerContent.innerHTML = `
     <span class="section-eyebrow ${catClass(skill.category)}">Skill Detail</span>
     <h2>${skill.name}</h2>
@@ -382,7 +402,30 @@ function openDrawer(skill) {
         <a class="neo-btn" href="${repoUrl}/tree/main/${skill.slug}" target="_blank" rel="noreferrer">Directory</a>
       </div>
     </section>
+
+    <section class="drawer-section">
+      <h3>Share this skill</h3>
+      <div class="drawer-links">
+        <button class="neo-btn share-btn" type="button" data-slug="${skill.slug}">
+          ${SHARE_ICON}<span>Copy link</span>
+        </button>
+      </div>
+    </section>
   `;
+
+  drawerContent.querySelector(".share-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    const btn = e.currentTarget;
+    const link = getSkillPermalink(btn.dataset.slug);
+    copyText(link).then(() => {
+      btn.innerHTML = `${CHECK_ICON}<span>Copied!</span>`;
+      btn.classList.add("copied");
+      setTimeout(() => {
+        btn.innerHTML = `${SHARE_ICON}<span>Copy link</span>`;
+        btn.classList.remove("copied");
+      }, 1500);
+    });
+  });
 
   addCopyButtons(drawerContent);
   drawer.classList.add("open");
@@ -393,6 +436,9 @@ function openDrawer(skill) {
 function closeDrawer() {
   drawer.classList.remove("open");
   document.body.classList.remove("drawer-open");
+  if (window.location.hash.startsWith("#skill=")) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
 }
 
 function renderManualInstalls(slug) {
@@ -486,3 +532,5 @@ renderFilters();
 renderSkills();
 renderChanges();
 addCopyButtons();
+openSkillFromHash();
+window.addEventListener("hashchange", openSkillFromHash);
