@@ -138,6 +138,14 @@ const skills = [
     usage: "/concise-reporting",
   },
   {
+    slug: "precision-mode",
+    name: "precision-mode",
+    category: "Agent Behavior",
+    tagline: "Universal conciseness directive for all LLM output.",
+    detail: "A single prompt injector that eliminates verbosity from every response — answers, code, explanations, plans, emails, docs. Paste into any system prompt.",
+    usage: "/precision-mode",
+  },
+  {
     slug: "write-a-skill",
     name: "write-a-skill",
     category: "AI Agent",
@@ -148,6 +156,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-04-03",
+    items: [
+      "Added precision-mode skill — universal conciseness directive for all LLM output.",
+    ],
+  },
   {
     date: "2026-04-02",
     items: [

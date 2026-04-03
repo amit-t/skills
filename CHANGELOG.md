@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-04-03
+
+- Added the `precision-mode` skill — universal conciseness directive for all LLM output.
+
 ## 2026-04-02
 
 - Added the `concise-reporting` skill to the catalog under the `Agent Behavior` category.
