@@ -61,6 +61,7 @@ npx skills@latest add amit-t/skills -g
 | [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
 | [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
+| [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 
 ### UX Design
 

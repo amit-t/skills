@@ -5,6 +5,7 @@ Recent project updates, summarized from repository history.
 ## 2026-04-03
 
 - Added the `precision-mode` skill — universal conciseness directive for all LLM output.
+- Added the `package-scout` skill — research, compare, and select the best packages before installing any dependency.
 
 ## 2026-04-02
 
