@@ -978,6 +978,27 @@ body.dark .copy-btn.copied {
   stroke-linejoin: round;
 }
 
+/* ===== SHARE BUTTON ===== */
+.share-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.share-btn.copied {
+  background: var(--lime-green);
+  color: #000;
+}
+
+body.dark .share-btn.copied {
+  background: #3d6600;
+  color: #fff;
+}
+
 /* ===== BODY LOCK ===== */
 body.drawer-open {
   overflow: hidden;
