@@ -54,6 +54,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
+| [`e2e-audit`](./e2e-audit) | Run a Playwright end-to-end audit of a web app using its PRDs as the test spec |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
