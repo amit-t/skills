@@ -50,6 +50,14 @@ const skills = [
     usage: "/pmo-status",
   },
   {
+    slug: "e2e-audit",
+    name: "e2e-audit",
+    category: "Engineering",
+    tagline: "Run a Playwright end-to-end audit against your PRDs.",
+    detail: "Discovers routes and auth strategy, scaffolds a Playwright e2e package, writes PRD-driven tests, runs the suite, and exports a diagnostic report showing what's working and what's not from a user's perspective.",
+    usage: "/e2e-audit",
+  },
+  {
     slug: "eng-spec",
     name: "eng-spec",
     category: "Engineering",
@@ -164,6 +172,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-04-05",
+    items: [
+      "Added e2e-audit skill — Playwright end-to-end audit driven by PRDs.",
+    ],
+  },
   {
     date: "2026-04-03",
     items: [
