@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-04-08
+
+- Added the `compact-conversation` skill — compact conversations into concise summaries to reduce context window usage.
+
 ## 2026-04-05
 
 - Added the `e2e-audit` skill — run a Playwright end-to-end audit of a web app using its PRDs as the test spec.
