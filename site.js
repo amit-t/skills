@@ -146,6 +146,14 @@ const skills = [
     usage: "/design-review",
   },
   {
+    slug: "compact-conversation",
+    name: "compact-conversation",
+    category: "Agent Behavior",
+    tagline: "Compact the current conversation into a concise summary.",
+    detail: "Creates a structured summary of completed work, key decisions, current state, and pending tasks so you can continue in a fresh session without losing context. Only use when the agent lacks a built-in /compact command.",
+    usage: "/compact-conversation",
+  },
+  {
     slug: "concise-reporting",
     name: "concise-reporting",
     category: "Agent Behavior",
@@ -172,6 +180,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-04-08",
+    items: [
+      "Added compact-conversation skill — compact conversations into concise summaries to reduce context window usage.",
+    ],
+  },
   {
     date: "2026-04-05",
     items: [
