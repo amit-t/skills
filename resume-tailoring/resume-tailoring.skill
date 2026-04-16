@@ -1,0 +1,613 @@
+---
+name: resume-tailoring
+version: 1.0.0
+format: skill-bundle-v1
+author: amit-t
+license: MIT
+source: https://github.com/amit-t/skills/tree/main/resume-tailoring
+invocation: /resume-tailoring
+triggers:
+  - "I want to apply for {role} at {company}"
+  - "Here's the JD"
+  - "tailor my resume"
+  - "apply for {role}"
+  - "multiple jobs"
+  - "batch of jobs"
+description: |
+  Tailor a resume to a specific job by researching the company/role, surfacing undocumented
+  experience through branching interview, matching content with confidence scores, and emitting
+  MD + DOCX + PDF + interview-prep report. Use when the user says
+  "I want to apply for [Role] at [Company]. Here's the JD:", pastes a job description,
+  provides multiple JDs/URLs, or asks to tailor/optimize a resume for a role. Never fabricates
+  experience; reframes and emphasizes truthfully.
+compatibility:
+  - claude-code
+  - codex
+  - cursor
+  - cowork
+  - gemini-cli
+  - windsurf
+  - devin
+inputs_required:
+  - job_description: "text or URL"
+  - resume_library: "markdown files in ./resumes/ (or path via --library)"
+outputs:
+  - "{Name}_{Company}_{Role}_Resume.md"
+  - "{Name}_{Company}_{Role}_Resume.docx"
+  - "{Name}_{Company}_{Role}_Resume.pdf"
+  - "{Name}_{Company}_{Role}_Report.md"
+---
+
+# resume-tailoring (portable bundle)
+
+This is a single-file `.skill` bundle containing the full resume-tailoring skill and all its
+reference files inlined. Drop it into any agent runtime that supports skills-as-prompt
+(codex, co-work, Gemini CLI, plain prompt pipelines). For Claude Code, Cursor, Devin,
+Windsurf, use the directory form instead — it's equivalent but uses per-file references.
+
+Sections below are separated by `===` delimiters so runtimes that only consume a single
+prompt blob still have clear internal structure.
+
+===== SECTION: SKILL.md =====
+
+# /resume-tailoring — Job-Specific Resume Workflow
+
+Build a resume around the whole person, not just the documents on file. Maximize fit to the
+target role while keeping every bullet factually defensible.
+
+**Core rule:** Never fabricate experience. Reframe, emphasize, and translate terminology —
+do not invent.
+
+**Trigger prompt (canonical):**
+```
+I want to apply for [Role] at [Company]. Here's the JD: [paste JD or URL]
+```
+
+Multi-job mode triggers automatically when the user pastes multiple JDs, multiple URLs, or
+says "these roles" / "batch" / "multiple jobs".
+
+## Quick Start
+
+```
+/resume-tailoring                              → run full workflow, single job
+/resume-tailoring --library ~/resumes          → point at a specific library
+/resume-tailoring --batch                      → force multi-job mode
+/resume-tailoring --no-docx                    → skip DOCX/PDF, emit markdown only
+/resume-tailoring --express                    → skip checkpoints (only after first run)
+```
+
+Inputs the skill needs:
+1. Job description (text or URL).
+2. A resume library: markdown files under `resumes/` in the current dir (or a path the user
+   provides). Works with 1 resume; 10+ is ideal.
+
+Outputs written to `resumes/tailored/{Company}_{Role}/`:
+- `{Name}_{Company}_{Role}_Resume.md`
+- `{Name}_{Company}_{Role}_Resume.docx` (requires `document-skills:docx`)
+- `{Name}_{Company}_{Role}_Resume.pdf` (optional)
+- `{Name}_{Company}_{Role}_Report.md` — coverage, matches, reframings, interview prep
+
+## Workflow
+
+### Phase 0 — Library Build (always first)
+
+1. Resolve library dir: `--library` flag, else `./resumes/`, else ask. Validate it exists.
+2. Glob `*.md`. Announce count: "Building library... found {N} resumes".
+3. For each resume, read and parse: contact, roles (company/title/dates), bullets, skills,
+   education.
+4. Tag each bullet: `themes` (leadership, technical, analytics, strategy…), `metrics`
+   (numbers, %, $), `keywords` (action verbs, domain terms), `source_resume`.
+5. Detect user preferences: typical length, section order, bullet style.
+6. Hold the library in memory as the candidate pool.
+
+If <3 resumes, warn: coverage will be thin; Phase 2.5 discovery especially valuable.
+
+### Phase 1 — Research
+
+Build a success profile. Three sub-steps (see SECTION: research-prompts):
+1. Parse JD — must/nice, keywords, implicit prefs, red flags, role archetype.
+2. Company research — WebSearch mission/values, blog, news, structure.
+3. Role benchmarking — LinkedIn/GitHub profiles of people in similar roles.
+
+If research tools unavailable, fall back to JD-only and tell the user.
+
+**Checkpoint:** Present success profile. Wait for approval.
+
+### Phase 2 — Template
+
+1. Role consolidation — same-company only, never across companies.
+2. Title reframing — truthful; emphasize aspect relevant to target. Company/dates exact.
+3. Section order — user's library default, unless target role dictates otherwise.
+4. Bullet allocation — weight by relevance × recency.
+
+**Checkpoint:** Present skeleton with consolidation, title options, bullet counts.
+
+### Phase 2.5 — Discovery (optional, when gaps found)
+
+Offer when any requirement <60% confidence. 10–15 min branching interview covering
+technical, soft-skill, and recent-work gaps. See SECTION: branching-questions.
+
+Capture each experience with: context, scope, addressed gaps, bullet draft, truthfulness
+note. Time-box; move on after 2–3 dry attempts. Never pressure.
+
+### Phase 3 — Assembly
+
+Score every candidate bullet per template slot (see SECTION: matching-strategies):
+
+```
+Overall = 0.4·Direct + 0.3·Transferable + 0.2·Adjacent + 0.1·Impact
+```
+
+Bands: 90+ DIRECT · 75–89 TRANSFERABLE · 60–74 ADJACENT · 45–59 WEAK · <45 GAP.
+
+Show top 3 per slot with source resume + any reframing proposals (with truthfulness note).
+For gaps: reframe / omit / cover-letter / re-run discovery.
+
+**Checkpoint:** Present full mapping + coverage summary.
+
+### Phase 4 — Generation
+
+Write to `resumes/tailored/{Company}_{Role}/`:
+1. Markdown resume.
+2. DOCX via `document-skills:docx` — Calibri 11/12pt, 0.5–1in margins, proper bullet config,
+   bold for company/title/dates. Never unicode bullets.
+3. PDF (if requested / DOCX succeeds).
+4. Generation report — target summary, coverage metrics, before/after reframings with
+   truthfulness notes, source breakdown, remaining gaps + recommendations, interview prep.
+
+DOCX failure → fall back to markdown only; note in report.
+
+### Phase 5 — Save + Learn (conditional)
+
+Options: (1) Save to library, (2) Revise, (3) Save locally only.
+
+On save: move artifacts into library, re-parse, persist `.meta.json` with scores,
+reframings, discoveries, coverage. Future runs start richer.
+
+## Multi-Job Mode
+
+Triggers on multiple JDs. See SECTION: multi-job-workflow.
+
+Phases: Intake → Aggregate gap analysis → Shared discovery → Per-job processing →
+Batch finalization. Incremental additions supported.
+
+Typical savings: 11% (3 jobs), 27% (5 jobs), 33% (7 jobs).
+
+## Checkpoints
+
+- End of Phase 1 — success profile
+- End of Phase 2 — template skeleton
+- End of Phase 3 — content mapping + coverage
+- End of Phase 4 — file review before library save
+
+`--express` skips 1–3; use only for repeat batch applications.
+
+## Truthfulness Rules (non-negotiable)
+
+- Never invent a role, company, date, metric, or skill.
+- Never inflate seniority beyond what scope defends.
+- Reframe, don't fabricate — same facts, different emphasis and terminology.
+- Disclose gaps honestly; offer cover-letter recommendations rather than padding.
+- Every reframing has before/after + reason in the report.
+
+## Edge Cases
+
+- Tiny library (<3 resumes): warn, lean on discovery.
+- Critical gap <60% on must-have: reframe / discovery / cover-letter / omit — never force.
+- Research fails: JD-only fallback; ask user for context; proceed best-effort.
+- Vague JD: extract what's possible, ask for missing context, proceed.
+- Overflow >2 pages: rank bullets, propose cuts, user decides.
+- Career gap: frame legitimately; surface skills via discovery.
+
+===== SECTION: research-prompts =====
+
+# Research Prompts
+
+Templates for Phase 1 (success profile building).
+
+## 1. JD Parsing
+
+```
+Parse this job description. Extract:
+1. EXPLICIT REQUIREMENTS — must-have vs nice-to-have
+2. TECHNICAL KEYWORDS — stacks, tools, domains, methodologies
+3. IMPLICIT PREFERENCES — cultural signals, hidden expectations
+4. RED FLAGS — overqualification, scope creep, unrealistic combos
+5. ROLE ARCHETYPE — IC technical / people leadership / cross-functional / hybrid
+6. SENIORITY SIGNALS — scope, autonomy, ambiguity, headcount implied
+
+JD: {JD_TEXT}
+
+Return structured sections, terse bullets.
+```
+
+## 2. Company Research
+
+WebSearch queries (parallel):
+- `{company} mission values culture`
+- `{company} engineering blog`
+- `{company} recent news product launches`
+- `{company} team structure engineering`
+
+Technical roles also:
+- `{company} tech stack`
+- `site:news.ycombinator.com {company}`
+
+Synthesis:
+```
+From these search results, extract:
+1. Mission and stated values
+2. Cultural priorities
+3. Business model, customer base, revenue stage
+4. Company stage (startup / growth / mature) and implications
+5. Recent strategic moves that affect this team
+Results: {SEARCH_RESULTS}
+```
+
+## 3. Role Benchmarking
+
+Strategy:
+1. WebSearch `site:linkedin.com {title} {company}`
+2. WebFetch top 3–5 profiles
+3. Fallback: `site:linkedin.com {title} {peer_company}`
+4. Double fallback: GitHub search for engineers at {company} with similar titles
+
+Analysis:
+```
+Analyze these profiles for people doing similar work:
+1. Common backgrounds and career paths
+2. Emphasized skills and project types
+3. Terminology patterns
+4. Notable accomplishments / narrative themes
+5. Anti-patterns — backgrounds that look different
+Profiles: {PROFILE_DATA}
+```
+
+## 4. Success Profile Synthesis
+
+```markdown
+## Success Profile: {Role} at {Company}
+
+### Core Requirements (Must-Have)
+- {Requirement}: evidence from {JD/research}
+
+### Valued Capabilities (Nice-to-Have)
+- {Capability}: why it matters in this context
+
+### Cultural Fit Signals
+- {Value}: how a candidate demonstrates it
+
+### Narrative Themes
+- {Theme}: typical examples from role holders
+
+### Terminology Map
+Standard term → Company-preferred term
+
+### Risk Factors
+- {Concern}: mitigation strategy for the resume
+
+### Red-Flag Checks
+- Things to avoid / claims that would hurt credibility
+```
+
+Present at checkpoint with top findings and ask for adjustments.
+
+## Graceful Degradation
+
+If WebSearch is unavailable or sparse:
+```
+Limited external research available — {reason}.
+- JD analysis: full
+- Company research: {partial / missing}
+- Role benchmarking: {partial / missing}
+
+Proceeding with JD-driven analysis. If you can share culture/team/stack context, that'll
+improve the template. Remaining uncertainty noted in generation report.
+```
+
+===== SECTION: matching-strategies =====
+
+# Matching Strategies
+
+## Scoring Formula
+
+```
+Overall = 0.4·Direct + 0.3·Transferable + 0.2·Adjacent + 0.1·Impact
+```
+
+### Direct (40%) — same skill, domain, technology, outcome
+- 90–100: exact match
+- 70–89: same skill, different domain
+- 50–69: keyword/outcome overlap only
+- <50: weak
+
+### Transferable (30%) — same capability, different context
+- 90–100: process/skill generic, transfers cleanly
+- 70–89: light translation needed
+- 50–69: analogy required
+- <50: stretch
+
+### Adjacent (20%) — secondary responsibility, related tools, related problem space
+- 90–100: same thing, different name
+- 70–89: clearly related
+- 50–69: requires explanation
+- <50: loose
+
+### Impact (10%) — achievement type matches role's impact lens
+- 90–100: perfect alignment
+- 70–89: strong
+- 50–69: moderate
+- <50: weak
+
+### Bands
+- 90+ DIRECT — use with confidence
+- 75–89 TRANSFERABLE — strong
+- 60–74 ADJACENT — reframe
+- 45–59 WEAK — only if nothing better
+- <45 GAP — flag, don't force
+
+## Reframing Strategies (only when ≥60 and terminology is off)
+
+1. **Keyword alignment** — preserve meaning, swap vocabulary
+   ```
+   "Led experimental design and data analysis programs"
+   → "Led data science programs combining experimental design and statistical analysis"
+   ```
+2. **Emphasis shift** — same facts, different focus
+   ```
+   "Designed statistical experiments... saving millions in recall costs"
+   → "Prevented millions in potential recall costs through predictive risk detection using
+      statistical modeling"
+   ```
+3. **Abstraction level** — up or down on technical specificity
+   ```
+   "Built MATLAB-based automated evaluation system"
+   → "Developed automated evaluation system"  (language-agnostic target)
+   or → "Built automated evaluation system (MATLAB, Python)"  (stack-heavy target)
+   ```
+4. **Scale emphasis** — highlight the scale dimension the target cares about
+   ```
+   "Managed project with 3 stakeholders"
+   → "Led cross-functional initiative coordinating 3 organizational units"
+   ```
+
+Every reframing must be disclosed with before/after + truthfulness note in the report.
+
+## Title Reframing
+
+- Emphasize a different aspect: "Graduate Researcher" → "Research Software Engineer"
+- Industry-standard terminology: "Scientist III" → "Senior Research Scientist"
+- Truthful specialization: "Engineer" → "ML Engineer" (if ML substantial)
+- Seniority indicator: Lead / Senior / Staff based on defensible scope
+
+Constraints: company/dates exact; core responsibilities must match reality; never claim
+seniority scope can't defend.
+
+Present 2 options with rationale; user picks.
+
+## Role Consolidation
+
+Consolidate same-company roles when:
+- Responsibilities overlap heavily
+- Target values continuity over granular progression
+- Combined narrative stronger
+- Page space tight
+
+Keep separate when:
+- Different companies (always)
+- Dramatically different responsibilities that both matter
+- Target values progression story
+- One position much more relevant
+
+## Gap Handling (<60% on must-have)
+
+Four options, in order:
+1. Reframe adjacent bullet (only if reframe is honest)
+2. Run Phase 2.5 discovery
+3. Omit slot, reallocate space, disclose in report
+4. Acknowledge in cover letter
+
+Never fabricate. Flag + recommend cover-letter framing + interview prep.
+
+===== SECTION: branching-questions =====
+
+# Branching Questions
+
+Discovery is a conversation, not a questionnaire.
+
+## Principles
+
+1. Start broad, go narrow.
+2. Branch on the answer.
+3. Time-box 10–15 min; move on after 2–3 dry attempts.
+4. Cross-reference across gaps.
+5. Capture in structure.
+6. Truth bar stays high.
+
+## Multi-Job Leverage Prefix
+
+```
+"{SKILL} appears in {N} of your target jobs ({Company1}, {Company2}).
+This is a {HIGH/MEDIUM/LOW}-LEVERAGE gap — addressing it helps {all/some/one} application(s).
+Current best match: {X}% ('{best_match_text}').
+{Standard probe below}"
+```
+
+HIGH 3+ · MEDIUM 2 · LOW 1.
+
+## Pattern A — Technical Skill Gap
+
+PROBE: "The role requires {SKILL}. Have you worked with {SKILL} or {ADJACENT}?"
+
+- A1 YES → "What did you use it for? Scale? Production? Challenges? Metrics?"
+- A2 INDIRECT → "What was your role in the {SKILL} work? Did you {a1}/{a2}/{a3}? What did
+  you learn?"
+- A3 ADJACENT TECH → "Tell me about {ADJACENT_TECH}. Did you {relevant_activity}?"
+- A4 PERSONAL/LEARNING → "Side projects, courses? What did you build? How recent?"
+- A5 COMPLETE NO → "Any {broader_category} work?" → If yes explore, else move on.
+
+## Pattern B — Soft Skill / Experience Gap
+
+PROBE: "The role emphasizes {SOFT_SKILL}. Tell me about times you've {demonstrated_skill}."
+
+- B1 STRONG → "Entities? Challenge? How drove? Result? Obstacles?"
+- B2 VAGUE → Reframe probe, ask about scope and what made it challenging.
+- B3 PROJECT-SPECIFIC → "Tell me more. Your role vs others? How did you ensure alignment?"
+- B4 VOLUNTEER/SIDE → "Scope? Timeline? Relevant skills? Measurable outcomes?"
+
+## Pattern C — Recent Work Probe
+
+PROBE: "What have you worked on in the last 6 months that isn't on your resume yet?"
+
+- C1 DESCRIBES PROJECT → "Your role? Tech? Problem? Impact? Addresses {gap_area}?"
+- C2 MULTIPLE → "Walk through each. Start with {first}."
+- C3 "NOTHING NEW" → "Small improvements? Process changes? Learning? Mentoring?
+  Anything that seems too small?"
+
+## Capture Template
+
+```markdown
+### Discovery {n}: {Brief description}
+- Context: {where/when}
+- Scope: {scale, duration, impact}
+- Addresses: {gap name(s)}, leverage: HIGH/MEDIUM/LOW
+- Bullet draft: "{Achievement-focused bullet}"
+- Confidence: {% gap filled}
+- Truthfulness note: {why defensible}
+- Integration: ADD-TO-RESUME / ADD-TO-LIBRARY / REFINE / DISCARD
+```
+
+## Hand-off
+
+After discovery, ask per-experience:
+```
+Captured {N} new experiences. For each:
+1. ADD TO CURRENT RESUME
+2. ADD TO LIBRARY ONLY
+3. REFINE FURTHER
+4. DISCARD
+How should I handle each?
+```
+
+===== SECTION: multi-job-workflow =====
+
+# Multi-Job Workflow
+
+Batch for 3–5 similar roles. Shared library + shared discovery + per-job research/match/gen.
+
+## Trigger
+
+- Multiple JDs/URLs pasted
+- "multiple jobs", "these roles", "batch", "3 jobs", "5 positions"
+- `--batch` flag
+
+Offer choice:
+```
+I see {N} JDs. Multi-job mode:
+  - Shared discovery (ask once, apply to all)
+  - Aggregate gap analysis
+  - Per-job research/template/matching kept separate
+10–30% faster than sequential. Use multi-job? (Y/N)
+```
+
+## Phase 0 — Intake & Batch Init
+
+Per job: JD, company, role, priority (H/M/L, default M), notes. Assign job_id = job-N.
+Quick-parse JD: must-reqs, keywords, soft skills, domains (no full research yet).
+
+Create `resumes/batches/batch-{date}-{slug}/` with `_batch_state.json`,
+`_aggregate_gaps.md`, `_discovered_experiences.md`.
+
+_batch_state.json schema:
+```json
+{
+  "batch_id": "batch-YYYY-MM-DD-slug",
+  "created": "ISO8601",
+  "current_phase": "intake|gap_analysis|discovery|per_job|finalization",
+  "processing_mode": "interactive|express",
+  "jobs": [
+    {
+      "job_id": "job-1",
+      "company": "...", "role": "...",
+      "jd_text": "...", "jd_url": "...",
+      "priority": "high|medium|low",
+      "notes": "...",
+      "status": "pending|processing|ready_for_review|approved",
+      "requirements": [...],
+      "gaps": [...]
+    }
+  ],
+  "discoveries": [...],
+  "aggregate_gaps": {...}
+}
+```
+
+Run library init once for the whole batch.
+
+**Checkpoint:** Confirm batch complete.
+
+## Phase 1 — Aggregate Gap Analysis
+
+1. First-pass match every requirement × library. Flag <60%.
+2. Dedupe by name across jobs.
+3. Leverage: HIGH 3+ · MEDIUM 2 · LOW 1.
+
+Write `_aggregate_gaps.md` with ranked gaps.
+
+**Checkpoint:** Show gap map; decide discovery now or defer.
+
+## Phase 2 — Shared Discovery
+
+Single interview covering HIGH then MEDIUM leverage. LOW usually handled per-job via
+reframing or cover letter.
+
+Use branching-questions patterns with leverage prefix. Write to
+`_discovered_experiences.md`. Tag each with `applies_to_jobs: [...]`. Merge into library.
+
+## Phase 3 — Per-Job Processing (sequential, priority order)
+
+For each job: Research → Template → Matching (enriched library) → Generation → status
+`ready_for_review`.
+
+Modes:
+- Interactive (default) — checkpoints per job
+- Express (`--express` after first) — skip checkpoints; review at finalization
+
+## Phase 4 — Batch Finalization
+
+```
+Batch summary — {N} resumes ready
+| Job | Company | Role | Coverage | Direct | Gaps |
+|-----|---------|------|----------|--------|------|
+
+Actions: REVIEW ALL / REVIEW {job_id} / APPROVE BATCH / REVISE {job_id}
+```
+
+On approve: move artifacts into library, rebuild with enriched content + metadata, preserve
+batch state for incremental adds.
+
+## Incremental Additions
+
+Load existing batch + discoveries. Quick-parse new JDs. Incremental gap analysis (only new
+gaps). Mini-discovery. Process new jobs through Phase 3.
+
+Typical: 2-job add after 3-job batch ≈ 20 min vs 30 min fresh.
+
+## Time Model
+
+| Jobs | Sequential | Batch | Savings |
+|-----|-----------|-------|---------|
+| 3   | 45 min    | 40    | 11%     |
+| 5   | 75 min    | 55    | 27%     |
+| 7   | 105 min   | 70    | 33%     |
+
+Savings depend on similarity. Overlap <40% → fall back to sequential.
+
+## Failure Modes
+
+- Low overlap (<20% dedup benefit) → tell user, offer sequential.
+- Discovery fatigue → pause, save state, resume later.
+- Per-job research failure → degrade to JD-only for that job, continue batch.
+- DOCX fails for one job → MD + report, flag in summary.
+
+===== END OF BUNDLE =====

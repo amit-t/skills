@@ -122,6 +122,14 @@ const skills = [
     usage: "/package-scout",
   },
   {
+    slug: "resume-tailoring",
+    name: "resume-tailoring",
+    category: "Engineering",
+    tagline: "Tailor a resume to a specific job with research, discovery, and scored matching.",
+    detail: "Takes a JD and your resume library, researches the company/role, surfaces undocumented experience via branching interview, matches content with confidence scores, and emits MD + DOCX + PDF + interview-prep report. Multi-job batch mode for applying to 3–5 roles at once. Includes a portable single-file .skill bundle for Codex and co-work.",
+    usage: "/resume-tailoring",
+  },
+  {
     slug: "design-interview",
     name: "design-interview",
     category: "UX Design",
@@ -180,6 +188,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-04-16",
+    items: [
+      "Added resume-tailoring skill — research-driven resume tailoring with branching discovery, scored matching, multi-job batch mode, and a portable .skill bundle for Codex / co-work.",
+    ],
+  },
   {
     date: "2026-04-08",
     items: [
