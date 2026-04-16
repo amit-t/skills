@@ -63,6 +63,7 @@ npx skills@latest add amit-t/skills -g
 | [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
+| [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 
 ### UX Design
 

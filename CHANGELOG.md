@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-04-16
+
+- Added the `resume-tailoring` skill — tailor a resume to a specific job by researching company/role, branching interview for undocumented experience, confidence-scored content matching, and generating MD + DOCX + PDF + interview-prep report. Includes multi-job batch mode and a portable `.skill` bundle for Codex / co-work.
+
 ## 2026-04-08
 
 - Added the `compact-conversation` skill — compact conversations into concise summaries to reduce context window usage.
