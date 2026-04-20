@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-04-20
+
+- Refreshed the `e2e-audit` skill — added persona screenshot demo phase, expanded diagnostic report format, and a fix_plan bug-list emitter that turns each defect into a ralph task with file paths, root-cause hypotheses, and exit criteria.
+
 ## 2026-04-16
 
 - Added the `resume-tailoring` skill — tailor a resume to a specific job by researching company/role, branching interview for undocumented experience, confidence-scored content matching, and generating MD + DOCX + PDF + interview-prep report. Includes multi-job batch mode and a portable `.skill` bundle for Codex / co-work.
