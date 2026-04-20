@@ -80,6 +80,7 @@ npx skills@latest add amit-t/skills -g
 | [`compact-conversation`](./compact-conversation) | Compact the current conversation into a concise summary to reduce context window usage |
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
+| [`skill-sync`](./skill-sync) | Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin |
 
 ### AI Agent
 

@@ -178,6 +178,14 @@ const skills = [
     usage: "/precision-mode",
   },
   {
+    slug: "skill-sync",
+    name: "skill-sync",
+    category: "Agent Behavior",
+    tagline: "Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin.",
+    detail: "Wraps the skill-sync zsh utility (in ai-utils/skill-sync). Sync mode mirrors a source skill into the current repo and upserts catalog entries (README, site.js, CHANGELOG, skills-lock). Build mode hands a runtime prompt to claude/codex/devin to scaffold a new skill from raw source material. Idempotent on rerun.",
+    usage: "/skill-sync",
+  },
+  {
     slug: "write-a-skill",
     name: "write-a-skill",
     category: "AI Agent",
@@ -192,6 +200,7 @@ const changes = [
     date: "2026-04-20",
     items: [
       "Refreshed e2e-audit — added persona screenshot demo (Phase 4), expanded diagnostic report (Phase 5), and fix_plan bug-list emitter (Phase 6) with re-audit workflow.",
+      "Added skill-sync skill under Agent Behavior — wraps the skill-sync zsh utility (ai-utils/skill-sync) for syncing or scaffolding skills via claude/codex/devin.",
     ],
   },
   {
