@@ -4,6 +4,7 @@ Recent project updates, summarized from repository history.
 
 ## 2026-04-20
 
+- Refreshed the `e2e-audit` skill — added persona screenshot demo phase, expanded diagnostic report format, and a fix_plan bug-list emitter that turns each defect into a ralph task with file paths, root-cause hypotheses, and exit criteria.
 - Added the `skill-sync` skill under `Agent Behavior` — wraps the `skill-sync` zsh utility in `ai-utils/skill-sync/` to sync existing skills from a source path or scaffold new ones via `claude` / `codex` / `devin`.
 
 ## 2026-04-16

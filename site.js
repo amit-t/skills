@@ -53,8 +53,8 @@ const skills = [
     slug: "e2e-audit",
     name: "e2e-audit",
     category: "Engineering",
-    tagline: "Run a Playwright end-to-end audit against your PRDs.",
-    detail: "Discovers routes and auth strategy, scaffolds a Playwright e2e package, writes PRD-driven tests, runs the suite, and exports a diagnostic report showing what's working and what's not from a user's perspective.",
+    tagline: "Playwright PRD audit + persona screenshot demo + bug-to-fix_plan emitter.",
+    detail: "Discovers routes and auth strategy, scaffolds a Playwright e2e package, writes PRD-driven tests, captures full-page screenshots per persona/route, exports a diagnostic report, and appends one ralph task per bug to .ralph/fix_plan.md with file paths, root-cause hypotheses, and exit criteria.",
     usage: "/e2e-audit",
   },
   {
@@ -199,6 +199,7 @@ const changes = [
   {
     date: "2026-04-20",
     items: [
+      "Refreshed e2e-audit — added persona screenshot demo (Phase 4), expanded diagnostic report (Phase 5), and fix_plan bug-list emitter (Phase 6) with re-audit workflow.",
       "Added skill-sync skill under Agent Behavior — wraps the skill-sync zsh utility (ai-utils/skill-sync) for syncing or scaffolding skills via claude/codex/devin.",
     ],
   },
