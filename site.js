@@ -122,6 +122,14 @@ const skills = [
     usage: "/package-scout",
   },
   {
+    slug: "docs-from-prs",
+    name: "docs-from-prs",
+    category: "Engineering",
+    tagline: "Sync README + landing page + user guide with merged PRs.",
+    detail: "Surveys recent merged PRs, classifies user-facing changes, places each into the right doc section, re-audits alias tables every run, and finishes with a grammar/casing/alignment copy-edit pass.",
+    usage: "/docs-from-prs",
+  },
+  {
     slug: "resume-tailoring",
     name: "resume-tailoring",
     category: "Engineering",
@@ -188,6 +196,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-04-25",
+    items: [
+      "Added docs-from-prs skill — survey merged PRs, fill README/landing-page/user-guide gaps with thoughtful section placement, audit alias tables every run, and finish with a grammar/casing/alignment copy-edit pass.",
+    ],
+  },
   {
     date: "2026-04-16",
     items: [
