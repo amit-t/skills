@@ -7,6 +7,11 @@ Recent project updates, summarized from repository history.
 - Added the `docs-from-prs` skill — surveys merged PRs, fills doc gaps in README + landing page + user guide with section-placement awareness, re-audits alias tables every run, and finishes with a grammar/casing/alignment copy-edit pass.
 - Generalized `docs-from-prs` so it is project-agnostic — replaced ai-ralph-specific paths, remote workflow, and alias tables with a generic drift-hot-spot audit, repo-resolved `gh` survey, and layout-aware section placement (single-file / README+site / README+guide / full).
 
+## 2026-04-20
+
+- Refreshed the `e2e-audit` skill — added persona screenshot demo phase, expanded diagnostic report format, and a fix_plan bug-list emitter that turns each defect into a ralph task with file paths, root-cause hypotheses, and exit criteria.
+- Added the `skill-sync` skill under `Agent Behavior` — wraps the `skill-sync` zsh utility in `ai-utils/skill-sync/` to sync existing skills from a source path or scaffold new ones via `claude` / `codex` / `devin`.
+
 ## 2026-04-16
 
 - Added the `resume-tailoring` skill — tailor a resume to a specific job by researching company/role, branching interview for undocumented experience, confidence-scored content matching, and generating MD + DOCX + PDF + interview-prep report. Includes multi-job batch mode and a portable `.skill` bundle for Codex / co-work.

@@ -54,7 +54,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
-| [`e2e-audit`](./e2e-audit) | Run a Playwright end-to-end audit of a web app using its PRDs as the test spec |
+| [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
@@ -81,6 +81,7 @@ npx skills@latest add amit-t/skills -g
 | [`compact-conversation`](./compact-conversation) | Compact the current conversation into a concise summary to reduce context window usage |
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
+| [`skill-sync`](./skill-sync) | Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin |
 
 ### AI Agent
 

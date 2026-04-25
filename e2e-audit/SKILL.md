@@ -8,15 +8,20 @@ user-invocable: true
 ## Quick Start
 
 ```
-/e2e-audit                          → Run full PRD-coverage audit on current app
+/e2e-audit                          → Full PRD-coverage audit: regression + persona screenshot demo + fix_plan bug list
 /e2e-audit --area auth              → Audit one PRD area only
 /e2e-audit --report-only            → Skip test run, just format last results
 /e2e-audit --export                 → Export results to outputs/analyses/
+/e2e-audit --demo-only              → Skip regression; just capture persona screenshots + bug catalogue
+/e2e-audit --no-fix-plan            → Skip appending bug list to `.ralph/fix_plan.md`
 ```
 
-**What you get:** A markdown diagnostic report showing which routes and features work, which redirect to login (not built), and which have partial UI. Saves to `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md`.
+**What you get (three artifacts):**
+1. `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` — PO-facing diagnostic report with embedded persona screenshots + bug catalogue
+2. `outputs/analyses/e2e-demo-screenshots/` — full-page PNGs, one per (persona × screen), named with an ordered prefix for easy scrolling
+3. New `QA-DEMO` epic appended to `.ralph/fix_plan.md` — one ralph task per bug (file paths, root-cause hypothesis, exit criteria)
 
-**Time:** 5 min setup (first time) + test run duration (~2-5 min for 50 tests).
+**Time:** 5 min setup (first time) + ~2 min regression + ~1.5 min screenshot demo + ~1 min inspection per 10 screens.
 
 ---
 
@@ -221,34 +226,196 @@ Negative-assertion tests (`not.toBeVisible`, `toHaveURL(/login/)`) can pass for 
 
 ---
 
-## Phase 4: Export Diagnostic Report
+## Phase 4: Capture Persona Screenshot Demo
 
-After the run, generate `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` with:
+**Always produce a screenshot demo alongside the regression run.** Regression asserts behaviour; the demo asserts *what users actually see* — and is where most visual/copy/i18n bugs surface.
 
-```markdown
-# E2E Audit Results — {App Name}
-**Date:** YYYY-MM-DD | **Tests:** N passed / N failed / N skipped
+### 4.1 Write `tests/demo/full-demo.spec.ts`
 
-## Summary table (by PRD area)
+One spec, one helper, one screenshot per (persona × screen). Structure:
 
-## What's working (production-ready)
+```ts
+import path from "node:path";
+import { expect, test } from "../../fixtures/auth.fixture.js";
 
-## What's not working (with root cause)
+const SCREENSHOT_DIR = path.resolve("test-results/demo-screenshots");
+const DEFAULT_SLUG = "{slug}";
 
-## Root cause analysis
+async function snap(page, name) {
+  await page.waitForLoadState("networkidle", { timeout: 10_000 }).catch(() => {});
+  await page.screenshot({ path: path.join(SCREENSHOT_DIR, `${name}.png`), fullPage: true });
+}
 
-## Priority fixes for PRD backlog (P0 / P1 / P2)
+test.describe.configure({ mode: "serial" });
 
-## How to reproduce
+test.describe("@demo public screens", () => { /* 00-xx */ });
+test.describe("@demo super_admin persona", () => { /* 10-xx */ });
+test.describe("@demo workspace_admin persona", () => { /* 40-xx */ });
+test.describe("@demo product_owner persona", () => { /* 50-xx */ });
+test.describe("@demo viewer persona", () => { /* 60-xx */ });
 ```
 
-Structure each PRD area section as a table:
+**Naming convention:** `NN-persona-screen.png` where `NN` orders the narrative (00–09 public, 10–39 admin, 40–49 WA, 50–59 PO, 60–69 viewer). This makes the screenshot dir directly scrollable top-to-bottom as a slide deck.
 
-| Test | Result | Notes |
-|------|--------|-------|
-| Feature X loads | ✅ | |
-| Admin can do Y | ❌ | Route `/admin/y` redirects to login — not built |
-| Viewer blocked from Z | ✅ | RBAC gate works |
+**Cover every route** in the router file — one test per route per persona that can reach it. Include permission-gate routes (screenshot the "Access Denied" fallback).
+
+### 4.2 Register a package script
+
+Add to `apps/e2e/package.json`:
+
+```json
+"test:demo": "playwright test tests/demo"
+```
+
+And to root `package.json`:
+
+```json
+"e2e:demo": "pnpm --filter @{project}/e2e exec playwright test tests/demo"
+```
+
+### 4.3 Run + copy outputs
+
+```bash
+pnpm run e2e:demo
+cp apps/e2e/test-results/demo-screenshots/*.png outputs/analyses/e2e-demo-screenshots/
+```
+
+**Gotcha:** Playwright clears `test-results/` between runs. If you run regression *after* the demo, screenshots vanish. Either re-run demo last, or copy to `outputs/analyses/` immediately.
+
+### 4.4 Inspect every screenshot
+
+Read them via the Read tool (they render as images). Log every defect — even minor ones. Categories to watch:
+
+| Category | Example defects |
+|----------|----------------|
+| Data contradiction | Stat cards empty while list views show data; "No X yet" message when X exists |
+| Missing chrome | Page missing sidebar/topnav used by sibling routes (check `RieLayout` wrapping) |
+| Raw error codes | API codes like `NOT_FOUND`, `UNAUTHORIZED` shown as user copy |
+| Stub screens | Only heading renders — no form/content |
+| Rendering glue | Avatar initials concatenated with names, column fallbacks (`createdAt` shown in `scoredAt` column) |
+| i18n escapes | Literal `\u2013`, `&amp;`, unescaped HTML |
+| RBAC UI leaks | Buttons visible to roles that get 403 on click |
+| Duplicate records | Role chips, membership rows repeated |
+
+---
+
+## Phase 5: Export Diagnostic Report
+
+Generate `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md`:
+
+```markdown
+# {App} — End-to-End Demo & Gap Audit
+
+**Date:** YYYY-MM-DD
+**Run:** Playwright N.N · `tests/demo/full-demo.spec.ts` · N tests passed
+**Personas:** {list}
+**Screenshots:** `outputs/analyses/e2e-demo-screenshots/` (N PNGs)
+**Regression run:** P passed · F failed · S skipped
+
+## Summary
+<2-3 sentence executive summary — route coverage %, top P0/P1 themes>
+
+## Demo Walkthrough — by Persona
+
+### Public / Unauthenticated
+| # | Screen | Route | Screenshot |
+### Super Admin
+### Workspace Admin
+### Product Owner
+### Viewer
+
+## Regression Run — Failures
+| Test | Area | Failure |
+
+## Bug Catalogue (→ fix_plan)
+| ID | Severity | Screen | Summary |
+| QA-DEMO-01 | P0/P1/P2 | … | one-line defect |
+
+## How to Reproduce
+```
+
+Structure each persona section as a table with a screenshot path and observations column — do not inline the PNGs unless the report is intended for a slide deck.
+
+---
+
+## Phase 6: Emit fix_plan Bug List
+
+**Every defect becomes a ralph task.** Append a new `QA-DEMO` epic to `.ralph/fix_plan.md`. One checkbox per bug, each with enough detail that a ralph agent can execute without re-inspecting screenshots.
+
+### 6.1 Epic header
+
+```markdown
+---
+
+## Active Epic: QA-DEMO — E2E Demo Audit Findings
+
+**Source:** `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` (Playwright demo spec + regression run YYYY-MM-DD)
+**Status:** N tasks pending
+**Depends on:** {previous completed epic}
+**Blocks:** {downstream release / launch readiness}
+**Success metric:** All N tasks resolved; regression green; screenshot re-capture shows no regression.
+
+### Summary of findings
+| ID | Severity | Area | Defect (one line) |
+```
+
+### 6.2 Task template (one per bug)
+
+```markdown
+- [ ] **QA-DEMO-NN** — {one-line title}
+  - **Screens:** {route(s) affected — multiple personas → list all}
+  - **Evidence:** `outputs/analyses/e2e-demo-screenshots/NN-persona-screen.png`
+  - **Symptom:** {what the user sees, with exact quoted strings where applicable}
+  - **Likely cause:** {1-3 hypotheses — don't diagnose blind, read the code path first if obvious}
+  - **Files to inspect/fix:**
+    - `apps/web/src/features/.../page.tsx:LINE`
+    - `apps/api/src/adapters/...`
+  - **Fix plan:** {numbered steps a ralph agent can follow mechanically}
+  - **Exit criteria:** {observable assertion — "Playwright `expect(...).toHaveCount(0)`" or "screenshot shows X"}
+```
+
+### 6.3 Severity rubric
+
+| Level | Trigger |
+|-------|---------|
+| **P0** | Primary feature is an unbuilt stub (e.g. SSO page empty heading), blocks a launch-readiness requirement |
+| **P1** | Core data view broken (stats empty, chart missing, table absent), raw API codes leaked to users, RBAC UI gate missing |
+| **P2** | Copy/i18n/cosmetic (literal `\u2013`, column fallback, minor permission UI leaks) |
+
+### 6.4 Don't emit for
+
+- Intentional permission gates that render the correct "Access Denied" fallback — those are passes, not bugs
+- Known TODO routes labelled as such in the PRD (e.g. `Integrations (Soon)` chip in sidebar)
+- Regression failures that are selector bugs in the test itself — fix the test directly, don't file against the app
+
+---
+
+## Re-audit Workflow (after ralph fixes)
+
+When ralph marks tasks `[x]` in `.ralph/fix_plan.md`:
+
+```bash
+# bring up fresh infra if dev servers died
+docker-compose up -d
+pnpm --filter @{project}/api db:migrate
+pnpm --filter @{project}/api seed
+pnpm --filter @{project}/api seed:stories   # if separate demo seed
+
+# regenerate screenshots + rerun regression
+pnpm run e2e:demo
+pnpm --filter @{project}/e2e exec playwright test --grep-invert "@demo"
+```
+
+Then for each `[x]`-marked task, read the corresponding screenshot and verify. Possible outcomes:
+
+| Outcome | Action |
+|---------|--------|
+| Bug fixed | Leave `[x]`. Note in report under "Verified fixed". |
+| Bug still reproduces | Revert to `[ ]` and add a comment to the task: `> Re-audit YYYY-MM-DD: still broken — {new evidence}`. |
+| Partial fix (e.g. UI renders but regression test still red) | Leave `[x]` for the UI portion, add a follow-up `QA-DEMO-NN-B` task for the test-level gap. |
+| New defect surfaced | File a new `QA-DEMO-NN` below the existing list. |
+
+A single re-audit should also refresh the summary table at the top of the epic with verification status (`✅ fixed` / `⚠ partial` / `❌ still broken`).
 
 ---
 
@@ -277,9 +444,12 @@ Structure each PRD area section as a table:
 
 | File | Description |
 |------|-------------|
-| `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` | PO-facing diagnostic report |
-| `apps/e2e/playwright-report/` | Full HTML report with screenshots + traces |
-| `apps/e2e/test-results/` | Per-test artifacts (video, screenshots) |
+| `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` | PO-facing diagnostic report with persona tables + bug catalogue |
+| `outputs/analyses/e2e-demo-screenshots/` | `NN-persona-screen.png` — one per (persona × route), ordered for slide-deck reading |
+| `.ralph/fix_plan.md` | `QA-DEMO` epic appended with one ralph task per bug |
+| `apps/e2e/tests/demo/full-demo.spec.ts` | Re-runnable screenshot demo spec |
+| `apps/e2e/playwright-report/` | Full HTML report with traces |
+| `apps/e2e/test-results/` | Per-test artifacts (video, screenshots) — cleared between runs |
 
 ---
 
