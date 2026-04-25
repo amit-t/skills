@@ -125,8 +125,8 @@ const skills = [
     slug: "docs-from-prs",
     name: "docs-from-prs",
     category: "Engineering",
-    tagline: "Sync README + landing page + user guide with merged PRs.",
-    detail: "Surveys recent merged PRs, classifies user-facing changes, places each into the right doc section, re-audits alias tables every run, and finishes with a grammar/casing/alignment copy-edit pass.",
+    tagline: "Sync README and other user-facing docs with merged PRs.",
+    detail: "Surveys recent merged PRs, classifies user-facing changes, places each into the right doc section using a placement matrix, re-audits the project's drift hot spots (alias tables, CLI flag references, config examples) every run, and finishes with a grammar/casing/alignment copy-edit pass. Project-agnostic.",
     usage: "/docs-from-prs",
   },
   {
@@ -200,6 +200,7 @@ const changes = [
     date: "2026-04-25",
     items: [
       "Added docs-from-prs skill — survey merged PRs, fill README/landing-page/user-guide gaps with thoughtful section placement, audit alias tables every run, and finish with a grammar/casing/alignment copy-edit pass.",
+      "Generalized docs-from-prs to be project-agnostic — replaced ai-ralph-specific paths and remote workflow with a generic drift-hot-spot audit, `gh repo view`-resolved survey, and a layout-aware placement matrix (single-file / README+site / README+guide / full).",
     ],
   },
   {

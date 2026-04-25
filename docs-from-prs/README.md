@@ -1,6 +1,6 @@
 # docs-from-prs
 
-> Survey recent merged PRs, find what is undocumented, and update README + landing page + user guide with thoughtful section placement. Always re-checks alias tables. Includes a grammar/casing/alignment copy-edit pass.
+> Survey recent merged PRs, find what is undocumented, and update README and other user-facing docs with thoughtful section placement. Always re-checks the project's drift hot spots (alias tables, CLI flag references, config examples). Includes a grammar/casing/alignment copy-edit pass.
 
 **Category:** Engineering
 
@@ -8,15 +8,15 @@
 
 Closes the drift between merged code and the docs that describe it. The skill:
 
-1. Surveys recent merged PRs (via `gh pr list`) and recent commits.
+1. Surveys recent merged PRs (via `gh pr list`, repo resolved with `gh repo view`) and recent commits.
 2. Classifies each PR as user-facing (flag / config / behaviour) or internal chore.
 3. Cross-checks against current docs and **only edits what is actually missing or stale**.
-4. Re-audits the project's alias tables every run — drift accumulates from minor commits even when no PR explicitly touches aliases.
-5. Places each gap into the right doc section using a placement matrix (CLI flag → Options reference, alias → alias table, fix → Recent Changes, etc.).
-6. Runs a copy-edit pass: grammar, sentence-case headings, table-pipe alignment, code-fence language tags, HTML tag balance.
-7. Reports filled gaps, skipped PRs (with reason), aliases changed, and any source/doc factual mismatches.
+4. Re-audits the project's drift hot spots every run — alias tables, CLI flag matrices, env-var lists, supported-version tables. Drift accumulates from minor commits even when no PR explicitly touches them.
+5. Places each gap into the right doc section using a layout-aware placement matrix (single-file / README + landing page / README + user guide / full). CLI flag → Options reference, alias → alias table, fix → Recent Changes, etc.
+6. Runs a copy-edit pass: grammar, sentence-case headings, table-pipe alignment, code-fence language tags, HTML tag balance, JS-driven changelog key shifting.
+7. Reports filled gaps, skipped PRs (with reason), drift-hot-spot changes, and any source/doc factual mismatches.
 
-The reference implementation in this catalog assumes a multi-doc layout (`README.md`, `docs/index.html` landing page with a JS `CHANGE_DETAILS` map, `docs/user-guide/*.md`) and a dual-remote PR workflow. Adapt the file paths and PR rules to your project before using.
+Project-agnostic. Reads the project's `CLAUDE.md` / `AGENTS.md` for `gh` account names, "never edit" directories, drift hot spots, and PR workflow (single-remote vs multi-remote mirror).
 
 ## Install as Agent Skill
 
@@ -94,7 +94,7 @@ Optional inline args (free-form):
 - `since #24` — survey PRs after a number
 - `last 15` — last N merged PRs
 - `dry-run` — gap report only, no edits
-- `both remotes` — open PRs against both configured remotes (project-specific)
+- `both remotes` / `all remotes` — for projects mirrored to multiple GitHub orgs, open PRs against each (follows the project's `CLAUDE.md` / `AGENTS.md` workflow)
 
 ## When to Use
 

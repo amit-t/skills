@@ -5,6 +5,7 @@ Recent project updates, summarized from repository history.
 ## 2026-04-25
 
 - Added the `docs-from-prs` skill — surveys merged PRs, fills doc gaps in README + landing page + user guide with section-placement awareness, re-audits alias tables every run, and finishes with a grammar/casing/alignment copy-edit pass.
+- Generalized `docs-from-prs` so it is project-agnostic — replaced ai-ralph-specific paths, remote workflow, and alias tables with a generic drift-hot-spot audit, repo-resolved `gh` survey, and layout-aware section placement (single-file / README+site / README+guide / full).
 
 ## 2026-04-16
 

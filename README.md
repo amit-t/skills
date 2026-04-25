@@ -64,7 +64,7 @@ npx skills@latest add amit-t/skills -g
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
-| [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README + landing page + user guide, audit alias tables, and run a grammar/casing/alignment pass |
+| [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
 
 ### UX Design
 
