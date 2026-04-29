@@ -205,8 +205,8 @@ const skills = [
     slug: "gh-pages-neo-brutalist",
     name: "gh-pages-neo-brutalist",
     category: "Engineering",
-    tagline: "Scaffold a GitHub Pages site in the amit-t neo-brutalist house style.",
-    detail: "Drop-in Jekyll templates that ship the same design system used by ai-workbench, ai-devkit, ai-ralph, and amit-t/skills — IBM Plex Mono everywhere, 3px borders, solid offset shadows, eight saturated accents, four themes (light / dark / cyberpunk grid / solarized IDE), copy buttons on <pre>, theme switcher in localStorage. Includes scaffold.zsh for one-shot stamping and a GitHub Actions Pages workflow.",
+    tagline: "Scaffold a GitHub Pages site in a neo-brutalist house style.",
+    detail: "Drop-in Jekyll templates with a cohesive neo-brutalist design system — IBM Plex Mono everywhere, 3px borders, solid offset shadows, eight saturated accents, four themes (light / dark / cyberpunk grid / solarized IDE), copy buttons on <pre>, theme switcher in localStorage. Includes scaffold.zsh for one-shot stamping and a GitHub Actions Pages workflow.",
     usage: "/gh-pages-neo-brutalist",
   },
 ];
@@ -215,7 +215,7 @@ const changes = [
   {
     date: "2026-04-29",
     items: [
-      "Added gh-pages-neo-brutalist skill — drop-in Jekyll templates that scaffold a GitHub Pages site in the amit-t neo-brutalist house style (IBM Plex Mono, 3px borders, solid offset shadows, eight accents, four themes). Ships scaffold.zsh, byte-identical site.css/site.js from ai-workbench, and a GitHub Actions Pages workflow.",
+      "Added gh-pages-neo-brutalist skill — drop-in Jekyll templates that scaffold a GitHub Pages site in a neo-brutalist house style (IBM Plex Mono, 3px borders, solid offset shadows, eight accents, four themes). Ships scaffold.zsh, site.css and site.js for design tokens and the theme switcher, and a GitHub Actions Pages workflow.",
     ],
   },
   {
