@@ -65,6 +65,7 @@ npx skills@latest add amit-t/skills -g
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 | [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
+| [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site matching the amit-t neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
 
 ### UX Design
 

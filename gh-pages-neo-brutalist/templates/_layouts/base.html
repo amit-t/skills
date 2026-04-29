@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}{% if page.title and site.title and page.title != site.title %} — {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% seo %}
+</head>
+<body>
+
+  <div class="theme-switcher">
+    <label class="sr-only" for="theme-select">Theme</label>
+    <select id="theme-select" aria-label="Select theme">
+      <option value="light">☀ Light</option>
+      <option value="dark">☾ Dark</option>
+      <option value="cyberpunk">⚡ Cyberpunk</option>
+      <option value="solarized">◐ Solarized</option>
+    </select>
+    <span class="theme-switcher-chevron" aria-hidden="true">▾</span>
+  </div>
+
+  <nav class="container site-nav" aria-label="Primary">
+    <a class="site-nav-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    {% for item in site.nav %}
+      {% if item.external %}
+        <a href="{{ item.href }}" target="_blank" rel="noreferrer">{{ item.label }}</a>
+      {% else %}
+        <a href="{{ item.href | relative_url }}">{{ item.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+
+  {{ content }}
+
+  <footer class="container footer">
+    {% if site.footer_html %}
+      {{ site.footer_html }}
+    {% else %}
+      <p><code>{{ site.title }}</code>{% if site.description %} — {{ site.description }}{% endif %}{% if site.github_url %}. Source on <a href="{{ site.github_url }}">GitHub</a>.{% endif %}</p>
+    {% endif %}
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

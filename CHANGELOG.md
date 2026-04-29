@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-04-29
+
+- Added the `gh-pages-neo-brutalist` skill — drop-in Jekyll templates that scaffold a GitHub Pages site matching the amit-t neo-brutalist house design system (IBM Plex Mono, 3px borders, solid offset shadows, eight saturated accents, four themes: light / dark / cyberpunk grid / solarized IDE). Includes `scaffold.zsh` for one-shot stamping, byte-identical `site.css` + `site.js` from `ai-workbench`, and a GitHub Actions Pages workflow.
+
 ## 2026-04-25
 
 - Added the `docs-from-prs` skill — surveys merged PRs, fills doc gaps in README + landing page + user guide with section-placement awareness, re-audits alias tables every run, and finishes with a grammar/casing/alignment copy-edit pass.
