@@ -1,8 +1,8 @@
 # gh-pages-neo-brutalist
 
-Drop-in Jekyll templates that scaffold a GitHub Pages site matching the amit-t neo-brutalist house design system.
+Drop-in Jekyll templates that scaffold a GitHub Pages site with a cohesive neo-brutalist design system.
 
-Used by:
+Live examples:
 
 - [`ai-workbench`](https://amit-t.github.io/ai-workbench/)
 - [`ai-devkit`](https://amit-t.github.io/ai-devkit/)

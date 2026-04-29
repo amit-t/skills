@@ -4,7 +4,7 @@ Recent project updates, summarized from repository history.
 
 ## 2026-04-29
 
-- Added the `gh-pages-neo-brutalist` skill — drop-in Jekyll templates that scaffold a GitHub Pages site matching the amit-t neo-brutalist house design system (IBM Plex Mono, 3px borders, solid offset shadows, eight saturated accents, four themes: light / dark / cyberpunk grid / solarized IDE). Includes `scaffold.zsh` for one-shot stamping, byte-identical `site.css` + `site.js` from `ai-workbench`, and a GitHub Actions Pages workflow.
+- Added the `gh-pages-neo-brutalist` skill — drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (IBM Plex Mono, 3px borders, solid offset shadows, eight saturated accents, four themes: light / dark / cyberpunk grid / solarized IDE). Includes `scaffold.zsh` for one-shot stamping, `site.css` and `site.js` for design tokens and the theme switcher, and a GitHub Actions Pages workflow.
 
 ## 2026-04-25
 
