@@ -1,0 +1,40 @@
+---
+layout: base
+---
+<header class="container hero">
+  <div>
+    {% if page.hero_eyebrow %}<span class="hero-eyebrow">{{ page.hero_eyebrow }}</span>{% endif %}
+    <h1>{{ page.hero_title | default: page.title }}</h1>
+    {% if page.hero_desc %}<p class="hero-desc">{{ page.hero_desc }}</p>{% endif %}
+    {% if page.hero_actions %}
+      <div class="hero-actions">
+        {% for a in page.hero_actions %}
+          {% if a.external %}
+            <a class="neo-btn{% if a.primary %} neo-btn-primary{% endif %}{% if a.accent %} neo-btn-accent{% endif %}" href="{{ a.href }}" target="_blank" rel="noreferrer">{{ a.label }}</a>
+          {% else %}
+            <a class="neo-btn{% if a.primary %} neo-btn-primary{% endif %}{% if a.accent %} neo-btn-accent{% endif %}" href="{{ a.href | relative_url }}">{{ a.label }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if page.hero_stats %}
+    <div class="hero-stats">
+      {% for s in page.hero_stats %}
+        <div class="stat-card">
+          <span class="stat-value">{{ s.value }}</span>
+          <span class="stat-label">{{ s.label }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</header>
+
+<hr class="divider container">
+
+<main class="container section">
+  <article class="markdown-body">
+    {{ content }}
+  </article>
+</main>

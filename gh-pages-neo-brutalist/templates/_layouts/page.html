@@ -1,0 +1,29 @@
+---
+layout: base
+---
+<header class="container doc-hero">
+  {% if page.eyebrow %}<span class="doc-hero-eyebrow">{{ page.eyebrow }}</span>{% endif %}
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}<p class="doc-hero-desc">{{ page.description }}</p>{% endif %}
+</header>
+
+{% if page.breadcrumbs %}
+  <nav class="container breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Home</a></li>
+      {% for crumb in page.breadcrumbs %}
+        {% if forloop.last %}
+          <li aria-current="page">{{ crumb.label }}</li>
+        {% else %}
+          <li><a href="{{ crumb.href | relative_url }}">{{ crumb.label }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}
+
+<main class="container section">
+  <article class="markdown-body">
+    {{ content }}
+  </article>
+</main>
