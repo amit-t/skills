@@ -1,22 +1,22 @@
 ---
 name: gh-pages-neo-brutalist
-description: Use when scaffolding a GitHub Pages site for a new (or existing) repo and you want it to match the amit-t neo-brutalist design system shared by ai-workbench, ai-devkit, ai-ralph, and amit-t/skills. Drops in Jekyll layouts, design tokens, four-theme switcher (light/dark/cyberpunk/solarized), copy buttons, and a hero/nav/markdown-body system in one shot.
+description: Use when scaffolding a GitHub Pages site for a new (or existing) repo and you want a cohesive neo-brutalist design system. Drops in Jekyll layouts, design tokens, four-theme switcher (light/dark/cyberpunk/solarized), copy buttons, and a hero/nav/markdown-body system in one shot.
 ---
 
-# GitHub Pages — Neo-Brutalist (amit-t house style)
+# GitHub Pages — Neo-Brutalist
 
 ## Overview
 
-Every repo amit-t publishes ships a GitHub Pages site that looks the same: hard 3px borders, 5/8 px offset solid shadows, IBM Plex Mono everywhere, eight saturated accents (hot-pink / lime-green / electric-blue / cyan / yellow / coral / orange / purple), four themes via `<select>` (light, dark, cyberpunk grid, solarized IDE).
+A cohesive GitHub Pages design system: hard 3px borders, 5/8 px offset solid shadows, IBM Plex Mono everywhere, eight saturated accents (hot-pink / lime-green / electric-blue / cyan / yellow / coral / orange / purple), four themes via `<select>` (light, dark, cyberpunk grid, solarized IDE).
 
 This skill packages that system as drop-in Jekyll templates plus a scaffolder. Use it the moment a repo gets created so the page lands in style on day one.
 
 ## When to Use
 
-- New repo created under amit-t (or any repo that needs to match house style)
+- New repo that needs a cohesive neo-brutalist GitHub Pages site
 - Existing repo has no Pages site yet, or has a generic minima/cayman theme to replace
 - User asks for "GitHub page", "landing page", "docs site" for a repo
-- User mentions "neo-brutalist", "amit-t style", "match ai-workbench look", "house design system"
+- User mentions "neo-brutalist", "house design system", "drop-in Jekyll site"
 
 **Skip when:** target repo already wires its own Pages build (Next.js, Astro, Docusaurus, MkDocs); the repo is a fork that must keep upstream docs.
 
@@ -149,8 +149,4 @@ After scaffolding, before committing:
 
 - `REFERENCE.md` — every CSS class, every token, every component with full markup
 - `scaffold.zsh` — interactive scaffolder
-- Sample sites (live):
-  - https://amit-t.github.io/ai-workbench/
-  - https://amit-t.github.io/ai-devkit/
-  - https://amit-t.github.io/ai-ralph/
-  - https://amit-t.github.io/skills/
+- Live examples — see `README.md` for current adopters of the design system
