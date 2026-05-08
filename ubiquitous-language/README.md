@@ -1,90 +1,22 @@
-# ubiquitous-language
+# ubiquitous-language (DEPRECATED)
 
-> Extract DDD-style ubiquitous language glossary
+> **This skill is deprecated.** It has been split into [`/repo-context-scan`](../repo-context-scan) (build domain context from a codebase) and [`/domain-grill`](../domain-grill) (stress-test engineering artifacts against it). For PRDs or non-technical plans, use [`/grill-me`](../grill-me).
 
-**Category:** Engineering
+**Category:** Engineering (deprecated)
 
-## Install
+## What to use instead
 
-Install using the [`skills`](https://github.com/vercel-labs/skills) CLI:
+| Want to... | Use |
+|---|---|
+| Build or refresh a domain glossary from the code itself | `/repo-context-scan` |
+| Stress-test an engineering artifact (eng spec, TDD, refactor plan, technical design) against the glossary | `/domain-grill` |
+| Stress-test a PRD or any non-technical plan | `/grill-me` |
 
-```bash
-npx skills@latest add amit-t/skills --skill ubiquitous-language
-```
+## Why this skill is deprecated
 
-Install all skills from this repository:
+The original skill conflated two responsibilities — building a glossary (passive scan) and using it to challenge new work (active interview). Splitting them produced richer outputs (`CONTEXT.md`, ADRs, multi-context support) and clearer ownership (one skill writes, the other reads).
 
-```bash
-npx skills@latest add amit-t/skills
-```
-
-### Manual Installation
-
-<details>
-<summary>Devin / Windsurf</summary>
-
-```bash
-# Project-level
-cp -r ubiquitous-language .cognition/skills/ubiquitous-language
-# or
-cp -r ubiquitous-language .windsurf/skills/ubiquitous-language
-
-# Global
-cp -r ubiquitous-language ~/.config/cognition/skills/ubiquitous-language
-```
-
-</details>
-
-<details>
-<summary>Claude Code</summary>
-
-```bash
-# Project-level
-cp -r ubiquitous-language .claude/skills/ubiquitous-language
-
-# Global
-cp -r ubiquitous-language ~/.claude/skills/ubiquitous-language
-```
-
-</details>
-
-<details>
-<summary>Cursor</summary>
-
-```bash
-# Project-level
-cp -r ubiquitous-language .cursor/skills/ubiquitous-language
-```
-
-</details>
-
-<details>
-<summary>Codex</summary>
-
-```bash
-# Copy SKILL.md content into your codex instructions
-cat ubiquitous-language/SKILL.md >> AGENTS.md
-```
-
-</details>
-
-<details>
-<summary>Gemini CLI</summary>
-
-```bash
-# Copy SKILL.md content into your Gemini instructions
-cat ubiquitous-language/SKILL.md >> GEMINI.md
-```
-
-</details>
-
-## Usage
-
-Once installed, invoke in your agent session:
-
-```
-/ubiquitous-language
-```
+The original SKILL.md is preserved in git history if you need to reference it.
 
 ## License
 

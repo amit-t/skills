@@ -85,9 +85,25 @@ const skills = [
     slug: "ubiquitous-language",
     name: "ubiquitous-language",
     category: "Engineering",
-    tagline: "Extract a DDD-style glossary from the current conversation.",
-    detail: "Useful when terms are drifting, requirements sound ambiguous, or the team needs canonical vocabulary before building.",
+    tagline: "[Deprecated] Superseded by /repo-context-scan and /domain-grill.",
+    detail: "Kept as a redirect so existing references resolve. Use /repo-context-scan to build CONTEXT.md from the code itself, /domain-grill to stress-test engineering artifacts against it, and /grill-me for PRDs or non-technical plans.",
     usage: "/ubiquitous-language",
+  },
+  {
+    slug: "repo-context-scan",
+    name: "repo-context-scan",
+    category: "Engineering",
+    tagline: "Scan a codebase to build CONTEXT.md and seed ADRs for clearly-deliberate decisions.",
+    detail: "Autonomous by default — reads code, infers domain language, and writes CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) plus seeded ADRs. Asks only when ambiguity blocks resolution. Idempotent; safe to re-run as the codebase evolves. Run after cloning a repo or whenever code has drifted from docs. Companion to /domain-grill.",
+    usage: "/repo-context-scan",
+  },
+  {
+    slug: "domain-grill",
+    name: "domain-grill",
+    category: "Engineering",
+    tagline: "Engineering-only stress-test of a code artifact against CONTEXT.md.",
+    detail: "Reads CONTEXT.md (and ADRs) to interview the user against an eng spec, TDD plan, refactor proposal, technical design, schema migration, or API contract. Surfaces conflicts, sharpens fuzzy terms, may add new ADRs for crystallized decisions. Refuses PRDs and non-technical artifacts and redirects to /grill-me. Read-only on CONTEXT.md — flags new terms and recommends re-running /repo-context-scan.",
+    usage: "/domain-grill",
   },
   {
     slug: "qa",
@@ -212,6 +228,14 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-08",
+    items: [
+      "Added repo-context-scan skill — autonomous codebase scan that produces CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) and seeds ADRs for visibly-deliberate decisions. Idempotent re-runs preserve user-authored prose.",
+      "Added domain-grill skill — engineering-only relentless interview that stress-tests eng specs, TDD plans, refactor proposals, technical designs, schema migrations, and API contracts against CONTEXT.md and existing ADRs. Refuses PRDs and non-technical artifacts and redirects to /grill-me. Reads CONTEXT.md read-only; flags new terms and recommends re-running /repo-context-scan.",
+      "Deprecated ubiquitous-language skill — split into /repo-context-scan (build) and /domain-grill (stress-test). Stub remains as a redirect; original implementation preserved in git history.",
+    ],
+  },
   {
     date: "2026-04-29",
     items: [
