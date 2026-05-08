@@ -201,9 +201,23 @@ const skills = [
     detail: "Fits skill authoring work where the user wants reusable instructions, bundled resources, and better invocation behavior.",
     usage: "/write-a-skill",
   },
+  {
+    slug: "leadership-update",
+    name: "leadership-update",
+    category: "Leadership",
+    tagline: "Turn raw notes into an outcome-first update leadership remembers.",
+    detail: "Reformats messy status into three sentences — outcome, reasoning, next — ending with a clear ask. Auto-detects whether to reformat directly or run a 1–3 question interview. Verbal/standup script by default; offers Slack, email, and status-doc formats. Based on Yasar Ahmad's leadership-update framework.",
+    usage: "/leadership-update",
+  },
 ];
 
 const changes = [
+  {
+    date: "2026-05-08",
+    items: [
+      "Added leadership-update skill under a new Leadership category — reformats raw notes into an outcome-first, three-sentence update with a clear ask, based on Yasar Ahmad's framework.",
+    ],
+  },
   {
     date: "2026-04-25",
     items: [
@@ -343,6 +357,7 @@ function catClass(category) {
     "UX Design": "cat-ux-design",
     "Agent Behavior": "cat-agent-behavior",
     "AI Agent": "cat-ai-agent",
+    "Leadership": "cat-leadership",
   };
   return map[category] || "";
 }

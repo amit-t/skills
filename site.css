@@ -615,6 +615,7 @@ body.dark .skill-card-cat {
 .cat-ux-design { background: var(--purple-accent); color: #fff; }
 .cat-agent-behavior { background: var(--cyan-accent); color: #000; }
 .cat-ai-agent { background: var(--yellow-accent); color: #000; }
+.cat-leadership { background: #1f8a3b; color: #fff; }
 
 body.dark .cat-product-management { background: #b2432e; color: #fff; }
 body.dark .cat-project-management { background: #b25a00; color: #fff; }
@@ -622,6 +623,7 @@ body.dark .cat-engineering { background: #1e3a5c; color: #fff; }
 body.dark .cat-ux-design { background: #341797; color: #fff; }
 body.dark .cat-agent-behavior { background: #007a8a; color: #fff; }
 body.dark .cat-ai-agent { background: #bba701; color: #fff; }
+body.dark .cat-leadership { background: #14582a; color: #fff; }
 
 .skill-card-title {
   font-size: 1.25rem;
