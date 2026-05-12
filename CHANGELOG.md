@@ -4,6 +4,7 @@ Recent project updates, summarized from repository history.
 
 ## 2026-05-12
 
+- Added the `handoff` skill under `Agent Behavior` — writes a transferable handoff document to a `mktemp -t handoff-XXXXXX.md` path so a fresh agent can continue the work. Captures goal, current state, decisions, ruled-out approaches, open questions, concrete next moves, and suggested skills for the next session. References existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Accepts an argument describing the next session's focus and prunes the document to match.
 - Added the `gh-repo-mirror` skill under `Engineering` — scaffolds a new GitHub repo that mirrors a reference repo's general settings, security-and-analysis flags, and classic `main` branch protection, with an optional neo-brutalist GitHub Pages docs site under `docs/` (or `/`), custom domain via `docs/CNAME`, async HTTPS cert polling, and opt-ins for ruleset mirroring (`--mirror-rulesets`), Cloudflare DNS record creation (`--cname-provider cloudflare`), and a bootstrap starter skill (`--bootstrap-skill <slug>`).
 
 ## 2026-05-08
