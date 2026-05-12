@@ -146,6 +146,14 @@ const skills = [
     usage: "/docs-from-prs",
   },
   {
+    slug: "gh-repo-mirror",
+    name: "gh-repo-mirror",
+    category: "Engineering",
+    tagline: "Scaffold a new GitHub repo mirroring a reference repo's settings, branch protection, and Pages site.",
+    detail: "Captures the reference repo's general settings, security-and-analysis flags, and classic branch protection, then creates the new repo and PATCHes everything to match. Optionally ports a neo-brutalist GitHub Pages docs site (rebranded), wires a custom domain via docs/CNAME, and background-polls for the Let's Encrypt cert before flipping https_enforced. Opt-ins: mirror repo-level rulesets, create the Cloudflare DNS record, and bootstrap a starter skill so the first commit isn't empty arrays.",
+    usage: "/gh-repo-mirror",
+  },
+  {
     slug: "resume-tailoring",
     name: "resume-tailoring",
     category: "Engineering",
@@ -225,12 +233,27 @@ const skills = [
     detail: "Drop-in Jekyll templates with a cohesive neo-brutalist design system — IBM Plex Mono everywhere, 3px borders, solid offset shadows, eight saturated accents, four themes (light / dark / cyberpunk grid / solarized IDE), copy buttons on <pre>, theme switcher in localStorage. Includes scaffold.zsh for one-shot stamping and a GitHub Actions Pages workflow.",
     usage: "/gh-pages-neo-brutalist",
   },
+  {
+    slug: "leadership-update",
+    name: "leadership-update",
+    category: "Leadership",
+    tagline: "Turn raw notes into an outcome-first update leadership remembers.",
+    detail: "Reformats messy status into three sentences — outcome, reasoning, next — ending with a clear ask. Auto-detects whether to reformat directly or run a 1–3 question interview. Verbal/standup script by default; offers Slack, email, and status-doc formats. Based on Yasar Ahmad's leadership-update framework.",
+    usage: "/leadership-update",
+  },
 ];
 
 const changes = [
   {
+    date: "2026-05-12",
+    items: [
+      "Added gh-repo-mirror skill under Engineering — scaffold a new GitHub repo that mirrors a reference repo's general settings, security flags, classic branch protection, and (optionally) its GitHub Pages docs site, with opt-ins for ruleset mirroring, Cloudflare DNS, and a bootstrap starter skill.",
+    ],
+  },
+  {
     date: "2026-05-08",
     items: [
+      "Added leadership-update skill under a new Leadership category — reformats raw notes into an outcome-first, three-sentence update with a clear ask, based on Yasar Ahmad's framework.",
       "Added repo-context-scan skill — autonomous codebase scan that produces CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) and seeds ADRs for visibly-deliberate decisions. Idempotent re-runs preserve user-authored prose.",
       "Added domain-grill skill — engineering-only relentless interview that stress-tests eng specs, TDD plans, refactor proposals, technical designs, schema migrations, and API contracts against CONTEXT.md and existing ADRs. Refuses PRDs and non-technical artifacts and redirects to /grill-me. Reads CONTEXT.md read-only; flags new terms and recommends re-running /repo-context-scan.",
       "Deprecated ubiquitous-language skill — split into /repo-context-scan (build) and /domain-grill (stress-test). Stub remains as a redirect; original implementation preserved in git history.",
@@ -381,6 +404,7 @@ function catClass(category) {
     "UX Design": "cat-ux-design",
     "Agent Behavior": "cat-agent-behavior",
     "AI Agent": "cat-ai-agent",
+    "Leadership": "cat-leadership",
   };
   return map[category] || "";
 }
