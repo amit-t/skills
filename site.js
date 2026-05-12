@@ -50,6 +50,14 @@ const skills = [
     usage: "/pmo-status",
   },
   {
+    slug: "code-review",
+    name: "code-review",
+    category: "Engineering",
+    tagline: "Principal-engineer review of any GitHub PR with two-phase approval before posting.",
+    detail: "11-dimension rubric grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design. Pre-checks PR description quality (what / why / test plan), size (LOC + file count), and single-concern scope before deep review. Walks every finding one at a time with approve / skip / edit / expand / defer / quit verbs. Only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe — dedupes against prior runs via hidden markers. Fully configurable thresholds, rubric dimensions, and verdict policy in config.yaml.",
+    usage: "/code-review <pr-num|url>",
+  },
+  {
     slug: "e2e-audit",
     name: "e2e-audit",
     category: "Engineering",
@@ -255,6 +263,7 @@ const changes = [
   {
     date: "2026-05-12",
     items: [
+      "Added code-review skill — principal-engineer review of a GitHub PR with two-phase approval. Pre-checks PR description quality, size, and single-concern scope; deep-reviews against an 11-dimension rubric grounded in Pragmatic Programmer / DDD / A Philosophy of Software Design; walks the user through every finding one at a time with approve / skip / edit / expand / defer / quit; posts only the approved subset as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe via hidden markers. Thresholds, rubric, and verdict policy are configurable in code-review/config.yaml.",
       "Added handoff skill under Agent Behavior — writes a transferable handoff document to a `mktemp -t handoff-XXXXXX.md` path so a fresh agent can continue the work. Captures goal, state, decisions, ruled-out approaches, open questions, next moves, and suggested skills; references existing artifacts (PRDs, plans, ADRs, issues, commits) by path or URL instead of duplicating them.",
       "Added gh-repo-mirror skill under Engineering — scaffold a new GitHub repo that mirrors a reference repo's general settings, security flags, classic branch protection, and (optionally) its GitHub Pages docs site, with opt-ins for ruleset mirroring, Cloudflare DNS, and a bootstrap starter skill.",
     ],

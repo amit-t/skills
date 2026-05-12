@@ -1,0 +1,80 @@
+# code-review skill — annotated reference config.
+# This file is documentation only — the active config is config.yaml.
+# Copy values into config.yaml to override defaults.
+
+size:
+  # Hard reject (Phase 1 pre-check bail): PR is rejected with a comment asking
+  # the author to split it. Counts additions + deletions across non-excluded files.
+  hard_reject_loc: 500
+  hard_reject_files: 20
+
+  # Soft warn: shown in the review summary but does not block.
+  soft_warn_loc: 200
+  soft_warn_files: 10
+
+  # Additional glob patterns to exclude from the LOC + file count, on top of
+  # the built-in exclusions (lock files, generated code, vendored deps, snapshots,
+  # pure renames). Use to cover project-specific generated outputs.
+  exclude_globs:
+    # - "proto/gen/**"
+    # - "schema/migrations/snapshots/**"
+
+scope:
+  # Single-concern pre-check: more than max_subsystems distinct top-level dirs
+  # touched triggers a bail unless the PR title explicitly calls out cross-cutting
+  # scope. Set enabled: false to disable.
+  enabled: true
+  max_subsystems: 3
+
+description:
+  # PR description pre-check. PR body must mention each item in `required`.
+  # Missing 2 or more triggers a bail. Drop items from `required` to relax
+  # (e.g. teams that track test plans in linked tickets can drop test_plan).
+  enabled: true
+  required:
+    - what       # what does this PR do
+    - why        # why is it needed
+    - test_plan  # how was it tested
+
+rubric:
+  # 11-dimension rubric. Turn off any dimension to suppress findings for it.
+  # Default: all on. Useful overrides:
+  #   - observability: false on early-stage prototypes
+  #   - api_contract: false on internal-only packages
+  #   - data_migration: false on stateless services
+  correctness: true
+  design: true
+  security: true
+  reliability: true
+  performance: true
+  testing: true
+  api_contract: true
+  observability: true
+  readability: true
+  scope_discipline: true
+  data_migration: true
+
+verdict:
+  # Verdict policy applied when `submit review` is run:
+  #   comment                       - always post as COMMENT (safest)
+  #   request_changes_on_blocker    - REQUEST_CHANGES when any approved finding
+  #                                   is severity=blocker; otherwise COMMENT
+  #   never_approve                 - same as request_changes_on_blocker but
+  #                                   APPROVE is never allowed via this skill
+  # APPROVE is never automatic; it requires `submit review --approve` and a
+  # clean approved pool (zero blocker/major).
+  policy: request_changes_on_blocker
+
+principles:
+  # Toggle whether the skill cites these books in its finding rationale and the
+  # review summary. Findings still fire — only the citation is suppressed.
+  pragmatic_programmer: true                # Hunt & Thomas
+  ddd: true                                 # Eric Evans, Domain-Driven Design
+  philosophy_of_software_design: true       # John Ousterhout
+
+safety:
+  # One-time banner on first use per skill install:
+  #   "comments post as your GitHub identity, you are responsible"
+  # User must type `I understand` to proceed. Ack is stored at
+  # <skill-dir>/state/.acknowledged. Set false only for trusted automation.
+  identity_ack_required: true
