@@ -194,6 +194,14 @@ const skills = [
     usage: "/compact-conversation",
   },
   {
+    slug: "handoff",
+    name: "handoff",
+    category: "Agent Behavior",
+    tagline: "Write a transferable handoff document so another agent can continue the work.",
+    detail: "Saves a focused handoff to a `mktemp -t handoff-XXXXXX.md` path — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. References existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Accepts an argument describing what the next session will focus on and prunes the doc to match.",
+    usage: "/handoff",
+  },
+  {
     slug: "concise-reporting",
     name: "concise-reporting",
     category: "Agent Behavior",
@@ -247,6 +255,7 @@ const changes = [
   {
     date: "2026-05-12",
     items: [
+      "Added handoff skill under Agent Behavior — writes a transferable handoff document to a `mktemp -t handoff-XXXXXX.md` path so a fresh agent can continue the work. Captures goal, state, decisions, ruled-out approaches, open questions, next moves, and suggested skills; references existing artifacts (PRDs, plans, ADRs, issues, commits) by path or URL instead of duplicating them.",
       "Added gh-repo-mirror skill under Engineering — scaffold a new GitHub repo that mirrors a reference repo's general settings, security flags, classic branch protection, and (optionally) its GitHub Pages docs site, with opt-ins for ruleset mirroring, Cloudflare DNS, and a bootstrap starter skill.",
     ],
   },
