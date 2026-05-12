@@ -1,0 +1,67 @@
+# {{REPO_SLUG}}
+
+{{DESCRIPTION}}
+
+Browse the skill index at <https://{{CUSTOM_DOMAIN}}/>.
+
+## Quick Start
+
+Install all skills:
+
+```bash
+npx skills@latest add {{REPO_SLUG}}
+```
+
+Install a specific skill:
+
+```bash
+npx skills@latest add {{REPO_SLUG}} --skill <name>
+```
+
+Install for a specific agent:
+
+```bash
+npx skills@latest add {{REPO_SLUG}} --agent claude-code cursor
+```
+
+Install globally (available in all projects):
+
+```bash
+npx skills@latest add {{REPO_SLUG}} -g
+```
+
+## Available Skills
+
+_No skills yet. Skills are added one directory at a time. Each skill lives at the repo root as `<skill-slug>/SKILL.md` (plus optional `README.md` and companion files), and is also surfaced in `docs/site.js` so it shows up on the Pages site._
+
+## What Are Skills?
+
+Skills are self-contained units of functionality that teach AI coding agents how to perform specific tasks. Each skill is a `SKILL.md` file (with optional companion files) that gets loaded into the agent's context when invoked.
+
+Skills can be invoked by name (e.g., `/tdd`, `/prd-draft`) or automatically triggered by the agent when relevant.
+
+## Manual Installation
+
+If you prefer not to use the CLI, copy skill directories into your agent's skills folder:
+
+| Agent | Project Path | Global Path |
+|-------|--------------|-------------|
+| Devin / Windsurf | `.cognition/skills/` or `.windsurf/skills/` | `~/.config/cognition/skills/` |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Cursor | `.cursor/skills/` | — |
+| Codex | Append to `AGENTS.md` | — |
+| Gemini CLI | Append to `GEMINI.md` | — |
+
+## Adding a New Skill
+
+1. Create a directory `<skill-slug>/` at the repo root with at minimum a `SKILL.md` (frontmatter + body).
+2. Add an entry to the `skills` array in [`docs/site.js`](./docs/site.js) — `slug`, `name`, `category`, `tagline`, `detail`, `usage`.
+3. Append a dated entry to the `changes` array in `docs/site.js` and to [`CHANGELOG.md`](./CHANGELOG.md).
+4. Add the skill row to the **Available Skills** table above.
+5. Open a PR to `main`.
+
+The GitHub Pages site rebuilds automatically on push to `main`.
+
+## Docs site
+
+The Pages site under `docs/` is a static HTML/CSS/JS scaffold (no Jekyll). It reads its data from the `skills` and `changes` arrays in `docs/site.js`.

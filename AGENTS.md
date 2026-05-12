@@ -19,7 +19,7 @@ Whenever you add, remove, rename, or meaningfully modify a skill, you **must** u
 - Add/remove the skill object in the `skills` array
 - Required fields: `slug`, `name`, `category`, `tagline`, `detail`, `usage`
 - Place the entry with others in the same category
-- Valid categories: `Product Management`, `Project Management`, `Engineering`, `UX Design`, `Agent Behavior`, `AI Agent`
+- Valid categories: `Product Management`, `Project Management`, `Engineering`, `UX Design`, `Agent Behavior`, `AI Agent`, `Leadership`
 
 ### 3. `site.js` — changes array
 
@@ -48,6 +48,7 @@ If you ever touch `site.js` rendering logic, these are the category-to-class map
 | UX Design | `cat-ux-design` |
 | Agent Behavior | `cat-agent-behavior` |
 | AI Agent | `cat-ai-agent` |
+| Leadership | `cat-leadership` |
 
 ## Git Conventions
 

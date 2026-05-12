@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agent Skills — amit-t/skills</title>
+  <title>AI Skills — {{REPO_SLUG}}</title>
   <meta name="description"
-    content="Browse every skill in amit-t/skills. Neo-brutalist doc index with install instructions, README details, and changelog.">
+    content="Browse every skill in {{REPO_SLUG}}. Neo-brutalist doc index with install instructions, README details, and changelog.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
@@ -22,14 +22,14 @@
   <!-- ===== HERO ===== -->
   <header class="container hero">
     <div>
-      <span class="hero-eyebrow">AMIT TIWARI</span>
+      <span class="hero-eyebrow">{{HERO_EYEBROW}}</span>
       <h1>Agent skills, stripped of guesswork.</h1>
       <p class="hero-desc">
-        Browse every skill in <code>amit-t/skills</code>, open install instructions in one click,
+        Browse every skill in <code>{{REPO_SLUG}}</code>, open install instructions in one click,
         and scan the README and changelog without leaving the page.
       </p>
       <div class="hero-actions">
-        <a class="neo-btn neo-btn-primary" href="https://github.com/amit-t/skills" target="_blank" rel="noreferrer">Open
+        <a class="neo-btn neo-btn-primary" href="{{REPO_URL}}" target="_blank" rel="noreferrer">Open
           Repo</a>
         <a class="neo-btn" href="#readme-section">README</a>
         <a class="neo-btn" href="#changelog-section">Changelog</a>
@@ -46,7 +46,7 @@
         <span class="stat-label">Categories</span>
       </div>
       <div class="stat-card">
-        <span class="stat-value">2026-05-12</span>
+        <span class="stat-value">{{LAST_UPDATE}}</span>
         <span class="stat-label">Last Update</span>
       </div>
     </div>
@@ -63,7 +63,7 @@
           <span class="section-eyebrow eyebrow-readme">README</span>
           <h2>What the repository promises</h2>
         </div>
-        <a class="section-link" href="https://github.com/amit-t/skills/blob/main/README.md" target="_blank"
+        <a class="section-link" href="{{REPO_URL}}/blob/main/README.md" target="_blank"
           rel="noreferrer">Open full README</a>
       </div>
 
@@ -71,8 +71,8 @@
         <div class="readme-grid">
           <div class="readme-text">
             <p>
-              This repository packages reusable agent skills for AI coding agents. Skills are
-              self-contained units of functionality that teach agents how to perform specific tasks.
+              This repository packages reusable agent skills for AI coding agents.
+              Skills are self-contained units of functionality that teach agents how to perform specific tasks.
               Each skill is a <code>SKILL.md</code> file with optional companion files.
             </p>
             <p>
@@ -94,10 +94,10 @@
 
           <div class="install-commands">
             <h3>Quick Install</h3>
-            <pre><code>npx skills@latest add amit-t/skills</code></pre>
-            <pre><code>npx skills@latest add amit-t/skills --skill tdd</code></pre>
-            <pre><code>npx skills@latest add amit-t/skills --agent claude-code cursor</code></pre>
-            <pre><code>npx skills@latest add amit-t/skills -g</code></pre>
+            <pre><code>npx skills@latest add {{REPO_SLUG}}</code></pre>
+            <pre><code>npx skills@latest add {{REPO_SLUG}} --skill &lt;name&gt;</code></pre>
+            <pre><code>npx skills@latest add {{REPO_SLUG}} --agent claude-code cursor</code></pre>
+            <pre><code>npx skills@latest add {{REPO_SLUG}} -g</code></pre>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
           <span class="section-eyebrow eyebrow-changelog">Changelog</span>
           <h2>Recent changes</h2>
         </div>
-        <a class="section-link" href="https://github.com/amit-t/skills/blob/main/CHANGELOG.md" target="_blank"
+        <a class="section-link" href="{{REPO_URL}}/blob/main/CHANGELOG.md" target="_blank"
           rel="noreferrer">Open full changelog</a>
       </div>
 
@@ -194,7 +194,7 @@
 
   <!-- ===== FOOTER ===== -->
   <footer class="container footer">
-    <p>MIT licensed. Source of truth: the repo <code>README.md</code>, per-skill READMEs, and each
+    <p>Source of truth: the repo <code>README.md</code>, per-skill READMEs, and each
       <code>SKILL.md</code>.</p>
   </footer>
 
