@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-05-12
+
+- Added the `gh-repo-mirror` skill under `Engineering` — scaffolds a new GitHub repo that mirrors a reference repo's general settings, security-and-analysis flags, and classic `main` branch protection, with an optional neo-brutalist GitHub Pages docs site under `docs/` (or `/`), custom domain via `docs/CNAME`, async HTTPS cert polling, and opt-ins for ruleset mirroring (`--mirror-rulesets`), Cloudflare DNS record creation (`--cname-provider cloudflare`), and a bootstrap starter skill (`--bootstrap-skill <slug>`).
+
 ## 2026-05-08
 
 - Added the `leadership-update` skill under a new `Leadership` category — reformats raw notes into an outcome-first, three-sentence update (status / reasoning / next) ending with a clear ask. Auto-detects whether to reformat directly or run a 1–3 question interview. Verbal/standup script by default; offers Slack, email, and status-doc formats. Based on Yasar Ahmad's leadership-update framework.

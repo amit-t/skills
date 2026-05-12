@@ -146,6 +146,14 @@ const skills = [
     usage: "/docs-from-prs",
   },
   {
+    slug: "gh-repo-mirror",
+    name: "gh-repo-mirror",
+    category: "Engineering",
+    tagline: "Scaffold a new GitHub repo mirroring a reference repo's settings, branch protection, and Pages site.",
+    detail: "Captures the reference repo's general settings, security-and-analysis flags, and classic branch protection, then creates the new repo and PATCHes everything to match. Optionally ports a neo-brutalist GitHub Pages docs site (rebranded), wires a custom domain via docs/CNAME, and background-polls for the Let's Encrypt cert before flipping https_enforced. Opt-ins: mirror repo-level rulesets, create the Cloudflare DNS record, and bootstrap a starter skill so the first commit isn't empty arrays.",
+    usage: "/gh-repo-mirror",
+  },
+  {
     slug: "resume-tailoring",
     name: "resume-tailoring",
     category: "Engineering",
@@ -217,6 +225,7 @@ const skills = [
     detail: "Fits skill authoring work where the user wants reusable instructions, bundled resources, and better invocation behavior.",
     usage: "/write-a-skill",
   },
+  {
     slug: "gh-pages-neo-brutalist",
     name: "gh-pages-neo-brutalist",
     category: "Engineering",
@@ -235,6 +244,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-12",
+    items: [
+      "Added gh-repo-mirror skill under Engineering — scaffold a new GitHub repo that mirrors a reference repo's general settings, security flags, classic branch protection, and (optionally) its GitHub Pages docs site, with opt-ins for ruleset mirroring, Cloudflare DNS, and a bootstrap starter skill.",
+    ],
+  },
   {
     date: "2026-05-08",
     items: [

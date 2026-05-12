@@ -59,6 +59,7 @@ npx skills@latest add amit-t/skills -g
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
 | [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
+| [`gh-repo-mirror`](./gh-repo-mirror) | Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, and (optional) GitHub Pages site |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
