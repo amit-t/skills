@@ -5,6 +5,13 @@ Recent project updates, summarized from repository history.
 ## 2026-05-08
 
 - Added the `leadership-update` skill under a new `Leadership` category — reformats raw notes into an outcome-first, three-sentence update (status / reasoning / next) ending with a clear ask. Auto-detects whether to reformat directly or run a 1–3 question interview. Verbal/standup script by default; offers Slack, email, and status-doc formats. Based on Yasar Ahmad's leadership-update framework.
+- Added the `repo-context-scan` skill — autonomous codebase scan that writes `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seeds `docs/adr/` entries for clearly-deliberate decisions. Asks only when ambiguity blocks resolution; idempotent re-runs preserve user-authored prose.
+- Added the `domain-grill` skill — engineering-only relentless interview that stress-tests eng specs, TDD plans, refactor proposals, technical designs, schema migrations, and API contracts against `CONTEXT.md` and existing ADRs. Refuses PRDs and non-technical artifacts and redirects to `/grill-me`. Reads `CONTEXT.md` read-only; flags newly-surfaced terms and recommends re-running `/repo-context-scan` to incorporate them.
+- Deprecated the `ubiquitous-language` skill — split into `/repo-context-scan` (build) and `/domain-grill` (stress-test) so the *write* and *read* responsibilities are owned by separate skills with different cadences. The old skill is kept in the catalog as a redirect; the prior `SKILL.md` is preserved in git history.
+
+## 2026-04-29
+
+- Added the `gh-pages-neo-brutalist` skill — drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (IBM Plex Mono, 3px borders, solid offset shadows, eight saturated accents, four themes: light / dark / cyberpunk grid / solarized IDE). Includes `scaffold.zsh` for one-shot stamping, `site.css` and `site.js` for design tokens and the theme switcher, and a GitHub Actions Pages workflow.
 
 ## 2026-04-25
 

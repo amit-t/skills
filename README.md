@@ -54,17 +54,20 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
+| [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
+| [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` (use `/grill-me` for PRDs and non-technical plans) |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
-| [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
+| [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
-| [`ubiquitous-language`](./ubiquitous-language) | Extract DDD-style ubiquitous language glossary |
-| [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
-| [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
+| [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
+| [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
+| [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
-| [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
+| [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
+| [`ubiquitous-language`](./ubiquitous-language) | **Deprecated** — superseded by `/repo-context-scan` (build) and `/domain-grill` (stress-test) |
 
 ### UX Design
 
