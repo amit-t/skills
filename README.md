@@ -54,6 +54,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
+| [`code-review`](./code-review) | Principal-engineer review of a GitHub PR with two-phase approval — pre-checks PR description, size, single-concern scope, then walks 11-dimension findings one at a time before posting |
 | [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
 | [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` (use `/grill-me` for PRDs and non-technical plans) |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |

@@ -1,0 +1,44 @@
+# code-review skill — active config (ships with defaults).
+# Edit in place to tune per-project. See config.example.yaml for annotated reference.
+
+size:
+  hard_reject_loc: 500
+  hard_reject_files: 20
+  soft_warn_loc: 200
+  soft_warn_files: 10
+  exclude_globs: []
+
+scope:
+  enabled: true
+  max_subsystems: 3
+
+description:
+  enabled: true
+  required:
+    - what
+    - why
+    - test_plan
+
+rubric:
+  correctness: true
+  design: true
+  security: true
+  reliability: true
+  performance: true
+  testing: true
+  api_contract: true
+  observability: true
+  readability: true
+  scope_discipline: true
+  data_migration: true
+
+verdict:
+  policy: request_changes_on_blocker
+
+principles:
+  pragmatic_programmer: true
+  ddd: true
+  philosophy_of_software_design: true
+
+safety:
+  identity_ack_required: true
