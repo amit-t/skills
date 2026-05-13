@@ -226,6 +226,14 @@ const skills = [
     usage: "/precision-mode",
   },
   {
+    slug: "session-feedback",
+    name: "session-feedback",
+    category: "Agent Behavior",
+    tagline: "Mine the current conversation for corrections, preferences, and do-differently lessons; write a dated feedback file the next session reloads.",
+    detail: "Walks every user turn, classifies into three buckets (corrections the user made, preferences they stated, principles to apply differently next time), and emits a frontmatter-tagged feedback-<YYYY-MM-DD>.md into the project's Claude Code auto-memory directory, plus a one-line entry in MEMORY.md so the file resurfaces in future sessions. Idempotent — re-running on the same day appends a new section unless --overwrite is passed. Captures the user's actual words for corrections so future-you recognises the pattern, not just the conclusion.",
+    usage: "/session-feedback",
+  },
+  {
     slug: "skill-sync",
     name: "skill-sync",
     category: "Agent Behavior",
@@ -260,6 +268,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-13",
+    items: [
+      "Added session-feedback skill under Agent Behavior — mines the current conversation for corrections the user made, preferences they stated, and do-differently lessons, then writes a dated frontmatter-tagged feedback-<YYYY-MM-DD>.md into the project's Claude Code auto-memory directory and indexes it in MEMORY.md. Idempotent (append by default, --overwrite to replace). Captures the user's actual words for corrections so future sessions recognise the pattern, not just the conclusion.",
+    ],
+  },
   {
     date: "2026-05-12",
     items: [
