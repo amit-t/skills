@@ -2,7 +2,7 @@
 
 > Capture a wisdom snippet into a personal corpus — categorize, write, commit
 
-**Category:** Engineering
+**Category:** Leadership
 
 ## Install
 
