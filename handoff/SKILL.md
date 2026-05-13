@@ -1,39 +1,62 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document for another agent to pick up. Use when the user wants to pass work to a fresh session, hand off to a teammate, or stop here and resume later. Triggers include "/handoff", "write a handoff", "hand this off to another agent", "summarise so someone else can continue".
+description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume. Writes to `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, gitignored by default. Use when the user wants to pass work to a fresh session, hand off to a teammate, or stop here and resume later. Triggers include "/handoff", "write a handoff", "hand this off to another agent", "summarise so someone else can continue".
 argument-hint: "What will the next session be used for?"
 ---
 
 # Handoff
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save it to a path produced by `mktemp -t handoff-XXXXXX.md` (read the file before you write to it).
-
-Suggest the skills to be used, if any, by the next session.
+Write a handoff document summarising the current conversation so a fresh agent can continue the work via the companion `/resume` skill. The file is saved to a predictable, discoverable location inside the project — the next session does **not** need to be told the path.
 
 Do not duplicate content already captured in other artifacts (PRDs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
 
-If the user passed arguments, treat them as a description of what the next session will focus on and tailor the doc accordingly.
+If the user passed arguments, treat them as a description of what the next session will focus on, write them into the `focus` frontmatter field, and tailor the document body accordingly.
 
 ## Workflow
 
-1. **Locate the file.** Run `mktemp -t handoff-XXXXXX.md` to get an absolute path. Read the file (it will be empty) before writing — required by the Write tool contract.
-2. **Scan the conversation.** Pull out: the user's goal, decisions made, blockers hit, what's been tried, what's been *ruled out*, files touched, commands run, and any uncommitted state.
-3. **Find the artifacts.** Note every PRD / plan / ADR / issue / commit / PR / diff / log produced this session. Reference them by absolute path or URL — never paste their content.
-4. **Tailor to the focus.** If `$ARGUMENTS` describes what the next session will do, prune the doc to what *that* session needs. Drop history irrelevant to the next move.
-5. **Suggest skills.** Recommend specific skills the next agent should invoke (e.g. `/tdd`, `/eng-spec`, `/repo-context-scan`). Only suggest skills you actually know exist in the user's environment.
-6. **Write and print the path.** Save to the `mktemp` path. Print the path on its own line so the user can copy it.
+1. **Resolve the project root.** Try in order:
+   1. `git rev-parse --show-toplevel 2>/dev/null` — if non-empty, that is the root.
+   2. Else walk upward from `pwd` looking for the first ancestor that contains a `.claude/` directory; that ancestor is the root.
+   3. Else fall back to `pwd` itself **and warn the user**: "not in a git repo and no `.claude/` ancestor found — writing to `./.claude/handoffs/`. Discovery from sibling dirs may be inconsistent."
+2. **Ensure the handoff directory exists.** `mkdir -p <root>/.claude/handoffs`. The `resumed/` subdir is created lazily by `/resume`, not here.
+3. **Auto-add gitignore entry** (only when step 1 resolved via git):
+   - If `<root>/.gitignore` exists and does not already contain a line matching `/.claude/handoffs/` (or a broader pattern that covers it), append `/.claude/handoffs/` on its own line, preceded by a blank line if the file does not end with one.
+   - If `<root>/.gitignore` does not exist, create it with the single line `/.claude/handoffs/`.
+   - Skip this step entirely when not in a git repo.
+4. **Pick a slug.**
+   - If `$ARGUMENTS` is non-empty, slugify it: lowercase, replace any run of non-`[a-z0-9]` with `-`, trim leading/trailing `-`, collapse repeated `-`, cap at 40 characters (cut on a `-` boundary if possible).
+   - Else pick a 2–3 word slug from the conversation goal, then slugify the same way.
+   - Slug must be non-empty; if slugification yields the empty string, use `handoff`.
+5. **Compose the filename.** `YYYY-MM-DD-HHMM-<slug>.md` using local time. If a file with that exact name already exists (same minute + same slug), append `-2`, `-3`, ... before `.md` until you find an unused name.
+6. **Scan the conversation.** Pull out: the user's goal, decisions made, blockers hit, what's been tried, what's been *ruled out*, files touched, commands run, and any uncommitted state.
+7. **Find the artifacts.** Note every PRD / plan / ADR / issue / commit / PR / diff / log produced this session. Reference them by absolute path or URL — never paste their content.
+8. **Tailor to the focus.** If `$ARGUMENTS` describes what the next session will do, prune the body to what *that* session needs. Drop history irrelevant to the next move.
+9. **Suggest skills.** Recommend specific skills the next agent should invoke (e.g. `/tdd`, `/eng-spec`, `/repo-context-scan`). Only suggest skills you actually know exist in the user's environment.
+10. **Atomic write.** Write the document to `<filename>.tmp` first, then `mv` it to the final name. This avoids leaving a half-written file if anything dies mid-write. Read the temp file before writing it (required by the Write tool contract).
+11. **Print the resume hint.** On its own line, print exactly:
+    ```
+    Next session: run /resume (or install with `npx skills@latest add amit-t/skills --skill resume`).
+    ```
+    Print the absolute path of the written file on a second line so the user can grep for it if needed, but make clear they do **not** need to remember the path — `/resume` discovers it automatically.
 
 ## Document structure
 
-Use these sections. Skip any that don't apply — empty sections are noise.
+YAML frontmatter for machine-readable fields (parsed by `/resume`'s preflight), markdown body for the human-readable prose. Skip body sections that don't apply — empty sections are noise.
 
 ```markdown
-# Handoff — <one-line title>
+---
+focus: "<from $ARGUMENTS, empty string if absent>"
+created: <ISO-8601 local timestamp, e.g. 2026-05-13T14:30:00-07:00>
+cwd: <absolute path of pwd at write time>
+project_root: <absolute path resolved in step 1>
+branch: <current git branch, or "" if not in git>
+worktree: <git worktree path if different from project_root, else "">
+uncommitted_files: <integer count of `git status --porcelain` lines, or 0>
+status: open
+resumed_at: null
+---
 
-**Next session focus:** <from $ARGUMENTS, or "open">
-**Created:** <YYYY-MM-DD HH:MM TZ>
-**Working dir:** <cwd>
-**Branch / worktree:** <branch> (clean | N uncommitted)
+# Handoff — <one-line title>
 
 ## Goal
 <what the user is ultimately trying to do — 1–3 sentences>
@@ -75,7 +98,17 @@ Use these sections. Skip any that don't apply — empty sections are noise.
 - **Capture failures.** What was tried and didn't work matters as much as what worked.
 - **Cite paths absolutely.** Use absolute paths so the next agent doesn't have to guess `cwd`.
 - **No emojis, no filler, no apologies.** This document is operational, not narrative.
-- **Don't commit the file.** `mktemp -t` puts it in the system temp dir on purpose. The user moves it if they want to keep it.
+- **Frontmatter is the source of truth for machine fields.** `/resume` only reads frontmatter for its preflight checks (branch, cwd, uncommitted count, status). Keep the body for humans.
+- **Don't move the file yourself.** `/resume` moves it to `.claude/handoffs/resumed/` on user confirmation. `/handoff` only writes.
+
+## Companion skill
+
+`/resume` is the read side of this pair. Whenever a fresh session needs to pick up where this one left off, the user invokes `/resume` and the newest open handoff in `.claude/handoffs/` is loaded automatically. Install both skills together:
+
+```bash
+npx skills@latest add amit-t/skills --skill handoff
+npx skills@latest add amit-t/skills --skill resume
+```
 
 ## When NOT to use
 

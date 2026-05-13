@@ -91,8 +91,9 @@ npx skills@latest add amit-t/skills -g
 |-------|-------------|
 | [`compact-conversation`](./compact-conversation) | Compact the current conversation into a concise summary to reduce context window usage |
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
-| [`handoff`](./handoff) | Compact the current conversation into a transferable handoff document so a fresh agent can continue the work |
+| [`handoff`](./handoff) | Compact the current conversation into a discoverable handoff document at `.claude/handoffs/` so a fresh agent can pick it up with `/resume` |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
+| [`resume`](./resume) | Pick up where a previous session left off — loads the newest open handoff, runs an environment preflight, and marks the file resumed on confirm |
 | [`session-feedback`](./session-feedback) | Mine the current conversation for every correction, preference, and do-differently lesson; write a dated feedback file the next session reloads as memory |
 | [`skill-sync`](./skill-sync) | Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin |
 
