@@ -205,9 +205,17 @@ const skills = [
     slug: "handoff",
     name: "handoff",
     category: "Agent Behavior",
-    tagline: "Write a transferable handoff document so another agent can continue the work.",
-    detail: "Saves a focused handoff to a `mktemp -t handoff-XXXXXX.md` path — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. References existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL instead of duplicating them. Accepts an argument describing what the next session will focus on and prunes the doc to match.",
+    tagline: "Write a discoverable handoff document so another agent can continue the work via /resume.",
+    detail: "Saves a focused handoff to `<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md` — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. YAML frontmatter (cwd, branch, uncommitted-file count, focus, status) feeds the companion `/resume` skill's preflight. Auto-adds `/.claude/handoffs/` to `.gitignore`, references existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL, and tailors the body to the optional argument describing the next session's focus.",
     usage: "/handoff",
+  },
+  {
+    slug: "resume",
+    name: "resume",
+    category: "Agent Behavior",
+    tagline: "Pick up where a previous session left off — load the newest open handoff with an environment preflight.",
+    detail: "Companion to `/handoff`. Resolves the project root the same way (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`), globs `<root>/.claude/handoffs/*.md` for the newest open handoff, parses its frontmatter, and surfaces drift against the current environment (project root, cwd, branch, uncommitted-file count, staleness over 14 days). On user confirm, flips `status: resumed`, sets `resumed_at`, and moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>` so future invocations don't re-pick it. Supports `/resume list`, `/resume <n>`, and `/resume <slug-substring>` for non-newest selection.",
+    usage: "/resume",
   },
   {
     slug: "concise-reporting",
@@ -271,6 +279,7 @@ const changes = [
   {
     date: "2026-05-13",
     items: [
+      "Reworked the handoff skill and added a companion resume skill under Agent Behavior — handoffs now live at a predictable, discoverable path (`<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md`) instead of an opaque `mktemp` location, so the next session never has to be told the file path. `/handoff` resolves project root via git → `.claude/` ancestor → cwd, auto-adds `/.claude/handoffs/` to `.gitignore`, slugifies the `$ARGUMENTS` focus (or picks a 2–3 word slug from the goal), writes YAML frontmatter (cwd, branch, uncommitted_files, focus, status, resumed_at) on top of the markdown body, and writes atomically via a `.tmp` rename. `/resume` globs the same directory for the newest open file, runs an environment preflight (project_root / cwd / branch / uncommitted-count drift, plus a >14-day staleness warning), confirms with the user, and on Y flips `status: resumed` + `resumed_at` and moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>` so it can't be re-picked. Supports `/resume list`, `/resume <n>`, and `/resume <slug-substring>` for non-newest selection.",
       "Added session-feedback skill under Agent Behavior — mines the current conversation for corrections the user made, preferences they stated, and do-differently lessons, then writes a dated frontmatter-tagged feedback-<YYYY-MM-DD>.md (stable IDs: C1-Cn, P1-Pn, D1-Dn) into the project's Claude Code auto-memory directory and indexes it in MEMORY.md. Idempotent (append by default, --overwrite to replace). Captures the user's actual words for corrections so future sessions recognise the pattern, not just the conclusion.",
       "Added recall mode to session-feedback — in future sessions the skill surfaces each remembered item in a compact listing format and asks 'Do I care about this at the moment, or do I not care about it at the moment?' before applying anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is available at session start via /session-feedback --recall. Session-scoped decisions live in .active-feedback.json; 'always' / 'never' answers persist back to the feedback file's frontmatter for that item. Nothing is ever silently applied.",
     ],
