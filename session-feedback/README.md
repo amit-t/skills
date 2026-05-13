@@ -93,9 +93,19 @@ cat session-feedback/SKILL.md >> GEMINI.md
 - **Preferences** — explicit statements of how the user wants things done (with cited authorities preserved)
 - **Do differently** — synthesised general principles that would have led to the right answer first time
 
+## Two modes
+
+**Write** (default) — mine the conversation, classify, emit `feedback-<YYYY-MM-DD>.md`. No per-item filter at write time; every item is preserved as a durable candidate with a stable ID (`C1`–`Cn`, `P1`–`Pn`, `D1`–`Dn`).
+
+**Recall** — in any future session, before applying a remembered item the agent surfaces it in the compact listing format and asks *"Do I care about this at the moment, or do I not care about it at the moment?"* Two flavours:
+- *Just-in-time* (mandatory): fires whenever the agent recognises a past pattern is about to influence its action.
+- *Bulk at session start* (explicit, via `/session-feedback --recall`): walks every feedback file in the memory directory and asks once, up front.
+
+Session-scoped decisions live in `<memory-dir>/.active-feedback.json`. Saying `always` or `never` on a specific item persists the decision back to the feedback file's frontmatter for that item.
+
 ## Output
 
-A dated, frontmatter-tagged markdown file under the project's Claude Code auto-memory directory, plus a one-line entry in `MEMORY.md` so the file is surfaced in future sessions.
+A dated, frontmatter-tagged markdown file under the project's Claude Code auto-memory directory, plus a one-line entry in `MEMORY.md` so the file is surfaced in future sessions. Nothing is silently applied — the user always gets the recall prompt before the agent acts on remembered guidance.
 
 ## License
 
