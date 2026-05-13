@@ -70,7 +70,6 @@ npx skills@latest add amit-t/skills -g
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
 | [`ubiquitous-language`](./ubiquitous-language) | **Deprecated** — superseded by `/repo-context-scan` (build) and `/domain-grill` (stress-test) |
-| [`wisdom-capture`](./wisdom-capture) | Capture a wisdom snippet into a personal corpus — categorize into a closed bucket, write `wisdoms/<YYYY>/<MM>/<ulid>.md` with frontmatter, commit |
 
 ### UX Design
 
@@ -85,6 +84,7 @@ npx skills@latest add amit-t/skills -g
 | Skill | Description |
 |-------|-------------|
 | [`leadership-update`](./leadership-update) | Reformat raw notes into an outcome-first, three-sentence update with a clear ask |
+| [`wisdom-capture`](./wisdom-capture) | Capture a wisdom snippet into a personal corpus — categorize into a closed bucket, write `wisdoms/<YYYY>/<MM>/<ulid>.md` with frontmatter, commit |
 
 ### Agent Behavior
 
