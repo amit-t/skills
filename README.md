@@ -93,6 +93,7 @@ npx skills@latest add amit-t/skills -g
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
 | [`handoff`](./handoff) | Compact the current conversation into a transferable handoff document so a fresh agent can continue the work |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
+| [`session-feedback`](./session-feedback) | Mine the current conversation for every correction, preference, and do-differently lesson; write a dated feedback file the next session reloads as memory |
 | [`skill-sync`](./skill-sync) | Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin |
 
 ### AI Agent

@@ -226,6 +226,14 @@ const skills = [
     usage: "/precision-mode",
   },
   {
+    slug: "session-feedback",
+    name: "session-feedback",
+    category: "Agent Behavior",
+    tagline: "Mine the conversation for corrections, preferences, and do-differently lessons; write a dated feedback file; in future sessions, ask 'do I care about this at the moment?' before applying any remembered item.",
+    detail: "Two modes. Write mode walks every user turn, classifies into three buckets (corrections the user made, preferences they stated, principles to apply differently next time), and emits a frontmatter-tagged feedback-<YYYY-MM-DD>.md with stable IDs (C1-Cn, P1-Pn, D1-Dn) into the project's Claude Code auto-memory directory, indexed in MEMORY.md. No per-item filtering at write time. Recall mode (auto-triggered in future sessions, plus explicit --recall for a bulk session-start walk) surfaces remembered items in a compact listing format and asks 'Do I care about this at the moment, or do I not?' before the agent applies anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is opt-in via --recall. Session-scoped decisions live in .active-feedback.json; 'always' or 'never' answers persist back to the feedback file's frontmatter. Nothing is ever silently applied. Captures the user's actual words for corrections so future-you recognises the pattern, not just the conclusion.",
+    usage: "/session-feedback",
+  },
+  {
     slug: "skill-sync",
     name: "skill-sync",
     category: "Agent Behavior",
@@ -260,6 +268,13 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-13",
+    items: [
+      "Added session-feedback skill under Agent Behavior — mines the current conversation for corrections the user made, preferences they stated, and do-differently lessons, then writes a dated frontmatter-tagged feedback-<YYYY-MM-DD>.md (stable IDs: C1-Cn, P1-Pn, D1-Dn) into the project's Claude Code auto-memory directory and indexes it in MEMORY.md. Idempotent (append by default, --overwrite to replace). Captures the user's actual words for corrections so future sessions recognise the pattern, not just the conclusion.",
+      "Added recall mode to session-feedback — in future sessions the skill surfaces each remembered item in a compact listing format and asks 'Do I care about this at the moment, or do I not care about it at the moment?' before applying anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is available at session start via /session-feedback --recall. Session-scoped decisions live in .active-feedback.json; 'always' / 'never' answers persist back to the feedback file's frontmatter for that item. Nothing is ever silently applied.",
+    ],
+  },
   {
     date: "2026-05-12",
     items: [

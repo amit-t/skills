@@ -2,6 +2,11 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-05-13
+
+- Added the `session-feedback` skill under `Agent Behavior` — mines the current conversation for every correction the user made, every preference they stated, and every "do-differently" lesson, then writes a dated, frontmatter-tagged `feedback-<YYYY-MM-DD>.md` (stable IDs `C1`–`Cn`, `P1`–`Pn`, `D1`–`Dn`) into the project's Claude Code auto-memory directory and adds an entry to `MEMORY.md` so future sessions reload the patterns. Three explicit buckets (corrections / preferences / do differently); idempotent (append by default, `--overwrite` to replace); preserves the user's actual words for corrections so the pattern is recognisable, not just the conclusion.
+- Added **recall mode** to `session-feedback` — in future sessions the skill surfaces each remembered item in a compact listing format and asks *"Do I care about this at the moment, or do I not care about it at the moment?"* before applying anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is available at session start via `/session-feedback --recall`. Session-scoped decisions live in `.active-feedback.json`; `always` / `never` answers persist back to the feedback file's frontmatter for that item. Nothing is ever silently applied — the carry-forward gate moved from write time to recall time so the user judges relevance in the moment, not in advance.
+
 ## 2026-05-12
 
 - Added the `code-review` skill — principal-engineer review of a GitHub PR with two-phase approval. Pre-checks PR description quality (what / why / test plan), size (LOC + file count), and single-concern scope before deep review. Generates findings across an 11-dimension rubric (correctness, design, security, reliability, performance, testing, api_contract, observability, readability, scope_discipline, data_migration) grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design. Walks the user through every finding one at a time with approve / skip / edit / expand / defer / quit verbs. Only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe — dedupes against prior runs via hidden markers in comment bodies. Thresholds, rubric dimensions, and verdict policy are fully configurable in `code-review/config.yaml`.
