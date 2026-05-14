@@ -1,0 +1,64 @@
+name: Trigger amittiwari.me redeploy
+
+# When a skill is added or updated here, ask DigitalOcean App Platform to
+# rebuild amittiwari.me so the change surfaces under /skills. The site
+# consumes this repo as a git submodule (external/skills) and pulls
+# --remote on each build, so a redeploy is all that's needed — no
+# submodule bump, no cross-repo PR.
+#
+# One-time setup (same pattern as the wisdom repo):
+# 1. Create a DigitalOcean Personal Access Token at
+#    https://cloud.digitalocean.com/account/api/tokens with the `apps:read`
+#    and `apps:write` scopes (or the older `read+write` if your token
+#    creation UI doesn't show scoped permissions).
+# 2. Find the App ID for amittiwari.me: open the app in the DO console and
+#    grab the UUID from the URL (`https://cloud.digitalocean.com/apps/<uuid>`),
+#    or run `doctl apps list` locally. Reuse the same UUID as the wisdom
+#    repo — it's the same app.
+# 3. In this repo: Settings → Secrets and variables → Actions → New repository
+#    secret. Add both:
+#      - DO_API_TOKEN = <token from step 1>
+#      - DO_APP_ID    = <uuid from step 2>
+#
+# Until both secrets exist the workflow runs but skips the API call with a
+# warning — pushes are never blocked.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: trigger-amittiwari-me
+  cancel-in-progress: false
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request deployment via DigitalOcean API
+        env:
+          DO_API_TOKEN: ${{ secrets.DO_API_TOKEN }}
+          DO_APP_ID: ${{ secrets.DO_APP_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${DO_API_TOKEN:-}" ] || [ -z "${DO_APP_ID:-}" ]; then
+            echo "::warning::DO_API_TOKEN / DO_APP_ID secrets not set on this repo. Skipping redeploy. See the workflow header for one-time setup."
+            exit 0
+          fi
+          response=$(mktemp)
+          status=$(curl -sS -o "$response" -w "%{http_code}" \
+            -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${DO_API_TOKEN}" \
+            -d '{"force_build": true}' \
+            "https://api.digitalocean.com/v2/apps/${DO_APP_ID}/deployments")
+          echo "DO API returned HTTP $status"
+          head -c 4000 "$response" || true
+          echo
+          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
+            echo "::error::DigitalOcean deployment request failed (HTTP $status)"
+            exit 1
+          fi
