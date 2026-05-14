@@ -205,17 +205,17 @@ const skills = [
     slug: "handoff",
     name: "handoff",
     category: "Agent Behavior",
-    tagline: "Write a discoverable handoff document so another agent can continue the work via /resume.",
-    detail: "Saves a focused handoff to `<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md` — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. YAML frontmatter (cwd, branch, uncommitted-file count, focus, status) feeds the companion `/resume` skill's preflight. Auto-adds `/.claude/handoffs/` to `.gitignore`, references existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL, and tailors the body to the optional argument describing the next session's focus.",
+    tagline: "Write a discoverable handoff document so another agent can continue the work via /resume-handoff.",
+    detail: "Saves a focused handoff to `<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md` — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. YAML frontmatter (cwd, branch, uncommitted-file count, focus, status) feeds the companion `/resume-handoff` skill's preflight. Auto-adds `/.claude/handoffs/` to `.gitignore`, references existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL, and tailors the body to the optional argument describing the next session's focus.",
     usage: "/handoff",
   },
   {
-    slug: "resume",
-    name: "resume",
+    slug: "resume-handoff",
+    name: "resume-handoff",
     category: "Agent Behavior",
-    tagline: "Pick up where a previous session left off — load the newest open handoff with an environment preflight.",
-    detail: "Companion to `/handoff`. Resolves the project root the same way (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`), globs `<root>/.claude/handoffs/*.md` for the newest open handoff, parses its frontmatter, and surfaces drift against the current environment (project root, cwd, branch, uncommitted-file count, staleness over 14 days). On user confirm, flips `status: resumed`, sets `resumed_at`, and moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>` so future invocations don't re-pick it. Supports `/resume list`, `/resume <n>`, and `/resume <slug-substring>` for non-newest selection.",
-    usage: "/resume",
+    tagline: "Load the newest open handoff with an environment preflight, then ask what to do next — never auto-executes.",
+    detail: "Companion to `/handoff`. Renamed from `resume` to `resume-handoff` because most agents (Claude Code, Codex, others) ship a built-in `/resume` that restores the prior conversation and would shadow a skill named `resume`. Resolves the project root the same way as `/handoff` (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`), globs `<root>/.claude/handoffs/*.md` for the newest open handoff, parses its frontmatter, and surfaces drift against the current environment (project root, cwd, branch, uncommitted-file count, staleness over 14 days). On user confirm, flips `status: resumed`, sets `resumed_at`, moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>`, internalises the body, and **stops to ask the user what to do next** — presenting the Next-moves items, Suggested skills, and free-form options instead of auto-running the first move. Implicitly bootstraps the `using-superpowers` skill before asking, if the environment lists it, so process discipline (brainstorming → plan → TDD → verify) is loaded before the direction is chosen. Supports `/resume-handoff list`, `/resume-handoff <n>`, and `/resume-handoff <slug-substring>` for non-newest selection.",
+    usage: "/resume-handoff",
   },
   {
     slug: "concise-reporting",
@@ -284,6 +284,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-14",
+    items: [
+      "Renamed the `resume` skill to `resume-handoff` and reworked its post-confirm behavior. Two reasons. (1) The trigger `/resume` collides with most agents' built-in conversation-restore command (Claude Code, Codex, others), which shadows the skill — the new name `/resume-handoff` is unambiguous. (2) After preflight + confirm, the skill now updates frontmatter (`status: resumed`, `resumed_at`), moves the file to `.claude/handoffs/resumed/`, internalises the body, and **stops to ask the user what to do next**, presenting the Next-moves items, Suggested skills, and free-form options. It no longer auto-executes the first Next-moves item — the user picks the direction. The skill also implicitly invokes `using-superpowers` (if listed in the environment's available skills) before asking, so process discipline (brainstorming → plan → TDD → verify) is loaded before any decision is made. Catalog updated end-to-end: directory renamed (`resume/` → `resume-handoff/`), top-level README row, `/handoff` SKILL.md and README.md cross-references, site.js skills array entry, and this changelog feed all flipped to the new name.",
+    ],
+  },
   {
     date: "2026-05-13",
     items: [

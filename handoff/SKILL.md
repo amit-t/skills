@@ -1,12 +1,12 @@
 ---
 name: handoff
-description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume. Writes to `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, gitignored by default. Use when the user wants to pass work to a fresh session, hand off to a teammate, or stop here and resume later. Triggers include "/handoff", "write a handoff", "hand this off to another agent", "summarise so someone else can continue".
+description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume-handoff. Writes to `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, gitignored by default. Use when the user wants to pass work to a fresh session, hand off to a teammate, or stop here and resume later. Triggers include "/handoff", "write a handoff", "hand this off to another agent", "summarise so someone else can continue".
 argument-hint: "What will the next session be used for?"
 ---
 
 # Handoff
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work via the companion `/resume` skill. The file is saved to a predictable, discoverable location inside the project — the next session does **not** need to be told the path.
+Write a handoff document summarising the current conversation so a fresh agent can continue the work via the companion `/resume-handoff` skill. The file is saved to a predictable, discoverable location inside the project — the next session does **not** need to be told the path.
 
 Do not duplicate content already captured in other artifacts (PRDs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
 
@@ -35,13 +35,13 @@ If the user passed arguments, treat them as a description of what the next sessi
 10. **Atomic write.** Write the document to `<filename>.tmp` first, then `mv` it to the final name. This avoids leaving a half-written file if anything dies mid-write. Read the temp file before writing it (required by the Write tool contract).
 11. **Print the resume hint.** On its own line, print exactly:
     ```
-    Next session: run /resume (or install with `npx skills@latest add amit-t/skills --skill resume`).
+    Next session: run /resume-handoff (or install with `npx skills@latest add amit-t/skills --skill resume-handoff`).
     ```
-    Print the absolute path of the written file on a second line so the user can grep for it if needed, but make clear they do **not** need to remember the path — `/resume` discovers it automatically.
+    Print the absolute path of the written file on a second line so the user can grep for it if needed, but make clear they do **not** need to remember the path — `/resume-handoff` discovers it automatically. (Note: the skill is `resume-handoff`, not `resume`, because most agents already ship a built-in `/resume` that restores the previous conversation transcript and would shadow this skill.)
 
 ## Document structure
 
-YAML frontmatter for machine-readable fields (parsed by `/resume`'s preflight), markdown body for the human-readable prose. Skip body sections that don't apply — empty sections are noise.
+YAML frontmatter for machine-readable fields (parsed by `/resume-handoff`'s preflight), markdown body for the human-readable prose. Skip body sections that don't apply — empty sections are noise.
 
 ```markdown
 ---
@@ -98,16 +98,16 @@ resumed_at: null
 - **Capture failures.** What was tried and didn't work matters as much as what worked.
 - **Cite paths absolutely.** Use absolute paths so the next agent doesn't have to guess `cwd`.
 - **No emojis, no filler, no apologies.** This document is operational, not narrative.
-- **Frontmatter is the source of truth for machine fields.** `/resume` only reads frontmatter for its preflight checks (branch, cwd, uncommitted count, status). Keep the body for humans.
-- **Don't move the file yourself.** `/resume` moves it to `.claude/handoffs/resumed/` on user confirmation. `/handoff` only writes.
+- **Frontmatter is the source of truth for machine fields.** `/resume-handoff` only reads frontmatter for its preflight checks (branch, cwd, uncommitted count, status). Keep the body for humans.
+- **Don't move the file yourself.** `/resume-handoff` moves it to `.claude/handoffs/resumed/` on user confirmation. `/handoff` only writes.
 
 ## Companion skill
 
-`/resume` is the read side of this pair. Whenever a fresh session needs to pick up where this one left off, the user invokes `/resume` and the newest open handoff in `.claude/handoffs/` is loaded automatically. Install both skills together:
+`/resume-handoff` is the read side of this pair. Whenever a fresh session needs to pick up where this one left off, the user invokes `/resume-handoff` and the newest open handoff in `.claude/handoffs/` is loaded automatically. Install both skills together:
 
 ```bash
 npx skills@latest add amit-t/skills --skill handoff
-npx skills@latest add amit-t/skills --skill resume
+npx skills@latest add amit-t/skills --skill resume-handoff
 ```
 
 ## When NOT to use
