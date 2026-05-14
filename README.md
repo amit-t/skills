@@ -56,13 +56,13 @@ npx skills@latest add amit-t/skills -g
 |-------|-------------|
 | [`code-review`](./code-review) | Principal-engineer review of a GitHub PR with two-phase approval — pre-checks PR description, size, single-concern scope, then walks 11-dimension findings one at a time before posting |
 | [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
-| [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` (use `/grill-me` for PRDs and non-technical plans) |
+| [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start; use `/grill-me` for PRDs and non-technical plans |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
 | [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
 | [`gh-repo-mirror`](./gh-repo-mirror) | Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, and (optional) GitHub Pages site |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
-| [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview |
+| [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
 | [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |

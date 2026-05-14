@@ -88,6 +88,26 @@ Invoke in your agent session:
 /domain-grill
 ```
 
+### Grill depth
+
+The skill asks how deep to grill after loading `CONTEXT.md` and before the first question. **Default is `deep`** (deepest):
+
+| Depth | Aliases | What you get |
+| --- | --- | --- |
+| `deep` | `3`, `deepest` | Every branch, every dependency. Full glossary challenge + fuzzy-language sharpening + invented edge-case scenarios + code cross-checks + ADR contradiction surfacing + new-term flagging. Unbounded until shared understanding. |
+| `standard` | `2`, `medium` | Architectural spine plus obvious edges. Full glossary + fuzzy-language + spine scenarios. Code / ADR cross-checks on the main path only. ~15–25 questions. |
+| `quick` | `1`, `sharp` | Top 5 highest-leverage hard-hitters only. Glossary conflicts that would mislead implementers, ADR contradictions, and the 1–2 most dangerous boundary scenarios. ~5–10 questions. Triage, not full coverage. |
+
+Pre-select to skip the prompt:
+
+```
+/domain-grill deep        # default
+/domain-grill standard
+/domain-grill quick
+```
+
+Depth never lowers rigor on the questions asked — it changes how many branches the skill walks, not how sharp each question is. ADR-recording criteria and the end-of-session summary apply at every depth.
+
 ## Scope
 
 **Use for:** eng specs, TDD plans, refactor proposals, architecture sketches, technical design docs, API contracts, schema migrations, IaC plans.
