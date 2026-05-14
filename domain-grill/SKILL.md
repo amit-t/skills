@@ -1,6 +1,6 @@
 ---
 name: domain-grill
-description: Engineering-only. Stress-tests an engineering artifact (eng spec, TDD plan, refactor proposal, architecture sketch, technical design, schema migration, API contract) against the project's CONTEXT.md. Reads CONTEXT.md read-only, interviews the user against existing terminology and decisions, surfaces conflicts, may add ADRs for new hard-to-reverse decisions. For PRDs, marketing plans, or any non-code artifact, refuse and redirect to /grill-me. Triggers include "grill this spec", "domain grill", "stress-test against CONTEXT", and "/domain-grill".
+description: Engineering-only. Stress-tests an engineering artifact (eng spec, TDD plan, refactor proposal, architecture sketch, technical design, schema migration, API contract) against the project's CONTEXT.md. Reads CONTEXT.md read-only, interviews the user against existing terminology and decisions, surfaces conflicts, may add ADRs for new hard-to-reverse decisions. For PRDs, marketing plans, or any non-code artifact, refuse and redirect to /grill-me. Supports a depth selector (quick / standard / deep) — deep is the default. Triggers include "grill this spec", "domain grill", "stress-test against CONTEXT", and "/domain-grill".
 ---
 
 # Domain Grill
@@ -44,6 +44,30 @@ If the user insists despite the redirect, still refuse. The skill is intentional
 This skill is **read-only** for `CONTEXT.md`. It does not edit the file. If new domain terms surface during grilling, flag them at the end and recommend re-running `/repo-context-scan`. Ownership of `CONTEXT.md` belongs to that skill.
 
 ## Process
+
+### 0. Ask for grill depth (before grilling, after loading context)
+
+Before the first grilling question, ask the user which depth to run at. **Default is `deep`** (deepest). Offer the three options:
+
+> Grill depth? (default: **deep**)
+>
+> - **deep** — walk every branch of the artifact's decision tree, cross-reference every term against `CONTEXT.md`, every architectural claim against existing ADRs, every behavioural assumption against the code. Invent boundary scenarios to stress relationships. Surface contradictions hard. Unbounded until shared understanding.
+> - **standard** — critical assumptions + main edge cases + obvious cross-references to `CONTEXT.md` / ADRs / code. Skip exotic corner cases. ~15–25 questions or until the architectural spine is solid.
+> - **quick** — top 5 highest-leverage hard-hitters only. Glossary conflicts that would mislead implementers, ADR contradictions, deal-breaker design assumptions. ~5–10 questions. Triage, not full coverage.
+>
+> Reply with `deep` / `standard` / `quick` (or just hit return for deep). You can also pre-select next time with `/domain-grill deep`, `/domain-grill standard`, or `/domain-grill quick` — aliases `3` / `2` / `1` and `deepest` / `medium` / `sharp` also work.
+
+If the user invoked the skill with an argument that maps to a level (e.g. `/domain-grill quick`, `/domain-grill 2`, `/domain-grill deepest`), **skip the question** and proceed directly at that depth. Echo the chosen depth in one short line ("Running at **quick** depth — only deal-breaker conflicts and ADR contradictions.") so the user knows what they're getting.
+
+If the argument is ambiguous or unrecognised, fall back to asking.
+
+### How depth shapes the grilling
+
+- **deep** — every branch, every dependency. Run all sections 2–7 in full: glossary challenges, fuzzy-language sharpening, invented edge-case scenarios, code cross-checks, ADR contradictions, new-term flagging. Push back on hedging language. Do not stop until you can summarise the artifact back without holes.
+- **standard** — cover the architectural spine plus the obvious edges. Run sections 2–4 in full (glossary conflicts + fuzzy language + spine scenarios). Run sections 5–6 only on the artifact's main path, not every branch. Stop when the critical path is solid even if leafy decisions remain.
+- **quick** — only the questions whose wrong answer would kill or seriously bend the artifact. Glossary conflicts that would mislead implementers (section 3), ADR contradictions (section 6 second half), and the 1–2 most dangerous boundary scenarios (section 5). Skip stylistic, naming, and second-order concerns. One pass, no follow-up branches unless the answer reveals a critical gap.
+
+Depth never lowers rigor on the questions you *do* ask — it changes how many branches you walk, not how sharp each question is. ADR-recording criteria (section 8) and end-of-session summary apply at every depth.
 
 ### 1. Load context
 

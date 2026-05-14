@@ -86,6 +86,26 @@ Once installed, invoke in your agent session:
 /grill-me
 ```
 
+### Grill depth
+
+The skill asks how deep to grill before starting. **Default is `deep`** (deepest):
+
+| Depth | Aliases | What you get |
+| --- | --- | --- |
+| `deep` | `3`, `deepest` | Every branch of the decision tree, critical + edge + corner cases, cross-references to code, invented boundary scenarios. Unbounded until shared understanding. |
+| `standard` | `2`, `medium` | Critical assumptions + main edge cases + obvious cross-references. Skip exotic corner cases. ~15–25 questions. |
+| `quick` | `1`, `sharp` | Top 5 highest-leverage hard-hitters only. Deal-breaker assumptions and dead-on-arrival risks. ~5–10 questions. Triage, not full coverage. |
+
+Pre-select to skip the prompt:
+
+```
+/grill-me deep        # default
+/grill-me standard
+/grill-me quick
+```
+
+Depth never lowers rigor on the questions asked — it changes how many branches the skill walks, not how sharp each question is.
+
 ## License
 
 MIT
