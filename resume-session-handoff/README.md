@@ -1,6 +1,6 @@
-# resume-handoff
+# resume-session-handoff
 
-> Pick up where a previous session left off — loads the newest open handoff written by `/handoff`, runs an environment preflight, marks the file resumed, and **asks the user what to do next** before touching anything.
+> Pick up where a previous session left off — loads the newest open handoff written by `/session-handoff`, runs an environment preflight, marks the file resumed, and **asks the user what to do next** before touching anything.
 
 **Category:** Agent Behavior
 
@@ -12,24 +12,29 @@ Discovers the newest open handoff document in the current project, runs a prefli
 2. Bootstraps `using-superpowers` if that skill is available in the environment, so process discipline (brainstorming → plan → TDD → verification) is loaded **before** the next move is chosen.
 3. Internalises the handoff body, then **stops and asks the user what to do next**. It does not pick up the first Next-moves item on its own — the user decides the direction.
 
-**The user never has to remember or paste a file path.** The skill resolves the project root the same way `/handoff` does (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`) and globs `<root>/.claude/handoffs/*.md` for the newest top-level file. The `resumed/` subdirectory is never recursed into.
+**The user never has to remember or paste a file path.** The skill resolves the project root the same way `/session-handoff` does (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`) and globs `<root>/.claude/handoffs/*.md` for the newest top-level file. The `resumed/` subdirectory is never recursed into.
 
-### Why `resume-handoff`, not `resume`
+### Why `resume-session-handoff`, not `resume` or `resume-handoff`
 
-Most agents (Claude Code, Codex, others) already ship a built-in `/resume` command that restores the prior conversation transcript. A skill named `resume` is shadowed in those environments — typing `/resume` triggers the agent's built-in, not the skill. `/resume-handoff` is unambiguous: it always means *load the handoff document written by `/handoff`*.
+Two collisions to avoid:
 
-### Pair with `/handoff`
+1. Most agents (Claude Code, Codex, others) reserve `/resume` for their built-in "restore the previous conversation" command. A skill named `resume` is shadowed in those environments.
+2. Devin reserves `/handoff` for its own session-transfer flow, so `/resume-handoff` would collide with the Devin namespace just by association.
 
-`/handoff` writes, `/resume-handoff` reads. Install both together:
+`/resume-session-handoff` is unambiguous: it always means *load the handoff document written by `/session-handoff`*.
+
+### Pair with `/session-handoff`
+
+`/session-handoff` writes, `/resume-session-handoff` reads. Install both together:
 
 ```bash
-npx skills@latest add amit-t/skills --skill handoff
-npx skills@latest add amit-t/skills --skill resume-handoff
+npx skills@latest add amit-t/skills --skill session-handoff
+npx skills@latest add amit-t/skills --skill resume-session-handoff
 ```
 
 ### When to Use
 
-- Starting a fresh session after running `/handoff` previously
+- Starting a fresh session after running `/session-handoff` previously
 - Switching agents or machines and continuing from a left-off handoff
 - After a break, when you don't remember where the last session stopped
 
@@ -37,16 +42,16 @@ npx skills@latest add amit-t/skills --skill resume-handoff
 
 - The new work is unrelated to any prior handoff
 - The handoff directory is empty
-- You want to *write* a handoff — use `/handoff`
+- You want to *write* a handoff — use `/session-handoff`
 - You meant the agent's built-in `/resume` (restore the prior chat) — that's a different operation
 
 ## Usage
 
 ```text
-/resume-handoff                    # load the newest open handoff
-/resume-handoff list               # show all open handoffs, oldest first, indexed
-/resume-handoff 2                  # load index 2 from the list
-/resume-handoff migration          # substring match by filename
+/resume-session-handoff                    # load the newest open handoff
+/resume-session-handoff list               # show all open handoffs, oldest first, indexed
+/resume-session-handoff 2                  # load index 2 from the list
+/resume-session-handoff migration          # substring match by filename
 ```
 
 The default (no argument) targets the newest by filename — filenames are `YYYY-MM-DD-HHMM-<slug>.md`, so lexical sort equals chronological sort.
@@ -62,7 +67,7 @@ Before asking to resume, the skill compares the handoff's frontmatter against th
 | `branch` | Branch has changed since the handoff was written |
 | `uncommitted_files` | Working tree differs from when the handoff was written |
 | `created` | Older than 14 days → flagged as potentially stale |
-| `status` | Already `resumed` → refuses to load; suggests `/resume-handoff list` |
+| `status` | Already `resumed` → refuses to load; suggests `/resume-session-handoff list` |
 
 Drift never blocks — it just makes the difference visible so you can decide.
 
@@ -77,12 +82,12 @@ Drift never blocks — it just makes the difference visible so you can decide.
    - Free-form options ("walk me through your understanding", "re-scope", "show the full body", "hold").
    - **Then waits for the user to pick a direction.** No edits, no shell side-effects, no skill invocations until the user chooses.
 
-If you decline, the file is left exactly where it was, still `status: open`, and the next `/resume-handoff` invocation will find it again.
+If you decline, the file is left exactly where it was, still `status: open`, and the next `/resume-session-handoff` invocation will find it again.
 
 ## Install as Agent Skill
 
 ```bash
-npx skills@latest add amit-t/skills --skill resume-handoff
+npx skills@latest add amit-t/skills --skill resume-session-handoff
 ```
 
 ### Manual Installation
@@ -92,12 +97,12 @@ npx skills@latest add amit-t/skills --skill resume-handoff
 
 ```bash
 # Project-level
-cp -r resume-handoff .cognition/skills/resume-handoff
+cp -r resume-session-handoff .cognition/skills/resume-session-handoff
 # or
-cp -r resume-handoff .windsurf/skills/resume-handoff
+cp -r resume-session-handoff .windsurf/skills/resume-session-handoff
 
 # Global
-cp -r resume-handoff ~/.config/cognition/skills/resume-handoff
+cp -r resume-session-handoff ~/.config/cognition/skills/resume-session-handoff
 ```
 
 </details>
@@ -107,10 +112,10 @@ cp -r resume-handoff ~/.config/cognition/skills/resume-handoff
 
 ```bash
 # Project-level
-cp -r resume-handoff .claude/skills/resume-handoff
+cp -r resume-session-handoff .claude/skills/resume-session-handoff
 
 # Global
-cp -r resume-handoff ~/.claude/skills/resume-handoff
+cp -r resume-session-handoff ~/.claude/skills/resume-session-handoff
 ```
 
 </details>
@@ -120,7 +125,7 @@ cp -r resume-handoff ~/.claude/skills/resume-handoff
 
 ```bash
 # Project-level
-cp -r resume-handoff .cursor/skills/resume-handoff
+cp -r resume-session-handoff .cursor/skills/resume-session-handoff
 ```
 
 </details>
@@ -129,7 +134,7 @@ cp -r resume-handoff .cursor/skills/resume-handoff
 <summary>Codex</summary>
 
 ```bash
-cat resume-handoff/SKILL.md >> AGENTS.md
+cat resume-session-handoff/SKILL.md >> AGENTS.md
 ```
 
 </details>
@@ -138,14 +143,14 @@ cat resume-handoff/SKILL.md >> AGENTS.md
 <summary>Gemini CLI</summary>
 
 ```bash
-cat resume-handoff/SKILL.md >> GEMINI.md
+cat resume-session-handoff/SKILL.md >> GEMINI.md
 ```
 
 </details>
 
 ## Related Skills
 
-- [`handoff`](../handoff) — the write side of this pair. `/handoff` produces the document `/resume-handoff` consumes. Install both together.
+- [`session-handoff`](../session-handoff) — the write side of this pair. `/session-handoff` produces the document `/resume-session-handoff` consumes. Install both together.
 - [`compact-conversation`](../compact-conversation) — in-place conversation compaction for the *same* agent. Complementary, not a replacement.
 
 ## License
