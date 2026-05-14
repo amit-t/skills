@@ -220,7 +220,7 @@ Ask: "Would you like to fix any P0 issues before handoff?" If yes, regenerate th
 
 ## Step 8: Developer Handoff
 
-**Skill:** `/handoff`
+**Skill:** `/session-handoff`
 
 Generate the complete developer handoff document:
 
