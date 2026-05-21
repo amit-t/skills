@@ -157,8 +157,8 @@ const skills = [
     slug: "gh-repo-mirror",
     name: "gh-repo-mirror",
     category: "Engineering",
-    tagline: "Scaffold a new GitHub repo mirroring a reference repo's settings, branch protection, and Pages site.",
-    detail: "Captures the reference repo's general settings, security-and-analysis flags, and classic branch protection, then creates the new repo and PATCHes everything to match. Optionally ports a neo-brutalist GitHub Pages docs site (rebranded), wires a custom domain via docs/CNAME, and background-polls for the Let's Encrypt cert before flipping https_enforced. Opt-ins: mirror repo-level rulesets, create the Cloudflare DNS record, and bootstrap a starter skill so the first commit isn't empty arrays.",
+    tagline: "Scaffold a new GitHub repo mirroring a reference repo's settings, branch protection, access, and Pages site.",
+    detail: "Captures the reference repo's general settings, security-and-analysis flags, classic branch protection, and (default-on) team + direct-collaborator access, then creates the new repo and PATCHes / PUTs everything to match. Optionally ports a neo-brutalist GitHub Pages docs site (rebranded), wires a custom domain via docs/CNAME, and background-polls for the Let's Encrypt cert before flipping https_enforced. Pass `--no-mirror-access` to skip the team + collaborator step. Other opt-ins: mirror repo-level rulesets (`--mirror-rulesets`), create the Cloudflare DNS record (`--cname-provider cloudflare`), and bootstrap a starter skill so the first commit isn't empty arrays.",
     usage: "/gh-repo-mirror",
   },
   {
@@ -284,6 +284,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-21",
+    items: [
+      "`gh-repo-mirror` now mirrors **repository access by default** — every team that has access to the reference repo is added to the new repo at the same permission level (pull / triage / push / maintain / admin), and direct collaborators are invited at the same permission. Driven by two read APIs (`GET repos/<ref>/teams` and `GET repos/<ref>/collaborators?affiliation=direct`) and two write APIs (`PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}` and `PUT /repos/{owner}/{repo}/collaborators/{login}`). The collaborator PUT expects the *API* permission vocabulary (`pull`/`triage`/`push`/`maintain`/`admin`) but GET returns the *display* vocabulary (`read`/`triage`/`write`/`maintain`/`admin`); a `role_to_permission` helper translates `read→pull` and `write→push`. Skip with the new `--no-mirror-access` flag. Cross-org caveat: team slugs are scoped to the target org, so teams from a different reference org will 404 on the PUT and log a warning per team — only teams that already exist in the new org resolve. Pending invites also show up as drift in the end-of-run diff until the invitee accepts; that's expected, not a failure. End-of-run verification now diffs teams and direct collaborators in addition to settings and branch protection (`gh-repo-mirror/SKILL.md`, `gh-repo-mirror/README.md`, `gh-repo-mirror/REFERENCE.md`, and `gh-repo-mirror/scripts/mirror-repo.zsh`).",
+    ],
+  },
   {
     date: "2026-05-14",
     items: [

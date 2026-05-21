@@ -194,6 +194,25 @@ Then POST to `repos/<new>/rulesets`. If a same-named ruleset already exists on t
 
 **Caveat**: rulesets can reference org-level actor IDs (teams, custom roles). Those IDs are valid across repos in the same org but won't resolve if you mirror across orgs. Cross-org mirroring may need manual cleanup.
 
+## Mirroring access: teams + direct collaborators (default-on, `--no-mirror-access` to skip)
+
+Repo settings and branch protection don't carry **who** can access the repo. Two separate API surfaces govern that:
+
+```zsh
+gh api --paginate repos/<ref>/teams                              # teams with access + permission
+gh api --paginate "repos/<ref>/collaborators?affiliation=direct"  # users granted directly (not via teams/org)
+```
+
+The skill copies both by default. Skip with `--no-mirror-access`.
+
+**Teams** — `PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}` with body `{"permission": "<pull|triage|push|maintain|admin>"}`. Permission values come back from the GET in the right form already.
+
+**Direct collaborators** — `PUT /repos/{owner}/{repo}/collaborators/{login}` with body `{"permission": "..."}`. Caveat: GET returns `role_name` in the *display* vocabulary (`read`/`triage`/`write`/`maintain`/`admin`) but PUT expects the *API* vocabulary (`pull`/`triage`/`push`/`maintain`/`admin`). The script's `role_to_permission` helper maps `read→pull`, `write→push`, leaves the others alone.
+
+**Cross-org caveat**: team slugs are scoped to the target org, not the reference org. If you mirror `acme-corp/foo` → `widgets-inc/bar`, the team `acme-corp/security-admins` does not auto-create in `widgets-inc`. The PUT will 404 and the script logs a warning per team. Only teams that already exist in the new org will resolve. For same-org mirrors this is a non-issue.
+
+**Pending invites**: direct-collaborator PUTs create *invitations*. The diff at the end of the run may show drift on `collaborators` until the invitee accepts. That's expected — not a failure.
+
 ## DNS CNAME (--cname-provider)
 
 GitHub Pages needs a `CNAME <custom-domain> -> <org-lowercased>.github.io` record before it can issue the Let's Encrypt cert. The skill handles two providers:
@@ -223,6 +242,10 @@ diff <(gh api repos/<org>/<ref>     | jq -S '<settings-projection>') \
      <(gh api repos/<org>/<new>     | jq -S '<settings-projection>')
 diff <(gh api repos/<org>/<ref>/branches/main/protection | jq -S 'del(.url, .[].url)') \
      <(gh api repos/<org>/<new>/branches/main/protection | jq -S 'del(.url, .[].url)')
+diff <(gh api --paginate repos/<org>/<ref>/teams | jq -S '[.[] | {slug, permission}] | sort_by(.slug)') \
+     <(gh api --paginate repos/<org>/<new>/teams | jq -S '[.[] | {slug, permission}] | sort_by(.slug)')
+diff <(gh api --paginate "repos/<org>/<ref>/collaborators?affiliation=direct" | jq -S '[.[] | {login, role_name}] | sort_by(.login)') \
+     <(gh api --paginate "repos/<org>/<new>/collaborators?affiliation=direct" | jq -S '[.[] | {login, role_name}] | sort_by(.login)')
 ```
 
-Empty diff = success. Any drift is printed for the operator to review (some drift is expected, e.g. `is_template` when the caller chose differently).
+Empty diff = success. Any drift is printed for the operator to review. Expected non-empty diffs: `is_template` when the caller chose differently; collaborator entries while invitations are still pending acceptance; cross-org team mirroring when some teams don't exist in the target org.
