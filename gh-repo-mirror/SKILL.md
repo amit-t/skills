@@ -12,8 +12,9 @@ Given a **reference repo** (e.g. `org/ai-workbench`), produces a **new repo** (e
 1. Identical general settings: visibility, has_issues/projects/wiki/discussions, is_template flag (caller decides), all merge methods + commit-message/title flags, delete-branch-on-merge, allow-update-branch, allow-forking, web-commit-signoff.
 2. Identical security-and-analysis: advanced_security, secret_scanning, push_protection, non_provider_patterns, ai_detection, validity_checks, dependabot_security_updates.
 3. Identical classic branch protection on `main`.
-4. A bundled neo-brutalist GitHub Pages docs site under `docs/` (or `/`, caller picks) with the caller's branding, empty `skills[]` and `changes[]` so content lands as you add it.
-5. Custom domain wired via `docs/CNAME` (if provided) and HTTPS enforced once the cert is issued.
+4. Identical access: every team that has access to the reference repo is added to the new repo with the same permission (pull/triage/push/maintain/admin); direct collaborators are invited at the same permission. Default-on; pass `--no-mirror-access` to skip.
+5. A bundled neo-brutalist GitHub Pages docs site under `docs/` (or `/`, caller picks) with the caller's branding, empty `skills[]` and `changes[]` so content lands as you add it.
+6. Custom domain wired via `docs/CNAME` (if provided) and HTTPS enforced once the cert is issued.
 
 ## Quick start
 
@@ -29,6 +30,10 @@ Run the helper script with the reference repo + new repo name. It interviews for
 ```
 
 Add `--template` to set `is_template=true`, `--no-port-docs` to skip the Pages scaffold, `--dry-run` to print the plan without changing anything.
+
+**Default-on capability** (suppress with a flag):
+
+- Team + direct-collaborator access mirroring runs on every invocation. Pass `--no-mirror-access` to skip. Team slugs are scoped to the new repo's org — if the reference is in a different org, only teams that already exist in the target org will resolve; the rest log a warning.
 
 **Extra capabilities** (all opt-in):
 
@@ -47,9 +52,10 @@ Add `--template` to set `is_template=true`, `--no-port-docs` to skip the Pages s
    - Writes `README.md`, `CHANGELOG.md`, `.gitignore` at repo root.
    - `git init -b main`, commits, pushes.
    - PUTs classic branch protection mirroring the reference (typically just `allow_force_pushes=false` + `allow_deletions=false`).
+   - Mirrors team access (`PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}`) and direct collaborators (`PUT /repos/{owner}/{repo}/collaborators/{login}`) at the same permission level as the reference. Skipped if `--no-mirror-access` is set.
    - POSTs Pages config with `source: {branch: main, path: /docs|/}` and `build_type: legacy`.
    - Background-polls for the Let's Encrypt cert (`https_certificate.state == "approved"`), then PUTs `https_enforced=true`.
-3. **Verify by diff.** Script prints a side-by-side of settings + branch protection between reference and new repo. Any drift is highlighted.
+3. **Verify by diff.** Script prints a side-by-side of settings, branch protection, teams, and direct collaborators between reference and new repo. Any drift is highlighted.
 
 ## Inputs the skill asks for if not passed
 

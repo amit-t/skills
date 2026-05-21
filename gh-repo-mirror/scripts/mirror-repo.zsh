@@ -42,6 +42,8 @@ Optional:
   --from-repo     <org>/<name>   port Pages content from a different repo instead of bundled templates
   --visibility    private|public|internal   override (default: match reference)
   --mirror-rulesets              also mirror repo-level rulesets from the reference
+  --no-mirror-access             skip mirroring teams + direct collaborators
+                                 (by default, both are mirrored from the reference)
   --cname-provider <name>        create the DNS CNAME for --custom-domain. Supported: cloudflare, print
                                  cloudflare needs --cname-zone-id and \$CLOUDFLARE_API_TOKEN.
                                  print just emits the record the user must create manually.
@@ -71,6 +73,7 @@ visibility_override=""
 dry_run="false"
 enforce_https_only=""
 mirror_rulesets="false"
+mirror_access="true"
 cname_provider=""
 cname_zone_id=""
 bootstrap_skill=""
@@ -88,6 +91,7 @@ while (( $# )); do
     --from-repo)           from_repo="$2"; shift 2;;
     --visibility)          visibility_override="$2"; shift 2;;
     --mirror-rulesets)     mirror_rulesets="true"; shift;;
+    --no-mirror-access)    mirror_access="false"; shift;;
     --cname-provider)      cname_provider="$2"; shift 2;;
     --cname-zone-id)       cname_zone_id="$2"; shift 2;;
     --bootstrap-skill)     bootstrap_skill="$2"; shift 2;;
@@ -195,6 +199,17 @@ if [[ "$mirror_rulesets" == "true" ]]; then
   rm -f /tmp/_ref_rs.$$.json
 fi
 
+ref_teams_json="[]"
+ref_collabs_json="[]"
+if [[ "$mirror_access" == "true" ]]; then
+  gh api --paginate "repos/$ref_repo/teams" >/tmp/_ref_teams.$$.json 2>/dev/null \
+    && ref_teams_json=$(< /tmp/_ref_teams.$$.json)
+  rm -f /tmp/_ref_teams.$$.json
+  gh api --paginate "repos/$ref_repo/collaborators?affiliation=direct" >/tmp/_ref_collabs.$$.json 2>/dev/null \
+    && ref_collabs_json=$(< /tmp/_ref_collabs.$$.json)
+  rm -f /tmp/_ref_collabs.$$.json
+fi
+
 # Default hero eyebrow = org name (uppercased, underscores→spaces).
 if [[ -z "$hero_eyebrow" ]]; then
   hero_eyebrow=$(print -r -- "$new_org" | tr '[:lower:]' '[:upper:]' | tr '_-' '  ')
@@ -216,6 +231,7 @@ Plan
   Branch protect:   $([[ -n "$ref_protection_json" ]] && print -r -- "mirror reference" || print -r -- "<reference has none — skipping>")
   Pages config:     $([[ -n "$ref_pages_json" ]] && print -r -- "mirror reference (override path=$pages_path)" || print -r -- "enable fresh on $pages_path")
   Rulesets:         $([[ "$mirror_rulesets" == "true" ]] && print -r -- "mirror ($(jq 'length' <<<"$ref_rulesets_json") found on reference)" || print -r -- "skipped (pass --mirror-rulesets to enable)")
+  Access:           $([[ "$mirror_access" == "true" ]] && print -r -- "mirror ($(jq 'length' <<<"$ref_teams_json") team(s), $(jq 'length' <<<"$ref_collabs_json") direct collaborator(s) on reference)" || print -r -- "skipped (--no-mirror-access)")
   DNS CNAME:        $([[ -n "$cname_provider" ]] && print -r -- "$cname_provider → ${custom_domain} -> ${new_org:l}.github.io" || print -r -- "skipped (pass --cname-provider to enable)")
   Bootstrap skill:  ${bootstrap_skill:-<none>}
 EOF
@@ -606,6 +622,76 @@ if [[ "$mirror_rulesets" == "true" ]]; then
   fi
 fi
 
+# ───────────── Access: teams + direct collaborators ─────────────
+
+# Map collaborator role_name (read/triage/write/maintain/admin) to PUT permission
+# value (pull/triage/push/maintain/admin).
+role_to_permission() {
+  case "$1" in
+    read)     print -r -- "pull" ;;
+    triage)   print -r -- "triage" ;;
+    write)    print -r -- "push" ;;
+    maintain) print -r -- "maintain" ;;
+    admin)    print -r -- "admin" ;;
+    # If we already got a permission-style value, pass through.
+    pull|push) print -r -- "$1" ;;
+    *)        print -r -- "$1" ;;
+  esac
+}
+
+if [[ "$mirror_access" == "true" ]]; then
+  team_count=$(jq 'length' <<<"$ref_teams_json")
+  collab_count=$(jq 'length' <<<"$ref_collabs_json")
+
+  if (( team_count == 0 && collab_count == 0 )); then
+    print_warn "Reference has no teams or direct collaborators — nothing to mirror"
+  else
+    print_info "Mirroring access: $team_count team(s), $collab_count direct collaborator(s)"
+  fi
+
+  # Teams: PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}
+  if (( team_count > 0 )); then
+    ref_org=${ref_repo%/*}
+    new_org_for_teams=${new_repo%/*}
+    if [[ "$ref_org" != "$new_org_for_teams" ]]; then
+      print_warn "Reference org ($ref_org) differs from new org ($new_org_for_teams);"
+      print_warn "team slugs are scoped to the new org — only teams that already exist there will resolve."
+    fi
+    jq -c '.[]' <<<"$ref_teams_json" | while IFS= read -r team; do
+      slug=$(jq -r '.slug' <<<"$team")
+      perm=$(jq -r '.permission' <<<"$team")
+      payload=$(jq -n --arg p "$perm" '{permission: $p}')
+      if print -r -- "$payload" \
+          | gh api -X PUT "orgs/$new_org_for_teams/teams/$slug/repos/$new_repo" --input - >/dev/null 2>/tmp/_team.$$.err; then
+        print_ok "  Team '$slug' → $perm"
+      else
+        print_warn "  Could not grant team '$slug' ($perm):"
+        cat /tmp/_team.$$.err >&2
+      fi
+      rm -f /tmp/_team.$$.err
+    done
+  fi
+
+  # Direct collaborators: PUT /repos/{owner}/{repo}/collaborators/{username}
+  if (( collab_count > 0 )); then
+    jq -c '.[]' <<<"$ref_collabs_json" | while IFS= read -r collab; do
+      login=$(jq -r '.login' <<<"$collab")
+      role=$(jq -r '.role_name // empty' <<<"$collab")
+      [[ -z "$role" ]] && role="push"  # safe default if role_name missing
+      perm=$(role_to_permission "$role")
+      payload=$(jq -n --arg p "$perm" '{permission: $p}')
+      if print -r -- "$payload" \
+          | gh api -X PUT "repos/$new_repo/collaborators/$login" --input - >/dev/null 2>/tmp/_collab.$$.err; then
+        print_ok "  Collaborator '$login' → $perm"
+      else
+        print_warn "  Could not invite collaborator '$login' ($perm):"
+        cat /tmp/_collab.$$.err >&2
+      fi
+      rm -f /tmp/_collab.$$.err
+    done
+  fi
+fi
+
 # ───────────── DNS CNAME (optional) ─────────────
 
 cname_target="${new_org:l}.github.io"
@@ -701,6 +787,30 @@ if [[ -n "$ref_protection_json" ]]; then
   else
     print_warn "Branch protection drift:"
     print -r -- "$prot_diff"
+  fi
+fi
+
+if [[ "$mirror_access" == "true" ]]; then
+  teams_diff=$(diff \
+    <(gh api --paginate "repos/$ref_repo/teams" | jq -S '[.[] | {slug, permission}] | sort_by(.slug)') \
+    <(gh api --paginate "repos/$new_repo/teams" | jq -S '[.[] | {slug, permission}] | sort_by(.slug)') || true)
+  if [[ -z "$teams_diff" ]]; then
+    print_ok "Teams: zero drift"
+  else
+    print_warn "Teams drift (expected if cross-org or some teams don't exist in new org):"
+    print -r -- "$teams_diff"
+  fi
+
+  collabs_diff=$(diff \
+    <(gh api --paginate "repos/$ref_repo/collaborators?affiliation=direct" \
+        | jq -S '[.[] | {login, role_name}] | sort_by(.login)') \
+    <(gh api --paginate "repos/$new_repo/collaborators?affiliation=direct" \
+        | jq -S '[.[] | {login, role_name}] | sort_by(.login)') || true)
+  if [[ -z "$collabs_diff" ]]; then
+    print_ok "Direct collaborators: zero drift"
+  else
+    print_warn "Direct collaborators drift (invites may still be pending acceptance):"
+    print -r -- "$collabs_diff"
   fi
 fi
 
