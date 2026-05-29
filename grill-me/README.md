@@ -106,6 +106,12 @@ Pre-select to skip the prompt:
 
 Depth never lowers rigor on the questions asked — it changes how many branches the skill walks, not how sharp each question is.
 
+## Credits
+
+Forked from [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock) ([mattpocock/skills](https://github.com/mattpocock/skills)).
+
+This fork adds a depth selector (`quick` / `standard` / `deep`) and the Step 0 depth prompt. The relentless-interview core is Matt's original idea.
+
 ## License
 
 MIT

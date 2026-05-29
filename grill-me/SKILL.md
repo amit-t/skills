@@ -32,3 +32,7 @@ If the argument is ambiguous or unrecognised, fall back to asking.
 - **quick** — only the questions whose wrong answer would kill or seriously bend the plan. Skip stylistic, naming, and second-order concerns. One pass, no follow-up branches unless the answer reveals a critical gap.
 
 Depth never lowers rigor on the questions you *do* ask — it changes how many branches you walk, not how sharp each question is.
+
+---
+
+_Forked from [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock). This fork adds the depth selector; the relentless-interview core is Matt's original._
