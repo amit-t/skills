@@ -285,6 +285,12 @@ const skills = [
 
 const changes = [
   {
+    date: "2026-05-29",
+    items: [
+      "Added upstream attribution to `grill-me`. The skill is a fork of [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock) (`mattpocock/skills`); this fork adds the `quick` / `standard` / `deep` depth selector while the relentless-interview core is Matt's original. Credit now lives where anyone installing the skill will see it — a Credits section in `grill-me/README.md` and a footer line in `grill-me/SKILL.md` so the attribution travels with the installed copy.",
+    ],
+  },
+  {
     date: "2026-05-21",
     items: [
       "`gh-repo-mirror` now mirrors **repository access by default** — every team that has access to the reference repo is added to the new repo at the same permission level (pull / triage / push / maintain / admin), and direct collaborators are invited at the same permission. Driven by two read APIs (`GET repos/<ref>/teams` and `GET repos/<ref>/collaborators?affiliation=direct`) and two write APIs (`PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}` and `PUT /repos/{owner}/{repo}/collaborators/{login}`). The collaborator PUT expects the *API* permission vocabulary (`pull`/`triage`/`push`/`maintain`/`admin`) but GET returns the *display* vocabulary (`read`/`triage`/`write`/`maintain`/`admin`); a `role_to_permission` helper translates `read→pull` and `write→push`. Skip with the new `--no-mirror-access` flag. Cross-org caveat: team slugs are scoped to the target org, so teams from a different reference org will 404 on the PUT and log a warning per team — only teams that already exist in the new org resolve. Pending invites also show up as drift in the end-of-run diff until the invitee accepts; that's expected, not a failure. End-of-run verification now diffs teams and direct collaborators in addition to settings and branch protection (`gh-repo-mirror/SKILL.md`, `gh-repo-mirror/README.md`, `gh-repo-mirror/REFERENCE.md`, and `gh-repo-mirror/scripts/mirror-repo.zsh`).",
