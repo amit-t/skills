@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "repoUrl": "https://github.com/amit-t/skills",
+  "skills": [
+    {
+      "slug": "prd-draft",
+      "name": "prd-draft",
+      "category": "Product Management",
+      "tagline": "Create modern, AI-era PRDs through guided interview.",
+      "detail": "Best when a feature idea is still fuzzy and the agent needs to shape the problem before writing requirements.",
+      "usage": "/prd-draft"
+    },
+    {
+      "slug": "prd-review-panel",
+      "name": "prd-review-panel",
+      "category": "Product Management",
+      "tagline": "Run a 7-perspective review on a PRD before approval.",
+      "detail": "Useful for pressure-testing clarity, scope, edge cases, and stakeholder concerns before the document moves forward.",
+      "usage": "/prd-review-panel"
+    },
+    {
+      "slug": "prd-approve",
+      "name": "prd-approve",
+      "category": "Product Management",
+      "tagline": "Approve a reviewed PRD and advance the pipeline.",
+      "detail": "Use after review is complete and the PRD is ready to become the source document for downstream planning and engineering.",
+      "usage": "/prd-approve"
+    },
+    {
+      "slug": "prd-to-plan",
+      "name": "prd-to-plan",
+      "category": "Product Management",
+      "tagline": "Break a PRD into tracer-bullet implementation phases.",
+      "detail": "Helps teams turn product requirements into a staged execution plan with slices that can be built and validated incrementally.",
+      "usage": "/prd-to-plan"
+    },
+    {
+      "slug": "write-a-prd",
+      "name": "write-a-prd",
+      "category": "Product Management",
+      "tagline": "Write a PRD through interview, exploration, and module design.",
+      "detail": "Good when the task needs more system understanding than a lightweight PRD interview alone can provide.",
+      "usage": "/write-a-prd"
+    },
+    {
+      "slug": "pmo-status",
+      "name": "pmo-status",
+      "category": "Project Management",
+      "tagline": "Get product, engineering, and implementation status in one pass.",
+      "detail": "Use at session start or when project state is fragmented across PM, DoE, specs, ADRs, and implementation artifacts.",
+      "usage": "/pmo-status"
+    },
+    {
+      "slug": "code-review",
+      "name": "code-review",
+      "category": "Engineering",
+      "tagline": "Principal-engineer review of any GitHub PR with two-phase approval before posting.",
+      "detail": "11-dimension rubric grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design. Pre-checks PR description quality (what / why / test plan), size (LOC + file count), and single-concern scope before deep review. Walks every finding one at a time with approve / skip / edit / expand / defer / quit verbs. Only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe — dedupes against prior runs via hidden markers. Fully configurable thresholds, rubric dimensions, and verdict policy in config.yaml.",
+      "usage": "/code-review <pr-num|url>"
+    },
+    {
+      "slug": "e2e-audit",
+      "name": "e2e-audit",
+      "category": "Engineering",
+      "tagline": "Playwright PRD audit + persona screenshot demo + bug-to-fix_plan emitter.",
+      "detail": "Discovers routes and auth strategy, scaffolds a Playwright e2e package, writes PRD-driven tests, captures full-page screenshots per persona/route, exports a diagnostic report, and appends one ralph task per bug to .ralph/fix_plan.md with file paths, root-cause hypotheses, and exit criteria.",
+      "usage": "/e2e-audit"
+    },
+    {
+      "slug": "eng-spec",
+      "name": "eng-spec",
+      "category": "Engineering",
+      "tagline": "Turn an approved PRD into TDD, engineering spec, and ADRs.",
+      "detail": "Runs a review panel across architecture, database design, testing, and performance before approval.",
+      "usage": "/eng-spec"
+    },
+    {
+      "slug": "tdd",
+      "name": "tdd",
+      "category": "Engineering",
+      "tagline": "Use a disciplined red-green-refactor workflow.",
+      "detail": "Fits feature work and bug fixes where the user wants test-first implementation and tighter feedback loops.",
+      "usage": "/tdd"
+    },
+    {
+      "slug": "git-guardrails-claude-code",
+      "name": "git-guardrails-claude-code",
+      "category": "Engineering",
+      "tagline": "Block destructive git commands in Claude Code.",
+      "detail": "Sets up hooks to stop push, reset, clean, and similar actions before they can damage the working tree or remote state.",
+      "usage": "/git-guardrails-claude-code"
+    },
+    {
+      "slug": "ubiquitous-language",
+      "name": "ubiquitous-language",
+      "category": "Engineering",
+      "tagline": "[Deprecated] Superseded by /repo-context-scan and /domain-grill.",
+      "detail": "Kept as a redirect so existing references resolve. Use /repo-context-scan to build CONTEXT.md from the code itself, /domain-grill to stress-test engineering artifacts against it, and /grill-me for PRDs or non-technical plans.",
+      "usage": "/ubiquitous-language"
+    },
+    {
+      "slug": "repo-context-scan",
+      "name": "repo-context-scan",
+      "category": "Engineering",
+      "tagline": "Scan a codebase to build CONTEXT.md and seed ADRs for clearly-deliberate decisions.",
+      "detail": "Autonomous by default — reads code, infers domain language, and writes CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) plus seeded ADRs. Asks only when ambiguity blocks resolution. Idempotent; safe to re-run as the codebase evolves. Run after cloning a repo or whenever code has drifted from docs. Companion to /domain-grill.",
+      "usage": "/repo-context-scan"
+    },
+    {
+      "slug": "domain-grill",
+      "name": "domain-grill",
+      "category": "Engineering",
+      "tagline": "Engineering-only stress-test of a code artifact against CONTEXT.md.",
+      "detail": "Reads CONTEXT.md (and ADRs) to interview the user against an eng spec, TDD plan, refactor proposal, technical design, schema migration, or API contract. Surfaces conflicts, sharpens fuzzy terms, may add new ADRs for crystallized decisions. Refuses PRDs and non-technical artifacts and redirects to /grill-me. Read-only on CONTEXT.md — flags new terms and recommends re-running /repo-context-scan. Asks for a grill depth (quick / standard / deep) before starting, defaulting to deep; pre-selectable via `/domain-grill quick|standard|deep`. Depth changes how many branches the skill walks, not how sharp each question is.",
+      "usage": "/domain-grill [quick|standard|deep]"
+    },
+    {
+      "slug": "qa",
+      "name": "qa",
+      "category": "Engineering",
+      "tagline": "Run an interactive QA session that files GitHub issues.",
+      "detail": "Designed for conversational bug reporting when the user wants the agent to absorb context and turn findings into issues.",
+      "usage": "/qa"
+    },
+    {
+      "slug": "request-refactor-plan",
+      "name": "request-refactor-plan",
+      "category": "Engineering",
+      "tagline": "Plan a refactor as tiny, safe commits.",
+      "detail": "Best for risky cleanup work that needs an interview, incremental sequencing, and issue tracking before changes begin.",
+      "usage": "/request-refactor-plan"
+    },
+    {
+      "slug": "grill-me",
+      "name": "grill-me",
+      "category": "Engineering",
+      "tagline": "Stress-test a plan or design through relentless interview.",
+      "detail": "Good when an idea sounds plausible but the team wants to expose weak assumptions before investing implementation time. Asks for a grill depth (quick / standard / deep) before the first question, defaulting to deep; pre-selectable via `/grill-me quick|standard|deep`. Depth changes how many branches the skill walks, not how sharp each question is.",
+      "usage": "/grill-me [quick|standard|deep]"
+    },
+    {
+      "slug": "package-scout",
+      "name": "package-scout",
+      "category": "Engineering",
+      "tagline": "Research, compare, and select the best packages before installing.",
+      "detail": "Stops the agent from blindly installing packages. Searches the web for alternatives, compares stars, downloads, bundle size, vulnerabilities, and maintenance — then presents a comparison table so the user picks the right dependency.",
+      "usage": "/package-scout"
+    },
+    {
+      "slug": "docs-from-prs",
+      "name": "docs-from-prs",
+      "category": "Engineering",
+      "tagline": "Sync README and other user-facing docs with merged PRs.",
+      "detail": "Surveys recent merged PRs, classifies user-facing changes, places each into the right doc section using a placement matrix, re-audits the project's drift hot spots (alias tables, CLI flag references, config examples) every run, and finishes with a grammar/casing/alignment copy-edit pass. Project-agnostic.",
+      "usage": "/docs-from-prs"
+    },
+    {
+      "slug": "gh-repo-mirror",
+      "name": "gh-repo-mirror",
+      "category": "Engineering",
+      "tagline": "Scaffold a new GitHub repo mirroring a reference repo's settings, branch protection, access, and Pages site.",
+      "detail": "Captures the reference repo's general settings, security-and-analysis flags, classic branch protection, and (default-on) team + direct-collaborator access, then creates the new repo and PATCHes / PUTs everything to match. Optionally ports a neo-brutalist GitHub Pages docs site (rebranded), wires a custom domain via docs/CNAME, and background-polls for the Let's Encrypt cert before flipping https_enforced. Pass `--no-mirror-access` to skip the team + collaborator step. Other opt-ins: mirror repo-level rulesets (`--mirror-rulesets`), create the Cloudflare DNS record (`--cname-provider cloudflare`), and bootstrap a starter skill so the first commit isn't empty arrays.",
+      "usage": "/gh-repo-mirror"
+    },
+    {
+      "slug": "resume-tailoring",
+      "name": "resume-tailoring",
+      "category": "Engineering",
+      "tagline": "Tailor a resume to a specific job with research, discovery, and scored matching.",
+      "detail": "Takes a JD and your resume library, researches the company/role, surfaces undocumented experience via branching interview, matches content with confidence scores, and emits MD + DOCX + PDF + interview-prep report. Multi-job batch mode for applying to 3–5 roles at once. Includes a portable single-file .skill bundle for Codex and co-work.",
+      "usage": "/resume-tailoring"
+    },
+    {
+      "slug": "design-interview",
+      "name": "design-interview",
+      "category": "UX Design",
+      "tagline": "Run a structured design brief interview before any screens.",
+      "detail": "Captures context, user goals, style, constraints, and success metrics before visual work starts.",
+      "usage": "/design-interview"
+    },
+    {
+      "slug": "design-draft",
+      "name": "design-draft",
+      "category": "UX Design",
+      "tagline": "Go from design interview to developer handoff.",
+      "detail": "Covers user flows, wireframes, system decisions, hi-fi screens, review, and approval in one end-to-end UX workflow.",
+      "usage": "/design-draft"
+    },
+    {
+      "slug": "design-review",
+      "name": "design-review",
+      "category": "UX Design",
+      "tagline": "Review generated screens from 5 design perspectives.",
+      "detail": "Useful for checking UX, accessibility, engineering feasibility, brand alignment, and end-user clarity before handoff.",
+      "usage": "/design-review"
+    },
+    {
+      "slug": "compact-conversation",
+      "name": "compact-conversation",
+      "category": "Agent Behavior",
+      "tagline": "Compact the current conversation into a concise summary.",
+      "detail": "Creates a structured summary of completed work, key decisions, current state, and pending tasks so you can continue in a fresh session without losing context. Only use when the agent lacks a built-in /compact command.",
+      "usage": "/compact-conversation"
+    },
+    {
+      "slug": "session-handoff",
+      "name": "session-handoff",
+      "category": "Agent Behavior",
+      "tagline": "Write a discoverable handoff document so another agent can continue the work via /resume-session-handoff.",
+      "detail": "Saves a focused handoff to `<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md` — goal, current state, decisions, ruled-out approaches, open questions, next moves, and suggested skills for the next session. YAML frontmatter (cwd, branch, uncommitted-file count, focus, status) feeds the companion `/resume-session-handoff` skill's preflight. Auto-adds `/.claude/handoffs/` to `.gitignore`, references existing artifacts (PRDs, plans, ADRs, issues, commits, diffs) by path or URL, and tailors the body to the optional argument describing the next session's focus. Named `session-handoff` (not `/handoff`) to avoid colliding with Devin's built-in `/handoff` command, which would otherwise shadow the skill.",
+      "usage": "/session-handoff"
+    },
+    {
+      "slug": "resume-session-handoff",
+      "name": "resume-session-handoff",
+      "category": "Agent Behavior",
+      "tagline": "Load the newest open handoff with an environment preflight, then ask what to do next — never auto-executes.",
+      "detail": "Companion to `/session-handoff`. Named `resume-session-handoff` because (1) most agents (Claude Code, Codex, others) ship a built-in `/resume` that restores the prior conversation and would shadow a skill named `resume`; (2) Devin reserves `/handoff` for its own session-transfer flow, so `/resume-handoff` collides by association. `/resume-session-handoff` is unambiguous. Resolves the project root the same way as `/session-handoff` (`git rev-parse --show-toplevel` → ancestor with `.claude/` → `pwd`), globs `<root>/.claude/handoffs/*.md` for the newest open handoff, parses its frontmatter, and surfaces drift against the current environment (project root, cwd, branch, uncommitted-file count, staleness over 14 days). On user confirm, flips `status: resumed`, sets `resumed_at`, moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>`, internalises the body, and **stops to ask the user what to do next** — presenting the Next-moves items, Suggested skills, and free-form options instead of auto-running the first move. Implicitly bootstraps the `using-superpowers` skill before asking, if the environment lists it, so process discipline (brainstorming → plan → TDD → verify) is loaded before the direction is chosen. Supports `/resume-session-handoff list`, `/resume-session-handoff <n>`, and `/resume-session-handoff <slug-substring>` for non-newest selection.",
+      "usage": "/resume-session-handoff"
+    },
+    {
+      "slug": "concise-reporting",
+      "name": "concise-reporting",
+      "category": "Agent Behavior",
+      "tagline": "Make progress and status reporting brutally concise.",
+      "detail": "Keeps agent updates short and direct while preserving full detail for real deliverables like docs, plans, and specs.",
+      "usage": "/concise-reporting"
+    },
+    {
+      "slug": "precision-mode",
+      "name": "precision-mode",
+      "category": "Agent Behavior",
+      "tagline": "Universal conciseness directive for all LLM output.",
+      "detail": "A single prompt injector that eliminates verbosity from every response — answers, code, explanations, plans, emails, docs. Paste into any system prompt.",
+      "usage": "/precision-mode"
+    },
+    {
+      "slug": "session-feedback",
+      "name": "session-feedback",
+      "category": "Agent Behavior",
+      "tagline": "Mine the conversation for corrections, preferences, and do-differently lessons; write a dated feedback file; in future sessions, ask 'do I care about this at the moment?' before applying any remembered item.",
+      "detail": "Two modes. Write mode walks every user turn, classifies into three buckets (corrections the user made, preferences they stated, principles to apply differently next time), and emits a frontmatter-tagged feedback-<YYYY-MM-DD>.md with stable IDs (C1-Cn, P1-Pn, D1-Dn) into the project's Claude Code auto-memory directory, indexed in MEMORY.md. No per-item filtering at write time. Recall mode (auto-triggered in future sessions, plus explicit --recall for a bulk session-start walk) surfaces remembered items in a compact listing format and asks 'Do I care about this at the moment, or do I not?' before the agent applies anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is opt-in via --recall. Session-scoped decisions live in .active-feedback.json; 'always' or 'never' answers persist back to the feedback file's frontmatter. Nothing is ever silently applied. Captures the user's actual words for corrections so future-you recognises the pattern, not just the conclusion.",
+      "usage": "/session-feedback"
+    },
+    {
+      "slug": "skill-sync",
+      "name": "skill-sync",
+      "category": "Agent Behavior",
+      "tagline": "Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin.",
+      "detail": "Wraps the skill-sync zsh utility (in ai-utils/skill-sync). Sync mode mirrors a source skill into the current repo and upserts catalog entries (README, site.js, CHANGELOG, skills-lock). Build mode hands a runtime prompt to claude/codex/devin to scaffold a new skill from raw source material. Idempotent on rerun.",
+      "usage": "/skill-sync"
+    },
+    {
+      "slug": "write-a-skill",
+      "name": "write-a-skill",
+      "category": "AI Agent",
+      "tagline": "Create new skills with the right structure and disclosure.",
+      "detail": "Fits skill authoring work where the user wants reusable instructions, bundled resources, and better invocation behavior.",
+      "usage": "/write-a-skill"
+    },
+    {
+      "slug": "gh-pages-neo-brutalist",
+      "name": "gh-pages-neo-brutalist",
+      "category": "Engineering",
+      "tagline": "Scaffold a GitHub Pages site in a neo-brutalist house style.",
+      "detail": "Drop-in Jekyll templates with a cohesive neo-brutalist design system — IBM Plex Mono everywhere, 3px borders, solid offset shadows, eight saturated accents, four themes (light / dark / cyberpunk grid / solarized IDE), copy buttons on <pre>, theme switcher in localStorage. Includes scaffold.zsh for one-shot stamping and a GitHub Actions Pages workflow.",
+      "usage": "/gh-pages-neo-brutalist"
+    },
+    {
+      "slug": "wisdom-capture",
+      "name": "wisdom-capture",
+      "category": "Leadership",
+      "tagline": "Capture a wisdom snippet into a personal corpus — categorize, write, commit.",
+      "detail": "11-step flow that records one snippet as one file under `wisdoms/<YYYY>/<MM>/<ulid>.md`. Reads `wisdoms/_categories.yml` (closed taxonomy), proposes a primary bucket + tags, optionally proposes a new bucket if no fit, takes a personal note, writes frontmatter (id, created_at, body_hash, category, tags, source_url, source_author, note, import_origin), and commits with `wisdom: <category> — <body>…`. Vision-capable when the user pastes images (slide-style reels, quote cards). Designed for the companion `wisdom` CLI but works in any project that adopts the same data shape.",
+      "usage": "/wisdom-capture"
+    },
+    {
+      "slug": "leadership-update",
+      "name": "leadership-update",
+      "category": "Leadership",
+      "tagline": "Turn raw notes into an outcome-first update leadership remembers.",
+      "detail": "Reformats messy status into three sentences — outcome, reasoning, next — ending with a clear ask. Auto-detects whether to reformat directly or run a 1–3 question interview. Verbal/standup script by default; offers Slack, email, and status-doc formats. Based on Yasar Ahmad's leadership-update framework.",
+      "usage": "/leadership-update"
+    }
+  ]
+}
