@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "changes": [
+    {
+      "date": "2026-05-30",
+      "items": [
+        "Added grill-me-auto skill — batch-mode `/grill-me` fork that writes every question, option, recommendation, alt recommendation, and one-shot answer shortcut into a collapsible markdown grill document."
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "items": [
+        "Added upstream attribution to `grill-me`. The skill is a fork of [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock) (`mattpocock/skills`); this fork adds the `quick` / `standard` / `deep` depth selector while the relentless-interview core is Matt's original. Credit now lives where anyone installing the skill will see it — a Credits section in `grill-me/README.md` and a footer line in `grill-me/SKILL.md` so the attribution travels with the installed copy."
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "items": [
+        "`gh-repo-mirror` now mirrors **repository access by default** — every team that has access to the reference repo is added to the new repo at the same permission level (pull / triage / push / maintain / admin), and direct collaborators are invited at the same permission. Driven by two read APIs (`GET repos/<ref>/teams` and `GET repos/<ref>/collaborators?affiliation=direct`) and two write APIs (`PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}` and `PUT /repos/{owner}/{repo}/collaborators/{login}`). The collaborator PUT expects the *API* permission vocabulary (`pull`/`triage`/`push`/`maintain`/`admin`) but GET returns the *display* vocabulary (`read`/`triage`/`write`/`maintain`/`admin`); a `role_to_permission` helper translates `read→pull` and `write→push`. Skip with the new `--no-mirror-access` flag. Cross-org caveat: team slugs are scoped to the target org, so teams from a different reference org will 404 on the PUT and log a warning per team — only teams that already exist in the new org resolve. Pending invites also show up as drift in the end-of-run diff until the invitee accepts; that's expected, not a failure. End-of-run verification now diffs teams and direct collaborators in addition to settings and branch protection (`gh-repo-mirror/SKILL.md`, `gh-repo-mirror/README.md`, `gh-repo-mirror/REFERENCE.md`, and `gh-repo-mirror/scripts/mirror-repo.zsh`)."
+      ]
+    },
+    {
+      "date": "2026-05-14",
+      "items": [
+        "Added a grill-depth selector to both `grill-me` and `domain-grill`. Each skill now asks the user how deep to grill before the first question, defaulting to `deep` (deepest) — and accepts `quick` / `standard` / `deep` (aliases `1` / `2` / `3` and `sharp` / `medium` / `deepest`) either as the answer to that prompt or as a pre-selected invocation argument: `/grill-me quick`, `/domain-grill standard`, etc. `deep` walks every branch of the decision tree, surfaces contradictions hard, invents boundary scenarios, and cross-references against code / CONTEXT.md / ADRs until shared understanding (unbounded). `standard` covers the spine plus the obvious edges in ~15–25 questions. `quick` runs only the top ~5–10 highest-leverage hard-hitters — deal-breaker assumptions, glossary conflicts that would mislead implementers, ADR contradictions — as triage rather than full coverage. Depth changes *how many branches* the skill walks, not *how sharp* each question is; for `domain-grill`, the ADR-recording criteria and end-of-session summary still apply at every depth. SKILL.md, README.md, the site.js skills array entries, and this changes feed are all updated; `usage:` strings updated to `/grill-me [quick|standard|deep]` and `/domain-grill [quick|standard|deep]`.",
+        "Renamed the handoff pair again to dodge a *second* shadow: `handoff` → `session-handoff` and `resume-handoff` → `resume-session-handoff`. New triggers are `/session-handoff` and `/resume-session-handoff`. The earlier rename (resume → resume-handoff) only resolved the `/resume` shadow on Claude Code / Codex; but Devin already ships a built-in `/handoff` command for its own session-transfer flow, which shadowed the write side and made `resume-handoff` collide by association too. The pair is now unambiguous everywhere. Behaviour is unchanged: same `.claude/handoffs/` document path, same preflight, same no-auto-execute resume that asks the user what to do next and implicitly bootstraps `using-superpowers` when available. Catalog updated end-to-end: `git mv handoff session-handoff` and `git mv resume-handoff resume-session-handoff` to preserve history, both `name:` frontmatter fields, all internal cross-refs in both SKILL.md and README.md files, root README catalog table, site.js skills entries, install-command lines in both READMEs, and `design-draft/SKILL.md`'s developer-handoff step (`Skill: /session-handoff`). Re-install with `npx skills@latest add amit-t/skills --skill session-handoff` and `npx skills@latest add amit-t/skills --skill resume-session-handoff`; remove any old `~/.agents/skills/handoff/`, `~/.agents/skills/resume-handoff/`, `~/.claude/skills/handoff`, `~/.claude/skills/resume-handoff` install directories or symlinks — skill managers don't auto-prune renamed sources.",
+        "Renamed the `resume` skill to `resume-handoff` and reworked its post-confirm behavior. Two reasons. (1) The trigger `/resume` collides with most agents' built-in conversation-restore command (Claude Code, Codex, others), which shadows the skill — the new name `/resume-handoff` is unambiguous. (2) After preflight + confirm, the skill now updates frontmatter (`status: resumed`, `resumed_at`), moves the file to `.claude/handoffs/resumed/`, internalises the body, and **stops to ask the user what to do next**, presenting the Next-moves items, Suggested skills, and free-form options. It no longer auto-executes the first Next-moves item — the user picks the direction. The skill also implicitly invokes `using-superpowers` (if listed in the environment's available skills) before asking, so process discipline (brainstorming → plan → TDD → verify) is loaded before any decision is made. Catalog updated end-to-end: directory renamed (`resume/` → `resume-handoff/`), top-level README row, `/handoff` SKILL.md and README.md cross-references, site.js skills array entry, and this changelog feed all flipped to the new name. (Superseded same-day by the rename to `resume-session-handoff` once the Devin `/handoff` shadow was identified.)"
+      ]
+    },
+    {
+      "date": "2026-05-13",
+      "items": [
+        "Moved wisdom-capture from Engineering to Leadership in the catalog (README table + site.js skills array + site.js changes feed + per-skill README header). The skill itself is unchanged — the recategorization reflects that wisdom capture serves leadership reflection more than engineering practice.",
+        "Added wisdom-capture skill under Engineering — records a personal wisdom snippet as one Markdown file under `wisdoms/<YYYY>/<MM>/<ulid>.md` with strict frontmatter (id/created_at/body_hash/category/tags/source_url/source_author/note/import_origin). Reads `wisdoms/_categories.yml` for the closed taxonomy, proposes a primary bucket + 2–5 tags (with confidence), can propose a new bucket if none fits and fall back to a second-best existing bucket on user rejection, asks for a personal gloss, computes a normalized-body sha256 hash for dedup, and commits with `wisdom: <category> — <body first 60>…`. Honors per-session push policy (.wisdom-session) and `WISDOM_NO_PUSH`. Vision-capable for image-trapped wisdom (slide-style reels, quote cards). Built as the agent half of the companion `wisdom` CLI repo (https://github.com/amit-t/wisdom).",
+        "Reworked the handoff skill and added a companion resume skill under Agent Behavior — handoffs now live at a predictable, discoverable path (`<project-root>/.claude/handoffs/YYYY-MM-DD-HHMM-<slug>.md`) instead of an opaque `mktemp` location, so the next session never has to be told the file path. `/handoff` resolves project root via git → `.claude/` ancestor → cwd, auto-adds `/.claude/handoffs/` to `.gitignore`, slugifies the `$ARGUMENTS` focus (or picks a 2–3 word slug from the goal), writes YAML frontmatter (cwd, branch, uncommitted_files, focus, status, resumed_at) on top of the markdown body, and writes atomically via a `.tmp` rename. `/resume` globs the same directory for the newest open file, runs an environment preflight (project_root / cwd / branch / uncommitted-count drift, plus a >14-day staleness warning), confirms with the user, and on Y flips `status: resumed` + `resumed_at` and moves the file to `.claude/handoffs/resumed/<resume-ts>--<orig-name>` so it can't be re-picked. Supports `/resume list`, `/resume <n>`, and `/resume <slug-substring>` for non-newest selection.",
+        "Added session-feedback skill under Agent Behavior — mines the current conversation for corrections the user made, preferences they stated, and do-differently lessons, then writes a dated frontmatter-tagged feedback-<YYYY-MM-DD>.md (stable IDs: C1-Cn, P1-Pn, D1-Dn) into the project's Claude Code auto-memory directory and indexes it in MEMORY.md. Idempotent (append by default, --overwrite to replace). Captures the user's actual words for corrections so future sessions recognise the pattern, not just the conclusion.",
+        "Added recall mode to session-feedback — in future sessions the skill surfaces each remembered item in a compact listing format and asks 'Do I care about this at the moment, or do I not care about it at the moment?' before applying anything. Just-in-time recall is mandatory whenever the agent is about to act on a past pattern; bulk recall is available at session start via /session-feedback --recall. Session-scoped decisions live in .active-feedback.json; 'always' / 'never' answers persist back to the feedback file's frontmatter for that item. Nothing is ever silently applied."
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "items": [
+        "Added code-review skill — principal-engineer review of a GitHub PR with two-phase approval. Pre-checks PR description quality, size, and single-concern scope; deep-reviews against an 11-dimension rubric grounded in Pragmatic Programmer / DDD / A Philosophy of Software Design; walks the user through every finding one at a time with approve / skip / edit / expand / defer / quit; posts only the approved subset as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe via hidden markers. Thresholds, rubric, and verdict policy are configurable in code-review/config.yaml.",
+        "Added handoff skill under Agent Behavior — writes a transferable handoff document to a `mktemp -t handoff-XXXXXX.md` path so a fresh agent can continue the work. Captures goal, state, decisions, ruled-out approaches, open questions, next moves, and suggested skills; references existing artifacts (PRDs, plans, ADRs, issues, commits) by path or URL instead of duplicating them.",
+        "Added gh-repo-mirror skill under Engineering — scaffold a new GitHub repo that mirrors a reference repo's general settings, security flags, classic branch protection, and (optionally) its GitHub Pages docs site, with opt-ins for ruleset mirroring, Cloudflare DNS, and a bootstrap starter skill."
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "items": [
+        "Added leadership-update skill under a new Leadership category — reformats raw notes into an outcome-first, three-sentence update with a clear ask, based on Yasar Ahmad's framework.",
+        "Added repo-context-scan skill — autonomous codebase scan that produces CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) and seeds ADRs for visibly-deliberate decisions. Idempotent re-runs preserve user-authored prose.",
+        "Added domain-grill skill — engineering-only relentless interview that stress-tests eng specs, TDD plans, refactor proposals, technical designs, schema migrations, and API contracts against CONTEXT.md and existing ADRs. Refuses PRDs and non-technical artifacts and redirects to /grill-me. Reads CONTEXT.md read-only; flags new terms and recommends re-running /repo-context-scan.",
+        "Deprecated ubiquitous-language skill — split into /repo-context-scan (build) and /domain-grill (stress-test). Stub remains as a redirect; original implementation preserved in git history."
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "items": [
+        "Added gh-pages-neo-brutalist skill — drop-in Jekyll templates that scaffold a GitHub Pages site in a neo-brutalist house style (IBM Plex Mono, 3px borders, solid offset shadows, eight accents, four themes). Ships scaffold.zsh, site.css and site.js for design tokens and the theme switcher, and a GitHub Actions Pages workflow."
+      ]
+    },
+    {
+      "date": "2026-04-25",
+      "items": [
+        "Added docs-from-prs skill — survey merged PRs, fill README/landing-page/user-guide gaps with thoughtful section placement, audit alias tables every run, and finish with a grammar/casing/alignment copy-edit pass.",
+        "Generalized docs-from-prs to be project-agnostic — replaced ai-ralph-specific paths and remote workflow with a generic drift-hot-spot audit, `gh repo view`-resolved survey, and a layout-aware placement matrix (single-file / README+site / README+guide / full)."
+      ]
+    },
+    {
+      "date": "2026-04-20",
+      "items": [
+        "Refreshed e2e-audit — added persona screenshot demo (Phase 4), expanded diagnostic report (Phase 5), and fix_plan bug-list emitter (Phase 6) with re-audit workflow.",
+        "Added skill-sync skill under Agent Behavior — wraps the skill-sync zsh utility (ai-utils/skill-sync) for syncing or scaffolding skills via claude/codex/devin."
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "items": [
+        "Added resume-tailoring skill — research-driven resume tailoring with branching discovery, scored matching, multi-job batch mode, and a portable .skill bundle for Codex / co-work."
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "items": [
+        "Added compact-conversation skill — compact conversations into concise summaries to reduce context window usage."
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "items": [
+        "Added e2e-audit skill — Playwright end-to-end audit driven by PRDs."
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "items": [
+        "Added precision-mode skill — universal conciseness directive for all LLM output.",
+        "Added package-scout skill — research and compare packages before installing any dependency."
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "items": [
+        "Added the concise-reporting skill under Agent Behavior."
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "items": [
+        "Added prd-to-plan for phased tracer-bullet planning.",
+        "Added qa for conversational QA reporting and issue filing.",
+        "Added request-refactor-plan for safe incremental refactor planning."
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "items": [
+        "Flattened skill directories across the repository.",
+        "Added per-skill README files to standardize install guidance.",
+        "Removed character-distiller and older workflow entries."
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "items": [
+        "Added eng-spec for TDD, spec, and ADR generation with review.",
+        "Added git-guardrails-claude-code, tdd, ubiquitous-language, and design-interview."
+      ]
+    }
+  ]
+}

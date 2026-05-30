@@ -145,8 +145,17 @@
       "source_file": "site.js",
       "source_location": "L1",
       "id": "site_js",
-      "community": 5,
+      "community": 4,
       "norm_label": "site.js"
+    },
+    {
+      "label": "loadData()",
+      "file_type": "code",
+      "source_file": "site.js",
+      "source_location": "L10",
+      "id": "site_loaddata",
+      "community": 4,
+      "norm_label": "loaddata()"
     },
     {
       "label": "$()",
@@ -154,7 +163,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L12",
       "id": "site",
-      "community": 5,
+      "community": 4,
       "norm_label": "$()"
     },
     {
@@ -163,7 +172,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L33",
       "id": "site_inittheme",
-      "community": 5,
+      "community": 4,
       "norm_label": "inittheme()"
     },
     {
@@ -172,7 +181,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L41",
       "id": "site_toggletheme",
-      "community": 5,
+      "community": 4,
       "norm_label": "toggletheme()"
     },
     {
@@ -181,7 +190,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L47",
       "id": "site_updatethemeicon",
-      "community": 5,
+      "community": 4,
       "norm_label": "updatethemeicon()"
     },
     {
@@ -190,7 +199,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L69",
       "id": "site_catclass",
-      "community": 5,
+      "community": 4,
       "norm_label": "catclass()"
     },
     {
@@ -199,7 +208,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L82",
       "id": "site_renderfilters",
-      "community": 5,
+      "community": 4,
       "norm_label": "renderfilters()"
     },
     {
@@ -208,7 +217,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L98",
       "id": "site_renderskills",
-      "community": 5,
+      "community": 4,
       "norm_label": "renderskills()"
     },
     {
@@ -217,7 +226,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L140",
       "id": "site_renderchanges",
-      "community": 5,
+      "community": 4,
       "norm_label": "renderchanges()"
     },
     {
@@ -226,7 +235,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L163",
       "id": "site_getskillpermalink",
-      "community": 5,
+      "community": 4,
       "norm_label": "getskillpermalink()"
     },
     {
@@ -235,7 +244,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L169",
       "id": "site_openskillfromhash",
-      "community": 5,
+      "community": 4,
       "norm_label": "openskillfromhash()"
     },
     {
@@ -244,7 +253,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L178",
       "id": "site_opendrawer",
-      "community": 5,
+      "community": 4,
       "norm_label": "opendrawer()"
     },
     {
@@ -253,7 +262,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L254",
       "id": "site_closedrawer",
-      "community": 5,
+      "community": 4,
       "norm_label": "closedrawer()"
     },
     {
@@ -262,7 +271,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L262",
       "id": "site_rendermanualinstalls",
-      "community": 5,
+      "community": 4,
       "norm_label": "rendermanualinstalls()"
     },
     {
@@ -271,7 +280,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L306",
       "id": "site_copytext",
-      "community": 5,
+      "community": 4,
       "norm_label": "copytext()"
     },
     {
@@ -280,7 +289,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L320",
       "id": "site_flashcopied",
-      "community": 5,
+      "community": 4,
       "norm_label": "flashcopied()"
     },
     {
@@ -289,8 +298,17 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L329",
       "id": "site_addcopybuttons",
-      "community": 5,
+      "community": 4,
       "norm_label": "addcopybuttons()"
+    },
+    {
+      "label": "init()",
+      "file_type": "code",
+      "source_file": "site.js",
+      "source_location": "L355",
+      "id": "site_init",
+      "community": 4,
+      "norm_label": "init()"
     },
     {
       "label": "site.js",
@@ -334,7 +352,7 @@
       "source_file": "gh-repo-mirror/templates/site.js",
       "source_location": "L1",
       "id": "gh_repo_mirror_templates_site_js",
-      "community": 5,
+      "community": 4,
       "norm_label": "site.js"
     },
     {
@@ -346,7 +364,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "mock at system boundaries",
       "id": "mocking_system_boundaries"
     },
@@ -359,7 +377,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "dependency injection for mockability",
       "id": "mocking_dependency_injection"
     },
@@ -372,7 +390,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "sdk-style interfaces over generic fetchers",
       "id": "mocking_sdk_style_interfaces"
     },
@@ -385,7 +403,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "do not mock internal collaborators",
       "id": "mocking_dont_mock_internal"
     },
@@ -398,7 +416,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "deep module (small interface, deep implementation)",
       "id": "deepmodules_deep_module"
     },
@@ -411,7 +429,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "shallow module (anti-pattern)",
       "id": "deepmodules_shallow_module"
     },
@@ -424,7 +442,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "a philosophy of software design (citation)",
       "id": "deepmodules_philosophy_of_software_design"
     },
@@ -437,7 +455,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "good tests (integration-style, public api)",
       "id": "tests_good_tests"
     },
@@ -450,7 +468,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "bad tests (implementation-detail coupled)",
       "id": "tests_bad_tests"
     },
@@ -476,7 +494,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd skill readme",
       "id": "tdd_readme"
     },
@@ -489,7 +507,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd skill (red-green-refactor)",
       "id": "tdd_skill"
     },
@@ -502,7 +520,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd philosophy (behavior, not implementation)",
       "id": "tdd_philosophy"
     },
@@ -515,7 +533,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "anti-pattern: horizontal slices",
       "id": "tdd_horizontal_slices_antipattern"
     },
@@ -528,7 +546,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tracer bullet (vertical slice)",
       "id": "tdd_tracer_bullet"
     },
@@ -541,7 +559,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "red-green-refactor loop",
       "id": "tdd_red_green_refactor"
     },
@@ -554,7 +572,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd planning step",
       "id": "tdd_planning_step"
     },
@@ -567,7 +585,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd refactor step",
       "id": "tdd_refactor_step"
     },
@@ -580,7 +598,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "tdd per-cycle checklist",
       "id": "tdd_cycle_checklist"
     },
@@ -593,7 +611,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "accept dependencies, don't create them",
       "id": "interfacedesign_accept_dependencies"
     },
@@ -619,7 +637,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "small surface area interfaces",
       "id": "interfacedesign_small_surface_area"
     },
@@ -632,7 +650,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "refactor candidates list",
       "id": "refactoring_candidates"
     },
@@ -645,7 +663,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "extract duplication",
       "id": "refactoring_duplication"
     },
@@ -658,7 +676,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "combine/deepen shallow modules",
       "id": "refactoring_shallow_module_combine"
     },
@@ -671,7 +689,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "move logic where data lives (feature envy)",
       "id": "refactoring_feature_envy"
     },
@@ -684,7 +702,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 1,
       "norm_label": "introduce value objects (primitive obsession)",
       "id": "refactoring_primitive_obsession"
     },
@@ -1178,7 +1196,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd-draft readme",
       "id": "prddraft_readme"
     },
@@ -1191,7 +1209,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd draft skill",
       "id": "prddraft_skill"
     },
@@ -1204,7 +1222,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "context routing logic",
       "id": "prddraft_context_routing"
     },
@@ -1217,7 +1235,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "step 0: feature context check",
       "id": "prddraft_step0_context_check"
     },
@@ -1230,7 +1248,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "step 1: clarifying questions",
       "id": "prddraft_step1_clarifying_questions"
     },
@@ -1243,7 +1261,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "step 2: generate first draft",
       "id": "prddraft_step2_first_draft"
     },
@@ -1256,7 +1274,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "step 2.5: generate prototype (optional)",
       "id": "prddraft_step2_5_prototype"
     },
@@ -1269,7 +1287,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "step 3: multi-agent review",
       "id": "prddraft_step3_multi_agent_review"
     },
@@ -1282,7 +1300,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd template (templates/prd-template.md)",
       "id": "prddraft_prd_template"
     },
@@ -1295,7 +1313,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd hypothesis section (if/then/because)",
       "id": "prddraft_hypothesis"
     },
@@ -1308,7 +1326,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd strategic fit + impact sizing",
       "id": "prddraft_strategic_fit"
     },
@@ -1321,7 +1339,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd non-goals",
       "id": "prddraft_non_goals"
     },
@@ -1334,7 +1352,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd success metrics + stedii",
       "id": "prddraft_success_metrics"
     },
@@ -1347,7 +1365,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "prd rollout plan",
       "id": "prddraft_rollout_plan"
     },
@@ -1360,7 +1378,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "ai behavior contract",
       "id": "prddraft_ai_behavior_contract"
     },
@@ -1373,7 +1391,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "solution overview (non-ai)",
       "id": "prddraft_solution_overview"
     },
@@ -1386,7 +1404,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "risks and recovery table",
       "id": "prddraft_risks_recovery"
     },
@@ -1399,7 +1417,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "stage-specific length guidance",
       "id": "prddraft_stage_length_guidance"
     },
@@ -1412,7 +1430,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "output quality self-check",
       "id": "prddraft_quality_self_check"
     },
@@ -1425,7 +1443,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "part 2: full prd workflow (7 steps)",
       "id": "prddraft_full_workflow"
     },
@@ -1438,7 +1456,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "part 3: ai feature prds",
       "id": "prddraft_ai_prd_addition"
     },
@@ -1451,7 +1469,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "ai behavior specification (good/bad/reject)",
       "id": "prddraft_behavior_specification"
     },
@@ -1464,7 +1482,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "$1-$10-$100 prototype rule",
       "id": "prddraft_dollar_rule"
     },
@@ -1477,7 +1495,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 3,
       "norm_label": "10 principles for ai products",
       "id": "prddraft_10_principles_ai"
     },
@@ -1490,7 +1508,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "changelog",
       "id": "changelog_doc"
     },
@@ -1503,7 +1521,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "compact conversation skill added (2026-04-08)",
       "id": "changelog_compact_conversation_entry"
     },
@@ -1516,7 +1534,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "e2e audit skill added (2026-04-05)",
       "id": "changelog_e2e_audit_entry"
     },
@@ -1529,7 +1547,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "precision mode + package scout added (2026-04-03)",
       "id": "changelog_precision_mode_entry"
     },
@@ -1542,7 +1560,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "concise reporting added (2026-04-02)",
       "id": "changelog_concise_reporting_entry"
     },
@@ -1555,7 +1573,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "prd-to-plan, qa, refactor-plan added (2026-03-31)",
       "id": "changelog_prd_to_plan_entry"
     },
@@ -1568,7 +1586,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "flatten skill directories (2026-03-29)",
       "id": "changelog_flatten_entry"
     },
@@ -1581,7 +1599,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "eng-spec, git-guardrails, tdd, ubiquitous language, design interview added (2026-03-28)",
       "id": "changelog_eng_spec_entry"
     },
@@ -1594,7 +1612,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "skills catalog readme",
       "id": "readme_catalog"
     },
@@ -1607,7 +1625,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "skills cli (npx skills)",
       "id": "readme_skills_cli"
     },
@@ -1620,7 +1638,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "compatible agents list",
       "id": "readme_compatible_agents"
     },
@@ -1633,7 +1651,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "category: product management",
       "id": "readme_category_product_management"
     },
@@ -1646,7 +1664,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "category: project management",
       "id": "readme_category_project_management"
     },
@@ -1659,7 +1677,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 5,
       "norm_label": "category: engineering",
       "id": "readme_category_engineering"
     },
@@ -1672,7 +1690,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "category: ux design",
       "id": "readme_category_ux_design"
     },
@@ -1685,7 +1703,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "category: agent behavior",
       "id": "readme_category_agent_behavior"
     },
@@ -1698,7 +1716,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "category: ai agent",
       "id": "readme_category_ai_agent"
     },
@@ -1711,7 +1729,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "what are skills (definition)",
       "id": "readme_what_are_skills"
     },
@@ -1724,7 +1742,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "manual installation paths table",
       "id": "readme_manual_install_table"
     },
@@ -1737,7 +1755,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "agents.md - project agent instructions",
       "id": "agents_doc"
     },
@@ -1750,7 +1768,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "catalog sync rule (mandatory)",
       "id": "agents_catalog_sync_rule"
     },
@@ -1763,7 +1781,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "category to css class mapping",
       "id": "agents_category_css_mapping"
     },
@@ -1776,7 +1794,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "git conventions (dev branch, conventional commits)",
       "id": "agents_git_conventions"
     },
@@ -1789,7 +1807,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "skill authoring reference (write-a-skill)",
       "id": "agents_skill_authoring_ref"
     },
@@ -1802,7 +1820,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "site.js skills array requirement",
       "id": "agents_site_js_skills_array"
     },
@@ -1815,7 +1833,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "site.js changes array requirement",
       "id": "agents_site_js_changes_array"
     },
@@ -1828,7 +1846,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "claude.md - project instructions",
       "id": "claudemd_doc"
     },
@@ -1841,7 +1859,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 6,
       "norm_label": "claude catalog sync rule (mandatory)",
       "id": "claudemd_catalog_sync"
     },
@@ -1854,7 +1872,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "write-a-prd readme",
       "id": "writeaprd_readme"
     },
@@ -1932,7 +1950,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "prd-to-plan readme",
       "id": "prdtoplan_readme"
     },
@@ -1945,7 +1963,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "prd-to-plan skill",
       "id": "prdtoplan_skill"
     },
@@ -1958,7 +1976,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "tracer bullet vertical slices concept",
       "id": "prdtoplan_tracer_bullet_concept"
     },
@@ -1971,7 +1989,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "durable architectural decisions",
       "id": "prdtoplan_durable_decisions"
     },
@@ -1984,7 +2002,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "plan markdown template",
       "id": "prdtoplan_template"
     },
@@ -1997,7 +2015,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "rationale: prefer many thin slices over few thick",
       "id": "prdtoplan_rationale_thin_over_thick"
     },
@@ -2010,7 +2028,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 5,
       "norm_label": "git-guardrails-claude-code readme",
       "id": "gitguardrails_readme"
     },
@@ -2023,7 +2041,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "git-guardrails-claude-code skill",
       "id": "gitguardrails_skill"
     },
@@ -2036,7 +2054,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "blocked git commands (push, reset --hard, clean -f, etc.)",
       "id": "gitguardrails_blocked_commands"
     },
@@ -2049,7 +2067,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "pretooluse hook mechanism",
       "id": "gitguardrails_pretooluse_hook"
     },
@@ -2062,7 +2080,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": "block-dangerous-git.sh script",
       "id": "gitguardrails_block_script"
     },
@@ -2075,7 +2093,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 6,
+      "community": 5,
       "norm_label": ".claude/settings.json hooks config",
       "id": "gitguardrails_settings_json"
     },
@@ -2088,7 +2106,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "design-interview readme",
       "id": "designinterview_readme"
     },
@@ -2179,7 +2197,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "prd-review-panel readme",
       "id": "prdreviewpanel_readme"
     },
@@ -2348,7 +2366,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "design-draft readme",
       "id": "designdraft_readme"
     },
@@ -2530,7 +2548,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "design-review readme",
       "id": "designreview_readme"
     },
@@ -2647,7 +2665,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 1,
+      "community": 0,
       "norm_label": "skill authoring convention (skill.md + readme.md per skill)",
       "id": "concept_skill_authoring"
     },
@@ -2673,7 +2691,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "eng-spec skill",
       "id": "engspec_skill"
     },
@@ -2686,7 +2704,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "eng-spec readme",
       "id": "engspec_readme"
     },
@@ -2699,7 +2717,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "tdd (technical design document)",
       "id": "engspec_tdd"
     },
@@ -2712,7 +2730,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "spec (engineering spec)",
       "id": "engspec_spec"
     },
@@ -2725,7 +2743,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "adr (architecture decision record)",
       "id": "engspec_adr"
     },
@@ -2738,7 +2756,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "adr-001 hexagonal architecture",
       "id": "engspec_adr001"
     },
@@ -2751,7 +2769,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "adr-002 three-database strategy",
       "id": "engspec_adr002"
     },
@@ -2764,7 +2782,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "5-agent engineering panel review",
       "id": "engspec_panel_5agents"
     },
@@ -2777,7 +2795,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "architect reviewer agent",
       "id": "engspec_architect_reviewer"
     },
@@ -2790,7 +2808,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "db designer reviewer agent",
       "id": "engspec_db_designer_reviewer"
     },
@@ -2803,7 +2821,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "principal swe reviewer agent",
       "id": "engspec_principal_swe_reviewer"
     },
@@ -2816,7 +2834,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "sdet reviewer agent",
       "id": "engspec_sdet_reviewer"
     },
@@ -2829,7 +2847,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "performance engineer reviewer agent",
       "id": "engspec_perf_engineer_reviewer"
     },
@@ -2842,7 +2860,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "prd-pipeline.md",
       "id": "engspec_prd_pipeline"
     },
@@ -2855,7 +2873,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "doe approval gate",
       "id": "engspec_doe_approval"
     },
@@ -2868,7 +2886,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "hq.sync-context",
       "id": "engspec_hq_sync_context"
     },
@@ -2881,7 +2899,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "rpc.plan (ralph)",
       "id": "engspec_rpc_plan"
     },
@@ -2907,7 +2925,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "elysia + bun + typescript stack",
       "id": "engspec_tech_stack"
     },
@@ -3284,7 +3302,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "prd-approve skill",
       "id": "prdapprove_skill"
     },
@@ -3297,7 +3315,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "prd-approve readme",
       "id": "prdapprove_readme"
     },
@@ -3310,7 +3328,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "prd-pipeline.md (prd-approve view)",
       "id": "prdapprove_pipeline"
     },
@@ -3323,7 +3341,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "review panel synthesis file",
       "id": "prdapprove_review_synthesis"
     },
@@ -3336,7 +3354,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "outputs/prds/approved/ inbox",
       "id": "prdapprove_approved_inbox"
     },
@@ -3349,7 +3367,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "/prd-review-panel (prerequisite)",
       "id": "prdapprove_prd_review_panel"
     },
@@ -3362,7 +3380,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 3,
+      "community": 2,
       "norm_label": "/prd-draft (prerequisite)",
       "id": "prdapprove_prd_draft"
     },
@@ -3580,7 +3598,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L428",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "site_js",
+      "_tgt": "site_loaddata",
+      "source": "site_js",
+      "target": "site_loaddata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L36",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site",
@@ -3592,7 +3622,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L449",
+      "source_location": "L53",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_inittheme",
@@ -3604,7 +3634,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L457",
+      "source_location": "L61",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_toggletheme",
@@ -3616,7 +3646,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L463",
+      "source_location": "L67",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_updatethemeicon",
@@ -3628,7 +3658,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L485",
+      "source_location": "L89",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_catclass",
@@ -3640,7 +3670,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L499",
+      "source_location": "L103",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderfilters",
@@ -3652,7 +3682,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L515",
+      "source_location": "L119",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderskills",
@@ -3664,7 +3694,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L549",
+      "source_location": "L153",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderchanges",
@@ -3676,7 +3706,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L565",
+      "source_location": "L169",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_getskillpermalink",
@@ -3688,7 +3718,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L571",
+      "source_location": "L175",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_openskillfromhash",
@@ -3700,7 +3730,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L580",
+      "source_location": "L184",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_opendrawer",
@@ -3712,7 +3742,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L656",
+      "source_location": "L260",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_closedrawer",
@@ -3724,7 +3754,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L664",
+      "source_location": "L268",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_rendermanualinstalls",
@@ -3736,7 +3766,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L708",
+      "source_location": "L312",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_copytext",
@@ -3748,7 +3778,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L723",
+      "source_location": "L327",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_flashcopied",
@@ -3760,12 +3790,36 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L732",
+      "source_location": "L336",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_addcopybuttons",
       "source": "site_js",
       "target": "site_addcopybuttons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L355",
+      "weight": 1.0,
+      "_src": "site_js",
+      "_tgt": "site_init",
+      "source": "site_js",
+      "target": "site_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L356",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_loaddata",
+      "source": "site_loaddata",
+      "target": "site_init",
       "confidence_score": 1.0
     },
     {
@@ -3877,6 +3931,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L360",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_renderfilters",
+      "source": "site_renderfilters",
+      "target": "site_init",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "gh-repo-mirror/templates/site.js",
@@ -3889,6 +3955,18 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L361",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_renderskills",
+      "source": "site_renderskills",
+      "target": "site_init",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "gh-repo-mirror/templates/site.js",
@@ -3898,6 +3976,18 @@
       "_tgt": "site_renderskills",
       "source": "site_renderskills",
       "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L362",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_renderchanges",
+      "source": "site_renderchanges",
+      "target": "site_init",
       "confidence_score": 1.0
     },
     {
@@ -3934,6 +4024,18 @@
       "_tgt": "site_opendrawer",
       "source": "site_openskillfromhash",
       "target": "site_opendrawer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L364",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_openskillfromhash",
+      "source": "site_openskillfromhash",
+      "target": "site_init",
       "confidence_score": 1.0
     },
     {
@@ -4030,6 +4132,18 @@
       "_tgt": "site_flashcopied",
       "source": "site_flashcopied",
       "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "site.js",
+      "source_location": "L363",
+      "weight": 1.0,
+      "_src": "site_init",
+      "_tgt": "site_addcopybuttons",
+      "source": "site_addcopybuttons",
+      "target": "site_init",
       "confidence_score": 1.0
     },
     {

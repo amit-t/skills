@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-05-30)
 
 ## Corpus Check
-- 3 files · ~75,906 words
+- 3 files · ~71,711 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 271 nodes · 322 edges · 18 communities detected
+- 273 nodes · 330 edges · 18 communities detected
 - Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -68,31 +68,31 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (31): Multi-Agent Review Pattern, Resume From Step (--from), design-draft Skill (Full UXD Workflow), Step 0: Find Approved PRD, Step 1: Load PRD Context, Step 2: Design Interview, Step 3: User Flow, Step 4: Wireframes (+23 more)
+Nodes (40): Multi-Agent Review Pattern, Skill Authoring Convention (SKILL.md + README.md per skill), design-draft README, Resume From Step (--from), design-draft Skill (Full UXD Workflow), Step 0: Find Approved PRD, Step 1: Load PRD Context, Step 2: Design Interview (+32 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.09
-Nodes (28): Catalog Sync Rule (Mandatory), Category to CSS Class Mapping, AGENTS.md - Project Agent Instructions, Git Conventions (dev branch, conventional commits), site.js changes array requirement, site.js skills array requirement, Skill Authoring Reference (write-a-skill), CLAUDE Catalog Sync Rule (Mandatory) (+20 more)
-
-### Community 2 - "Community 2"
 Cohesion: 0.1
 Nodes (25): Deep Module (small interface, deep implementation), A Philosophy of Software Design (citation), Shallow Module (anti-pattern), Accept Dependencies, Don't Create Them, Small Surface Area Interfaces, Dependency Injection for Mockability, Do Not Mock Internal Collaborators, SDK-style Interfaces over Generic Fetchers (+17 more)
 
-### Community 3 - "Community 3"
+### Community 2 - "Community 2"
 Cohesion: 0.09
 Nodes (25): ADR (Architecture Decision Record), ADR-001 Hexagonal Architecture, ADR-002 Three-Database Strategy, Architect Reviewer Agent, DB Designer Reviewer Agent, DoE Approval Gate, hq.sync-context, 5-Agent Engineering Panel Review (+17 more)
 
-### Community 4 - "Community 4"
+### Community 3 - "Community 3"
 Cohesion: 0.09
 Nodes (24): 10 Principles for AI Products, AI Behavior Contract, Part 3: AI Feature PRDs, AI Behavior Specification (Good/Bad/Reject), Context Routing Logic, $1-$10-$100 Prototype Rule, Part 2: Full PRD Workflow (7 steps), PRD Hypothesis Section (If/Then/Because) (+16 more)
 
-### Community 5 - "Community 5"
+### Community 4 - "Community 4"
 Cohesion: 0.25
-Nodes (16): $(), addCopyButtons(), catClass(), closeDrawer(), copyText(), flashCopied(), getSkillPermalink(), initTheme() (+8 more)
+Nodes (18): $(), addCopyButtons(), catClass(), closeDrawer(), copyText(), flashCopied(), getSkillPermalink(), init() (+10 more)
+
+### Community 5 - "Community 5"
+Cohesion: 0.11
+Nodes (20): Compact Conversation Skill Added (2026-04-08), Concise Reporting Added (2026-04-02), Changelog, E2E Audit Skill Added (2026-04-05), Eng-Spec, Git-Guardrails, TDD, Ubiquitous Language, Design Interview Added (2026-03-28), Flatten Skill Directories (2026-03-29), PRD-to-Plan, QA, Refactor-Plan Added (2026-03-31), Precision Mode + Package Scout Added (2026-04-03) (+12 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.12
-Nodes (18): Compact Conversation Skill Added (2026-04-08), Concise Reporting Added (2026-04-02), Changelog, E2E Audit Skill Added (2026-04-05), Eng-Spec, Git-Guardrails, TDD, Ubiquitous Language, Design Interview Added (2026-03-28), Flatten Skill Directories (2026-03-29), PRD-to-Plan, QA, Refactor-Plan Added (2026-03-31), Precision Mode + Package Scout Added (2026-04-03) (+10 more)
+Nodes (17): Catalog Sync Rule (Mandatory), Category to CSS Class Mapping, AGENTS.md - Project Agent Instructions, Git Conventions (dev branch, conventional commits), site.js changes array requirement, site.js skills array requirement, Skill Authoring Reference (write-a-skill), CLAUDE Catalog Sync Rule (Mandatory) (+9 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.13
@@ -147,17 +147,17 @@ Nodes (1): Return Results, Avoid Side Effects
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `prd-review-panel Skill` connect `Community 0` to `Community 8`, `Community 1`?**
+- **Why does `Skill Authoring Convention (SKILL.md + README.md per skill)` connect `Community 0` to `Community 5`, `Community 6`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `design-review Skill` connect `Community 0` to `Community 8`, `Community 1`?**
+- **Why does `prd-review-panel Skill` connect `Community 0` to `Community 8`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `design-review Skill` connect `Community 0` to `Community 8`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `Mock at System Boundaries`, `Dependency Injection for Mockability`, `SDK-style Interfaces over Generic Fetchers` to the rest of the system?**
   _141 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.07 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.09 - nodes in this community are weakly interconnected._
-- **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 3` be split into smaller, more focused modules?**
+- **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.09 - nodes in this community are weakly interconnected._
