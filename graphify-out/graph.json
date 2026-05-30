@@ -151,8 +151,8 @@
     {
       "label": "$()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L237",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L12",
       "id": "site",
       "community": 5,
       "norm_label": "$()"
@@ -160,8 +160,8 @@
     {
       "label": "initTheme()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L258",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L33",
       "id": "site_inittheme",
       "community": 5,
       "norm_label": "inittheme()"
@@ -169,8 +169,8 @@
     {
       "label": "toggleTheme()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L266",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L41",
       "id": "site_toggletheme",
       "community": 5,
       "norm_label": "toggletheme()"
@@ -178,8 +178,8 @@
     {
       "label": "updateThemeIcon()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L272",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L47",
       "id": "site_updatethemeicon",
       "community": 5,
       "norm_label": "updatethemeicon()"
@@ -187,8 +187,8 @@
     {
       "label": "catClass()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L294",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L69",
       "id": "site_catclass",
       "community": 5,
       "norm_label": "catclass()"
@@ -196,8 +196,8 @@
     {
       "label": "renderFilters()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L307",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L82",
       "id": "site_renderfilters",
       "community": 5,
       "norm_label": "renderfilters()"
@@ -205,8 +205,8 @@
     {
       "label": "renderSkills()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L323",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L98",
       "id": "site_renderskills",
       "community": 5,
       "norm_label": "renderskills()"
@@ -214,8 +214,8 @@
     {
       "label": "renderChanges()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L357",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L140",
       "id": "site_renderchanges",
       "community": 5,
       "norm_label": "renderchanges()"
@@ -223,8 +223,8 @@
     {
       "label": "getSkillPermalink()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L373",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L163",
       "id": "site_getskillpermalink",
       "community": 5,
       "norm_label": "getskillpermalink()"
@@ -232,8 +232,8 @@
     {
       "label": "openSkillFromHash()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L379",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L169",
       "id": "site_openskillfromhash",
       "community": 5,
       "norm_label": "openskillfromhash()"
@@ -241,8 +241,8 @@
     {
       "label": "openDrawer()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L388",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L178",
       "id": "site_opendrawer",
       "community": 5,
       "norm_label": "opendrawer()"
@@ -250,8 +250,8 @@
     {
       "label": "closeDrawer()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L464",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L254",
       "id": "site_closedrawer",
       "community": 5,
       "norm_label": "closedrawer()"
@@ -259,8 +259,8 @@
     {
       "label": "renderManualInstalls()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L472",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L262",
       "id": "site_rendermanualinstalls",
       "community": 5,
       "norm_label": "rendermanualinstalls()"
@@ -268,8 +268,8 @@
     {
       "label": "copyText()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L516",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L306",
       "id": "site_copytext",
       "community": 5,
       "norm_label": "copytext()"
@@ -277,8 +277,8 @@
     {
       "label": "flashCopied()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L531",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L320",
       "id": "site_flashcopied",
       "community": 5,
       "norm_label": "flashcopied()"
@@ -286,11 +286,56 @@
     {
       "label": "addCopyButtons()",
       "file_type": "code",
-      "source_file": "site.js",
-      "source_location": "L540",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L329",
       "id": "site_addcopybuttons",
       "community": 5,
       "norm_label": "addcopybuttons()"
+    },
+    {
+      "label": "site.js",
+      "file_type": "code",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L1",
+      "id": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "community": 15,
+      "norm_label": "site.js"
+    },
+    {
+      "label": "apply()",
+      "file_type": "code",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L10",
+      "id": "site_apply",
+      "community": 15,
+      "norm_label": "apply()"
+    },
+    {
+      "label": "readStored()",
+      "file_type": "code",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L18",
+      "id": "site_readstored",
+      "community": 15,
+      "norm_label": "readstored()"
+    },
+    {
+      "label": "attachCopyButtons()",
+      "file_type": "code",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L36",
+      "id": "site_attachcopybuttons",
+      "community": 15,
+      "norm_label": "attachcopybuttons()"
+    },
+    {
+      "label": "site.js",
+      "file_type": "code",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L1",
+      "id": "gh_repo_mirror_templates_site_js",
+      "community": 5,
+      "norm_label": "site.js"
     },
     {
       "label": "Mock at System Boundaries",
@@ -301,9 +346,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "mocking_system_boundaries",
-      "community": 1,
-      "norm_label": "mock at system boundaries"
+      "community": 2,
+      "norm_label": "mock at system boundaries",
+      "id": "mocking_system_boundaries"
     },
     {
       "label": "Dependency Injection for Mockability",
@@ -314,9 +359,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "mocking_dependency_injection",
-      "community": 1,
-      "norm_label": "dependency injection for mockability"
+      "community": 2,
+      "norm_label": "dependency injection for mockability",
+      "id": "mocking_dependency_injection"
     },
     {
       "label": "SDK-style Interfaces over Generic Fetchers",
@@ -327,9 +372,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "mocking_sdk_style_interfaces",
-      "community": 1,
-      "norm_label": "sdk-style interfaces over generic fetchers"
+      "community": 2,
+      "norm_label": "sdk-style interfaces over generic fetchers",
+      "id": "mocking_sdk_style_interfaces"
     },
     {
       "label": "Do Not Mock Internal Collaborators",
@@ -340,9 +385,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "mocking_dont_mock_internal",
-      "community": 1,
-      "norm_label": "do not mock internal collaborators"
+      "community": 2,
+      "norm_label": "do not mock internal collaborators",
+      "id": "mocking_dont_mock_internal"
     },
     {
       "label": "Deep Module (small interface, deep implementation)",
@@ -353,9 +398,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "deepmodules_deep_module",
-      "community": 1,
-      "norm_label": "deep module (small interface, deep implementation)"
+      "community": 2,
+      "norm_label": "deep module (small interface, deep implementation)",
+      "id": "deepmodules_deep_module"
     },
     {
       "label": "Shallow Module (anti-pattern)",
@@ -366,9 +411,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "deepmodules_shallow_module",
-      "community": 1,
-      "norm_label": "shallow module (anti-pattern)"
+      "community": 2,
+      "norm_label": "shallow module (anti-pattern)",
+      "id": "deepmodules_shallow_module"
     },
     {
       "label": "A Philosophy of Software Design (citation)",
@@ -379,9 +424,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "deepmodules_philosophy_of_software_design",
-      "community": 1,
-      "norm_label": "a philosophy of software design (citation)"
+      "community": 2,
+      "norm_label": "a philosophy of software design (citation)",
+      "id": "deepmodules_philosophy_of_software_design"
     },
     {
       "label": "Good Tests (integration-style, public API)",
@@ -392,9 +437,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tests_good_tests",
-      "community": 1,
-      "norm_label": "good tests (integration-style, public api)"
+      "community": 2,
+      "norm_label": "good tests (integration-style, public api)",
+      "id": "tests_good_tests"
     },
     {
       "label": "Bad Tests (implementation-detail coupled)",
@@ -405,9 +450,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tests_bad_tests",
-      "community": 1,
-      "norm_label": "bad tests (implementation-detail coupled)"
+      "community": 2,
+      "norm_label": "bad tests (implementation-detail coupled)",
+      "id": "tests_bad_tests"
     },
     {
       "label": "Verify Through Interface (not external means)",
@@ -418,9 +463,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tests_verify_through_interface",
-      "community": 11,
-      "norm_label": "verify through interface (not external means)"
+      "community": 10,
+      "norm_label": "verify through interface (not external means)",
+      "id": "tests_verify_through_interface"
     },
     {
       "label": "tdd Skill README",
@@ -431,9 +476,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_readme",
-      "community": 1,
-      "norm_label": "tdd skill readme"
+      "community": 2,
+      "norm_label": "tdd skill readme",
+      "id": "tdd_readme"
     },
     {
       "label": "TDD Skill (red-green-refactor)",
@@ -444,9 +489,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_skill",
-      "community": 1,
-      "norm_label": "tdd skill (red-green-refactor)"
+      "community": 2,
+      "norm_label": "tdd skill (red-green-refactor)",
+      "id": "tdd_skill"
     },
     {
       "label": "TDD Philosophy (behavior, not implementation)",
@@ -457,9 +502,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_philosophy",
-      "community": 1,
-      "norm_label": "tdd philosophy (behavior, not implementation)"
+      "community": 2,
+      "norm_label": "tdd philosophy (behavior, not implementation)",
+      "id": "tdd_philosophy"
     },
     {
       "label": "Anti-Pattern: Horizontal Slices",
@@ -470,9 +515,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_horizontal_slices_antipattern",
-      "community": 1,
-      "norm_label": "anti-pattern: horizontal slices"
+      "community": 2,
+      "norm_label": "anti-pattern: horizontal slices",
+      "id": "tdd_horizontal_slices_antipattern"
     },
     {
       "label": "Tracer Bullet (vertical slice)",
@@ -483,9 +528,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_tracer_bullet",
-      "community": 1,
-      "norm_label": "tracer bullet (vertical slice)"
+      "community": 2,
+      "norm_label": "tracer bullet (vertical slice)",
+      "id": "tdd_tracer_bullet"
     },
     {
       "label": "Red-Green-Refactor Loop",
@@ -496,9 +541,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_red_green_refactor",
-      "community": 1,
-      "norm_label": "red-green-refactor loop"
+      "community": 2,
+      "norm_label": "red-green-refactor loop",
+      "id": "tdd_red_green_refactor"
     },
     {
       "label": "TDD Planning Step",
@@ -509,9 +554,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_planning_step",
-      "community": 1,
-      "norm_label": "tdd planning step"
+      "community": 2,
+      "norm_label": "tdd planning step",
+      "id": "tdd_planning_step"
     },
     {
       "label": "TDD Refactor Step",
@@ -522,9 +567,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_refactor_step",
-      "community": 1,
-      "norm_label": "tdd refactor step"
+      "community": 2,
+      "norm_label": "tdd refactor step",
+      "id": "tdd_refactor_step"
     },
     {
       "label": "TDD Per-Cycle Checklist",
@@ -535,9 +580,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "tdd_cycle_checklist",
-      "community": 1,
-      "norm_label": "tdd per-cycle checklist"
+      "community": 2,
+      "norm_label": "tdd per-cycle checklist",
+      "id": "tdd_cycle_checklist"
     },
     {
       "label": "Accept Dependencies, Don't Create Them",
@@ -548,9 +593,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "interfacedesign_accept_dependencies",
-      "community": 1,
-      "norm_label": "accept dependencies, don't create them"
+      "community": 2,
+      "norm_label": "accept dependencies, don't create them",
+      "id": "interfacedesign_accept_dependencies"
     },
     {
       "label": "Return Results, Avoid Side Effects",
@@ -561,9 +606,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "interfacedesign_return_results",
       "community": 17,
-      "norm_label": "return results, avoid side effects"
+      "norm_label": "return results, avoid side effects",
+      "id": "interfacedesign_return_results"
     },
     {
       "label": "Small Surface Area Interfaces",
@@ -574,9 +619,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "interfacedesign_small_surface_area",
-      "community": 1,
-      "norm_label": "small surface area interfaces"
+      "community": 2,
+      "norm_label": "small surface area interfaces",
+      "id": "interfacedesign_small_surface_area"
     },
     {
       "label": "Refactor Candidates List",
@@ -587,9 +632,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactoring_candidates",
-      "community": 1,
-      "norm_label": "refactor candidates list"
+      "community": 2,
+      "norm_label": "refactor candidates list",
+      "id": "refactoring_candidates"
     },
     {
       "label": "Extract Duplication",
@@ -600,9 +645,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactoring_duplication",
-      "community": 1,
-      "norm_label": "extract duplication"
+      "community": 2,
+      "norm_label": "extract duplication",
+      "id": "refactoring_duplication"
     },
     {
       "label": "Combine/Deepen Shallow Modules",
@@ -613,9 +658,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactoring_shallow_module_combine",
-      "community": 1,
-      "norm_label": "combine/deepen shallow modules"
+      "community": 2,
+      "norm_label": "combine/deepen shallow modules",
+      "id": "refactoring_shallow_module_combine"
     },
     {
       "label": "Move Logic Where Data Lives (Feature Envy)",
@@ -626,9 +671,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactoring_feature_envy",
-      "community": 1,
-      "norm_label": "move logic where data lives (feature envy)"
+      "community": 2,
+      "norm_label": "move logic where data lives (feature envy)",
+      "id": "refactoring_feature_envy"
     },
     {
       "label": "Introduce Value Objects (Primitive Obsession)",
@@ -639,9 +684,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactoring_primitive_obsession",
-      "community": 1,
-      "norm_label": "introduce value objects (primitive obsession)"
+      "community": 2,
+      "norm_label": "introduce value objects (primitive obsession)",
+      "id": "refactoring_primitive_obsession"
     },
     {
       "label": "precision-mode README",
@@ -652,9 +697,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_readme",
-      "community": 6,
-      "norm_label": "precision-mode readme"
+      "community": 7,
+      "norm_label": "precision-mode readme",
+      "id": "precisionmode_readme"
     },
     {
       "label": "Precision Mode Skill",
@@ -665,9 +710,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_skill",
-      "community": 6,
-      "norm_label": "precision mode skill"
+      "community": 7,
+      "norm_label": "precision mode skill",
+      "id": "precisionmode_skill"
     },
     {
       "label": "Prime Directive: Maximize Information Density",
@@ -678,9 +723,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_prime_directive",
-      "community": 6,
-      "norm_label": "prime directive: maximize information density"
+      "community": 7,
+      "norm_label": "prime directive: maximize information density",
+      "id": "precisionmode_prime_directive"
     },
     {
       "label": "10 Output Rules (lead with answer, no filler, etc.)",
@@ -691,9 +736,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_output_rules",
-      "community": 6,
-      "norm_label": "10 output rules (lead with answer, no filler, etc.)"
+      "community": 7,
+      "norm_label": "10 output rules (lead with answer, no filler, etc.)",
+      "id": "precisionmode_output_rules"
     },
     {
       "label": "Calibration Examples",
@@ -704,9 +749,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_calibration_examples",
-      "community": 6,
-      "norm_label": "calibration examples"
+      "community": 7,
+      "norm_label": "calibration examples",
+      "id": "precisionmode_calibration_examples"
     },
     {
       "label": "What Precision Mode Does NOT Mean",
@@ -717,9 +762,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_caveats",
-      "community": 6,
-      "norm_label": "what precision mode does not mean"
+      "community": 7,
+      "norm_label": "what precision mode does not mean",
+      "id": "precisionmode_caveats"
     },
     {
       "label": "Derived from concise-reporting",
@@ -730,9 +775,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "precisionmode_concise_reporting_origin",
-      "community": 6,
-      "norm_label": "derived from concise-reporting"
+      "community": 7,
+      "norm_label": "derived from concise-reporting",
+      "id": "precisionmode_concise_reporting_origin"
     },
     {
       "label": "qa Skill README",
@@ -743,9 +788,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_readme",
-      "community": 11,
-      "norm_label": "qa skill readme"
+      "community": 10,
+      "norm_label": "qa skill readme",
+      "id": "qa_readme"
     },
     {
       "label": "QA Session Skill",
@@ -756,9 +801,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_skill",
-      "community": 11,
-      "norm_label": "qa session skill"
+      "community": 10,
+      "norm_label": "qa session skill",
+      "id": "qa_skill"
     },
     {
       "label": "Step 1: Listen and Lightly Clarify",
@@ -769,9 +814,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_listen_clarify",
-      "community": 11,
-      "norm_label": "step 1: listen and lightly clarify"
+      "community": 10,
+      "norm_label": "step 1: listen and lightly clarify",
+      "id": "qa_listen_clarify"
     },
     {
       "label": "Step 2: Explore Codebase via Subagent",
@@ -782,9 +827,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_explore_codebase",
-      "community": 11,
-      "norm_label": "step 2: explore codebase via subagent"
+      "community": 10,
+      "norm_label": "step 2: explore codebase via subagent",
+      "id": "qa_explore_codebase"
     },
     {
       "label": "Step 3: Assess Scope (single vs breakdown)",
@@ -795,9 +840,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_assess_scope",
-      "community": 11,
-      "norm_label": "step 3: assess scope (single vs breakdown)"
+      "community": 10,
+      "norm_label": "step 3: assess scope (single vs breakdown)",
+      "id": "qa_assess_scope"
     },
     {
       "label": "Step 4: File GitHub Issues",
@@ -808,9 +853,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_file_github_issue",
-      "community": 11,
-      "norm_label": "step 4: file github issues"
+      "community": 10,
+      "norm_label": "step 4: file github issues",
+      "id": "qa_file_github_issue"
     },
     {
       "label": "Durable Issues (no file paths or line numbers)",
@@ -821,9 +866,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_durable_issues",
-      "community": 11,
-      "norm_label": "durable issues (no file paths or line numbers)"
+      "community": 10,
+      "norm_label": "durable issues (no file paths or line numbers)",
+      "id": "qa_durable_issues"
     },
     {
       "label": "UBIQUITOUS_LANGUAGE.md (domain language reference)",
@@ -834,9 +879,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_ubiquitous_language",
-      "community": 11,
-      "norm_label": "ubiquitous_language.md (domain language reference)"
+      "community": 10,
+      "norm_label": "ubiquitous_language.md (domain language reference)",
+      "id": "qa_ubiquitous_language"
     },
     {
       "label": "Breakdown Template (parallel issues)",
@@ -847,9 +892,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_breakdown_template",
-      "community": 11,
-      "norm_label": "breakdown template (parallel issues)"
+      "community": 10,
+      "norm_label": "breakdown template (parallel issues)",
+      "id": "qa_breakdown_template"
     },
     {
       "label": "Step 5: Continue Session",
@@ -860,9 +905,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "qa_continue_session",
-      "community": 11,
-      "norm_label": "step 5: continue session"
+      "community": 10,
+      "norm_label": "step 5: continue session",
+      "id": "qa_continue_session"
     },
     {
       "label": "pmo-status Skill README",
@@ -873,9 +918,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_readme",
-      "community": 12,
-      "norm_label": "pmo-status skill readme"
+      "community": 11,
+      "norm_label": "pmo-status skill readme",
+      "id": "pmostatus_readme"
     },
     {
       "label": "PMO Status Skill",
@@ -886,9 +931,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_skill",
-      "community": 12,
-      "norm_label": "pmo status skill"
+      "community": 11,
+      "norm_label": "pmo status skill",
+      "id": "pmostatus_skill"
     },
     {
       "label": "PRD-PIPELINE.md (source of truth)",
@@ -899,9 +944,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_prd_pipeline",
-      "community": 12,
-      "norm_label": "prd-pipeline.md (source of truth)"
+      "community": 11,
+      "norm_label": "prd-pipeline.md (source of truth)",
+      "id": "pmostatus_prd_pipeline"
     },
     {
       "label": "ralph fix_plan.md",
@@ -912,9 +957,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_fix_plan",
-      "community": 12,
-      "norm_label": "ralph fix_plan.md"
+      "community": 11,
+      "norm_label": "ralph fix_plan.md",
+      "id": "pmostatus_fix_plan"
     },
     {
       "label": "project.conf (resolves directories)",
@@ -925,9 +970,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_project_conf",
-      "community": 12,
-      "norm_label": "project.conf (resolves directories)"
+      "community": 11,
+      "norm_label": "project.conf (resolves directories)",
+      "id": "pmostatus_project_conf"
     },
     {
       "label": "Product Layer (PM-OS)",
@@ -938,9 +983,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_product_layer",
-      "community": 12,
-      "norm_label": "product layer (pm-os)"
+      "community": 11,
+      "norm_label": "product layer (pm-os)",
+      "id": "pmostatus_product_layer"
     },
     {
       "label": "Engineering DOE Layer (doe-os)",
@@ -951,9 +996,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_doe_layer",
-      "community": 12,
-      "norm_label": "engineering doe layer (doe-os)"
+      "community": 11,
+      "norm_label": "engineering doe layer (doe-os)",
+      "id": "pmostatus_doe_layer"
     },
     {
       "label": "Engineering Implementation (ralph / fix_plan)",
@@ -964,9 +1009,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_implementation_layer",
-      "community": 12,
-      "norm_label": "engineering implementation (ralph / fix_plan)"
+      "community": 11,
+      "norm_label": "engineering implementation (ralph / fix_plan)",
+      "id": "pmostatus_implementation_layer"
     },
     {
       "label": "Feature Map",
@@ -977,9 +1022,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_feature_map",
-      "community": 12,
-      "norm_label": "feature map"
+      "community": 11,
+      "norm_label": "feature map",
+      "id": "pmostatus_feature_map"
     },
     {
       "label": "Blockers & Risks Section",
@@ -990,9 +1035,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_blockers_risks",
-      "community": 12,
-      "norm_label": "blockers & risks section"
+      "community": 11,
+      "norm_label": "blockers & risks section",
+      "id": "pmostatus_blockers_risks"
     },
     {
       "label": "Next Actions (3-5 specific items)",
@@ -1003,9 +1048,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pmostatus_next_actions",
-      "community": 12,
-      "norm_label": "next actions (3-5 specific items)"
+      "community": 11,
+      "norm_label": "next actions (3-5 specific items)",
+      "id": "pmostatus_next_actions"
     },
     {
       "label": "write-a-skill README",
@@ -1016,9 +1061,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_readme",
-      "community": 6,
-      "norm_label": "write-a-skill readme"
+      "community": 7,
+      "norm_label": "write-a-skill readme",
+      "id": "writeskill_readme"
     },
     {
       "label": "Write-a-Skill Skill",
@@ -1029,9 +1074,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_skill",
-      "community": 6,
-      "norm_label": "write-a-skill skill"
+      "community": 7,
+      "norm_label": "write-a-skill skill",
+      "id": "writeskill_skill"
     },
     {
       "label": "Skill Authoring Process (gather, draft, review)",
@@ -1042,9 +1087,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_process",
-      "community": 6,
-      "norm_label": "skill authoring process (gather, draft, review)"
+      "community": 7,
+      "norm_label": "skill authoring process (gather, draft, review)",
+      "id": "writeskill_process"
     },
     {
       "label": "Skill Folder Structure",
@@ -1055,9 +1100,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_structure",
-      "community": 6,
-      "norm_label": "skill folder structure"
+      "community": 7,
+      "norm_label": "skill folder structure",
+      "id": "writeskill_structure"
     },
     {
       "label": "SKILL.md Template",
@@ -1068,9 +1113,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_template",
-      "community": 6,
-      "norm_label": "skill.md template"
+      "community": 7,
+      "norm_label": "skill.md template",
+      "id": "writeskill_template"
     },
     {
       "label": "Description Requirements (1024 chars, triggers)",
@@ -1081,9 +1126,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_description_requirements",
-      "community": 6,
-      "norm_label": "description requirements (1024 chars, triggers)"
+      "community": 7,
+      "norm_label": "description requirements (1024 chars, triggers)",
+      "id": "writeskill_description_requirements"
     },
     {
       "label": "When to Add Scripts",
@@ -1094,9 +1139,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_when_add_scripts",
-      "community": 6,
-      "norm_label": "when to add scripts"
+      "community": 7,
+      "norm_label": "when to add scripts",
+      "id": "writeskill_when_add_scripts"
     },
     {
       "label": "When to Split Files",
@@ -1107,9 +1152,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_when_split_files",
-      "community": 6,
-      "norm_label": "when to split files"
+      "community": 7,
+      "norm_label": "when to split files",
+      "id": "writeskill_when_split_files"
     },
     {
       "label": "Review Checklist",
@@ -1120,9 +1165,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeskill_review_checklist",
-      "community": 6,
-      "norm_label": "review checklist"
+      "community": 7,
+      "norm_label": "review checklist",
+      "id": "writeskill_review_checklist"
     },
     {
       "label": "prd-draft README",
@@ -1133,9 +1178,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_readme",
       "community": 4,
-      "norm_label": "prd-draft readme"
+      "norm_label": "prd-draft readme",
+      "id": "prddraft_readme"
     },
     {
       "label": "PRD Draft Skill",
@@ -1146,9 +1191,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_skill",
       "community": 4,
-      "norm_label": "prd draft skill"
+      "norm_label": "prd draft skill",
+      "id": "prddraft_skill"
     },
     {
       "label": "Context Routing Logic",
@@ -1159,9 +1204,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_context_routing",
       "community": 4,
-      "norm_label": "context routing logic"
+      "norm_label": "context routing logic",
+      "id": "prddraft_context_routing"
     },
     {
       "label": "Step 0: Feature Context Check",
@@ -1172,9 +1217,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_step0_context_check",
       "community": 4,
-      "norm_label": "step 0: feature context check"
+      "norm_label": "step 0: feature context check",
+      "id": "prddraft_step0_context_check"
     },
     {
       "label": "Step 1: Clarifying Questions",
@@ -1185,9 +1230,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_step1_clarifying_questions",
       "community": 4,
-      "norm_label": "step 1: clarifying questions"
+      "norm_label": "step 1: clarifying questions",
+      "id": "prddraft_step1_clarifying_questions"
     },
     {
       "label": "Step 2: Generate First Draft",
@@ -1198,9 +1243,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_step2_first_draft",
       "community": 4,
-      "norm_label": "step 2: generate first draft"
+      "norm_label": "step 2: generate first draft",
+      "id": "prddraft_step2_first_draft"
     },
     {
       "label": "Step 2.5: Generate Prototype (optional)",
@@ -1211,9 +1256,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_step2_5_prototype",
       "community": 4,
-      "norm_label": "step 2.5: generate prototype (optional)"
+      "norm_label": "step 2.5: generate prototype (optional)",
+      "id": "prddraft_step2_5_prototype"
     },
     {
       "label": "Step 3: Multi-Agent Review",
@@ -1224,9 +1269,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_step3_multi_agent_review",
       "community": 4,
-      "norm_label": "step 3: multi-agent review"
+      "norm_label": "step 3: multi-agent review",
+      "id": "prddraft_step3_multi_agent_review"
     },
     {
       "label": "PRD Template (templates/prd-template.md)",
@@ -1237,9 +1282,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_prd_template",
       "community": 4,
-      "norm_label": "prd template (templates/prd-template.md)"
+      "norm_label": "prd template (templates/prd-template.md)",
+      "id": "prddraft_prd_template"
     },
     {
       "label": "PRD Hypothesis Section (If/Then/Because)",
@@ -1250,9 +1295,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_hypothesis",
       "community": 4,
-      "norm_label": "prd hypothesis section (if/then/because)"
+      "norm_label": "prd hypothesis section (if/then/because)",
+      "id": "prddraft_hypothesis"
     },
     {
       "label": "PRD Strategic Fit + Impact Sizing",
@@ -1263,9 +1308,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_strategic_fit",
       "community": 4,
-      "norm_label": "prd strategic fit + impact sizing"
+      "norm_label": "prd strategic fit + impact sizing",
+      "id": "prddraft_strategic_fit"
     },
     {
       "label": "PRD Non-Goals",
@@ -1276,9 +1321,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_non_goals",
       "community": 4,
-      "norm_label": "prd non-goals"
+      "norm_label": "prd non-goals",
+      "id": "prddraft_non_goals"
     },
     {
       "label": "PRD Success Metrics + STEDII",
@@ -1289,9 +1334,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_success_metrics",
       "community": 4,
-      "norm_label": "prd success metrics + stedii"
+      "norm_label": "prd success metrics + stedii",
+      "id": "prddraft_success_metrics"
     },
     {
       "label": "PRD Rollout Plan",
@@ -1302,9 +1347,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_rollout_plan",
       "community": 4,
-      "norm_label": "prd rollout plan"
+      "norm_label": "prd rollout plan",
+      "id": "prddraft_rollout_plan"
     },
     {
       "label": "AI Behavior Contract",
@@ -1315,9 +1360,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_ai_behavior_contract",
       "community": 4,
-      "norm_label": "ai behavior contract"
+      "norm_label": "ai behavior contract",
+      "id": "prddraft_ai_behavior_contract"
     },
     {
       "label": "Solution Overview (non-AI)",
@@ -1328,9 +1373,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_solution_overview",
       "community": 4,
-      "norm_label": "solution overview (non-ai)"
+      "norm_label": "solution overview (non-ai)",
+      "id": "prddraft_solution_overview"
     },
     {
       "label": "Risks and Recovery Table",
@@ -1341,9 +1386,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_risks_recovery",
       "community": 4,
-      "norm_label": "risks and recovery table"
+      "norm_label": "risks and recovery table",
+      "id": "prddraft_risks_recovery"
     },
     {
       "label": "Stage-Specific Length Guidance",
@@ -1354,9 +1399,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_stage_length_guidance",
       "community": 4,
-      "norm_label": "stage-specific length guidance"
+      "norm_label": "stage-specific length guidance",
+      "id": "prddraft_stage_length_guidance"
     },
     {
       "label": "Output Quality Self-Check",
@@ -1367,9 +1412,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_quality_self_check",
       "community": 4,
-      "norm_label": "output quality self-check"
+      "norm_label": "output quality self-check",
+      "id": "prddraft_quality_self_check"
     },
     {
       "label": "Part 2: Full PRD Workflow (7 steps)",
@@ -1380,9 +1425,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_full_workflow",
       "community": 4,
-      "norm_label": "part 2: full prd workflow (7 steps)"
+      "norm_label": "part 2: full prd workflow (7 steps)",
+      "id": "prddraft_full_workflow"
     },
     {
       "label": "Part 3: AI Feature PRDs",
@@ -1393,9 +1438,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_ai_prd_addition",
       "community": 4,
-      "norm_label": "part 3: ai feature prds"
+      "norm_label": "part 3: ai feature prds",
+      "id": "prddraft_ai_prd_addition"
     },
     {
       "label": "AI Behavior Specification (Good/Bad/Reject)",
@@ -1406,9 +1451,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_behavior_specification",
       "community": 4,
-      "norm_label": "ai behavior specification (good/bad/reject)"
+      "norm_label": "ai behavior specification (good/bad/reject)",
+      "id": "prddraft_behavior_specification"
     },
     {
       "label": "$1-$10-$100 Prototype Rule",
@@ -1419,9 +1464,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_dollar_rule",
       "community": 4,
-      "norm_label": "$1-$10-$100 prototype rule"
+      "norm_label": "$1-$10-$100 prototype rule",
+      "id": "prddraft_dollar_rule"
     },
     {
       "label": "10 Principles for AI Products",
@@ -1432,9 +1477,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prddraft_10_principles_ai",
       "community": 4,
-      "norm_label": "10 principles for ai products"
+      "norm_label": "10 principles for ai products",
+      "id": "prddraft_10_principles_ai"
     },
     {
       "label": "Changelog",
@@ -1445,9 +1490,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_doc",
-      "community": 9,
-      "norm_label": "changelog"
+      "community": 6,
+      "norm_label": "changelog",
+      "id": "changelog_doc"
     },
     {
       "label": "Compact Conversation Skill Added (2026-04-08)",
@@ -1458,9 +1503,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_compact_conversation_entry",
-      "community": 9,
-      "norm_label": "compact conversation skill added (2026-04-08)"
+      "community": 6,
+      "norm_label": "compact conversation skill added (2026-04-08)",
+      "id": "changelog_compact_conversation_entry"
     },
     {
       "label": "E2E Audit Skill Added (2026-04-05)",
@@ -1471,9 +1516,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_e2e_audit_entry",
-      "community": 9,
-      "norm_label": "e2e audit skill added (2026-04-05)"
+      "community": 6,
+      "norm_label": "e2e audit skill added (2026-04-05)",
+      "id": "changelog_e2e_audit_entry"
     },
     {
       "label": "Precision Mode + Package Scout Added (2026-04-03)",
@@ -1484,9 +1529,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_precision_mode_entry",
-      "community": 9,
-      "norm_label": "precision mode + package scout added (2026-04-03)"
+      "community": 6,
+      "norm_label": "precision mode + package scout added (2026-04-03)",
+      "id": "changelog_precision_mode_entry"
     },
     {
       "label": "Concise Reporting Added (2026-04-02)",
@@ -1497,9 +1542,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_concise_reporting_entry",
-      "community": 9,
-      "norm_label": "concise reporting added (2026-04-02)"
+      "community": 6,
+      "norm_label": "concise reporting added (2026-04-02)",
+      "id": "changelog_concise_reporting_entry"
     },
     {
       "label": "PRD-to-Plan, QA, Refactor-Plan Added (2026-03-31)",
@@ -1510,9 +1555,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_prd_to_plan_entry",
-      "community": 8,
-      "norm_label": "prd-to-plan, qa, refactor-plan added (2026-03-31)"
+      "community": 6,
+      "norm_label": "prd-to-plan, qa, refactor-plan added (2026-03-31)",
+      "id": "changelog_prd_to_plan_entry"
     },
     {
       "label": "Flatten Skill Directories (2026-03-29)",
@@ -1523,9 +1568,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_flatten_entry",
-      "community": 9,
-      "norm_label": "flatten skill directories (2026-03-29)"
+      "community": 6,
+      "norm_label": "flatten skill directories (2026-03-29)",
+      "id": "changelog_flatten_entry"
     },
     {
       "label": "Eng-Spec, Git-Guardrails, TDD, Ubiquitous Language, Design Interview Added (2026-03-28)",
@@ -1536,9 +1581,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "changelog_eng_spec_entry",
-      "community": 9,
-      "norm_label": "eng-spec, git-guardrails, tdd, ubiquitous language, design interview added (2026-03-28)"
+      "community": 6,
+      "norm_label": "eng-spec, git-guardrails, tdd, ubiquitous language, design interview added (2026-03-28)",
+      "id": "changelog_eng_spec_entry"
     },
     {
       "label": "Skills Catalog README",
@@ -1549,9 +1594,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_catalog",
-      "community": 0,
-      "norm_label": "skills catalog readme"
+      "community": 1,
+      "norm_label": "skills catalog readme",
+      "id": "readme_catalog"
     },
     {
       "label": "Skills CLI (npx skills)",
@@ -1562,9 +1607,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_skills_cli",
-      "community": 0,
-      "norm_label": "skills cli (npx skills)"
+      "community": 1,
+      "norm_label": "skills cli (npx skills)",
+      "id": "readme_skills_cli"
     },
     {
       "label": "Compatible Agents List",
@@ -1575,9 +1620,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_compatible_agents",
-      "community": 0,
-      "norm_label": "compatible agents list"
+      "community": 1,
+      "norm_label": "compatible agents list",
+      "id": "readme_compatible_agents"
     },
     {
       "label": "Category: Product Management",
@@ -1588,9 +1633,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_product_management",
-      "community": 0,
-      "norm_label": "category: product management"
+      "community": 1,
+      "norm_label": "category: product management",
+      "id": "readme_category_product_management"
     },
     {
       "label": "Category: Project Management",
@@ -1601,9 +1646,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_project_management",
-      "community": 0,
-      "norm_label": "category: project management"
+      "community": 1,
+      "norm_label": "category: project management",
+      "id": "readme_category_project_management"
     },
     {
       "label": "Category: Engineering",
@@ -1614,9 +1659,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_engineering",
-      "community": 0,
-      "norm_label": "category: engineering"
+      "community": 1,
+      "norm_label": "category: engineering",
+      "id": "readme_category_engineering"
     },
     {
       "label": "Category: UX Design",
@@ -1627,9 +1672,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_ux_design",
-      "community": 0,
-      "norm_label": "category: ux design"
+      "community": 1,
+      "norm_label": "category: ux design",
+      "id": "readme_category_ux_design"
     },
     {
       "label": "Category: Agent Behavior",
@@ -1640,9 +1685,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_agent_behavior",
-      "community": 0,
-      "norm_label": "category: agent behavior"
+      "community": 1,
+      "norm_label": "category: agent behavior",
+      "id": "readme_category_agent_behavior"
     },
     {
       "label": "Category: AI Agent",
@@ -1653,9 +1698,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_category_ai_agent",
-      "community": 0,
-      "norm_label": "category: ai agent"
+      "community": 1,
+      "norm_label": "category: ai agent",
+      "id": "readme_category_ai_agent"
     },
     {
       "label": "What Are Skills (Definition)",
@@ -1666,9 +1711,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_what_are_skills",
-      "community": 0,
-      "norm_label": "what are skills (definition)"
+      "community": 1,
+      "norm_label": "what are skills (definition)",
+      "id": "readme_what_are_skills"
     },
     {
       "label": "Manual Installation Paths Table",
@@ -1679,9 +1724,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_manual_install_table",
-      "community": 0,
-      "norm_label": "manual installation paths table"
+      "community": 1,
+      "norm_label": "manual installation paths table",
+      "id": "readme_manual_install_table"
     },
     {
       "label": "AGENTS.md - Project Agent Instructions",
@@ -1692,9 +1737,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_doc",
-      "community": 0,
-      "norm_label": "agents.md - project agent instructions"
+      "community": 1,
+      "norm_label": "agents.md - project agent instructions",
+      "id": "agents_doc"
     },
     {
       "label": "Catalog Sync Rule (Mandatory)",
@@ -1705,9 +1750,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_catalog_sync_rule",
-      "community": 0,
-      "norm_label": "catalog sync rule (mandatory)"
+      "community": 1,
+      "norm_label": "catalog sync rule (mandatory)",
+      "id": "agents_catalog_sync_rule"
     },
     {
       "label": "Category to CSS Class Mapping",
@@ -1718,9 +1763,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_category_css_mapping",
-      "community": 0,
-      "norm_label": "category to css class mapping"
+      "community": 1,
+      "norm_label": "category to css class mapping",
+      "id": "agents_category_css_mapping"
     },
     {
       "label": "Git Conventions (dev branch, conventional commits)",
@@ -1731,9 +1776,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_git_conventions",
-      "community": 0,
-      "norm_label": "git conventions (dev branch, conventional commits)"
+      "community": 1,
+      "norm_label": "git conventions (dev branch, conventional commits)",
+      "id": "agents_git_conventions"
     },
     {
       "label": "Skill Authoring Reference (write-a-skill)",
@@ -1744,9 +1789,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_skill_authoring_ref",
-      "community": 0,
-      "norm_label": "skill authoring reference (write-a-skill)"
+      "community": 1,
+      "norm_label": "skill authoring reference (write-a-skill)",
+      "id": "agents_skill_authoring_ref"
     },
     {
       "label": "site.js skills array requirement",
@@ -1757,9 +1802,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_site_js_skills_array",
-      "community": 0,
-      "norm_label": "site.js skills array requirement"
+      "community": 1,
+      "norm_label": "site.js skills array requirement",
+      "id": "agents_site_js_skills_array"
     },
     {
       "label": "site.js changes array requirement",
@@ -1770,9 +1815,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_site_js_changes_array",
-      "community": 0,
-      "norm_label": "site.js changes array requirement"
+      "community": 1,
+      "norm_label": "site.js changes array requirement",
+      "id": "agents_site_js_changes_array"
     },
     {
       "label": "CLAUDE.md - Project Instructions",
@@ -1783,9 +1828,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claudemd_doc",
-      "community": 0,
-      "norm_label": "claude.md - project instructions"
+      "community": 1,
+      "norm_label": "claude.md - project instructions",
+      "id": "claudemd_doc"
     },
     {
       "label": "CLAUDE Catalog Sync Rule (Mandatory)",
@@ -1796,9 +1841,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claudemd_catalog_sync",
-      "community": 0,
-      "norm_label": "claude catalog sync rule (mandatory)"
+      "community": 1,
+      "norm_label": "claude catalog sync rule (mandatory)",
+      "id": "claudemd_catalog_sync"
     },
     {
       "label": "write-a-prd README",
@@ -1809,9 +1854,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_readme",
-      "community": 0,
-      "norm_label": "write-a-prd readme"
+      "community": 1,
+      "norm_label": "write-a-prd readme",
+      "id": "writeaprd_readme"
     },
     {
       "label": "write-a-prd Skill",
@@ -1822,9 +1867,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_skill",
-      "community": 8,
-      "norm_label": "write-a-prd skill"
+      "community": 0,
+      "norm_label": "write-a-prd skill",
+      "id": "writeaprd_skill"
     },
     {
       "label": "Deep Module Concept",
@@ -1835,9 +1880,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_deep_module_concept",
-      "community": 8,
-      "norm_label": "deep module concept"
+      "community": 0,
+      "norm_label": "deep module concept",
+      "id": "writeaprd_deep_module_concept"
     },
     {
       "label": "PRD Template (Problem, Solution, User Stories, Decisions)",
@@ -1848,9 +1893,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_prd_template",
-      "community": 8,
-      "norm_label": "prd template (problem, solution, user stories, decisions)"
+      "community": 0,
+      "norm_label": "prd template (problem, solution, user stories, decisions)",
+      "id": "writeaprd_prd_template"
     },
     {
       "label": "User Story Format (As an actor, I want...)",
@@ -1861,9 +1906,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_user_story_format",
-      "community": 8,
-      "norm_label": "user story format (as an actor, i want...)"
+      "community": 0,
+      "norm_label": "user story format (as an actor, i want...)",
+      "id": "writeaprd_user_story_format"
     },
     {
       "label": "PRD Submitted as GitHub Issue",
@@ -1874,9 +1919,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "writeaprd_github_issue_output",
-      "community": 8,
-      "norm_label": "prd submitted as github issue"
+      "community": 0,
+      "norm_label": "prd submitted as github issue",
+      "id": "writeaprd_github_issue_output"
     },
     {
       "label": "prd-to-plan README",
@@ -1887,9 +1932,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_readme",
-      "community": 0,
-      "norm_label": "prd-to-plan readme"
+      "community": 1,
+      "norm_label": "prd-to-plan readme",
+      "id": "prdtoplan_readme"
     },
     {
       "label": "prd-to-plan Skill",
@@ -1900,9 +1945,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_skill",
-      "community": 8,
-      "norm_label": "prd-to-plan skill"
+      "community": 6,
+      "norm_label": "prd-to-plan skill",
+      "id": "prdtoplan_skill"
     },
     {
       "label": "Tracer Bullet Vertical Slices Concept",
@@ -1913,9 +1958,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_tracer_bullet_concept",
-      "community": 8,
-      "norm_label": "tracer bullet vertical slices concept"
+      "community": 6,
+      "norm_label": "tracer bullet vertical slices concept",
+      "id": "prdtoplan_tracer_bullet_concept"
     },
     {
       "label": "Durable Architectural Decisions",
@@ -1926,9 +1971,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_durable_decisions",
-      "community": 8,
-      "norm_label": "durable architectural decisions"
+      "community": 6,
+      "norm_label": "durable architectural decisions",
+      "id": "prdtoplan_durable_decisions"
     },
     {
       "label": "Plan Markdown Template",
@@ -1939,9 +1984,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_template",
-      "community": 8,
-      "norm_label": "plan markdown template"
+      "community": 6,
+      "norm_label": "plan markdown template",
+      "id": "prdtoplan_template"
     },
     {
       "label": "Rationale: Prefer many thin slices over few thick",
@@ -1952,9 +1997,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdtoplan_rationale_thin_over_thick",
-      "community": 8,
-      "norm_label": "rationale: prefer many thin slices over few thick"
+      "community": 6,
+      "norm_label": "rationale: prefer many thin slices over few thick",
+      "id": "prdtoplan_rationale_thin_over_thick"
     },
     {
       "label": "git-guardrails-claude-code README",
@@ -1965,9 +2010,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_readme",
-      "community": 0,
-      "norm_label": "git-guardrails-claude-code readme"
+      "community": 1,
+      "norm_label": "git-guardrails-claude-code readme",
+      "id": "gitguardrails_readme"
     },
     {
       "label": "git-guardrails-claude-code Skill",
@@ -1978,9 +2023,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_skill",
-      "community": 9,
-      "norm_label": "git-guardrails-claude-code skill"
+      "community": 6,
+      "norm_label": "git-guardrails-claude-code skill",
+      "id": "gitguardrails_skill"
     },
     {
       "label": "Blocked Git Commands (push, reset --hard, clean -f, etc.)",
@@ -1991,9 +2036,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_blocked_commands",
-      "community": 9,
-      "norm_label": "blocked git commands (push, reset --hard, clean -f, etc.)"
+      "community": 6,
+      "norm_label": "blocked git commands (push, reset --hard, clean -f, etc.)",
+      "id": "gitguardrails_blocked_commands"
     },
     {
       "label": "PreToolUse Hook Mechanism",
@@ -2004,9 +2049,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_pretooluse_hook",
-      "community": 9,
-      "norm_label": "pretooluse hook mechanism"
+      "community": 6,
+      "norm_label": "pretooluse hook mechanism",
+      "id": "gitguardrails_pretooluse_hook"
     },
     {
       "label": "block-dangerous-git.sh Script",
@@ -2017,9 +2062,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_block_script",
-      "community": 9,
-      "norm_label": "block-dangerous-git.sh script"
+      "community": 6,
+      "norm_label": "block-dangerous-git.sh script",
+      "id": "gitguardrails_block_script"
     },
     {
       "label": ".claude/settings.json Hooks Config",
@@ -2030,9 +2075,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "gitguardrails_settings_json",
-      "community": 9,
-      "norm_label": ".claude/settings.json hooks config"
+      "community": 6,
+      "norm_label": ".claude/settings.json hooks config",
+      "id": "gitguardrails_settings_json"
     },
     {
       "label": "design-interview README",
@@ -2043,9 +2088,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_readme",
-      "community": 0,
-      "norm_label": "design-interview readme"
+      "community": 1,
+      "norm_label": "design-interview readme",
+      "id": "designinterview_readme"
     },
     {
       "label": "design-interview Skill",
@@ -2056,9 +2101,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_skill",
-      "community": 2,
-      "norm_label": "design-interview skill"
+      "community": 0,
+      "norm_label": "design-interview skill",
+      "id": "designinterview_skill"
     },
     {
       "label": "Context Routing (PRDs, Personas, Brand)",
@@ -2069,9 +2114,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_context_routing",
-      "community": 2,
-      "norm_label": "context routing (prds, personas, brand)"
+      "community": 0,
+      "norm_label": "context routing (prds, personas, brand)",
+      "id": "designinterview_context_routing"
     },
     {
       "label": "5-Section Interview (Product/Users/Visual/Constraints/Success)",
@@ -2082,9 +2127,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_5_sections",
-      "community": 8,
-      "norm_label": "5-section interview (product/users/visual/constraints/success)"
+      "community": 0,
+      "norm_label": "5-section interview (product/users/visual/constraints/success)",
+      "id": "designinterview_5_sections"
     },
     {
       "label": "Design Brief Output Template",
@@ -2095,9 +2140,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_brief_template",
-      "community": 2,
-      "norm_label": "design brief output template"
+      "community": 0,
+      "norm_label": "design brief output template",
+      "id": "designinterview_brief_template"
     },
     {
       "label": "Quick Mode (--quick, 5 questions)",
@@ -2108,9 +2153,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_quick_mode",
-      "community": 2,
-      "norm_label": "quick mode (--quick, 5 questions)"
+      "community": 0,
+      "norm_label": "quick mode (--quick, 5 questions)",
+      "id": "designinterview_quick_mode"
     },
     {
       "label": "Rationale: Screen quality depends on context gathering",
@@ -2121,9 +2166,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designinterview_rationale_quality_dependency",
-      "community": 2,
-      "norm_label": "rationale: screen quality depends on context gathering"
+      "community": 0,
+      "norm_label": "rationale: screen quality depends on context gathering",
+      "id": "designinterview_rationale_quality_dependency"
     },
     {
       "label": "prd-review-panel README",
@@ -2134,9 +2179,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_readme",
-      "community": 0,
-      "norm_label": "prd-review-panel readme"
+      "community": 1,
+      "norm_label": "prd-review-panel readme",
+      "id": "prdreviewpanel_readme"
     },
     {
       "label": "prd-review-panel Skill",
@@ -2147,9 +2192,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_skill",
-      "community": 2,
-      "norm_label": "prd-review-panel skill"
+      "community": 0,
+      "norm_label": "prd-review-panel skill",
+      "id": "prdreviewpanel_skill"
     },
     {
       "label": "7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)",
@@ -2160,9 +2205,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_seven_agents",
-      "community": 7,
-      "norm_label": "7 reviewer sub-agents (eng/design/exec/legal/uxr/skeptic/customer)"
+      "community": 8,
+      "norm_label": "7 reviewer sub-agents (eng/design/exec/legal/uxr/skeptic/customer)",
+      "id": "prdreviewpanel_seven_agents"
     },
     {
       "label": "Engineering Reviewer Agent",
@@ -2173,9 +2218,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_engineer_agent",
-      "community": 7,
-      "norm_label": "engineering reviewer agent"
+      "community": 8,
+      "norm_label": "engineering reviewer agent",
+      "id": "prdreviewpanel_engineer_agent"
     },
     {
       "label": "Designer Reviewer Agent",
@@ -2186,9 +2231,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_designer_agent",
-      "community": 7,
-      "norm_label": "designer reviewer agent"
+      "community": 8,
+      "norm_label": "designer reviewer agent",
+      "id": "prdreviewpanel_designer_agent"
     },
     {
       "label": "Executive Reviewer Agent",
@@ -2199,9 +2244,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_exec_agent",
-      "community": 7,
-      "norm_label": "executive reviewer agent"
+      "community": 8,
+      "norm_label": "executive reviewer agent",
+      "id": "prdreviewpanel_exec_agent"
     },
     {
       "label": "Legal Advisor Agent",
@@ -2212,9 +2257,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_legal_agent",
-      "community": 7,
-      "norm_label": "legal advisor agent"
+      "community": 8,
+      "norm_label": "legal advisor agent",
+      "id": "prdreviewpanel_legal_agent"
     },
     {
       "label": "UX Research Analyst Agent",
@@ -2225,9 +2270,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_uxr_agent",
-      "community": 7,
-      "norm_label": "ux research analyst agent"
+      "community": 8,
+      "norm_label": "ux research analyst agent",
+      "id": "prdreviewpanel_uxr_agent"
     },
     {
       "label": "Skeptic Agent (Devil's Advocate)",
@@ -2238,9 +2283,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_skeptic_agent",
-      "community": 7,
-      "norm_label": "skeptic agent (devil's advocate)"
+      "community": 8,
+      "norm_label": "skeptic agent (devil's advocate)",
+      "id": "prdreviewpanel_skeptic_agent"
     },
     {
       "label": "Customer Voice Agent",
@@ -2251,9 +2296,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_customer_voice_agent",
-      "community": 7,
-      "norm_label": "customer voice agent"
+      "community": 8,
+      "norm_label": "customer voice agent",
+      "id": "prdreviewpanel_customer_voice_agent"
     },
     {
       "label": "Review Synthesis Template",
@@ -2264,9 +2309,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_synthesis_template",
-      "community": 2,
-      "norm_label": "review synthesis template"
+      "community": 0,
+      "norm_label": "review synthesis template",
+      "id": "prdreviewpanel_synthesis_template"
     },
     {
       "label": "Parallel Task Execution (single-message)",
@@ -2277,9 +2322,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_parallel_execution",
-      "community": 2,
-      "norm_label": "parallel task execution (single-message)"
+      "community": 0,
+      "norm_label": "parallel task execution (single-message)",
+      "id": "prdreviewpanel_parallel_execution"
     },
     {
       "label": "PRD Stage Gates (Kickoff/Planning/XFN/Solution/Launch)",
@@ -2290,9 +2335,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdreviewpanel_stage_gating",
-      "community": 2,
-      "norm_label": "prd stage gates (kickoff/planning/xfn/solution/launch)"
+      "community": 0,
+      "norm_label": "prd stage gates (kickoff/planning/xfn/solution/launch)",
+      "id": "prdreviewpanel_stage_gating"
     },
     {
       "label": "design-draft README",
@@ -2303,9 +2348,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_readme",
-      "community": 0,
-      "norm_label": "design-draft readme"
+      "community": 1,
+      "norm_label": "design-draft readme",
+      "id": "designdraft_readme"
     },
     {
       "label": "design-draft Skill (Full UXD Workflow)",
@@ -2316,9 +2361,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_skill",
-      "community": 2,
-      "norm_label": "design-draft skill (full uxd workflow)"
+      "community": 0,
+      "norm_label": "design-draft skill (full uxd workflow)",
+      "id": "designdraft_skill"
     },
     {
       "label": "Step 0: Find Approved PRD",
@@ -2329,9 +2374,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step0_find_prd",
-      "community": 2,
-      "norm_label": "step 0: find approved prd"
+      "community": 0,
+      "norm_label": "step 0: find approved prd",
+      "id": "designdraft_step0_find_prd"
     },
     {
       "label": "Step 1: Load PRD Context",
@@ -2342,9 +2387,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step1_load_context",
-      "community": 2,
-      "norm_label": "step 1: load prd context"
+      "community": 0,
+      "norm_label": "step 1: load prd context",
+      "id": "designdraft_step1_load_context"
     },
     {
       "label": "Step 2: Design Interview",
@@ -2355,9 +2400,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step2_interview",
-      "community": 2,
-      "norm_label": "step 2: design interview"
+      "community": 0,
+      "norm_label": "step 2: design interview",
+      "id": "designdraft_step2_interview"
     },
     {
       "label": "Step 3: User Flow",
@@ -2368,9 +2413,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step3_user_flow",
-      "community": 2,
-      "norm_label": "step 3: user flow"
+      "community": 0,
+      "norm_label": "step 3: user flow",
+      "id": "designdraft_step3_user_flow"
     },
     {
       "label": "Step 4: Wireframes",
@@ -2381,9 +2426,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step4_wireframes",
-      "community": 2,
-      "norm_label": "step 4: wireframes"
+      "community": 0,
+      "norm_label": "step 4: wireframes",
+      "id": "designdraft_step4_wireframes"
     },
     {
       "label": "Step 5: Design System",
@@ -2394,9 +2439,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step5_design_system",
-      "community": 2,
-      "norm_label": "step 5: design system"
+      "community": 0,
+      "norm_label": "step 5: design system",
+      "id": "designdraft_step5_design_system"
     },
     {
       "label": "Step 6: Hi-Fidelity Screens",
@@ -2407,9 +2452,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step6_screens",
-      "community": 2,
-      "norm_label": "step 6: hi-fidelity screens"
+      "community": 0,
+      "norm_label": "step 6: hi-fidelity screens",
+      "id": "designdraft_step6_screens"
     },
     {
       "label": "Step 7: Design Review",
@@ -2420,9 +2465,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step7_review",
-      "community": 2,
-      "norm_label": "step 7: design review"
+      "community": 0,
+      "norm_label": "step 7: design review",
+      "id": "designdraft_step7_review"
     },
     {
       "label": "Step 8: Developer Handoff",
@@ -2433,9 +2478,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step8_handoff",
-      "community": 2,
-      "norm_label": "step 8: developer handoff"
+      "community": 0,
+      "norm_label": "step 8: developer handoff",
+      "id": "designdraft_step8_handoff"
     },
     {
       "label": "Step 8b: Update Preview Manifest",
@@ -2446,9 +2491,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step8b_manifest",
-      "community": 2,
-      "norm_label": "step 8b: update preview manifest"
+      "community": 0,
+      "norm_label": "step 8b: update preview manifest",
+      "id": "designdraft_step8b_manifest"
     },
     {
       "label": "Step 9: Approve and Publish (uxd-approve.zsh)",
@@ -2459,9 +2504,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_step9_approve",
-      "community": 2,
-      "norm_label": "step 9: approve and publish (uxd-approve.zsh)"
+      "community": 0,
+      "norm_label": "step 9: approve and publish (uxd-approve.zsh)",
+      "id": "designdraft_step9_approve"
     },
     {
       "label": "Resume From Step (--from)",
@@ -2472,9 +2517,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designdraft_resume_flag",
-      "community": 2,
-      "norm_label": "resume from step (--from)"
+      "community": 0,
+      "norm_label": "resume from step (--from)",
+      "id": "designdraft_resume_flag"
     },
     {
       "label": "design-review README",
@@ -2485,9 +2530,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_readme",
-      "community": 0,
-      "norm_label": "design-review readme"
+      "community": 1,
+      "norm_label": "design-review readme",
+      "id": "designreview_readme"
     },
     {
       "label": "design-review Skill",
@@ -2498,9 +2543,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_skill",
-      "community": 2,
-      "norm_label": "design-review skill"
+      "community": 0,
+      "norm_label": "design-review skill",
+      "id": "designreview_skill"
     },
     {
       "label": "5 Reviewers (UXR/A11y/Engineer/Brand/EndUser)",
@@ -2511,9 +2556,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_5_reviewers",
-      "community": 7,
-      "norm_label": "5 reviewers (uxr/a11y/engineer/brand/enduser)"
+      "community": 8,
+      "norm_label": "5 reviewers (uxr/a11y/engineer/brand/enduser)",
+      "id": "designreview_5_reviewers"
     },
     {
       "label": "UX Researcher Reviewer",
@@ -2524,9 +2569,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_ux_researcher",
-      "community": 7,
-      "norm_label": "ux researcher reviewer"
+      "community": 8,
+      "norm_label": "ux researcher reviewer",
+      "id": "designreview_ux_researcher"
     },
     {
       "label": "Accessibility Auditor (WCAG 2.1 AA)",
@@ -2537,9 +2582,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_a11y_auditor",
-      "community": 7,
-      "norm_label": "accessibility auditor (wcag 2.1 aa)"
+      "community": 8,
+      "norm_label": "accessibility auditor (wcag 2.1 aa)",
+      "id": "designreview_a11y_auditor"
     },
     {
       "label": "Engineer Feasibility Reviewer",
@@ -2550,9 +2595,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_engineer_feasibility",
-      "community": 7,
-      "norm_label": "engineer feasibility reviewer"
+      "community": 8,
+      "norm_label": "engineer feasibility reviewer",
+      "id": "designreview_engineer_feasibility"
     },
     {
       "label": "Brand Guardian Reviewer",
@@ -2563,9 +2608,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_brand_guardian",
-      "community": 7,
-      "norm_label": "brand guardian reviewer"
+      "community": 8,
+      "norm_label": "brand guardian reviewer",
+      "id": "designreview_brand_guardian"
     },
     {
       "label": "End User Voice Reviewer",
@@ -2576,9 +2621,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_end_user_voice",
-      "community": 7,
-      "norm_label": "end user voice reviewer"
+      "community": 8,
+      "norm_label": "end user voice reviewer",
+      "id": "designreview_end_user_voice"
     },
     {
       "label": "Design Review Output Markdown Template",
@@ -2589,9 +2634,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "designreview_output_template",
-      "community": 2,
-      "norm_label": "design review output markdown template"
+      "community": 0,
+      "norm_label": "design review output markdown template",
+      "id": "designreview_output_template"
     },
     {
       "label": "Skill Authoring Convention (SKILL.md + README.md per skill)",
@@ -2602,9 +2647,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_skill_authoring",
-      "community": 0,
-      "norm_label": "skill authoring convention (skill.md + readme.md per skill)"
+      "community": 1,
+      "norm_label": "skill authoring convention (skill.md + readme.md per skill)",
+      "id": "concept_skill_authoring"
     },
     {
       "label": "Multi-Agent Review Pattern",
@@ -2615,9 +2660,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_multi_agent_review",
-      "community": 2,
-      "norm_label": "multi-agent review pattern"
+      "community": 0,
+      "norm_label": "multi-agent review pattern",
+      "id": "concept_multi_agent_review"
     },
     {
       "label": "eng-spec Skill",
@@ -2628,9 +2673,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_skill",
       "community": 3,
-      "norm_label": "eng-spec skill"
+      "norm_label": "eng-spec skill",
+      "id": "engspec_skill"
     },
     {
       "label": "eng-spec README",
@@ -2641,9 +2686,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_readme",
       "community": 3,
-      "norm_label": "eng-spec readme"
+      "norm_label": "eng-spec readme",
+      "id": "engspec_readme"
     },
     {
       "label": "TDD (Technical Design Document)",
@@ -2654,9 +2699,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_tdd",
       "community": 3,
-      "norm_label": "tdd (technical design document)"
+      "norm_label": "tdd (technical design document)",
+      "id": "engspec_tdd"
     },
     {
       "label": "SPEC (Engineering Spec)",
@@ -2667,9 +2712,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_spec",
       "community": 3,
-      "norm_label": "spec (engineering spec)"
+      "norm_label": "spec (engineering spec)",
+      "id": "engspec_spec"
     },
     {
       "label": "ADR (Architecture Decision Record)",
@@ -2680,9 +2725,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_adr",
       "community": 3,
-      "norm_label": "adr (architecture decision record)"
+      "norm_label": "adr (architecture decision record)",
+      "id": "engspec_adr"
     },
     {
       "label": "ADR-001 Hexagonal Architecture",
@@ -2693,9 +2738,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_adr001",
       "community": 3,
-      "norm_label": "adr-001 hexagonal architecture"
+      "norm_label": "adr-001 hexagonal architecture",
+      "id": "engspec_adr001"
     },
     {
       "label": "ADR-002 Three-Database Strategy",
@@ -2706,9 +2751,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_adr002",
       "community": 3,
-      "norm_label": "adr-002 three-database strategy"
+      "norm_label": "adr-002 three-database strategy",
+      "id": "engspec_adr002"
     },
     {
       "label": "5-Agent Engineering Panel Review",
@@ -2719,9 +2764,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_panel_5agents",
       "community": 3,
-      "norm_label": "5-agent engineering panel review"
+      "norm_label": "5-agent engineering panel review",
+      "id": "engspec_panel_5agents"
     },
     {
       "label": "Architect Reviewer Agent",
@@ -2732,9 +2777,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_architect_reviewer",
       "community": 3,
-      "norm_label": "architect reviewer agent"
+      "norm_label": "architect reviewer agent",
+      "id": "engspec_architect_reviewer"
     },
     {
       "label": "DB Designer Reviewer Agent",
@@ -2745,9 +2790,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_db_designer_reviewer",
       "community": 3,
-      "norm_label": "db designer reviewer agent"
+      "norm_label": "db designer reviewer agent",
+      "id": "engspec_db_designer_reviewer"
     },
     {
       "label": "Principal SWE Reviewer Agent",
@@ -2758,9 +2803,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_principal_swe_reviewer",
       "community": 3,
-      "norm_label": "principal swe reviewer agent"
+      "norm_label": "principal swe reviewer agent",
+      "id": "engspec_principal_swe_reviewer"
     },
     {
       "label": "SDET Reviewer Agent",
@@ -2771,9 +2816,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_sdet_reviewer",
       "community": 3,
-      "norm_label": "sdet reviewer agent"
+      "norm_label": "sdet reviewer agent",
+      "id": "engspec_sdet_reviewer"
     },
     {
       "label": "Performance Engineer Reviewer Agent",
@@ -2784,9 +2829,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_perf_engineer_reviewer",
       "community": 3,
-      "norm_label": "performance engineer reviewer agent"
+      "norm_label": "performance engineer reviewer agent",
+      "id": "engspec_perf_engineer_reviewer"
     },
     {
       "label": "PRD-PIPELINE.md",
@@ -2797,9 +2842,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_prd_pipeline",
       "community": 3,
-      "norm_label": "prd-pipeline.md"
+      "norm_label": "prd-pipeline.md",
+      "id": "engspec_prd_pipeline"
     },
     {
       "label": "DoE Approval Gate",
@@ -2810,9 +2855,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_doe_approval",
       "community": 3,
-      "norm_label": "doe approval gate"
+      "norm_label": "doe approval gate",
+      "id": "engspec_doe_approval"
     },
     {
       "label": "hq.sync-context",
@@ -2823,9 +2868,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_hq_sync_context",
       "community": 3,
-      "norm_label": "hq.sync-context"
+      "norm_label": "hq.sync-context",
+      "id": "engspec_hq_sync_context"
     },
     {
       "label": "rpc.plan (ralph)",
@@ -2836,9 +2881,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_rpc_plan",
       "community": 3,
-      "norm_label": "rpc.plan (ralph)"
+      "norm_label": "rpc.plan (ralph)",
+      "id": "engspec_rpc_plan"
     },
     {
       "label": "UX/UI Design Assets",
@@ -2849,9 +2894,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_ux_assets",
-      "community": 10,
-      "norm_label": "ux/ui design assets"
+      "community": 9,
+      "norm_label": "ux/ui design assets",
+      "id": "engspec_ux_assets"
     },
     {
       "label": "Elysia + Bun + TypeScript Stack",
@@ -2862,9 +2907,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "engspec_tech_stack",
       "community": 3,
-      "norm_label": "elysia + bun + typescript stack"
+      "norm_label": "elysia + bun + typescript stack",
+      "id": "engspec_tech_stack"
     },
     {
       "label": "compact-conversation Skill",
@@ -2875,9 +2920,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "compactconv_skill",
-      "community": 13,
-      "norm_label": "compact-conversation skill"
+      "community": 12,
+      "norm_label": "compact-conversation skill",
+      "id": "compactconv_skill"
     },
     {
       "label": "compact-conversation README",
@@ -2888,9 +2933,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "compactconv_readme",
-      "community": 13,
-      "norm_label": "compact-conversation readme"
+      "community": 12,
+      "norm_label": "compact-conversation readme",
+      "id": "compactconv_readme"
     },
     {
       "label": "Conversation Summary Document",
@@ -2901,9 +2946,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "compactconv_summary_doc",
-      "community": 13,
-      "norm_label": "conversation summary document"
+      "community": 12,
+      "norm_label": "conversation summary document",
+      "id": "compactconv_summary_doc"
     },
     {
       "label": "Native /compact Command",
@@ -2914,9 +2959,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "compactconv_native_compact",
-      "community": 13,
-      "norm_label": "native /compact command"
+      "community": 12,
+      "norm_label": "native /compact command",
+      "id": "compactconv_native_compact"
     },
     {
       "label": "Rationale: Prefer Native Compaction",
@@ -2927,9 +2972,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "compactconv_rationale_native_first",
-      "community": 13,
-      "norm_label": "rationale: prefer native compaction"
+      "community": 12,
+      "norm_label": "rationale: prefer native compaction",
+      "id": "compactconv_rationale_native_first"
     },
     {
       "label": "e2e-audit Skill",
@@ -2940,9 +2985,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_skill",
-      "community": 10,
-      "norm_label": "e2e-audit skill"
+      "community": 9,
+      "norm_label": "e2e-audit skill",
+      "id": "e2eaudit_skill"
     },
     {
       "label": "e2e-audit README",
@@ -2953,9 +2998,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_readme",
-      "community": 10,
-      "norm_label": "e2e-audit readme"
+      "community": 9,
+      "norm_label": "e2e-audit readme",
+      "id": "e2eaudit_readme"
     },
     {
       "label": "Playwright Test Framework",
@@ -2966,9 +3011,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_playwright",
-      "community": 10,
-      "norm_label": "playwright test framework"
+      "community": 9,
+      "norm_label": "playwright test framework",
+      "id": "e2eaudit_playwright"
     },
     {
       "label": "Auth Storage Discovery",
@@ -2979,9 +3024,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_auth_storage",
-      "community": 10,
-      "norm_label": "auth storage discovery"
+      "community": 9,
+      "norm_label": "auth storage discovery",
+      "id": "e2eaudit_auth_storage"
     },
     {
       "label": "Diagnostic Report (Markdown)",
@@ -2992,9 +3037,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_diagnostic_report",
-      "community": 10,
-      "norm_label": "diagnostic report (markdown)"
+      "community": 9,
+      "norm_label": "diagnostic report (markdown)",
+      "id": "e2eaudit_diagnostic_report"
     },
     {
       "label": "PRD-Driven Tests",
@@ -3005,9 +3050,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_prd_driven_tests",
-      "community": 10,
-      "norm_label": "prd-driven tests"
+      "community": 9,
+      "norm_label": "prd-driven tests",
+      "id": "e2eaudit_prd_driven_tests"
     },
     {
       "label": "Seed Users Fixture",
@@ -3018,9 +3063,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_seed_users",
-      "community": 10,
-      "norm_label": "seed users fixture"
+      "community": 9,
+      "norm_label": "seed users fixture",
+      "id": "e2eaudit_seed_users"
     },
     {
       "label": "storageState (cookie/localStorage strategy)",
@@ -3031,9 +3076,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_storage_state",
-      "community": 10,
-      "norm_label": "storagestate (cookie/localstorage strategy)"
+      "community": 9,
+      "norm_label": "storagestate (cookie/localstorage strategy)",
+      "id": "e2eaudit_storage_state"
     },
     {
       "label": "In-Memory Auth (Zustand) Strategy",
@@ -3044,9 +3089,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_inmemory_auth",
-      "community": 10,
-      "norm_label": "in-memory auth (zustand) strategy"
+      "community": 9,
+      "norm_label": "in-memory auth (zustand) strategy",
+      "id": "e2eaudit_inmemory_auth"
     },
     {
       "label": "Rationale: Auth Storage Drives Fixture Strategy",
@@ -3057,9 +3102,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_rationale_auth_strategy",
-      "community": 10,
-      "norm_label": "rationale: auth storage drives fixture strategy"
+      "community": 9,
+      "norm_label": "rationale: auth storage drives fixture strategy",
+      "id": "e2eaudit_rationale_auth_strategy"
     },
     {
       "label": "False Positive Check (negative assertions)",
@@ -3070,9 +3115,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "e2eaudit_false_positive_check",
-      "community": 10,
-      "norm_label": "false positive check (negative assertions)"
+      "community": 9,
+      "norm_label": "false positive check (negative assertions)",
+      "id": "e2eaudit_false_positive_check"
     },
     {
       "label": "ubiquitous-language Skill",
@@ -3083,9 +3128,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_skill",
-      "community": 13,
-      "norm_label": "ubiquitous-language skill"
+      "community": 12,
+      "norm_label": "ubiquitous-language skill",
+      "id": "ublang_skill"
     },
     {
       "label": "ubiquitous-language README",
@@ -3096,9 +3141,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_readme",
-      "community": 13,
-      "norm_label": "ubiquitous-language readme"
+      "community": 12,
+      "norm_label": "ubiquitous-language readme",
+      "id": "ublang_readme"
     },
     {
       "label": "UBIQUITOUS_LANGUAGE.md Glossary",
@@ -3109,9 +3154,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_glossary_file",
-      "community": 13,
-      "norm_label": "ubiquitous_language.md glossary"
+      "community": 12,
+      "norm_label": "ubiquitous_language.md glossary",
+      "id": "ublang_glossary_file"
     },
     {
       "label": "Domain-Driven Design (DDD)",
@@ -3122,9 +3167,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_ddd",
-      "community": 13,
-      "norm_label": "domain-driven design (ddd)"
+      "community": 12,
+      "norm_label": "domain-driven design (ddd)",
+      "id": "ublang_ddd"
     },
     {
       "label": "Flagged Ambiguities Section",
@@ -3135,9 +3180,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_flagged_ambiguities",
-      "community": 13,
-      "norm_label": "flagged ambiguities section"
+      "community": 12,
+      "norm_label": "flagged ambiguities section",
+      "id": "ublang_flagged_ambiguities"
     },
     {
       "label": "Example Dialogue Pattern",
@@ -3148,9 +3193,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "ublang_example_dialogue",
-      "community": 13,
-      "norm_label": "example dialogue pattern"
+      "community": 12,
+      "norm_label": "example dialogue pattern",
+      "id": "ublang_example_dialogue"
     },
     {
       "label": "request-refactor-plan Skill",
@@ -3161,9 +3206,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_skill",
-      "community": 14,
-      "norm_label": "request-refactor-plan skill"
+      "community": 13,
+      "norm_label": "request-refactor-plan skill",
+      "id": "refactorplan_skill"
     },
     {
       "label": "request-refactor-plan README",
@@ -3174,9 +3219,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_readme",
-      "community": 14,
-      "norm_label": "request-refactor-plan readme"
+      "community": 13,
+      "norm_label": "request-refactor-plan readme",
+      "id": "refactorplan_readme"
     },
     {
       "label": "GitHub Issue (Refactor Plan)",
@@ -3187,9 +3232,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_github_issue",
-      "community": 14,
-      "norm_label": "github issue (refactor plan)"
+      "community": 13,
+      "norm_label": "github issue (refactor plan)",
+      "id": "refactorplan_github_issue"
     },
     {
       "label": "Tiny Commits Pattern",
@@ -3200,9 +3245,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_tiny_commits",
-      "community": 14,
-      "norm_label": "tiny commits pattern"
+      "community": 13,
+      "norm_label": "tiny commits pattern",
+      "id": "refactorplan_tiny_commits"
     },
     {
       "label": "Martin Fowler (cited)",
@@ -3213,9 +3258,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_martin_fowler",
-      "community": 14,
-      "norm_label": "martin fowler (cited)"
+      "community": 13,
+      "norm_label": "martin fowler (cited)",
+      "id": "refactorplan_martin_fowler"
     },
     {
       "label": "Refactor Plan Template",
@@ -3226,9 +3271,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "refactorplan_template",
-      "community": 14,
-      "norm_label": "refactor plan template"
+      "community": 13,
+      "norm_label": "refactor plan template",
+      "id": "refactorplan_template"
     },
     {
       "label": "prd-approve Skill",
@@ -3239,9 +3284,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_skill",
       "community": 3,
-      "norm_label": "prd-approve skill"
+      "norm_label": "prd-approve skill",
+      "id": "prdapprove_skill"
     },
     {
       "label": "prd-approve README",
@@ -3252,9 +3297,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_readme",
       "community": 3,
-      "norm_label": "prd-approve readme"
+      "norm_label": "prd-approve readme",
+      "id": "prdapprove_readme"
     },
     {
       "label": "PRD-PIPELINE.md (prd-approve view)",
@@ -3265,9 +3310,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_pipeline",
       "community": 3,
-      "norm_label": "prd-pipeline.md (prd-approve view)"
+      "norm_label": "prd-pipeline.md (prd-approve view)",
+      "id": "prdapprove_pipeline"
     },
     {
       "label": "Review Panel Synthesis File",
@@ -3278,9 +3323,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_review_synthesis",
       "community": 3,
-      "norm_label": "review panel synthesis file"
+      "norm_label": "review panel synthesis file",
+      "id": "prdapprove_review_synthesis"
     },
     {
       "label": "outputs/prds/approved/ Inbox",
@@ -3291,9 +3336,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_approved_inbox",
       "community": 3,
-      "norm_label": "outputs/prds/approved/ inbox"
+      "norm_label": "outputs/prds/approved/ inbox",
+      "id": "prdapprove_approved_inbox"
     },
     {
       "label": "/prd-review-panel (prerequisite)",
@@ -3304,9 +3349,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_prd_review_panel",
       "community": 3,
-      "norm_label": "/prd-review-panel (prerequisite)"
+      "norm_label": "/prd-review-panel (prerequisite)",
+      "id": "prdapprove_prd_review_panel"
     },
     {
       "label": "/prd-draft (prerequisite)",
@@ -3317,9 +3362,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "prdapprove_prd_draft",
       "community": 3,
-      "norm_label": "/prd-draft (prerequisite)"
+      "norm_label": "/prd-draft (prerequisite)",
+      "id": "prdapprove_prd_draft"
     },
     {
       "label": "package-scout Skill",
@@ -3330,9 +3375,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_skill",
-      "community": 15,
-      "norm_label": "package-scout skill"
+      "community": 14,
+      "norm_label": "package-scout skill",
+      "id": "pkgscout_skill"
     },
     {
       "label": "package-scout README",
@@ -3343,9 +3388,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_readme",
-      "community": 15,
-      "norm_label": "package-scout readme"
+      "community": 14,
+      "norm_label": "package-scout readme",
+      "id": "pkgscout_readme"
     },
     {
       "label": "Web Search for Package Research",
@@ -3356,9 +3401,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_web_search",
-      "community": 15,
-      "norm_label": "web search for package research"
+      "community": 14,
+      "norm_label": "web search for package research",
+      "id": "pkgscout_web_search"
     },
     {
       "label": "Package Comparison Table",
@@ -3369,9 +3414,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_comparison_table",
-      "community": 15,
-      "norm_label": "package comparison table"
+      "community": 14,
+      "norm_label": "package comparison table",
+      "id": "pkgscout_comparison_table"
     },
     {
       "label": "Quality Signals (stars, downloads, vulns)",
@@ -3382,9 +3427,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_quality_signals",
-      "community": 15,
-      "norm_label": "quality signals (stars, downloads, vulns)"
+      "community": 14,
+      "norm_label": "quality signals (stars, downloads, vulns)",
+      "id": "pkgscout_quality_signals"
     },
     {
       "label": "Lockfile-Based Package Manager Detection",
@@ -3395,9 +3440,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_lockfile_detection",
-      "community": 15,
-      "norm_label": "lockfile-based package manager detection"
+      "community": 14,
+      "norm_label": "lockfile-based package manager detection",
+      "id": "pkgscout_lockfile_detection"
     },
     {
       "label": "Rationale: Avoid Stale Training Data",
@@ -3408,9 +3453,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_rationale_no_stale_data",
-      "community": 15,
-      "norm_label": "rationale: avoid stale training data"
+      "community": 14,
+      "norm_label": "rationale: avoid stale training data",
+      "id": "pkgscout_rationale_no_stale_data"
     },
     {
       "label": "bundlephobia.com (cited)",
@@ -3421,9 +3466,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_bundlephobia",
-      "community": 15,
-      "norm_label": "bundlephobia.com (cited)"
+      "community": 14,
+      "norm_label": "bundlephobia.com (cited)",
+      "id": "pkgscout_bundlephobia"
     },
     {
       "label": "Snyk / socket.dev (cited)",
@@ -3434,9 +3479,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "pkgscout_snyk",
-      "community": 15,
-      "norm_label": "snyk / socket.dev (cited)"
+      "community": 14,
+      "norm_label": "snyk / socket.dev (cited)",
+      "id": "pkgscout_snyk"
     },
     {
       "label": "concise-reporting Skill",
@@ -3447,9 +3492,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concise_skill",
       "community": 16,
-      "norm_label": "concise-reporting skill"
+      "norm_label": "concise-reporting skill",
+      "id": "concise_skill"
     },
     {
       "label": "concise-reporting README",
@@ -3460,9 +3505,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concise_readme",
       "community": 16,
-      "norm_label": "concise-reporting readme"
+      "norm_label": "concise-reporting readme",
+      "id": "concise_readme"
     },
     {
       "label": "Reporting Mode (ultra-concise)",
@@ -3473,9 +3518,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concise_reporting_mode",
       "community": 16,
-      "norm_label": "reporting mode (ultra-concise)"
+      "norm_label": "reporting mode (ultra-concise)",
+      "id": "concise_reporting_mode"
     },
     {
       "label": "Writing Mode (full verbosity)",
@@ -3486,9 +3531,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concise_writing_mode",
       "community": 16,
-      "norm_label": "writing mode (full verbosity)"
+      "norm_label": "writing mode (full verbosity)",
+      "id": "concise_writing_mode"
     },
     {
       "label": "grill-me Skill",
@@ -3499,9 +3544,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "grillme_skill",
-      "community": 14,
-      "norm_label": "grill-me skill"
+      "community": 13,
+      "norm_label": "grill-me skill",
+      "id": "grillme_skill"
     },
     {
       "label": "grill-me README",
@@ -3512,9 +3557,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "grillme_readme",
-      "community": 14,
-      "norm_label": "grill-me readme"
+      "community": 13,
+      "norm_label": "grill-me readme",
+      "id": "grillme_readme"
     },
     {
       "label": "Decision Tree Walk",
@@ -3525,9 +3570,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "grillme_decision_tree",
-      "community": 14,
-      "norm_label": "decision tree walk"
+      "community": 13,
+      "norm_label": "decision tree walk",
+      "id": "grillme_decision_tree"
     }
   ],
   "links": [
@@ -3535,7 +3580,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L237",
+      "source_location": "L428",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site",
@@ -3547,7 +3592,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L258",
+      "source_location": "L449",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_inittheme",
@@ -3559,7 +3604,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L266",
+      "source_location": "L457",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_toggletheme",
@@ -3571,7 +3616,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L272",
+      "source_location": "L463",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_updatethemeicon",
@@ -3583,7 +3628,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L294",
+      "source_location": "L485",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_catclass",
@@ -3595,7 +3640,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L307",
+      "source_location": "L499",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderfilters",
@@ -3607,7 +3652,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L323",
+      "source_location": "L515",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderskills",
@@ -3619,7 +3664,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L357",
+      "source_location": "L549",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_renderchanges",
@@ -3631,7 +3676,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L373",
+      "source_location": "L565",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_getskillpermalink",
@@ -3643,7 +3688,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L379",
+      "source_location": "L571",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_openskillfromhash",
@@ -3655,7 +3700,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L388",
+      "source_location": "L580",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_opendrawer",
@@ -3667,7 +3712,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L464",
+      "source_location": "L656",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_closedrawer",
@@ -3679,7 +3724,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L472",
+      "source_location": "L664",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_rendermanualinstalls",
@@ -3691,7 +3736,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L516",
+      "source_location": "L708",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_copytext",
@@ -3703,7 +3748,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L531",
+      "source_location": "L723",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_flashcopied",
@@ -3715,7 +3760,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "site.js",
-      "source_location": "L540",
+      "source_location": "L732",
       "weight": 1.0,
       "_src": "site_js",
       "_tgt": "site_addcopybuttons",
@@ -3724,10 +3769,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site",
+      "source": "site",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L263",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L38",
       "weight": 1.0,
       "_src": "site_inittheme",
       "_tgt": "site_updatethemeicon",
@@ -3736,10 +3793,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_inittheme",
+      "source": "site_inittheme",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L269",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L44",
       "weight": 1.0,
       "_src": "site_toggletheme",
       "_tgt": "site_updatethemeicon",
@@ -3748,10 +3817,34 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_toggletheme",
+      "source": "site_toggletheme",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_updatethemeicon",
+      "source": "site_updatethemeicon",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L346",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L129",
       "weight": 1.0,
       "_src": "site_renderskills",
       "_tgt": "site_catclass",
@@ -3762,8 +3855,8 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L393",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L183",
       "weight": 1.0,
       "_src": "site_opendrawer",
       "_tgt": "site_catclass",
@@ -3772,10 +3865,70 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_catclass",
+      "source": "site_catclass",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_renderfilters",
+      "source": "site_renderfilters",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L98",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_renderskills",
+      "source": "site_renderskills",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_renderchanges",
+      "source": "site_renderchanges",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_getskillpermalink",
+      "source": "site_getskillpermalink",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L384",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L174",
       "weight": 1.0,
       "_src": "site_openskillfromhash",
       "_tgt": "site_opendrawer",
@@ -3784,10 +3937,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L169",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_openskillfromhash",
+      "source": "site_openskillfromhash",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L422",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L212",
       "weight": 1.0,
       "_src": "site_opendrawer",
       "_tgt": "site_rendermanualinstalls",
@@ -3798,13 +3963,121 @@
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "site.js",
-      "source_location": "L458",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L248",
       "weight": 1.0,
       "_src": "site_opendrawer",
       "_tgt": "site_addcopybuttons",
       "source": "site_opendrawer",
       "target": "site_addcopybuttons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L178",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_opendrawer",
+      "source": "site_opendrawer",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_closedrawer",
+      "source": "site_closedrawer",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L262",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_rendermanualinstalls",
+      "source": "site_rendermanualinstalls",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L306",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_copytext",
+      "source": "site_copytext",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L320",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_flashcopied",
+      "source": "site_flashcopied",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-repo-mirror/templates/site.js",
+      "source_location": "L329",
+      "weight": 1.0,
+      "_src": "gh_repo_mirror_templates_site_js",
+      "_tgt": "site_addcopybuttons",
+      "source": "site_addcopybuttons",
+      "target": "gh_repo_mirror_templates_site_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "_tgt": "site_apply",
+      "source": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "target": "site_apply",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "_tgt": "site_readstored",
+      "source": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "target": "site_readstored",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gh-pages-neo-brutalist/templates/assets/js/site.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_src": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "_tgt": "site_attachcopybuttons",
+      "source": "gh_pages_neo_brutalist_templates_assets_js_site_js",
+      "target": "site_attachcopybuttons",
       "confidence_score": 1.0
     },
     {
@@ -3814,8 +4087,8 @@
       "source_file": "tdd/SKILL.md",
       "source_location": "Line 16",
       "weight": 1.0,
-      "_src": "tdd_skill",
-      "_tgt": "mocking_system_boundaries",
+      "_src": "mocking_system_boundaries",
+      "_tgt": "tdd_skill",
       "source": "mocking_system_boundaries",
       "target": "tdd_skill"
     },
@@ -3862,8 +4135,8 @@
       "source_file": "tdd/SKILL.md",
       "source_location": "Line 51",
       "weight": 1.0,
-      "_src": "tdd_skill",
-      "_tgt": "deepmodules_deep_module",
+      "_src": "deepmodules_deep_module",
+      "_tgt": "tdd_skill",
       "source": "deepmodules_deep_module",
       "target": "tdd_skill"
     },
@@ -3898,8 +4171,8 @@
       "source_file": "tdd/refactoring.md",
       "source_location": "Line 7",
       "weight": 1.0,
-      "_src": "refactoring_shallow_module_combine",
-      "_tgt": "deepmodules_deep_module",
+      "_src": "deepmodules_deep_module",
+      "_tgt": "refactoring_shallow_module_combine",
       "source": "deepmodules_deep_module",
       "target": "refactoring_shallow_module_combine"
     },
@@ -3910,8 +4183,8 @@
       "source_file": "tdd/interface-design.md",
       "source_location": "Lines 29-32",
       "weight": 1.0,
-      "_src": "interfacedesign_small_surface_area",
-      "_tgt": "deepmodules_deep_module",
+      "_src": "deepmodules_deep_module",
+      "_tgt": "interfacedesign_small_surface_area",
       "source": "deepmodules_deep_module",
       "target": "interfacedesign_small_surface_area"
     },
@@ -3922,8 +4195,8 @@
       "source_file": "tdd/refactoring.md",
       "source_location": "Line 7",
       "weight": 1.0,
-      "_src": "refactoring_shallow_module_combine",
-      "_tgt": "deepmodules_shallow_module",
+      "_src": "deepmodules_shallow_module",
+      "_tgt": "refactoring_shallow_module_combine",
       "source": "deepmodules_shallow_module",
       "target": "refactoring_shallow_module_combine"
     },
@@ -3934,8 +4207,8 @@
       "source_file": "tdd/SKILL.md",
       "source_location": "Line 16",
       "weight": 1.0,
-      "_src": "tdd_skill",
-      "_tgt": "tests_good_tests",
+      "_src": "tests_good_tests",
+      "_tgt": "tdd_skill",
       "source": "tests_good_tests",
       "target": "tdd_skill"
     },
@@ -3946,8 +4219,8 @@
       "source_file": "tdd/SKILL.md",
       "source_location": "Lines 9-12",
       "weight": 1.0,
-      "_src": "tdd_philosophy",
-      "_tgt": "tests_good_tests",
+      "_src": "tests_good_tests",
+      "_tgt": "tdd_philosophy",
       "source": "tests_good_tests",
       "target": "tdd_philosophy"
     },
@@ -3970,8 +4243,8 @@
       "source_file": "tdd/tests.md",
       "source_location": "Lines 47-61",
       "weight": 1.0,
-      "_src": "tests_verify_through_interface",
-      "_tgt": "tests_good_tests",
+      "_src": "tests_good_tests",
+      "_tgt": "tests_verify_through_interface",
       "source": "tests_good_tests",
       "target": "tests_verify_through_interface"
     },
@@ -3982,8 +4255,8 @@
       "source_file": "tdd/SKILL.md",
       "source_location": "Lines 14-15",
       "weight": 1.0,
-      "_src": "tdd_philosophy",
-      "_tgt": "tests_bad_tests",
+      "_src": "tests_bad_tests",
+      "_tgt": "tdd_philosophy",
       "source": "tests_bad_tests",
       "target": "tdd_philosophy"
     },
@@ -3994,8 +4267,8 @@
       "source_file": "qa/SKILL.md",
       "source_location": "Lines 119-124",
       "weight": 1.0,
-      "_src": "qa_durable_issues",
-      "_tgt": "tests_verify_through_interface",
+      "_src": "tests_verify_through_interface",
+      "_tgt": "qa_durable_issues",
       "source": "tests_verify_through_interface",
       "target": "qa_durable_issues"
     },
@@ -4534,8 +4807,8 @@
       "source_file": "pmo-status/SKILL.md",
       "source_location": "Lines 35-47",
       "weight": 1.0,
-      "_src": "pmostatus_product_layer",
-      "_tgt": "pmostatus_prd_pipeline",
+      "_src": "pmostatus_prd_pipeline",
+      "_tgt": "pmostatus_product_layer",
       "source": "pmostatus_prd_pipeline",
       "target": "pmostatus_product_layer"
     },
@@ -4546,8 +4819,8 @@
       "source_file": "pmo-status/SKILL.md",
       "source_location": "Lines 57-77",
       "weight": 1.0,
-      "_src": "pmostatus_implementation_layer",
-      "_tgt": "pmostatus_fix_plan",
+      "_src": "pmostatus_fix_plan",
+      "_tgt": "pmostatus_implementation_layer",
       "source": "pmostatus_fix_plan",
       "target": "pmostatus_implementation_layer"
     },
@@ -4606,8 +4879,8 @@
       "source_file": "write-a-skill/SKILL.md",
       "source_location": "Lines 62-68",
       "weight": 1.0,
-      "_src": "writeskill_description_requirements",
-      "_tgt": "writeskill_skill",
+      "_src": "writeskill_skill",
+      "_tgt": "writeskill_description_requirements",
       "source": "writeskill_skill",
       "target": "writeskill_description_requirements"
     },
@@ -4810,8 +5083,8 @@
       "source_file": "prd-draft/SKILL.md",
       "source_location": "Lines 736-738",
       "weight": 1.0,
-      "_src": "prddraft_full_workflow",
-      "_tgt": "prddraft_step2_first_draft",
+      "_src": "prddraft_step2_first_draft",
+      "_tgt": "prddraft_full_workflow",
       "source": "prddraft_step2_first_draft",
       "target": "prddraft_full_workflow"
     },
@@ -4822,8 +5095,8 @@
       "source_file": "prd-draft/SKILL.md",
       "source_location": "Lines 408-413",
       "weight": 1.0,
-      "_src": "prddraft_dollar_rule",
-      "_tgt": "prddraft_step2_5_prototype",
+      "_src": "prddraft_step2_5_prototype",
+      "_tgt": "prddraft_dollar_rule",
       "source": "prddraft_step2_5_prototype",
       "target": "prddraft_dollar_rule"
     },
@@ -4834,8 +5107,8 @@
       "source_file": "prd-draft/SKILL.md",
       "source_location": "Lines 757-765",
       "weight": 1.0,
-      "_src": "prddraft_full_workflow",
-      "_tgt": "prddraft_step3_multi_agent_review",
+      "_src": "prddraft_step3_multi_agent_review",
+      "_tgt": "prddraft_full_workflow",
       "source": "prddraft_step3_multi_agent_review",
       "target": "prddraft_full_workflow"
     },
@@ -5062,8 +5335,8 @@
       "source_file": "AGENTS.md",
       "source_location": "L29-32",
       "weight": 1.0,
-      "_src": "agents_catalog_sync_rule",
-      "_tgt": "changelog_doc",
+      "_src": "changelog_doc",
+      "_tgt": "agents_catalog_sync_rule",
       "source": "changelog_doc",
       "target": "agents_catalog_sync_rule"
     },
@@ -5230,8 +5503,8 @@
       "source_file": "AGENTS.md",
       "source_location": "L11-15",
       "weight": 1.0,
-      "_src": "agents_catalog_sync_rule",
-      "_tgt": "readme_catalog",
+      "_src": "readme_catalog",
+      "_tgt": "agents_catalog_sync_rule",
       "source": "readme_catalog",
       "target": "agents_catalog_sync_rule"
     },
@@ -5374,8 +5647,8 @@
       "source_file": "CLAUDE.md",
       "source_location": "L26",
       "weight": 1.0,
-      "_src": "claudemd_doc",
-      "_tgt": "agents_doc",
+      "_src": "agents_doc",
+      "_tgt": "claudemd_doc",
       "source": "agents_doc",
       "target": "claudemd_doc"
     },
@@ -5422,8 +5695,8 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "claudemd_catalog_sync",
-      "_tgt": "agents_catalog_sync_rule",
+      "_src": "agents_catalog_sync_rule",
+      "_tgt": "claudemd_catalog_sync",
       "source": "agents_catalog_sync_rule",
       "target": "claudemd_catalog_sync"
     },
@@ -5458,8 +5731,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "writeaprd_readme",
+      "_src": "writeaprd_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "writeaprd_readme",
       "target": "concept_skill_authoring"
     },
@@ -5506,8 +5779,8 @@
       "source_file": "prd-to-plan/SKILL.md",
       "source_location": "L12-15",
       "weight": 1.0,
-      "_src": "prdtoplan_skill",
-      "_tgt": "writeaprd_skill",
+      "_src": "writeaprd_skill",
+      "_tgt": "prdtoplan_skill",
       "source": "writeaprd_skill",
       "target": "prdtoplan_skill"
     },
@@ -5518,8 +5791,8 @@
       "source_file": "prd-review-panel/SKILL.md",
       "source_location": "L749",
       "weight": 1.0,
-      "_src": "prdreviewpanel_skill",
-      "_tgt": "writeaprd_skill",
+      "_src": "writeaprd_skill",
+      "_tgt": "prdreviewpanel_skill",
       "source": "writeaprd_skill",
       "target": "prdreviewpanel_skill"
     },
@@ -5530,8 +5803,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "designinterview_5_sections",
-      "_tgt": "writeaprd_skill",
+      "_src": "writeaprd_skill",
+      "_tgt": "designinterview_5_sections",
       "source": "writeaprd_skill",
       "target": "designinterview_5_sections"
     },
@@ -5578,8 +5851,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "prdtoplan_readme",
+      "_src": "prdtoplan_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "prdtoplan_readme",
       "target": "concept_skill_authoring"
     },
@@ -5626,8 +5899,8 @@
       "source_file": "prd-to-plan/SKILL.md",
       "source_location": "L36-42",
       "weight": 1.0,
-      "_src": "prdtoplan_rationale_thin_over_thick",
-      "_tgt": "prdtoplan_tracer_bullet_concept",
+      "_src": "prdtoplan_tracer_bullet_concept",
+      "_tgt": "prdtoplan_rationale_thin_over_thick",
       "source": "prdtoplan_tracer_bullet_concept",
       "target": "prdtoplan_rationale_thin_over_thick"
     },
@@ -5650,8 +5923,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "gitguardrails_readme",
+      "_src": "gitguardrails_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "gitguardrails_readme",
       "target": "concept_skill_authoring"
     },
@@ -5710,8 +5983,8 @@
       "source_file": "git-guardrails-claude-code/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "gitguardrails_pretooluse_hook",
-      "_tgt": "gitguardrails_blocked_commands",
+      "_src": "gitguardrails_blocked_commands",
+      "_tgt": "gitguardrails_pretooluse_hook",
       "source": "gitguardrails_blocked_commands",
       "target": "gitguardrails_pretooluse_hook"
     },
@@ -5722,8 +5995,8 @@
       "source_file": "git-guardrails-claude-code/SKILL.md",
       "source_location": "L52-72",
       "weight": 1.0,
-      "_src": "gitguardrails_settings_json",
-      "_tgt": "gitguardrails_block_script",
+      "_src": "gitguardrails_block_script",
+      "_tgt": "gitguardrails_settings_json",
       "source": "gitguardrails_block_script",
       "target": "gitguardrails_settings_json"
     },
@@ -5746,8 +6019,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "designinterview_readme",
+      "_src": "designinterview_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "designinterview_readme",
       "target": "concept_skill_authoring"
     },
@@ -5806,8 +6079,8 @@
       "source_file": "design-interview/SKILL.md",
       "source_location": "L22-24",
       "weight": 1.0,
-      "_src": "designinterview_rationale_quality_dependency",
-      "_tgt": "designinterview_skill",
+      "_src": "designinterview_skill",
+      "_tgt": "designinterview_rationale_quality_dependency",
       "source": "designinterview_skill",
       "target": "designinterview_rationale_quality_dependency"
     },
@@ -5818,8 +6091,8 @@
       "source_file": "design-draft/SKILL.md",
       "source_location": "L94",
       "weight": 1.0,
-      "_src": "designdraft_step2_interview",
-      "_tgt": "designinterview_skill",
+      "_src": "designinterview_skill",
+      "_tgt": "designdraft_step2_interview",
       "source": "designinterview_skill",
       "target": "designdraft_step2_interview"
     },
@@ -5830,8 +6103,8 @@
       "source_file": "design-review/SKILL.md",
       "source_location": "L26-30",
       "weight": 1.0,
-      "_src": "designreview_skill",
-      "_tgt": "designinterview_skill",
+      "_src": "designinterview_skill",
+      "_tgt": "designreview_skill",
       "source": "designinterview_skill",
       "target": "designreview_skill"
     },
@@ -5854,8 +6127,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "prdreviewpanel_readme",
+      "_src": "prdreviewpanel_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "prdreviewpanel_readme",
       "target": "concept_skill_authoring"
     },
@@ -5926,8 +6199,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "designreview_skill",
-      "_tgt": "prdreviewpanel_skill",
+      "_src": "prdreviewpanel_skill",
+      "_tgt": "designreview_skill",
       "source": "prdreviewpanel_skill",
       "target": "designreview_skill"
     },
@@ -6022,8 +6295,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "designreview_engineer_feasibility",
-      "_tgt": "prdreviewpanel_engineer_agent",
+      "_src": "prdreviewpanel_engineer_agent",
+      "_tgt": "designreview_engineer_feasibility",
       "source": "prdreviewpanel_engineer_agent",
       "target": "designreview_engineer_feasibility"
     },
@@ -6034,8 +6307,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "designreview_a11y_auditor",
-      "_tgt": "prdreviewpanel_designer_agent",
+      "_src": "prdreviewpanel_designer_agent",
+      "_tgt": "designreview_a11y_auditor",
       "source": "prdreviewpanel_designer_agent",
       "target": "designreview_a11y_auditor"
     },
@@ -6046,8 +6319,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "designreview_end_user_voice",
-      "_tgt": "prdreviewpanel_customer_voice_agent",
+      "_src": "prdreviewpanel_customer_voice_agent",
+      "_tgt": "designreview_end_user_voice",
       "source": "prdreviewpanel_customer_voice_agent",
       "target": "designreview_end_user_voice"
     },
@@ -6070,8 +6343,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "designdraft_readme",
+      "_src": "designdraft_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "designdraft_readme",
       "target": "concept_skill_authoring"
     },
@@ -6250,8 +6523,8 @@
       "source_file": null,
       "source_location": null,
       "weight": 1.0,
-      "_src": "concept_skill_authoring",
-      "_tgt": "designreview_readme",
+      "_src": "designreview_readme",
+      "_tgt": "concept_skill_authoring",
       "source": "designreview_readme",
       "target": "concept_skill_authoring"
     },
@@ -6358,8 +6631,8 @@
       "source_file": "eng-spec/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "engspec_readme",
-      "_tgt": "engspec_skill",
+      "_src": "engspec_skill",
+      "_tgt": "engspec_readme",
       "source": "engspec_skill",
       "target": "engspec_readme"
     },
@@ -6466,8 +6739,8 @@
       "source_file": "prd-approve/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "prdapprove_skill",
-      "_tgt": "engspec_skill",
+      "_src": "engspec_skill",
+      "_tgt": "prdapprove_skill",
       "source": "engspec_skill",
       "target": "prdapprove_skill"
     },
@@ -6610,8 +6883,8 @@
       "source_file": "prd-approve/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "prdapprove_pipeline",
-      "_tgt": "engspec_prd_pipeline",
+      "_src": "engspec_prd_pipeline",
+      "_tgt": "prdapprove_pipeline",
       "source": "engspec_prd_pipeline",
       "target": "prdapprove_pipeline"
     },
@@ -6622,8 +6895,8 @@
       "source_file": "e2e-audit/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "e2eaudit_prd_driven_tests",
-      "_tgt": "engspec_ux_assets",
+      "_src": "engspec_ux_assets",
+      "_tgt": "e2eaudit_prd_driven_tests",
       "source": "engspec_ux_assets",
       "target": "e2eaudit_prd_driven_tests"
     },
@@ -6634,8 +6907,8 @@
       "source_file": "compact-conversation/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "compactconv_readme",
-      "_tgt": "compactconv_skill",
+      "_src": "compactconv_skill",
+      "_tgt": "compactconv_readme",
       "source": "compactconv_skill",
       "target": "compactconv_readme"
     },
@@ -6670,8 +6943,8 @@
       "source_file": "compact-conversation/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "compactconv_rationale_native_first",
-      "_tgt": "compactconv_skill",
+      "_src": "compactconv_skill",
+      "_tgt": "compactconv_rationale_native_first",
       "source": "compactconv_skill",
       "target": "compactconv_rationale_native_first"
     },
@@ -6694,8 +6967,8 @@
       "source_file": "e2e-audit/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "e2eaudit_readme",
-      "_tgt": "e2eaudit_skill",
+      "_src": "e2eaudit_skill",
+      "_tgt": "e2eaudit_readme",
       "source": "e2eaudit_skill",
       "target": "e2eaudit_readme"
     },
@@ -6790,8 +7063,8 @@
       "source_file": "e2e-audit/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "e2eaudit_rationale_auth_strategy",
-      "_tgt": "e2eaudit_auth_storage",
+      "_src": "e2eaudit_auth_storage",
+      "_tgt": "e2eaudit_rationale_auth_strategy",
       "source": "e2eaudit_auth_storage",
       "target": "e2eaudit_rationale_auth_strategy"
     },
@@ -6814,8 +7087,8 @@
       "source_file": "ubiquitous-language/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "ublang_readme",
-      "_tgt": "ublang_skill",
+      "_src": "ublang_skill",
+      "_tgt": "ublang_readme",
       "source": "ublang_skill",
       "target": "ublang_readme"
     },
@@ -6874,8 +7147,8 @@
       "source_file": "request-refactor-plan/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "refactorplan_readme",
-      "_tgt": "refactorplan_skill",
+      "_src": "refactorplan_skill",
+      "_tgt": "refactorplan_readme",
       "source": "refactorplan_skill",
       "target": "refactorplan_readme"
     },
@@ -6922,8 +7195,8 @@
       "source_file": "grill-me/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "grillme_skill",
-      "_tgt": "refactorplan_skill",
+      "_src": "refactorplan_skill",
+      "_tgt": "grillme_skill",
       "source": "refactorplan_skill",
       "target": "grillme_skill"
     },
@@ -6946,8 +7219,8 @@
       "source_file": "prd-approve/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "prdapprove_readme",
-      "_tgt": "prdapprove_skill",
+      "_src": "prdapprove_skill",
+      "_tgt": "prdapprove_readme",
       "source": "prdapprove_skill",
       "target": "prdapprove_readme"
     },
@@ -7018,8 +7291,8 @@
       "source_file": "package-scout/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "pkgscout_readme",
-      "_tgt": "pkgscout_skill",
+      "_src": "pkgscout_skill",
+      "_tgt": "pkgscout_readme",
       "source": "pkgscout_skill",
       "target": "pkgscout_readme"
     },
@@ -7078,8 +7351,8 @@
       "source_file": "package-scout/SKILL.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "pkgscout_rationale_no_stale_data",
-      "_tgt": "pkgscout_web_search",
+      "_src": "pkgscout_web_search",
+      "_tgt": "pkgscout_rationale_no_stale_data",
       "source": "pkgscout_web_search",
       "target": "pkgscout_rationale_no_stale_data"
     },
@@ -7114,8 +7387,8 @@
       "source_file": "concise-reporting/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "concise_readme",
-      "_tgt": "concise_skill",
+      "_src": "concise_skill",
+      "_tgt": "concise_readme",
       "source": "concise_skill",
       "target": "concise_readme"
     },
@@ -7150,8 +7423,8 @@
       "source_file": "grill-me/README.md",
       "source_location": null,
       "weight": 1.0,
-      "_src": "grillme_readme",
-      "_tgt": "grillme_skill",
+      "_src": "grillme_skill",
+      "_tgt": "grillme_readme",
       "source": "grillme_skill",
       "target": "grillme_readme"
     },
