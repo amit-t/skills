@@ -41,29 +41,19 @@ Rules:
 - Create `.grills/` if missing. If it is not gitignored, append `/.grills/` to `.gitignore` and stage that one-line change; do not commit.
 - Write atomically via temp file then rename.
 
-Use the full format in [`REFERENCE.md`](./REFERENCE.md) and the filled example in [`templates/grill-doc.template.md`](./templates/grill-doc.template.md).
+Use [`REFERENCE.md`](./REFERENCE.md) as the canonical contract and [`templates/grill-doc.template.md`](./templates/grill-doc.template.md) as the only filled example.
 
-## Question format requirements
+## Document contract
 
-The document must preview cleanly in GitHub, GitLab, VS Code, Obsidian, and browser markdown renderers:
+The generated file must include:
 
-- Start with a numbered `## Questions` table of contents.
-- Put each top-level question in its own `<details><summary><strong>N. Question?</strong></summary> ... </details>` block so users can collapse/expand by number.
-- For every question include:
-  - **Why it matters** — one line with the cost of getting it wrong.
-  - **Options** — 2–4 mutually exclusive answers labelled `N.A`, `N.B`, `N.C`, `N.D`.
-  - **Recommendation** — one option letter plus a reason.
-  - **Alt** — a different second-best option plus reason, or `n/a` only when there is no defensible alternative.
-- Nest conditional questions inside their parent details block as `2a`, `2b`, etc, with `Conditional on: <expr>`.
-- Keep the answer key unambiguous: top-level questions use `1: A`; conditional questions use `2a: B` only when triggered.
+- A numbered `## Questions` table of contents.
+- One collapsible `<details><summary><strong>N. Question?</strong></summary>` block per top-level question.
+- For every question: **Why it matters**, 2–4 labelled options (`N.A`, `N.B`, ...), **Recommendation**, and **Alt**.
+- Nested conditional questions inside their parent block (`2a`, `2b`, ...), never as stray top-level questions.
+- `## Answer key` with exactly the three reply paths: **Accept all my recommendations**, **Accept all my alt recommendations**, and **Copy/paste this in the chat after reading it back to the agent**.
 
-## Required answer options at bottom
-
-End every document with `## Answer key` and exactly these three user-friendly reply paths:
-
-1. **Accept all my recommendations** — accept every primary recommendation. Canonical phrase: `accept all my recommendations`; alias: `ACCEPT_ALL_RECOMMENDATIONS`.
-2. **Accept all my alt recommendations** — accept every alt recommendation; where Alt is `n/a`, fall back to the primary recommendation and flag it later. Canonical phrase: `accept all my alt recommendations`; alias: `ACCEPT_ALL_ALT_RECOMMENDATIONS`.
-3. **Copy/paste this in the chat after reading it back to the agent** — a per-question block with one `N: ?` line per top-level question; users replace `?` with `A` / `B` / `C` / `D` / `rec` / `alt`.
+Do not duplicate the filled example in this file; use the reference/template links above.
 
 ## Step 3 — hand off and stop
 

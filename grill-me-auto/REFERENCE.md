@@ -1,24 +1,37 @@
 # Grill Me Auto reference
 
-## Depth behavior
+This file is the canonical format contract. The filled example lives in [`templates/grill-doc.template.md`](./templates/grill-doc.template.md); do not duplicate the example elsewhere.
 
-Depth changes how many branches are covered, not the sharpness of each question.
+## Invocation and depth
 
-| Depth | Coverage | Typical count |
-| --- | --- | --- |
-| `deep` | Every branch, dependency, edge case, contradiction, code/doc cross-check, and invented boundary scenario. | 20–40+ |
-| `standard` | Critical assumptions, main edge cases, and obvious cross-checks. | 15–25 |
-| `quick` | Highest-leverage deal-breakers and dead-on-arrival risks only. | 5–10 |
+Recognize `/grill-me-auto`, `/Grill Me Auto`, `/grill me auto`, "auto grill", and "all grill questions at once".
 
-## Document skeleton
+| Depth | Aliases | Coverage | Typical count |
+| --- | --- | --- | --- |
+| `deep` | `3`, `deepest` | every branch, dependency, edge case, contradiction, code/doc cross-check, and invented boundary scenario | 20–40+ |
+| `standard` | `2`, `medium` | critical assumptions, main edge cases, and obvious cross-checks | 15–25 |
+| `quick` | `1`, `sharp` | highest-leverage deal-breakers and dead-on-arrival risks only | 5–10 |
 
-````markdown
----
+Depth changes how many branches are covered, not how sharp each question is.
+
+## File contract
+
+- Path: `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`.
+- Timestamp: local time; same-minute collisions get `-2`, `-3`, etc.
+- Slug: 2–3 word kebab-case topic slug.
+- Write atomically through a temporary file and rename.
+- If `.grills/` is not ignored, append `/.grills/` to `.gitignore` and stage that line only.
+
+## Frontmatter contract
+
+Each grill document starts with YAML frontmatter:
+
+```yaml
 created_at: 2026-05-30T21:14:00+05:30
 depth: deep
-topic: <one-line topic>
+topic: Rewrite the auth middleware to remove session-token storage
 status: open
-total_questions: <N>
+total_questions: 6
 answer_key_marker: "## Answer key"
 shortcuts:
   accept_all_recommendations: "accept all my recommendations"
@@ -26,126 +39,85 @@ shortcuts:
   accept_all_alt_recommendations: "accept all my alt recommendations"
   accept_all_alt_recommendations_alias: "ACCEPT_ALL_ALT_RECOMMENDATIONS"
   per_question_format: "<question_number>: <option_letter|rec|alt>"
----
+```
 
-# Grill: <topic>
+When answered, change `status` to `answered` and add `answered_at`.
 
-> Depth: **deep** · Generated 2026-05-30 21:14 · <N> questions
->
-> **How to use this doc:** Read each question, expand details as needed, then reply with one shortcut or the filled answer key.
+## Question block contract
 
-## Questions
+The document must render with collapsible numbered items in common markdown previews:
 
-1. **<Q1>**
-2. **<Q2>**
-
----
-
+```markdown
 <details>
-<summary><strong>1. &lt;Q1&gt;</strong></summary>
+<summary><strong>1. Sharp one-sentence question?</strong></summary>
 
-- **Why it matters:** <cost of getting this wrong>
+- **Why it matters:** One line naming the cost of getting it wrong.
 - **Options:**
-  - **1.A** — <option A>
-  - **1.B** — <option B>
-  - **1.C** — <option C>
-- **Recommendation:** **A** — <reason>
-- **Alt:** **B** — <reason>
+  - **1.A** — First mutually exclusive answer.
+  - **1.B** — Second mutually exclusive answer.
+- **Recommendation:** **A** — one-line reason.
+- **Alt:** **B** — one-line reason, or `n/a` only when there is no defensible alternative.
 
 </details>
-
-<details>
-<summary><strong>2. &lt;Q2&gt;</strong></summary>
-
-- **Why it matters:** <cost of getting this wrong>
-- **Options:**
-  - **2.A** — <option A>
-  - **2.B** — <option B>
-- **Recommendation:** **B** — <reason>
-- **Alt:** n/a — only one defensible answer; B is correct.
-
-  <details>
-  <summary><strong>2a. &lt;Conditional sub-question&gt;</strong></summary>
-
-  - **Conditional on:** `2 = A`
-  - **Why it matters:** <cost>
-  - **Options:**
-    - **2a.A** — <option A>
-    - **2a.B** — <option B>
-  - **Recommendation:** **A** — <reason>
-  - **Alt:** **B** — <reason>
-
-  </details>
-
-</details>
-
----
-
-## Answer key
-
-Pick exactly one of three ways to reply. Paste the chosen block back into chat verbatim.
-
-### Option 1 — Accept all my recommendations
-
-```
-accept all my recommendations
 ```
 
-Alias:
+Rules:
 
-```
-ACCEPT_ALL_RECOMMENDATIONS
-```
+- Include a top-level `## Questions` table of contents before the details blocks.
+- Use one `<details>` block per top-level question.
+- Use `<summary><strong>...</strong></summary>`; markdown inside `<summary>` is less portable.
+- Label options as `N.A`, `N.B`, `N.C`, `N.D`.
+- Nested conditionals stay inside the parent details block and use `2a`, `2b`, etc with `Conditional on: <expr>`.
+- Do not put conditional questions in the top-level table unless always relevant.
 
-### Option 2 — Accept all my alt recommendations
+## Answer key contract
 
-```
-accept all my alt recommendations
-```
+End with exactly three reply paths, in this order:
 
-Alias:
+1. **Accept all my recommendations**
 
-```
-ACCEPT_ALL_ALT_RECOMMENDATIONS
-```
+   ```text
+   accept all my recommendations
+   ```
 
-For any question where Alt is `n/a`, the agent falls back to the primary recommendation and flags it in the summary.
+   Alias: `ACCEPT_ALL_RECOMMENDATIONS`
 
-### Option 3 — Copy/paste this in the chat after reading it back to the agent
+2. **Accept all my alt recommendations**
 
-Replace each `?` with the option letter you want. Conditional sub-questions are only required if their parent answer triggers them.
+   ```text
+   accept all my alt recommendations
+   ```
 
-```
-1: ?
-2: ?
-```
+   Alias: `ACCEPT_ALL_ALT_RECOMMENDATIONS`
 
-You can mix and match: use `rec` for the recommendation or `alt` for the alt. Example: `5: rec`, `7: alt`, `12: B`.
-````
+   If Alt is `n/a`, fall back to the primary recommendation and flag the fallback in the summary.
 
-## Answer parsing
+3. **Copy/paste this in the chat after reading it back to the agent**
 
-Accepted shortcuts are case-insensitive after trimming whitespace:
+   ```text
+   1: ?
+   2: ?
+   3: ?
+   ```
 
-- `accept all my recommendations`
-- `ACCEPT_ALL_RECOMMENDATIONS`
-- `accept all my alt recommendations`
-- `ACCEPT_ALL_ALT_RECOMMENDATIONS`
+   Users may answer with an option letter, `rec`, or `alt` per line.
 
-Per-question lines use `<question_number>: <option_letter|rec|alt>`. Resolve `rec` and `alt` from the document's recommendation fields. If `alt` resolves to `n/a`, use the primary recommendation and report the fallback.
+## Reply parsing contract
 
-Malformed replies get one targeted repair question, for example: "Q4 is missing and is not conditional — reply with `4: A`, `4: B`, `4: rec`, or `4: alt`."
+- Shortcuts are case-insensitive after trimming whitespace.
+- Per-question lines use `<question_number>: <option_letter|rec|alt>`.
+- `rec` resolves to the documented recommendation.
+- `alt` resolves to the documented alt, or the primary recommendation when Alt is `n/a`.
+- Malformed replies get one targeted repair question, not a new grill.
 
-## Resolved answer section
-
-Append this after parsing:
+Append resolved answers after parsing:
 
 ```markdown
 ## Resolved answers
 
 Answered at: 2026-05-30T22:10:00+05:30
 
-- **1:** **A** — <one-line restatement of chosen meaning>
-- **2:** **rec → B** — <one-line restatement>
+- **1:** **A** — one-line restatement of the selected meaning.
+- **2:** **rec → B** — one-line restatement of the selected meaning.
 - **2a:** skipped — parent answer did not trigger this conditional question.
 ```
