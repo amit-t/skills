@@ -1,21 +1,23 @@
 ---
-created_at: 2026-05-30T21:14:00-07:00
+created_at: 2026-05-30T21:14:00+05:30
 depth: deep
 topic: Rewrite the auth middleware to remove session-token storage
 status: open
 total_questions: 6
 answer_key_marker: "## Answer key"
 shortcuts:
-  accept_all_recommendations: "ACCEPT_ALL_RECOMMENDATIONS"
-  accept_all_alt_recommendations: "ACCEPT_ALL_ALT_RECOMMENDATIONS"
-  per_question_format: "<question_number>: <option_letter>"
+  accept_all_recommendations: "accept all my recommendations"
+  accept_all_recommendations_alias: "ACCEPT_ALL_RECOMMENDATIONS"
+  accept_all_alt_recommendations: "accept all my alt recommendations"
+  accept_all_alt_recommendations_alias: "ACCEPT_ALL_ALT_RECOMMENDATIONS"
+  per_question_format: "<question_number>: <option_letter|rec|alt>"
 ---
 
 # Grill: Rewrite the auth middleware to remove session-token storage
 
 > Depth: **deep** · Generated 2026-05-30 21:14 · 6 questions
 >
-> **How to use this doc:** Read each question. Each has 2–4 options labelled `A` / `B` / `C` / `D`, an agent **Recommendation**, and an **Alt** recommendation. Pick an option per question in the **Answer key** at the bottom, or paste one of the three batch shortcuts and stop there. Reply in chat — the agent will apply your answers in one pass.
+> **How to use this doc:** Read each question. Each has 2–4 options labelled `A` / `B` / `C` / `D`, an agent **Recommendation**, and an **Alt** recommendation. Pick an option per question in the **Answer key** at the bottom, or paste one of the two batch shortcuts and stop there. Reply in chat — the agent will apply your answers in one pass.
 
 ## Questions
 
@@ -123,13 +125,25 @@ shortcuts:
 
 Pick exactly one of three ways to reply. Paste the chosen block back into chat verbatim.
 
-### Option 1 — Accept all agent recommendations
+### Option 1 — Accept all my recommendations
+
+```
+accept all my recommendations
+```
+
+Alias:
 
 ```
 ACCEPT_ALL_RECOMMENDATIONS
 ```
 
-### Option 2 — Accept all alt recommendations
+### Option 2 — Accept all my alt recommendations
+
+```
+accept all my alt recommendations
+```
+
+Alias:
 
 ```
 ACCEPT_ALL_ALT_RECOMMENDATIONS
@@ -137,7 +151,7 @@ ACCEPT_ALL_ALT_RECOMMENDATIONS
 
 For any question where Alt is `n/a`, the agent will fall back to the primary recommendation and flag it in the summary.
 
-### Option 3 — Answer per question
+### Option 3 — Copy/paste this in the chat after reading it back to the agent
 
 Replace each `?` with the option letter you want. One question per line. Conditional sub-questions are only required if their parent answer triggers them.
 
