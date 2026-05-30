@@ -138,6 +138,14 @@ const skills = [
     usage: "/grill-me [quick|standard|deep]",
   },
   {
+    slug: "grill-me-auto",
+    name: "grill-me-auto",
+    category: "Engineering",
+    tagline: "Batch-mode grill — every question written to one collapsible markdown doc, answer in one shot.",
+    detail: "Same coverage as /grill-me but every question, option, agent recommendation, and alt recommendation is written to a single hierarchical, collapsible markdown document at `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`. User reads it in a markdown previewer with expandable `<details>` blocks per question, then replies in one shot using `ACCEPT_ALL_RECOMMENDATIONS`, `ACCEPT_ALL_ALT_RECOMMENDATIONS`, or a per-question answer key. Asks for grill depth (quick / standard / deep) before generating, defaulting to deep; pre-selectable via `/grill-me-auto quick|standard|deep`. Right when the user wants to review offline / on mobile / in a browser preview and answer once, instead of turn-by-turn.",
+    usage: "/grill-me-auto [quick|standard|deep]",
+  },
+  {
     slug: "package-scout",
     name: "package-scout",
     category: "Engineering",
@@ -284,6 +292,12 @@ const skills = [
 ];
 
 const changes = [
+  {
+    date: "2026-05-30",
+    items: [
+      "Added the `grill-me-auto` skill under `Engineering` — batch-mode fork of `/grill-me` that writes every question, option, agent recommendation, and alt recommendation into one collapsible markdown grill document at `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md` instead of running a turn-by-turn interview. Asks for grill depth (`quick` / `standard` / `deep`, default `deep`) before generating; pre-selectable via `/grill-me-auto quick|standard|deep` with aliases `1` / `2` / `3` and `sharp` / `medium` / `deepest`. Silently explores the codebase (`CLAUDE.md`, `CONTEXT.md`, ADRs, recent commits) before generation so the user is not asked trivia the agent can read for itself. The document uses `<details><summary>` per question for portable collapsibility across GitHub / GitLab / VS Code / Obsidian / browser previews; each question carries a *Why it matters* line, 2–4 letter-labelled options (`1.A`, `1.B`, …), an agent **Recommendation**, and an **Alt** recommendation (or `n/a` if only one option is defensible). Conditional sub-questions nest inside their parent's details block (`2a`, `2b`) and are tagged `Conditional on: <expr>` so the top-level answer key stays flat. The doc ends with an **Answer key** offering three reply options: `ACCEPT_ALL_RECOMMENDATIONS`, `ACCEPT_ALL_ALT_RECOMMENDATIONS`, or a per-question key (`1: A`, `2: rec`, `3: alt`, …) with mix-and-match support. On reply, the skill parses the answers in one pass, updates the doc's frontmatter to `status: answered`, appends a `## Resolved answers` section, and summarises the resolved plan in ≤10 bullets, flagging any answer that changed direction from the original prompt. `.grills/` is added to `.gitignore` on first run (staged, not committed). Filename collisions in the same minute get `-2`, `-3` suffixes. Filled example lives at `grill-me-auto/templates/grill-doc.template.md`. Catalog updated end-to-end: per-skill `SKILL.md` + `README.md`, root `README.md` row, `site.js` skills array, this changes feed, and `CHANGELOG.md`. Forked from `/grill-me` (which forks Matt Pocock's [`grill-me`](https://github.com/mattpocock/skills)); the relentless-interview core is Matt's, the depth selector is the upstream `amit-t/skills` fork, the batch document mode is new in this fork.",
+    ],
+  },
   {
     date: "2026-05-29",
     items: [
