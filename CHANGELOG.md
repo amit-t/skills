@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-05-31
+
+- Documented the `grill-me-auto` mental model in its README — batch-mode `/grill-me`, asynchronous markdown grill document, one-shot answer block, and "same rigor, no live interview tax" positioning.
+
 ## 2026-05-30
 
 - Added the `grill-me-auto` skill — batch-mode `/grill-me` fork that writes every question, option, recommendation, alt recommendation, and one-shot answer shortcut into a collapsible markdown grill document under `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`.

@@ -4,6 +4,27 @@
 
 **Category:** Engineering
 
+## Mental model
+
+`grill-me-auto` is **batch-mode `/grill-me`**: the same rigorous stress test, but without the live one-question-at-a-time interview.
+
+Instead of making the user sit with the agent and answer each branch interactively, the agent does the full question-generation pass up front, writes a structured markdown grill document, and stops. The user can review that document asynchronously, expand/collapse each numbered question, and return one answer block when ready.
+
+### How it works
+
+1. The user invokes `/grill-me-auto` (also accepted: `/Grill Me Auto` or `/grill me auto`).
+2. The agent asks for depth unless it was pre-selected:
+   - `quick` — only deal-breaker questions.
+   - `standard` — main assumptions and edge cases.
+   - `deep` — exhaustive grilling; default.
+3. The agent silently reads available context: the prompt, repo files, docs, ADRs, `CONTEXT.md`, and relevant existing decisions.
+4. The agent writes the grill document to `.grills/<YYYY-MM-DD-HHMM>-<topic-slug>-<depth>.md`.
+5. The document contains numbered collapsible questions, possible answers like `1.A` / `1.B`, why each question matters, the agent's recommendation, an alt recommendation where defensible, and conditional sub-questions nested under their parent.
+6. The user replies once with either `accept all my recommendations`, `accept all my alt recommendations`, or a filled answer key such as `1: A`, `2: rec`, `3: alt`.
+7. The agent applies all answers in one pass, summarizes the resolved plan, and asks before moving to implementation.
+
+The core value: **same rigor as Grill Me, but no live interview tax**. It turns the grilling process into a reviewable decision document.
+
 ## Install
 
 Install using the [`skills`](https://github.com/vercel-labs/skills) CLI:
