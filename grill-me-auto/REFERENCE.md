@@ -43,6 +43,22 @@ shortcuts:
 
 When answered, change `status` to `answered` and add `answered_at`.
 
+## Precision contract
+
+The grill document is the deliverable, so authored prose inside it must pass [`precision-mode`](../precision-mode/SKILL.md) before serialization. Apply only to authored content (question text, *Why it matters*, option labels, recommendation reasons, alt reasons). Do not strip the markdown scaffolding (`<details>`, `<summary>`, bold field labels, TOC heading, answer-key heading, frontmatter keys, reply-path code blocks) — those are contract.
+
+Word caps that bound the precision pass:
+
+| Field | Cap |
+| --- | --- |
+| Question text | ≤1 sentence, ≤20 words |
+| *Why it matters* | ≤1 sentence, ≤20 words |
+| Option label | ≤15 words per option |
+| Recommendation reason | ≤25 words |
+| Alt reason | ≤25 words, or the literal token `n/a` |
+
+If a reason genuinely needs more, split into two sentences — never drop the *why* to hit the cap. Precision must not strip security warnings, breaking-change flags, data-loss risks, or specific code/ADR references that ground the recommendation. The dual recommendation + alt structure is contract; precision cannot collapse it to a single answer.
+
 ## Question block contract
 
 The document must render with collapsible numbered items in common markdown previews:

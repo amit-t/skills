@@ -157,6 +157,10 @@ Depth changes how many branches the skill walks, not how sharp each question is.
 
 Exact path rules: [`REFERENCE.md` § File contract](./REFERENCE.md#file-contract). Filled example: [`templates/grill-doc.template.md`](./templates/grill-doc.template.md).
 
+## Precision pass
+
+The grill doc is the deliverable, so authored prose inside it is written under [`precision-mode`](../precision-mode) before serialization — lead with the answer, no filler, fragments over sentences when unambiguous, quantify don't qualify. Hard per-field caps (question / *why it matters* / option / recommendation reason / alt reason) keep reasons scannable without truncating the *why*. Markdown scaffolding (`<details>`, bold field labels, the answer-key block) and security / breaking-change / data-loss caveats are exempt. Contract details in [`REFERENCE.md` § Precision contract](./REFERENCE.md#precision-contract).
+
 ## When to use this vs `grill-me`
 
 - **`grill-me`** — interactive, one question at a time.

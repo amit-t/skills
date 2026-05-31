@@ -31,11 +31,25 @@ Resolve the project root with `git rev-parse --show-toplevel`, falling back to a
 
 Follow [`REFERENCE.md`](./REFERENCE.md) for every format contract — file path, frontmatter, question block, answer key, reply parsing. [`templates/grill-doc.template.md`](./templates/grill-doc.template.md) is the only filled example; do not inline another one here or in `README.md`.
 
+### Precision pass — apply before writing
+
+Before serializing the document to disk, internally apply [`precision-mode`](../precision-mode/SKILL.md) to every authored string: question text, *Why it matters* lines, option labels, recommendation reasons, and alt reasons. The grill doc is the only deliverable, so density of the prose inside it is the deliverable.
+
+Implicit invocation rules:
+
+- If `precision-mode` is listed in the environment's available skills, invoke it before drafting question prose; if not, apply the same rules inline from memory (lead with the answer, no filler, no echo, no trailing summary, fragments over sentences when unambiguous, quantify don't qualify, prefer structure over prose).
+- Apply precision **only to the authored content** of questions, options, recommendations, and alt reasons. Do **not** strip the literal markdown scaffolding the format contract requires: `<details>` / `<summary>` tags, the `**Why it matters:**` / `**Options:**` / `**Recommendation:**` / `**Alt:**` labels, the `## Questions` TOC heading, the `## Answer key` heading, frontmatter keys, or the three reply-path code blocks. Those are contract, not prose.
+- Caps that override the precision instinct to compress further: `Why it matters` stays ≤1 sentence (≤20 words); option labels stay ≤15 words; recommendation and alt reasons stay ≤25 words. If a reason genuinely needs more, split into two sentences — do not drop the *why* to hit the cap.
+- Preserve correctness and critical caveats. Precision must not strip a security warning, breaking-change flag, data-loss risk, or a specific code/ADR reference that gives the recommendation its grip.
+- Never let precision delete the alt recommendation to "lead with the answer". The dual recommendation + alt structure is contract.
+
+Briefly mention in the hand-off message (Step 3) that the doc was written under precision mode, so the user knows scannability is intentional and reasons are not truncated by accident.
+
 ## Step 3 — hand off and stop
 
 After writing the file, reply only with:
 
-> Grill written to `.grills/<filename>` — **<N>** questions at depth **<depth>**. Open it in a markdown previewer, then paste one of: `accept all my recommendations`, `accept all my alt recommendations`, or the filled answer-key block. I'll apply your answers in one pass when you reply.
+> Grill written to `.grills/<filename>` — **<N>** questions at depth **<depth>**, written under precision mode (terse on purpose; reasons capped, not truncated). Open it in a markdown previewer, then paste one of: `accept all my recommendations`, `accept all my alt recommendations`, or the filled answer-key block. I'll apply your answers in one pass when you reply.
 
 Do not summarize the questions in chat. The document is the deliverable.
 
