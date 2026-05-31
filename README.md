@@ -63,6 +63,7 @@ npx skills@latest add amit-t/skills -g
 | [`gh-repo-mirror`](./gh-repo-mirror) | Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, team + direct-collaborator access, and (optional) GitHub Pages site |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start |
+| [`grill-me-auto`](./grill-me-auto) | Batch-mode `grill-me`: write every question, option, recommendation, and alt into one collapsible markdown grill document for one-shot replies |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
 | [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
