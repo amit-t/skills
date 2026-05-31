@@ -143,7 +143,7 @@
       "name": "grill-me-auto",
       "category": "Engineering",
       "tagline": "Batch-mode grill: all questions in one collapsible markdown doc, answered in one reply.",
-      "detail": "Same rigor as /grill-me, but non-interactive. Asks for depth (quick / standard / deep, default deep), writes numbered collapsible questions to `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`, includes options, recommendations, alt recommendations, and three reply paths: `accept all my recommendations`, `accept all my alt recommendations`, or a filled per-question answer key.",
+      "detail": "Same rigor as /grill-me, but non-interactive. Asks for depth (quick / standard / deep, default deep), writes numbered collapsible questions to `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`, includes options, recommendations, alt recommendations, and three reply paths: `accept all my recommendations`, `accept all my alt recommendations`, or a filled per-question answer key. Applies `precision-mode` implicitly to authored prose (question text, *why it matters*, option labels, recommendation and alt reasons) with hard per-field word caps; markdown scaffolding, security/data-loss caveats, and the recommendation + alt structure are exempt.",
       "usage": "/grill-me-auto [quick|standard|deep]"
     },
     {

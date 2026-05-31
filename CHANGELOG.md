@@ -4,7 +4,6 @@ Recent project updates, summarized from repository history.
 
 ## 2026-05-31
 
-- Clarified `grill-me-auto` precision-mode handling — authored question prose is terse and capped before serialization while required markdown scaffolding, answer-key structure, and critical caveats are preserved.
 - `grill-me-auto` now applies [`precision-mode`](./precision-mode/) implicitly to the authored content of the grill document (question text, *why it matters*, option labels, recommendation reasons, alt reasons) before serialization, with hard per-field word caps to keep reasons scannable without truncating the *why*. Markdown scaffolding (`<details>`, bold field labels, the answer-key block), security warnings, breaking-change flags, data-loss risks, and specific code/ADR references are exempt — precision tightens prose, not contract. The dual recommendation + alt structure stays intact regardless. The hand-off message now notes that the doc was written under precision mode so the user knows brevity is intentional and reasons are capped, not accidentally clipped. Contract details in `grill-me-auto/REFERENCE.md` § Precision contract; `grill-me-auto/SKILL.md` Step 2 names the implicit-invocation rule.
 - Documented the `grill-me-auto` mental model in its README — batch-mode `/grill-me`, asynchronous markdown grill document, one-shot answer block, and "same rigor, no live interview tax" positioning.
 
