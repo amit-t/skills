@@ -102,34 +102,17 @@ Then it silently reads the relevant context and writes the full grill to:
 .grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md
 ```
 
-Open the file in a markdown previewer. Each numbered question is a collapsible `<details>` block with:
-
-- why the question matters
-- 2–4 labelled options (`1.A`, `1.B`, ...)
-- the agent's recommendation
-- an alt recommendation
-- conditional sub-questions nested under their parent
+Open the file in a markdown previewer. Each numbered question is a collapsible `<details>` block carrying the question, *why it matters*, labelled options, the agent's recommendation, and an alt. See [`REFERENCE.md`](./REFERENCE.md#question-block-contract) for the exact block contract and [`templates/grill-doc.template.md`](./templates/grill-doc.template.md) for a filled example.
 
 ## Answering
 
-The document ends with three easy reply paths:
+The document ends with three reply paths (canonical phrasing on the left, uppercase alias on the right):
 
-1. `accept all my recommendations`
-2. `accept all my alt recommendations`
-3. Copy/paste the filled answer-key block back into chat after reading it.
+1. `accept all my recommendations` — alias `ACCEPT_ALL_RECOMMENDATIONS`
+2. `accept all my alt recommendations` — alias `ACCEPT_ALL_ALT_RECOMMENDATIONS`
+3. Filled per-question answer-key block — one `N: <A|B|C|D|rec|alt>` line per question; mix-and-match.
 
-The uppercase aliases `ACCEPT_ALL_RECOMMENDATIONS` and `ACCEPT_ALL_ALT_RECOMMENDATIONS` also work.
-
-Per-question answers look like this:
-
-```text
-1: A
-2: rec
-3: alt
-4: B
-```
-
-`rec` means use the recommendation. `alt` means use the alt recommendation; if Alt is `n/a`, the agent falls back to the primary recommendation and tells you.
+If Alt is `n/a`, option 2 (and the `alt` token) falls back to the primary recommendation and the summary flags it. Full parsing rules and resolved-answer format in [`REFERENCE.md` § Reply parsing contract](./REFERENCE.md#reply-parsing-contract).
 
 ## Grill depth
 
@@ -143,13 +126,7 @@ Depth changes how many branches the skill walks, not how sharp each question is.
 
 ## Document naming convention
 
-Format: `.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md`
-
-- `YYYY-MM-DD-HHMM` — local time. Same-minute collisions get `-2`, `-3`.
-- `<slug>` — 2–3 word kebab-case derived from the topic being grilled.
-- `<depth>` — `deep` / `standard` / `quick`.
-
-Examples:
+`.grills/<YYYY-MM-DD-HHMM>-<slug>-<depth>.md` — local time, 2–3 word kebab-case slug, depth `deep` / `standard` / `quick`. Same-minute collisions get `-2`, `-3`.
 
 ```text
 .grills/2026-05-30-2114-auth-rewrite-deep.md
@@ -157,7 +134,7 @@ Examples:
 .grills/2026-05-31-1645-migration-rollback-quick.md
 ```
 
-A filled example lives at [`templates/grill-doc.template.md`](./templates/grill-doc.template.md). Additional format rules live in [`REFERENCE.md`](./REFERENCE.md).
+Exact path rules: [`REFERENCE.md` § File contract](./REFERENCE.md#file-contract). Filled example: [`templates/grill-doc.template.md`](./templates/grill-doc.template.md).
 
 ## When to use this vs `grill-me`
 

@@ -11,7 +11,7 @@ Use this skill for `/grill-me-auto`, `/Grill Me Auto`, `/grill me auto`, "auto g
 
 ## Step 0 — choose depth first
 
-Ask before generating unless the invocation already includes a recognized depth.
+If the invocation includes a recognized depth (see the table in [`REFERENCE.md`](./REFERENCE.md#invocation-and-depth) for accepted values and aliases), echo it in one line and proceed. Otherwise, ask exactly this and stop:
 
 > Grill depth? (default: **deep**)
 >
@@ -19,9 +19,7 @@ Ask before generating unless the invocation already includes a recognized depth.
 > - **standard** — critical assumptions plus main edge cases and obvious cross-checks. Typically 15–25 questions.
 > - **quick** — only highest-leverage deal-breakers and dead-on-arrival risks. Typically 5–10 questions.
 >
-> Reply with `deep` / `standard` / `quick` (or hit return for deep). You can pre-select with `/grill-me-auto deep`, `/grill-me-auto standard`, `/grill-me-auto quick`; aliases `3` / `2` / `1` and `deepest` / `medium` / `sharp` also work.
-
-Echo pre-selected depth in one short line. If depth is ambiguous, ask this question and stop.
+> Reply with `deep` / `standard` / `quick` (or hit return for deep). Pre-select next time with `/grill-me-auto deep|standard|quick`.
 
 ## Step 1 — gather context silently
 
@@ -29,31 +27,9 @@ Inspect the prompt, linked artifacts, touched files, repo instructions, `CONTEXT
 
 ## Step 2 — write the grill document
 
-Create the document at:
+Resolve the project root with `git rev-parse --show-toplevel`, falling back to an ancestor with `.git` / `.claude`, then `pwd`. Create the document atomically (`.tmp` then rename) at the path defined in [`REFERENCE.md` § File contract](./REFERENCE.md#file-contract). Create `.grills/` if missing; if it is not gitignored, append `/.grills/` to `.gitignore` and stage that one-line change (do not commit).
 
-`.grills/<YYYY-MM-DD-HHMM>-<2-to-3-word-slug>-<depth>.md`
-
-Rules:
-
-- Resolve project root with `git rev-parse --show-toplevel`; fall back to an ancestor with `.git` / `.claude`, then `pwd`.
-- Use local time for `YYYY-MM-DD-HHMM`; same-minute collisions get `-2`, `-3` suffixes.
-- Derive the slug from the plan/topic being grilled.
-- Create `.grills/` if missing. If it is not gitignored, append `/.grills/` to `.gitignore` and stage that one-line change; do not commit.
-- Write atomically via temp file then rename.
-
-Use [`REFERENCE.md`](./REFERENCE.md) as the canonical contract and [`templates/grill-doc.template.md`](./templates/grill-doc.template.md) as the only filled example.
-
-## Document contract
-
-The generated file must include:
-
-- A numbered `## Questions` table of contents.
-- One collapsible `<details><summary><strong>N. Question?</strong></summary>` block per top-level question.
-- For every question: **Why it matters**, 2–4 labelled options (`N.A`, `N.B`, ...), **Recommendation**, and **Alt**.
-- Nested conditional questions inside their parent block (`2a`, `2b`, ...), never as stray top-level questions.
-- `## Answer key` with exactly the three reply paths: **Accept all my recommendations**, **Accept all my alt recommendations**, and **Copy/paste this in the chat after reading it back to the agent**.
-
-Do not duplicate the filled example in this file; use the reference/template links above.
+Follow [`REFERENCE.md`](./REFERENCE.md) for every format contract — file path, frontmatter, question block, answer key, reply parsing. [`templates/grill-doc.template.md`](./templates/grill-doc.template.md) is the only filled example; do not inline another one here or in `README.md`.
 
 ## Step 3 — hand off and stop
 
