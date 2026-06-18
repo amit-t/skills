@@ -29,7 +29,7 @@ Run the helper script with the reference repo + new repo name. It interviews for
   --custom-domain ai-skills.docs.invencocloud.com
 ```
 
-Add `--template` to set `is_template=true`, `--no-port-docs` to skip the Pages scaffold, `--dry-run` to print the plan without changing anything.
+Add `--template` to set `is_template=true`, `--no-port-docs` to skip the docs/Pages scaffold (a minimal README + `.gitignore` commit is still created so `main` exists for branch protection), `--no-pages` to skip enabling GitHub Pages entirely, `--dry-run` to print the plan without changing anything.
 
 **Default-on capability** (suppress with a flag):
 
@@ -51,7 +51,7 @@ Add `--template` to set `is_template=true`, `--no-port-docs` to skip the Pages s
    - Renders templates under `docs/` (or `/`) with the caller's `repoSlug`, `repoUrl`, hero eyebrow, and date stamps. Copies `.nojekyll`, optional `CNAME`.
    - Writes `README.md`, `CHANGELOG.md`, `.gitignore` at repo root.
    - `git init -b main`, commits, pushes.
-   - PUTs classic branch protection mirroring the reference (typically just `allow_force_pushes=false` + `allow_deletions=false`).
+   - PUTs classic branch protection mirroring the reference faithfully — including `required_status_checks` (strict + contexts) and `required_pull_request_reviews` (code-owner reviews, approval count, dismiss-stale) where the reference sets them, not just `allow_force_pushes`/`allow_deletions`. `restrictions`/`dismissal_restrictions`/bypass actors are intentionally omitted (org-scoped, may not resolve).
    - Mirrors team access (`PUT /orgs/{org}/teams/{slug}/repos/{owner}/{repo}`) and direct collaborators (`PUT /repos/{owner}/{repo}/collaborators/{login}`) at the same permission level as the reference. Skipped if `--no-mirror-access` is set.
    - POSTs Pages config with `source: {branch: main, path: /docs|/}` and `build_type: legacy`.
    - Background-polls for the Let's Encrypt cert (`https_certificate.state == "approved"`), then PUTs `https_enforced=true`.
