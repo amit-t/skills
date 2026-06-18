@@ -101,28 +101,53 @@ JSON
 
 ## Branch protection PUT
 
-Pass the reference response payload through (after stripping read-only `url`s):
+Transform the reference GET response into the PUT payload, **mirroring the
+review and status-check requirements** — don't null them. The GET nests each
+toggle under `{enabled: bool}`; the PUT wants flat booleans for the simple
+toggles and a sub-object for `required_status_checks` / `required_pull_request_reviews`:
 
 ```zsh
-gh api -X PUT repos/<org>/<name>/branches/main/protection --input - <<'JSON'
-{
-  "required_status_checks": null,
-  "enforce_admins": false,
-  "required_pull_request_reviews": null,
-  "restrictions": null,
-  "required_linear_history": false,
-  "allow_force_pushes": false,
-  "allow_deletions": false,
-  "block_creations": false,
-  "required_conversation_resolution": false,
-  "lock_branch": false,
-  "allow_fork_syncing": false,
-  "required_signatures": false
-}
-JSON
+gh api repos/<ref-org>/<ref-name>/branches/main/protection \
+  | jq '{
+      required_status_checks: (if .required_status_checks then
+        { strict: .required_status_checks.strict, contexts: (.required_status_checks.contexts // []) } else null end),
+      enforce_admins: (.enforce_admins.enabled // false),
+      required_pull_request_reviews: (if .required_pull_request_reviews then
+        { dismiss_stale_reviews:          .required_pull_request_reviews.dismiss_stale_reviews,
+          require_code_owner_reviews:      .required_pull_request_reviews.require_code_owner_reviews,
+          require_last_push_approval:      .required_pull_request_reviews.require_last_push_approval,
+          required_approving_review_count: .required_pull_request_reviews.required_approving_review_count } else null end),
+      restrictions: null,
+      required_linear_history: (.required_linear_history.enabled // false),
+      allow_force_pushes:      (.allow_force_pushes.enabled // false),
+      allow_deletions:         (.allow_deletions.enabled // false),
+      block_creations:         (.block_creations.enabled // false),
+      required_conversation_resolution: (.required_conversation_resolution.enabled // false),
+      lock_branch:             (.lock_branch.enabled // false),
+      allow_fork_syncing:      (.allow_fork_syncing.enabled // false),
+      required_signatures:     (.required_signatures.enabled // false)
+    }' \
+  | gh api -X PUT repos/<new-org>/<new-name>/branches/main/protection --input -
 ```
 
-All seven required top-level keys must be present even if `null`. The API will reject partial payloads.
+All required top-level keys must be present even if `null`; the API rejects partial payloads.
+
+**Gotcha — don't null `required_status_checks` / `required_pull_request_reviews`.** An
+earlier version of this skill hardcoded both to `null`, silently dropping the
+reference's CI gate and code-owner/approval requirements (a real protection
+gap). Mirror them as shown above.
+
+**Omitted on purpose: `restrictions`, `dismissal_restrictions`, and bypass
+actors.** Their users/teams/apps are org-scoped and may not resolve in the new
+repo's org. They're almost always empty on the reference; mirroring them blindly
+either no-ops or 422s. Left `null`. The verification diff normalizes both sides
+to the mirrored field set so an empty `dismissal_restrictions` doesn't read as
+false drift.
+
+**`main` must exist before this PUT.** Branch protection 404s on an empty repo
+(no commits → no branch). The scaffold step always creates a minimal
+README + `.gitignore` commit — even under `--no-port-docs` — precisely so this
+PUT (and Pages, and team access) has a branch to target.
 
 ## Pages enable
 
@@ -137,6 +162,8 @@ JSON
 `build_type: legacy` is Jekyll-or-static. `workflow` is GitHub-Actions-driven. Mirror the reference.
 
 **Private-repo Pages requires GitHub Enterprise Cloud.** Free/Pro orgs can only host Pages from public repos. The skill should fail loudly if the target org plan doesn't allow it.
+
+**`--no-pages` skips Pages entirely.** Use it with `--no-port-docs` when you only want settings/security/branch-protection/access mirrored and no site. Without it, an Enterprise org would enable Pages pointing at `/docs` even when docs were skipped — yielding a broken empty site. The HTTPS-enforce background watcher is also skipped when Pages is disabled.
 
 ## HTTPS enforcement — async cert
 

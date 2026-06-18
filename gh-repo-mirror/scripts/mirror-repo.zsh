@@ -38,7 +38,9 @@ Optional:
   --custom-domain <fqdn>         custom domain for Pages (sets CNAME)
   --hero-eyebrow  <text>         hero eyebrow on the docs site (default: org name uppercased)
   --template                     set is_template=true on the new repo
-  --no-port-docs                 skip the docs/ scaffold entirely
+  --no-port-docs                 skip the docs/ scaffold entirely (still creates a minimal
+                                 README + .gitignore commit so 'main' exists for branch protection)
+  --no-pages                     do not enable GitHub Pages on the new repo
   --from-repo     <org>/<name>   port Pages content from a different repo instead of bundled templates
   --visibility    private|public|internal   override (default: match reference)
   --mirror-rulesets              also mirror repo-level rulesets from the reference
@@ -68,6 +70,7 @@ custom_domain=""
 hero_eyebrow=""
 template_flag="false"
 port_docs="true"
+enable_pages="true"
 from_repo=""
 visibility_override=""
 dry_run="false"
@@ -88,6 +91,7 @@ while (( $# )); do
     --hero-eyebrow)        hero_eyebrow="$2"; shift 2;;
     --template)            template_flag="true"; shift;;
     --no-port-docs)        port_docs="false"; shift;;
+    --no-pages)            enable_pages="false"; shift;;
     --from-repo)           from_repo="$2"; shift 2;;
     --visibility)          visibility_override="$2"; shift 2;;
     --mirror-rulesets)     mirror_rulesets="true"; shift;;
@@ -224,12 +228,12 @@ Plan
   Reference:        $ref_repo  (visibility=$ref_visibility, default=$ref_default_branch)
   New repo:         $new_repo  (visibility=$new_visibility, is_template=$template_flag)
   Description:      ${description:-<none>}
-  Port docs:        $port_docs  (pages path: $pages_path)
+  Port docs:        $port_docs  (pages path: $pages_path; minimal README+.gitignore commit always created)
   From-repo:        ${from_repo:-<bundled templates>}
   Custom domain:    ${custom_domain:-<none — github.io URL>}
   Hero eyebrow:     $hero_eyebrow
   Branch protect:   $([[ -n "$ref_protection_json" ]] && print -r -- "mirror reference" || print -r -- "<reference has none — skipping>")
-  Pages config:     $([[ -n "$ref_pages_json" ]] && print -r -- "mirror reference (override path=$pages_path)" || print -r -- "enable fresh on $pages_path")
+  Pages config:     $([[ "$enable_pages" != "true" ]] && print -r -- "disabled (--no-pages)" || { [[ -n "$ref_pages_json" ]] && print -r -- "mirror reference (override path=$pages_path)" || print -r -- "enable fresh on $pages_path"; })
   Rulesets:         $([[ "$mirror_rulesets" == "true" ]] && print -r -- "mirror ($(jq 'length' <<<"$ref_rulesets_json") found on reference)" || print -r -- "skipped (pass --mirror-rulesets to enable)")
   Access:           $([[ "$mirror_access" == "true" ]] && print -r -- "mirror ($(jq 'length' <<<"$ref_teams_json") team(s), $(jq 'length' <<<"$ref_collabs_json") direct collaborator(s) on reference)" || print -r -- "skipped (--no-mirror-access)")
   DNS CNAME:        $([[ -n "$cname_provider" ]] && print -r -- "$cname_provider → ${custom_domain} -> ${new_org:l}.github.io" || print -r -- "skipped (pass --cname-provider to enable)")
@@ -322,14 +326,16 @@ fi
 
 # ───────────── scaffold local repo + docs ─────────────
 
+# Always scaffold a minimal initial commit so `main` exists — branch protection,
+# Pages, and team access all require the branch to be present on the remote.
+workdir=$(mktemp -d -t gh-repo-mirror.XXXXXX)
+print_info "Staging initial commit in $workdir"
+pushd "$workdir" >/dev/null
+
+today=$(date -u +%Y-%m-%d)
+repo_url="https://github.com/$new_repo"
+
 if [[ "$port_docs" == "true" ]]; then
-  workdir=$(mktemp -d -t gh-repo-mirror.XXXXXX)
-  print_info "Staging initial commit in $workdir"
-  pushd "$workdir" >/dev/null
-
-  today=$(date -u +%Y-%m-%d)
-  repo_url="https://github.com/$new_repo"
-
   # Pick source for HTML/CSS/JS: bundled templates by default, or --from-repo clone.
   if [[ -n "$from_repo" ]]; then
     print_info "Cloning $from_repo to port Pages content"
@@ -497,39 +503,95 @@ EOF_ENTRY
     fi
     print_ok "Skill skeleton at $bootstrap_skill/SKILL.md (placeholders inside — fill them in)"
   fi
+fi  # end docs-content scaffold (port_docs)
 
-  git init -b main >/dev/null
-  git add . >/dev/null
-  git -c commit.gpgsign=false commit -q -m "chore: initial scaffold — README, CHANGELOG, $docs_dest Pages site
+# Guarantee a non-empty commit even when docs are skipped, so `main` is created
+# on the remote — branch protection / Pages / team access all need it to exist.
+if [[ ! -f README.md ]]; then
+  cat >README.md <<EOF_README_MIN
+# ${new_repo#*/}
 
-Mirrored settings + branch protection from $ref_repo via gh-repo-mirror."
-  git remote add origin "https://github.com/$new_repo.git"
+${description:-AI agent skills and automation.}
 
-  if ! git push -u origin main 2>/tmp/_push.$$.err >/dev/null; then
-    if grep -q "rejected" /tmp/_push.$$.err 2>/dev/null; then
-      print_warn "Push rejected — repo likely already has commits. Skipping initial scaffold push."
-    else
-      cat /tmp/_push.$$.err >&2
-      rm -f /tmp/_push.$$.err
-      die "Push failed"
-    fi
-  fi
-  rm -f /tmp/_push.$$.err
-
-  popd >/dev/null
-  [[ -n "$from_repo" ]] && rm -rf "/tmp/_pages-src.$$"
-  rm -rf "$workdir"
-  print_ok "Initial commit pushed"
+> General settings, security flags, branch protection, and team access mirrored from
+> [\`$ref_repo\`](https://github.com/$ref_repo) via gh-repo-mirror.
+EOF_README_MIN
 fi
+if [[ ! -f .gitignore ]]; then
+  if [[ -f $templates_dir/gitignore.tmpl ]]; then
+    cp "$templates_dir/gitignore.tmpl" .gitignore
+  else
+    cat >.gitignore <<'EOF_GITIGNORE'
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+EOF_GITIGNORE
+  fi
+fi
+
+if [[ "$port_docs" == "true" ]]; then
+  commit_msg="chore: initial scaffold — README, CHANGELOG, $docs_dest Pages site"
+else
+  commit_msg="chore: initial scaffold — README + .gitignore"
+fi
+
+git init -b main >/dev/null
+git add . >/dev/null
+git -c commit.gpgsign=false commit -q -m "$commit_msg
+
+Mirrored settings, security flags, branch protection, and team access
+from $ref_repo via gh-repo-mirror."
+git remote add origin "https://github.com/$new_repo.git"
+
+if ! git push -u origin main 2>/tmp/_push.$$.err >/dev/null; then
+  if grep -qE "rejected|already exists|fetch first|non-fast-forward" /tmp/_push.$$.err 2>/dev/null; then
+    print_warn "Push rejected — repo likely already has commits. Skipping initial scaffold push."
+  else
+    cat /tmp/_push.$$.err >&2
+    rm -f /tmp/_push.$$.err
+    die "Push failed"
+  fi
+fi
+rm -f /tmp/_push.$$.err
+
+popd >/dev/null
+[[ -n "$from_repo" ]] && rm -rf "/tmp/_pages-src.$$"
+rm -rf "$workdir"
+print_ok "Initial commit pushed"
 
 # ───────────── branch protection ─────────────
 
 if [[ -n "$ref_protection_json" ]]; then
   print_info "Mirroring branch protection on $new_repo/$ref_default_branch"
+  # Mirror status-check and PR-review requirements faithfully — nulling them
+  # would silently drop the reference's review/CI gates (a real protection gap).
+  # dismissal_restrictions / bypass actors are intentionally omitted: their
+  # users/teams/apps are org-scoped and may not resolve in the new repo's org.
   prot_payload=$(jq '{
-    required_status_checks: null,
+    required_status_checks: (
+      if .required_status_checks then
+        { strict:   (.required_status_checks.strict   // false),
+          contexts: (.required_status_checks.contexts // []) }
+      else null end
+    ),
     enforce_admins: (.enforce_admins.enabled // false),
-    required_pull_request_reviews: null,
+    required_pull_request_reviews: (
+      if .required_pull_request_reviews then
+        { dismiss_stale_reviews:           (.required_pull_request_reviews.dismiss_stale_reviews           // false),
+          require_code_owner_reviews:       (.required_pull_request_reviews.require_code_owner_reviews       // false),
+          require_last_push_approval:       (.required_pull_request_reviews.require_last_push_approval       // false),
+          required_approving_review_count:  (.required_pull_request_reviews.required_approving_review_count  // 0) }
+      else null end
+    ),
     restrictions: null,
     required_linear_history: (.required_linear_history.enabled // false),
     allow_force_pushes:     (.allow_force_pushes.enabled // false),
@@ -550,7 +612,9 @@ fi
 # ───────────── Pages ─────────────
 
 pages_state=""
-if gh api "repos/$new_repo/pages" >/dev/null 2>&1; then
+if [[ "$enable_pages" != "true" ]]; then
+  print_warn "Pages disabled (--no-pages) — skipping enable"
+elif gh api "repos/$new_repo/pages" >/dev/null 2>&1; then
   print_warn "Pages already enabled on $new_repo — skipping enable"
   pages_state="existing"
 else
@@ -777,11 +841,30 @@ else
 fi
 
 if [[ -n "$ref_protection_json" ]]; then
+  # Normalize both sides to the exact set of fields we mirror, so self-referential
+  # *_url keys and empty dismissal_restrictions (intentionally omitted) don't read
+  # as false drift. Compares semantics, not GitHub's response decoration.
+  prot_norm='{
+    required_status_checks: (if .required_status_checks then
+      { strict: .required_status_checks.strict, contexts: (.required_status_checks.contexts // []) } else null end),
+    enforce_admins: (.enforce_admins.enabled // false),
+    required_pull_request_reviews: (if .required_pull_request_reviews then
+      { dismiss_stale_reviews:          .required_pull_request_reviews.dismiss_stale_reviews,
+        require_code_owner_reviews:      .required_pull_request_reviews.require_code_owner_reviews,
+        require_last_push_approval:      .required_pull_request_reviews.require_last_push_approval,
+        required_approving_review_count: .required_pull_request_reviews.required_approving_review_count } else null end),
+    required_linear_history:          (.required_linear_history.enabled // false),
+    allow_force_pushes:               (.allow_force_pushes.enabled // false),
+    allow_deletions:                  (.allow_deletions.enabled // false),
+    block_creations:                  (.block_creations.enabled // false),
+    required_conversation_resolution: (.required_conversation_resolution.enabled // false),
+    lock_branch:                      (.lock_branch.enabled // false),
+    allow_fork_syncing:               (.allow_fork_syncing.enabled // false),
+    required_signatures:              (.required_signatures.enabled // false)
+  }'
   prot_diff=$(diff \
-    <(gh api "repos/$ref_repo/branches/$ref_default_branch/protection" \
-        | jq -S 'del(.url) | walk(if type=="object" and has("url") then del(.url) else . end)') \
-    <(gh api "repos/$new_repo/branches/$ref_default_branch/protection" \
-        | jq -S 'del(.url) | walk(if type=="object" and has("url") then del(.url) else . end)') || true)
+    <(gh api "repos/$ref_repo/branches/$ref_default_branch/protection" | jq -S "$prot_norm") \
+    <(gh api "repos/$new_repo/branches/$ref_default_branch/protection" | jq -S "$prot_norm") || true)
   if [[ -z "$prot_diff" ]]; then
     print_ok "Branch protection: zero drift"
   else
@@ -821,9 +904,16 @@ cat <<EOF
 Done.
 ─────
   Repo:     https://github.com/$new_repo
+EOF
+
+if [[ "$enable_pages" == "true" ]]; then
+  cat <<EOF
   Pages:    ${custom_domain:+https://$custom_domain/}${custom_domain:-https://${new_org:l}.github.io/$new_name/}
   HTTPS:    pending — background watcher will flip https_enforced=true once cert lands.
 
 Rerun if HTTPS hasn't flipped after a while:
   $script_path --enforce-https-only $new_repo
 EOF
+else
+  print -r -- "  Pages:    disabled (--no-pages)"
+fi
