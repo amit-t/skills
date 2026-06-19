@@ -2,6 +2,13 @@
   "version": 1,
   "changes": [
     {
+      "date": "2026-06-19",
+      "items": [
+        "Added the `setup-pre-commit` skill — ported from [`mattpocock/skills` → `misc/setup-pre-commit`](https://github.com/mattpocock/skills/blob/main/skills/misc/setup-pre-commit/SKILL.md). Wires up a Husky pre-commit hook running lint-staged (Prettier on staged files) then typecheck and test. Detects the package manager from the lockfile (npm/pnpm/yarn/bun), installs husky/lint-staged/prettier as devDependencies, runs `husky init`, writes `.husky/pre-commit`, `.lintstagedrc`, and `.prettierrc` only when no Prettier config exists, verifies, and commits as a smoke test. Adapted to this catalog with a package-manager install table, a zsh lockfile-detection snippet, and a slow-repo note. Upstream attribution travels with the installed copy.",
+        "Added the `setup-amit-skills` skill — a prompt-driven setup workflow modeled on [`mattpocock/skills` → `engineering/setup-matt-pocock-skills`](https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/SKILL.md). Explores a repo, then asks three sequential decisions (agent instruction surface AGENTS.md/CLAUDE.md/both; domain context layout single CONTEXT.md vs multi CONTEXT-MAP.md or defer to `/repo-context-scan`; catalog/category mode consumer-only/skill-catalog authoring/hybrid), confirms the draft, writes only the selected scaffolding, and reports which downstream skills (`/repo-context-scan`, `/domain-grill`, `write-a-skill`, `docs-from-prs`) are now enabled. Ships five templates under `setup-amit-skills/templates/`."
+      ]
+    },
+    {
       "date": "2026-05-31",
       "items": [
         "`grill-me-auto` now applies `precision-mode` implicitly to the authored content of the grill document (question text, *why it matters*, option labels, recommendation reasons, alt reasons) before serialization, with hard per-field word caps. Markdown scaffolding, security warnings, breaking-change flags, data-loss risks, and specific code/ADR references are exempt. The dual recommendation + alt structure stays intact. Contract details in `grill-me-auto/REFERENCE.md` § Precision contract; `grill-me-auto/SKILL.md` Step 2 names the implicit-invocation rule.",
