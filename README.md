@@ -69,6 +69,8 @@ npx skills@latest add amit-t/skills -g
 | [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
 | [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
+| [`setup-amit-skills`](./setup-amit-skills) | Configure a repo for `amit-t/skills` conventions via a guided 3-decision setup (agent instruction surface, context layout, catalog/category mode) — modeled on Matt Pocock's `setup-matt-pocock-skills` |
+| [`setup-pre-commit`](./setup-pre-commit) | Set up Husky + lint-staged + Prettier pre-commit hooks (typecheck + test) in a JS/TS repo — ported from Matt Pocock's `misc/setup-pre-commit` |
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
 | [`ubiquitous-language`](./ubiquitous-language) | **Deprecated** — superseded by `/repo-context-scan` (build) and `/domain-grill` (stress-test) |
 

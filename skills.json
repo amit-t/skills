@@ -179,6 +179,22 @@
       "usage": "/resume-tailoring"
     },
     {
+      "slug": "setup-amit-skills",
+      "name": "setup-amit-skills",
+      "category": "Engineering",
+      "tagline": "Configure a repo for amit-t/skills conventions through a guided 3-decision setup.",
+      "detail": "Prompt-driven workflow that explores a repo, then asks three sequential decisions — agent instruction surface (AGENTS.md / CLAUDE.md / both), domain context layout (single CONTEXT.md vs multi CONTEXT-MAP.md), and catalog/category mode (consumer-only / skill-catalog authoring / hybrid) — confirms the draft, and writes only the selected scaffolding. Ships templates for agent config, single/multi context layout, ADR format, and catalog categories. Modeled on Matt Pocock's setup-matt-pocock-skills.",
+      "usage": "/setup-amit-skills"
+    },
+    {
+      "slug": "setup-pre-commit",
+      "name": "setup-pre-commit",
+      "category": "Engineering",
+      "tagline": "Set up Husky + lint-staged + Prettier pre-commit hooks in a JS/TS repo.",
+      "detail": "Detects the package manager from the lockfile, installs husky/lint-staged/prettier as devDependencies, runs husky init, writes .husky/pre-commit (lint-staged then typecheck and test), .lintstagedrc, and .prettierrc when missing, verifies, and commits as a smoke test. Ported from Matt Pocock's misc/setup-pre-commit.",
+      "usage": "/setup-pre-commit"
+    },
+    {
       "slug": "design-interview",
       "name": "design-interview",
       "category": "UX Design",
