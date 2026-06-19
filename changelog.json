@@ -9,6 +9,12 @@
       ]
     },
     {
+      "date": "2026-06-18",
+      "items": [
+        "`gh-repo-mirror` got three fixes (#33), found while mirroring a private template repo on an Enterprise org. (1) `--no-port-docs` no longer leaves the repo empty — the scaffold→commit→push block was previously gated on docs being ported, so `main` was never created and downstream steps (branch protection, Pages, access) 404'd and aborted under `set -e`; a minimal `README` + `.gitignore` commit is now always created so `main` exists. (2) Branch protection no longer silently drops review/CI gates — `required_status_checks` and `required_pull_request_reviews` were hardcoded to `null` (a real protection gap) and are now mirrored faithfully, while `restrictions`/`dismissal_restrictions`/bypass actors stay omitted as org-scoped; the verify diff normalizes both sides so empty fields no longer read as false drift. (3) Added `--no-pages` to skip enabling GitHub Pages entirely (also skips the HTTPS-enforce watcher and the Pages URL in the summary), preventing a broken empty `/docs` site on Enterprise orgs when docs are skipped. Touches `gh-repo-mirror/SKILL.md`, `REFERENCE.md`, `scripts/mirror-repo.zsh`, and `README.md`."
+      ]
+    },
+    {
       "date": "2026-05-31",
       "items": [
         "`grill-me-auto` now applies `precision-mode` implicitly to the authored content of the grill document (question text, *why it matters*, option labels, recommendation reasons, alt reasons) before serialization, with hard per-field word caps. Markdown scaffolding, security warnings, breaking-change flags, data-loss risks, and specific code/ADR references are exempt. The dual recommendation + alt structure stays intact. Contract details in `grill-me-auto/REFERENCE.md` § Precision contract; `grill-me-auto/SKILL.md` Step 2 names the implicit-invocation rule.",
