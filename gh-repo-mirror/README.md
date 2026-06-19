@@ -4,7 +4,7 @@
 
 **Category:** Engineering
 
-Given a reference repo and a new repo name, this skill produces a new repo with identical general settings, security-and-analysis, classic branch protection on `main`, mirrored team access and direct collaborators, and an optional neo-brutalist GitHub Pages site under `docs/` (or `/`) — rebranded to the caller's slug and hero eyebrow. Custom domain is wired via `docs/CNAME` and HTTPS is enforced automatically once the Let's Encrypt cert lands. Optional extras: copy repo-level rulesets, create the CNAME DNS record via Cloudflare, and bootstrap a starter skill so the initial commit isn't empty.
+Given a reference repo and a new repo name, this skill produces a new repo with identical general settings, security-and-analysis, classic branch protection on `main` (mirroring `required_status_checks` and `required_pull_request_reviews` faithfully where the reference sets them, not just force-push/deletion toggles), mirrored team access and direct collaborators, and an optional neo-brutalist GitHub Pages site under `docs/` (or `/`) — rebranded to the caller's slug and hero eyebrow. Custom domain is wired via `docs/CNAME` and HTTPS is enforced automatically once the Let's Encrypt cert lands. Optional extras: copy repo-level rulesets, create the CNAME DNS record via Cloudflare, and bootstrap a starter skill so the initial commit isn't empty.
 
 ## Install
 
@@ -102,7 +102,8 @@ Or run the helper script directly:
 Useful flags:
 
 - `--template` — set `is_template=true` on the new repo
-- `--no-port-docs` — skip the Pages scaffold
+- `--no-port-docs` — skip the docs/Pages scaffold (a minimal `README` + `.gitignore` commit is still created so `main` exists for branch protection, Pages, and access steps)
+- `--no-pages` — do not enable GitHub Pages on the new repo (also skips the HTTPS-enforce watcher); pair with `--no-port-docs` to mirror only settings, security, branch protection, and access with no site
 - `--no-mirror-access` — skip mirroring teams + direct collaborators (both are mirrored by default)
 - `--mirror-rulesets` — also copy repo-level rulesets
 - `--cname-provider cloudflare --cname-zone-id <id>` — create the DNS record via Cloudflare (needs `CLOUDFLARE_API_TOKEN`)
