@@ -52,7 +52,7 @@ If you ever touch `site.js` rendering logic, these are the category-to-class map
 
 ## Git Conventions
 
-- Branch: work on `dev`, merge to `main` via PR
+- Branch: `main` is the only long-lived branch. Work on short-lived feature branches (`feat/...`, `fix/...`, `docs/...`), merge to `main` via PR, then delete the feature branch. No long-lived `dev`/`develop` branch.
 - Commit style: `feat:`, `fix:`, `docs:`, `refactor:` with scope
 - Push regularly; never leave work uncommitted
 
