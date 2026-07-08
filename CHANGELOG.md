@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-07-09
+
+- Added the `two-axis-review` skill — ported from [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md). Reviews the diff between a fixed point (commit / branch / tag, three-dot against the merge-base) and `HEAD` along two parallel axes: **Standards** (the repo's documented coding standards plus a fixed baseline of 12 Fowler code smells from _Refactoring_ ch.3) and **Spec** (missing or partial requirements, scope creep, and wrong implementations versus the originating issue / PRD). Both axes run as parallel sub-agents and are reported side by side under `## Standards` / `## Spec` — never merged or reranked, so a pass on one axis can't mask a failure on the other. Renamed from upstream's `code-review` to avoid colliding with this catalog's existing `code-review` (interactive GitHub PR review) skill; the issue-tracker bootstrap now points at `/setup-amit-skills` instead of upstream's setup skill. Upstream attribution lives in `two-axis-review/README.md` and here.
+
 ## 2026-06-19
 
 - Added the `setup-pre-commit` skill — ported from [`mattpocock/skills` → `misc/setup-pre-commit`](https://github.com/mattpocock/skills/blob/main/skills/misc/setup-pre-commit/SKILL.md). Wires up a Husky pre-commit hook that runs lint-staged (Prettier on staged files), then typecheck and test. Detects the package manager from the lockfile (npm / pnpm / yarn / bun), installs husky/lint-staged/prettier as devDependencies, runs `husky init`, writes `.husky/pre-commit`, `.lintstagedrc`, and `.prettierrc` (only when no Prettier config exists), verifies, and commits as a built-in smoke test. Adapted to this catalog's conventions: package-manager-specific install table, a zsh lockfile-detection snippet per repo shell preference, and a slow-repo note (move `test` to pre-push/CI). Upstream attribution travels with the installed copy in both `setup-pre-commit/SKILL.md` and `README.md`.
