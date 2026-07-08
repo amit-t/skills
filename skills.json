@@ -83,6 +83,14 @@
       "usage": "/tdd"
     },
     {
+      "slug": "two-axis-review",
+      "name": "two-axis-review",
+      "category": "Engineering",
+      "tagline": "Review a diff since a fixed point along two axes — repo standards and spec fidelity — via parallel sub-agents.",
+      "detail": "Pins a fixed point (commit, branch, tag), takes the three-dot diff against the merge-base, then runs two parallel sub-agents: Standards (documented repo standards plus a fixed Fowler code-smell baseline) and Spec (missing or partial requirements, scope creep, wrong implementations). Reports both axes side by side without merging or reranking, so a pass on one axis can't mask a failure on the other. Ported from Matt Pocock's engineering/code-review.",
+      "usage": "/two-axis-review <fixed-point>"
+    },
+    {
       "slug": "git-guardrails-claude-code",
       "name": "git-guardrails-claude-code",
       "category": "Engineering",

@@ -72,6 +72,7 @@ npx skills@latest add amit-t/skills -g
 | [`setup-amit-skills`](./setup-amit-skills) | Configure a repo for `amit-t/skills` conventions via a guided 3-decision setup (agent instruction surface, context layout, catalog/category mode) — modeled on Matt Pocock's `setup-matt-pocock-skills` |
 | [`setup-pre-commit`](./setup-pre-commit) | Set up Husky + lint-staged + Prettier pre-commit hooks (typecheck + test) in a JS/TS repo — ported from Matt Pocock's `misc/setup-pre-commit` |
 | [`tdd`](./tdd) | Test-driven development with red-green-refactor loop |
+| [`two-axis-review`](./two-axis-review) | Review a diff since a fixed point along two parallel axes — repo standards (incl. a Fowler code-smell baseline) and spec fidelity — reported side by side; ported from Matt Pocock's `engineering/code-review` |
 | [`ubiquitous-language`](./ubiquitous-language) | **Deprecated** — superseded by `/repo-context-scan` (build) and `/domain-grill` (stress-test) |
 
 ### UX Design
