@@ -1,8 +1,19 @@
 # tdd
 
-> Test-driven development with red-green-refactor loop
+> Test-driven development via the red → green loop — seams, anti-patterns, and vertical slices
 
 **Category:** Engineering
+
+The red → green loop, made to produce tests worth keeping. Defines what a good test is (verifies behavior through public interfaces, survives refactors), where tests go (**seams** — pre-agreed public boundaries, confirmed with the user before any test is written), and the anti-patterns to catch: implementation-coupled tests, tautological assertions, and horizontal slicing (writing all tests before any implementation). Work proceeds in **vertical slices** — one test → one minimal implementation → repeat — each test a tracer bullet informed by the last cycle. Refactoring is deliberately out of the loop; it belongs to the review stage, handled by this repo's [`two-axis-review`](../two-axis-review) skill.
+
+Synced from [`mattpocock/skills` → `engineering/tdd`](https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd).
+
+## When to use
+
+- "Build this feature test-first" / "fix this bug with TDD"
+- "red-green-refactor"
+- Adding integration tests for a new capability
+- Any time seams and testing scope need to be agreed before code is written
 
 ## Install
 
