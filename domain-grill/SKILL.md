@@ -41,7 +41,7 @@ If the user insists despite the redirect, still refuse. The skill is intentional
 - A `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) must exist at the repo root or in the relevant module.
 - If absent, run `/repo-context-scan` first, then return.
 
-This skill is **read-only** for `CONTEXT.md`. It does not edit the file. If new domain terms surface during grilling, flag them at the end and recommend re-running `/repo-context-scan`. Ownership of `CONTEXT.md` belongs to that skill.
+This skill is **read-only** for `CONTEXT.md`; see `CONTEXT-FORMAT.md` for the structure it expects (terms, relationships, flagged ambiguities). If new domain terms surface during grilling, flag them at the end and recommend re-running `/repo-context-scan`. Ownership of `CONTEXT.md` belongs to that skill.
 
 ## Process
 
@@ -77,7 +77,7 @@ Depth never lowers rigor on the questions you *do* ask — it changes how many b
 
 ### 2. Interview relentlessly
 
-Walk every branch of the artifact's decision tree until you reach shared understanding. Rules:
+Walk every branch of the artifact's decision tree; stop only once every branch is resolved and you can summarize the artifact back without holes. Rules:
 
 - Ask **one question at a time**.
 - For each question, provide your **recommended answer** alongside the question.
@@ -125,13 +125,7 @@ Do **not** write to `CONTEXT.md` yourself. That responsibility belongs to `/repo
 
 ### 8. Offer ADRs sparingly
 
-During grilling, decisions may crystallize that meet the ADR bar. Offer to record an ADR only when **all three** are true (see `ADR-FORMAT.md`):
-
-1. **Hard to reverse** — meaningful cost to change later
-2. **Surprising without context** — a future reader will wonder why
-3. **Result of a real trade-off** — there were genuine alternatives
-
-If yes → write to `docs/adr/NNNN-slug.md`, incrementing from the highest existing number. If any criterion is missing → skip. Do not pad the ADR log.
+During grilling, decisions may crystallize that meet the ADR bar defined in `ADR-FORMAT.md` (hard to reverse, surprising without context, and the result of a real trade-off — all three required). If it meets the bar, write the ADR per that file's numbering and template; otherwise skip.
 
 ## End of session
 
