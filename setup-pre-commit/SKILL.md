@@ -1,6 +1,6 @@
 ---
 name: setup-pre-commit
-description: Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current JS/TS repo. Use when the user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
+description: Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current JS/TS repo. Use when the user wants to add pre-commit hooks or set up Husky/lint-staged for commit-time formatting, typechecking, and tests.
 ---
 
 # Setup Pre-Commit Hooks
@@ -11,7 +11,7 @@ Wire up a Husky pre-commit hook that runs lint-staged (Prettier on staged files)
 
 ## What this sets up
 
-- **Husky** — git pre-commit hook manager (v9+, no shebangs needed)
+- **Husky** — git pre-commit hook manager
 - **lint-staged** — runs Prettier on staged files only (fast)
 - **Prettier** — formatter + config (only written if no config exists)
 - **typecheck** + **test** — full passes run from the hook, when those scripts exist
@@ -121,7 +121,5 @@ This commit runs through the new hook — a built-in smoke test that the whole c
 
 ## Notes
 
-- Husky v9+ does not need shebangs in hook files.
-- `prettier --ignore-unknown` skips unparseable files instead of failing.
-- The hook runs lint-staged first (fast, staged-only), then full typecheck and tests — so formatting fails fail fast before the slower passes.
+- The hook runs lint-staged first (fast, staged-only), then full typecheck and tests — so formatting failures surface fast, before the slower passes.
 - If the hook is too slow on large repos, consider dropping `test` from the pre-commit and moving it to pre-push or CI; keep lint-staged + typecheck local.
