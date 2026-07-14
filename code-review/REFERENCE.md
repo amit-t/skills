@@ -24,7 +24,7 @@ Error handling complete (not just `if err != nil { return err }` everywhere). Ti
 N+1 queries. Hot-path allocations. Blocking I/O on event loop. Wrong complexity class (quadratic when linear suffices). Unbounded growth (lists, caches, goroutines). Synchronous what should be async.
 
 ### 6. Testing
-New behavior has tests. Tests test behavior, not implementation. Mocks don't hide real bugs (Q1's lesson: mock/prod divergence). Edge cases covered. No flaky patterns (sleep-based, network-dependent, time-of-day). Test names describe expected behavior, not the method called.
+New behavior has tests. Tests test behavior, not implementation. Mocks don't hide real bugs (watch for mock/prod divergence). Edge cases covered. No flaky patterns (sleep-based, network-dependent, time-of-day). Test names describe expected behavior, not the method called.
 
 ### 7. API / contract
 Backward compat preserved (or breakage clearly documented). Semver respected. Deprecation present before removal. Wire-format compatibility (proto field numbers, JSON field names). Client SDK changes synchronized. Error codes documented and stable.

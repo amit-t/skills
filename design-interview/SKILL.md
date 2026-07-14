@@ -14,13 +14,13 @@ user-invocable: true
 
 **What you get:** A completed design brief saved to `outputs/design-briefs/[project]-brief.md` that powers all subsequent screen generation.
 
-**Time:** 5–15 minutes. Never skip this.
+**Time:** 5–15 minutes.
 
 ---
 
 # /design-interview — Design Brief Interview
 
-This is the most important skill in the system. The quality of every screen generated depends on the quality of context gathered here. Never generate screens without running this first.
+The quality of every screen generated depends on the quality of context gathered here — always run this before generating screens.
 
 ## Context Routing (Internal)
 
