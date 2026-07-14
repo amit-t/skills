@@ -38,7 +38,7 @@ Pick model-invocation only when the agent (or another skill) must reach the skil
 
 ## Description
 
-The `description` frontmatter field is the only thing the agent sees when deciding which skill to load, so every word pays context load:
+Every SKILL.md opens with YAML frontmatter fenced by `---` lines, holding a `name:` (kebab-case, matching the directory) and a `description:`. The `description` field is the only thing the agent sees when deciding which skill to load, so every word pays context load:
 
 - Max 1024 chars, third person. First sentence: what it does. Second: "Use when [specific triggers]".
 - **Front-load the skill's leading word** — the description is where it does its invocation work.
