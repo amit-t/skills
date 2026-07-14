@@ -3,11 +3,13 @@ name: grill-me
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions "grill me". Supports a depth selector (quick / standard / deep) — deep is the default.
 ---
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the decision tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 
-Ask the questions one at a time.
+Ask the questions one at a time, waiting for feedback on each question before continuing. Asking multiple questions at once is bewildering.
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+If a *fact* can be found by exploring the environment (filesystem, tools, etc.), look it up rather than asking me. The *decisions*, though, are mine — put each one to me and wait for my answer.
+
+Do not act on it until I confirm we have reached a shared understanding.
 
 ## Step 0 — Ask for grill depth before grilling
 
@@ -35,4 +37,4 @@ Depth never lowers rigor on the questions you *do* ask — it changes how many b
 
 ---
 
-_Forked from [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock). This fork adds the depth selector; the relentless-interview core is Matt's original._
+_Forked from [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md) by [Matt Pocock](https://github.com/mattpocock), whose interview core now lives in his [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) skill. This fork adds the depth selector; the relentless-interview core is re-synced from Matt's `grilling` rewrite._
