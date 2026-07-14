@@ -5,9 +5,7 @@ description: Run a 7-perspective multi-agent PRD review (Engineering, Design, Ex
 
 ## Purpose
 
-Get comprehensive feedback on your PRD from 7 different perspectives in parallel: Engineering, Design, Executive, Legal, UX Research, Skeptic, and Customer Voice.
-
-Catches gaps, challenges assumptions, and surfaces conflicts before stakeholder review.
+Runs the 7 reviewers in parallel and explicitly challenges assumptions, not just gaps and conflicts.
 
 ## Usage
 
