@@ -23,7 +23,7 @@ Also read `{project_root}/project.conf` to resolve directory names (PM_OS_DIR, D
 
 ## Output Format
 
-Produce the report in exactly this structure. Be concise — each row/line should be one line. No padding, no filler.
+Produce the report in exactly this structure. Be concise: one line per row, no filler.
 
 ---
 
