@@ -14,10 +14,9 @@ This skill **owns** the writing of `CONTEXT.md` and ADR files. The companion ski
 
 ## When to use
 
-- After cloning a repo for the first time and you need to ramp on its domain language
-- When joining a project mid-flight
-- When code has drifted from existing docs and you want a fresh snapshot
-- As a recurring sync: idempotent, so safe to re-run
+- After cloning a repo, to ramp on its domain language
+- When joining a project mid-flight, or docs have drifted from code
+- As a recurring sync — idempotent, safe to re-run
 
 ## When NOT to use
 
@@ -80,13 +79,7 @@ Look for visibly deliberate decisions in code:
 - Custom auth vs off-the-shelf
 - Test pyramid shape (unit-heavy, integration-heavy, e2e-heavy)
 
-For each candidate, gate against the three ADR criteria (see `ADR-FORMAT.md`):
-
-1. **Hard to reverse** — meaningful cost to change later
-2. **Surprising without context** — a future reader will wonder *why*
-3. **Result of a real trade-off** — there were genuine alternatives
-
-All three true → seed an ADR. If only one or two hold, **skip**. Do not pad the ADR log.
+For each candidate, gate against the three ADR criteria in `ADR-FORMAT.md` — hard to reverse, surprising without context, result of a real trade-off. All three true → seed an ADR. If only one or two hold, **skip**. Do not pad the ADR log.
 
 ### 5. Write files
 
@@ -116,14 +109,7 @@ In conversation, report:
 
 ## Re-running
 
-Idempotent. Each run:
-
-- Re-scans current code state
-- Updates term tables to match what's in code today
-- Adds new ADRs for newly-visible deliberate decisions
-- Preserves user-authored prose
-
-Do not delete files or sections the user has manually edited.
+Idempotent — safe to re-run as the codebase evolves. Re-run behavior is the "re-run mode" handling defined in step 5 above (update tables, append ADRs, preserve user prose, never delete user content).
 
 ## Companion skills
 

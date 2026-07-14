@@ -141,13 +141,7 @@ Typical time savings: 11% for 3 jobs, 27% for 5 jobs vs sequential single-job ru
 
 ## Checkpoints & User Control
 
-Hard stops where the skill pauses for approval:
-- End of Phase 1 — success profile
-- End of Phase 2 — template skeleton
-- End of Phase 3 — content mapping + coverage
-- End of Phase 4 — file review before library save
-
-Any checkpoint can request: go back, adjust, or accept. `--express` flag skips checkpoints 1–3 (use only for repeat applications in a trusted batch).
+Four hard stops (marked **Checkpoint:** in Phases 1–4 above) pause for approval before continuing. Any checkpoint can request: go back, adjust, or accept. `--express` skips checkpoints 1–3 (use only for repeat applications in a trusted batch).
 
 ---
 
@@ -164,7 +158,7 @@ Any checkpoint can request: go back, adjust, or accept. `--express` flag skips c
 ## Edge Cases
 
 - **Tiny library (<3 resumes):** Warn, lean heavily on Phase 2.5 discovery.
-- **Critical gap (<60% on must-have):** Offer reframe, discovery, cover-letter, or omit — never force a match.
+- **Critical gap (<60% on must-have):** See `matching-strategies.md` gap-handling options — never force a match.
 - **Research fails:** Fall back to JD-only; ask user for culture/team context; proceed best-effort.
 - **Vague JD:** Extract what's possible, ask user for missing context, proceed.
 - **>2 page overflow:** Rank bullets by match score, propose lowest-ranked for cut, let user decide.
