@@ -53,7 +53,7 @@ Order findings by severity desc, then file. Persist state (see [REFERENCE.md](RE
 
 ## Phase 1 — Approval loop
 
-For each non-deferred, non-decided finding, render the per-comment layout (header + ±4 line code window + finding + suggested comment + verb prompt). See [REFERENCE.md](REFERENCE.md#comment-layout) for the exact format.
+For each non-deferred, non-decided finding, render the per-comment layout (header + ±4 line code window + finding + suggested comment + verb prompt). See [REFERENCE.md](REFERENCE.md#comment-layout-phase-1-verb-loop) for the exact format.
 
 Verbs: `a` approve (as-is) · `s` skip (drop) · `e <text>` edit (rewrite then approve) · `x` expand (more context, re-ask) · `d` defer (manual resurface) · `q` quit (keep approvals, exit loop). Deferred items only resurface on `review deferred`. `submit review` soft-warns if deferred is non-empty.
 
@@ -63,7 +63,7 @@ On `submit review` print confirmation (target URL, comment counts, verdict, post
 
 Verdict per `verdict.policy` (config): `comment` always COMMENT; `request_changes_on_blocker` REQUEST_CHANGES if any approved finding is blocker, else COMMENT; `never_approve` same but APPROVE always blocked. `--approve` only succeeds on zero approved blocker/major. `--lgtm` only succeeds when zero findings were generated.
 
-POST one grouped Review via `gh api -X POST /repos/{owner}/{repo}/pulls/{num}/reviews` with `event` and `comments[]` (each with `path`, `line`, `body` + hidden marker `<!-- code-review-skill:<finding-hash> -->`). Description-quality bail uses `gh pr comment` (issue-level, no line anchor). Summary body format in [REFERENCE.md](REFERENCE.md#summary-body).
+POST one grouped Review via `gh api -X POST /repos/{owner}/{repo}/pulls/{num}/reviews` with `event` and `comments[]` (each with `path`, `line`, `body` + hidden marker `<!-- code-review-skill:<finding-hash> -->`). Description-quality bail uses `gh pr comment` (issue-level, no line anchor). Summary body format in [REFERENCE.md](REFERENCE.md#summary-body-final-grouped-review).
 
 Archive state to `state/archive/pr-<num>-<timestamp>.json`. Remove worktree.
 
