@@ -1,22 +1,27 @@
 ---
-name: code-review
-description: Principal-engineer review of a GitHub PR via two-phase approval. Pre-checks PR description quality, size, and single-concern scope. Generates findings across an 11-dimension rubric grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design. Walks the user through every comment one at a time with approve / skip / edit / expand / defer / quit verbs. Only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Use when user says `/code-review`, `code review this PR`, `review pull request`, or passes a PR number / URL.
+name: code-review-multi-axis
+description: Principal-engineer code review in two modes — pre-PR (local Standards + Spec axes via parallel sub-agents, nothing posted) and post-PR (11-dimension rubric, per-comment approval loop, posts one grouped GitHub Review). Invoked only by typing /code-review-multi-axis.
 user-invocable: true
+disable-model-invocation: true
 ---
 
-# /code-review — Principal-Engineer PR Review
+# /code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR
 
-Two-phase workflow:
-1. **Phase 1 (local):** generate findings → walk user through each → build approved pool.
-2. **Phase 2 (remote):** on `submit review`, POST one grouped GitHub Review with the approved subset.
+Two modes, dispatched by the argument:
+
+- **Pre-PR** — argument is a git ref (`main`, a SHA, a tag, `HEAD~5`) or absent with no open PR on the current branch. Local two-axis pass — **Standards** and **Spec** in parallel sub-agents, reported side by side. Posts nothing. See [PRE-PR.md](PRE-PR.md) for the full process.
+- **Post-PR** — argument is a PR number / URL, or absent with an open PR on the current branch. Two-phase GitHub review:
+  1. **Phase 1 (local):** generate findings → walk user through each → build approved pool.
+  2. **Phase 2 (remote):** on `submit review`, POST one grouped GitHub Review with the approved subset.
 
 ## Quick start
 
 ```
-/code-review <pr-num|url>     → start review (current branch's PR if no arg)
-/code-review <id> --force     → bypass pre-check
-/code-review status           → show approval state for current PR
-/code-review abort            → discard state file
+/code-review-multi-axis <ref>          → pre-PR two-axis pass vs fixed point (nothing posted)
+/code-review-multi-axis <pr-num|url>   → post-PR review (current branch's PR if no arg and one exists)
+/code-review-multi-axis <id> --force   → bypass pre-check
+/code-review-multi-axis status         → show approval state for current PR
+/code-review-multi-axis abort          → discard state file
 
 a / s / e / x / d / q         → per-comment verbs (approve / skip / edit / expand / defer / quit)
 show deferred / review deferred
@@ -24,6 +29,8 @@ submit review                 → POST grouped review
 submit review --approve       → only if zero blocker/major in approved pool
 submit review --lgtm          → clean APPROVE for empty-findings PR
 ```
+
+Everything below is the **post-PR** mode; the pre-PR process lives whole in [PRE-PR.md](PRE-PR.md).
 
 ## Preflight (fail-fast)
 
@@ -66,6 +73,8 @@ Verdict per `verdict.policy` (config): `comment` always COMMENT; `request_change
 POST one grouped Review via `gh api -X POST /repos/{owner}/{repo}/pulls/{num}/reviews` with `event` and `comments[]` (each with `path`, `line`, `body` + hidden marker `<!-- code-review-skill:<finding-hash> -->`). Description-quality bail uses `gh pr comment` (issue-level, no line anchor). Summary body format in [REFERENCE.md](REFERENCE.md#summary-body-final-grouped-review).
 
 Archive state to `state/archive/pr-<num>-<timestamp>.json`. Remove worktree.
+
+Posted-comment markers keep the historical `code-review-skill:` prefix so re-review dedupe still matches reviews posted before the skill was renamed.
 
 ## Re-review (PR head moved)
 

@@ -6,7 +6,7 @@
 
 Pins a fixed point (commit SHA, branch, tag, `HEAD~5`), takes the three-dot diff against the merge-base, then spawns two parallel sub-agents: **Standards** checks the diff against the repo's documented coding standards plus a fixed baseline of 12 Fowler code smells (_Refactoring_, ch.3), and **Spec** checks it against the originating issue / PRD for missing requirements, scope creep, and wrong implementations. The two reports are presented side by side, never merged or reranked — so code that follows every standard but implements the wrong thing (or vice versa) can't hide.
 
-Ported from [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) and adapted to this catalog's conventions. Renamed to `two-axis-review` because this catalog already has a [`code-review`](../code-review) skill (interactive GitHub PR review with two-phase approval) — the two are complementary: use `two-axis-review` for a local standards + spec pass, `code-review` to post an approved GitHub Review.
+Ported from [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) and adapted to this catalog's conventions. Renamed to `two-axis-review` because this catalog already had a `code-review` skill — now [`code-review-multi-axis`](../code-review-multi-axis), which absorbs this skill's Standards + Spec pass as its pre-PR mode (see its `PRE-PR.md`). This standalone remains the model-invokable variant; `code-review-multi-axis` is slash-only and adds the post-PR GitHub Review flow.
 
 ## When to use
 
