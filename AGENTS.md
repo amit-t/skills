@@ -14,16 +14,16 @@ Whenever you add, remove, rename, or meaningfully modify a skill, you **must** u
 - Format: `| [\`skill-name\`](./skill-name) | One-line description |`
 - Keep rows sorted alphabetically within each category table
 
-### 2. `site.js` — skills array
+### 2. `skills.json` — skills array
 
-- Add/remove the skill object in the `skills` array
+- Add/remove the skill object in the `skills` array (`site.js` fetches this file at runtime)
 - Required fields: `slug`, `name`, `category`, `tagline`, `detail`, `usage`
 - Place the entry with others in the same category
 - Valid categories: `Product Management`, `Project Management`, `Engineering`, `UX Design`, `Agent Behavior`, `AI Agent`, `Leadership`
 
-### 3. `site.js` — changes array
+### 3. `changelog.json` — changes array
 
-- Add a new entry or append to today's date entry in the `changes` array at the top
+- Add a new entry or append to today's date entry in the `changes` array at the top (`site.js` fetches this file at runtime)
 - Format: `"Added <skill-name> skill — <short description>."`
 
 ### 4. `CHANGELOG.md`

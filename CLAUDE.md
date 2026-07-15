@@ -9,8 +9,8 @@ This is the `amit-t/skills` repository — a catalog of reusable agent skills fo
 Whenever you add, remove, rename, or meaningfully modify a skill, you **must** update all of the following before committing:
 
 1. **`README.md`** — add/remove the skill row in the correct category table under "Available Skills"
-2. **`site.js` skills array** — add/remove the skill object (`slug`, `name`, `category`, `tagline`, `detail`, `usage`)
-3. **`site.js` changes array** — add a changelog entry under today's date
+2. **`skills.json`** — add/remove the skill object (`slug`, `name`, `category`, `tagline`, `detail`, `usage`); `site.js` fetches this at runtime
+3. **`changelog.json`** — add a changelog entry under today's date; `site.js` fetches this at runtime
 4. **`CHANGELOG.md`** — add a bullet under today's date heading
 5. **Per-skill files** — `skill-name/SKILL.md` (required) and `skill-name/README.md` (required)
 
