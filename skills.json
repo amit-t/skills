@@ -51,12 +51,12 @@
       "usage": "/pmo-status"
     },
     {
-      "slug": "code-review",
-      "name": "code-review",
+      "slug": "code-review-multi-axis",
+      "name": "code-review-multi-axis",
       "category": "Engineering",
-      "tagline": "Principal-engineer review of any GitHub PR with two-phase approval before posting.",
-      "detail": "11-dimension rubric grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design. Pre-checks PR description quality (what / why / test plan), size (LOC + file count), and single-concern scope before deep review. Walks every finding one at a time with approve / skip / edit / expand / defer / quit verbs. Only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe — dedupes against prior runs via hidden markers. Fully configurable thresholds, rubric dimensions, and verdict policy in config.yaml.",
-      "usage": "/code-review <pr-num|url>"
+      "tagline": "Principal-engineer code review in two modes: pre-PR local Standards + Spec axes, post-PR GitHub review with two-phase approval.",
+      "detail": "Slash-invoked only (/code-review-multi-axis) — the model never fires it on its own. Pre-PR mode (argument is a git ref): reviews the diff since a fixed point along two parallel sub-agent axes — Standards (repo coding standards plus a Fowler code-smell baseline) and Spec (the originating issue/PRD) — reported side by side, nothing posted. Post-PR mode (argument is a PR number/URL): 11-dimension rubric grounded in Pragmatic Programmer, Domain-Driven Design, and A Philosophy of Software Design; pre-checks PR description quality (what / why / test plan), size (LOC + file count), and single-concern scope before deep review; walks every finding one at a time with approve / skip / edit / expand / defer / quit verbs; only the approved subset is posted as one grouped GitHub Review. Never auto-APPROVEs. Re-review safe — dedupes against prior runs via hidden markers. Fully configurable in config.yaml. Formerly code-review.",
+      "usage": "/code-review-multi-axis <ref | pr-num | url>"
     },
     {
       "slug": "e2e-audit",

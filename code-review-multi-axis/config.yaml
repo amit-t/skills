@@ -1,4 +1,4 @@
-# code-review skill — active config (ships with defaults).
+# code-review-multi-axis skill — active config (ships with defaults).
 # Edit in place to tune per-project. See config.example.yaml for annotated reference.
 
 size:

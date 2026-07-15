@@ -2,6 +2,11 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-07-15
+
+- Renamed `code-review` to `code-review-multi-axis` and made it slash-invoked only (`disable-model-invocation: true`) — the model never fires it autonomously; invoke with `/code-review-multi-axis`. Posted-comment dedupe markers keep the historical `code-review-skill:` prefix so re-reviews still match reviews posted under the old name.
+- `code-review-multi-axis` gained a **pre-PR mode** adapted from `two-axis-review`: pass a git ref (`main`, a SHA, `HEAD~5`) and it reviews the diff since that fixed point along two parallel sub-agent axes — **Standards** (repo coding standards + the Fowler smell baseline) and **Spec** (fidelity to the originating issue/PRD) — reported side by side, posting nothing. Pass a PR number/URL for the existing post-PR two-phase GitHub review. The full pre-PR process is disclosed in `code-review-multi-axis/PRE-PR.md`; the standalone `two-axis-review` skill remains as the model-invokable variant.
+
 ## 2026-07-14
 
 - `tdd` re-synced with upstream [`mattpocock/skills` → `engineering/tdd`](https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd)'s July rewrite. Defines what a good test is (verifies behavior through public interfaces, survives refactors), where tests go (**seams** — pre-agreed public boundaries, confirmed with the user before any test is written), and the anti-patterns to catch, including tautological assertions and horizontal slicing. Work proceeds in **vertical slices** — one test → one minimal implementation → repeat, each a tracer bullet informed by the last cycle. Refactoring is deliberately out of the loop; it now belongs to the review stage handled by this repo's `two-axis-review` skill. The old design-checkpoint files (`deep-modules.md`, `interface-design.md`, `refactoring.md`) were deleted in favor of this consolidated model. `tdd/README.md` was rewritten to match; the `tagline`/`detail` in `skills.json` and the root `README.md` row are updated here since "red-green-refactor" no longer describes the loop.
