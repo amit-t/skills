@@ -1,14 +1,12 @@
 ---
 name: session-handoff
-description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume-session-handoff. Writes to `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, gitignored by default. Use when the user wants to pass work to a fresh session, hand off to a teammate, or stop here and resume later. Triggers include "/session-handoff", "write a session handoff", "hand this off to another agent", "summarise so someone else can continue". Named `session-handoff` (not `/handoff`) because Devin already ships a built-in `/handoff` command that would shadow this skill.
+description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume-session-handoff. Use when the user wants to hand off work to a fresh session or teammate, or stop here and resume later. Triggers include "/session-handoff", "write a session handoff", "hand this off to another agent".
 argument-hint: "What will the next session be used for?"
 ---
 
 # Session Handoff
 
-Write a handoff document summarising the current conversation so a fresh agent can continue the work via the companion `/resume-session-handoff` skill. The file is saved to a predictable, discoverable location inside the project — the next session does **not** need to be told the path.
-
-Do not duplicate content already captured in other artifacts (PRDs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
+Write a handoff document summarising the current conversation so a fresh agent can continue the work via the companion `/resume-session-handoff` skill. The file is saved to a predictable, discoverable location inside the project — the next session does **not** need to be told the path. Named `session-handoff` (not `/handoff`) because Devin already ships a built-in `/handoff` command that would shadow this skill.
 
 If the user passed arguments, treat them as a description of what the next session will focus on, write them into the `focus` frontmatter field, and tailor the document body accordingly.
 
@@ -37,59 +35,11 @@ If the user passed arguments, treat them as a description of what the next sessi
     ```
     Next session: run /resume-session-handoff (or install with `npx skills@latest add amit-t/skills --skill resume-session-handoff`).
     ```
-    Print the absolute path of the written file on a second line so the user can grep for it if needed, but make clear they do **not** need to remember the path — `/resume-session-handoff` discovers it automatically. (Note: the skill is `resume-session-handoff`, not `resume`, because most agents already ship a built-in `/resume` that restores the previous conversation transcript and would shadow this skill. The write side is named `session-handoff`, not `handoff`, because Devin already ships a built-in `/handoff` that would shadow it.)
+    Print the absolute path of the written file on a second line so the user can grep for it if needed, but make clear they do **not** need to remember the path — `/resume-session-handoff` discovers it automatically.
 
 ## Document structure
 
-YAML frontmatter for machine-readable fields (parsed by `/resume-session-handoff`'s preflight), markdown body for the human-readable prose. Skip body sections that don't apply — empty sections are noise.
-
-```markdown
----
-focus: "<from $ARGUMENTS, empty string if absent>"
-created: <ISO-8601 local timestamp, e.g. 2026-05-13T14:30:00-07:00>
-cwd: <absolute path of pwd at write time>
-project_root: <absolute path resolved in step 1>
-branch: <current git branch, or "" if not in git>
-worktree: <git worktree path if different from project_root, else "">
-uncommitted_files: <integer count of `git status --porcelain` lines, or 0>
-status: open
-resumed_at: null
----
-
-# Handoff — <one-line title>
-
-## Goal
-<what the user is ultimately trying to do — 1–3 sentences>
-
-## State right now
-- Where execution stopped and why.
-- What is committed vs. uncommitted vs. lost-if-not-resumed.
-
-## Decisions made
-- <decision> — <one-line rationale>
-
-## Ruled out
-- <approach> — <why it was rejected> (so next agent doesn't re-try it)
-
-## Open questions / blockers
-- <question> — <what would unblock it>
-
-## Artifacts (do not re-derive)
-- `path/to/prd.md` — <what it covers>
-- `https://github.com/.../pull/123` — <status>
-- commit `abc1234` — <what it landed>
-
-## Next moves
-1. <concrete first step>
-2. <second step>
-3. ...
-
-## Suggested skills for next session
-- `/skill-name` — <why it fits the next move>
-
-## Environment notes
-- Tools, env vars, secrets, services, running processes — anything the next agent must know that isn't obvious from the repo.
-```
+Fill in the template in [`DOCUMENT-TEMPLATE.md`](DOCUMENT-TEMPLATE.md) — YAML frontmatter for machine-readable fields (parsed by `/resume-session-handoff`'s preflight) plus markdown body for the human-readable prose. Skip body sections that don't apply — empty sections are noise.
 
 ## Rules
 
@@ -97,9 +47,9 @@ resumed_at: null
 - **Be specific.** "Fix the bug" is useless; "rerun `pnpm test packages/api/auth.test.ts` after changing `verifyToken` to read `req.cookies.session`" is a handoff.
 - **Capture failures.** What was tried and didn't work matters as much as what worked.
 - **Cite paths absolutely.** Use absolute paths so the next agent doesn't have to guess `cwd`.
-- **No emojis, no filler, no apologies.** This document is operational, not narrative.
+- **Write operationally.** Plain statements only — no emojis, no filler, no apologies.
 - **Frontmatter is the source of truth for machine fields.** `/resume-session-handoff` only reads frontmatter for its preflight checks (branch, cwd, uncommitted count, status). Keep the body for humans.
-- **Don't move the file yourself.** `/resume-session-handoff` moves it to `.claude/handoffs/resumed/` on user confirmation. `/session-handoff` only writes.
+- **This skill only writes.** `/resume-session-handoff` is the one that moves the file to `.claude/handoffs/resumed/`, on user confirmation.
 
 ## Companion skill
 

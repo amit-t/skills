@@ -27,8 +27,6 @@ user-invocable: true
 
 # /e2e-audit — Playwright UI Audit Workflow
 
-When this skill is invoked, run a Playwright end-to-end audit of the app against its PRDs.
-
 ---
 
 ## Phase 0: Discover Context
@@ -50,109 +48,7 @@ Before writing a single test, read:
 
 ## Phase 1: Scaffold (if no e2e package exists)
 
-### 1.1 Create the package
-
-```
-apps/e2e/
-  package.json          # @{project}/e2e, type: module
-  tsconfig.json         # extends root tsconfig
-  playwright.config.ts  # config with webServer auto-start
-  global-setup.ts       # validates seed users can log in
-  .env.example          # optional env vars (e.g. JIRA_PAT)
-  .gitignore            # .auth/, .env, playwright-report/, test-results/
-  utils/
-    seed-users.ts       # known test user credentials
-  fixtures/
-    auth.fixture.ts     # login fixture (UI login or storageState)
-    workspace.fixture.ts  # (optional) pre-navigates to a workspace
-    index.ts            # re-exports test + expect
-  tests/
-    auth/               # @PLAT-auth
-    workspace/          # @PLAT-workspace
-    admin/              # @PLAT-admin
-    ...                 # one folder per PRD area
-```
-
-### 1.2 Playwright config essentials
-
-```ts
-// playwright.config.ts
-export default defineConfig({
-  testDir: './tests',
-  fullyParallel: true,
-  retries: 1,
-  globalSetup: './global-setup.ts',
-  use: {
-    baseURL: 'http://localhost:{WEB_PORT}',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    trace: 'on',                // per-step screenshots in trace viewer
-  },
-  reporter: [
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['list'],
-  ],
-  webServer: [
-    {
-      command: 'pnpm --filter @{project}/api dev',
-      url: 'http://localhost:{API_PORT}/health',
-      reuseExistingServer: true,
-      timeout: 30_000,
-    },
-    {
-      command: 'pnpm --filter @{project}/web dev',
-      url: 'http://localhost:{WEB_PORT}',
-      reuseExistingServer: true,
-      timeout: 30_000,
-    },
-  ],
-})
-```
-
-**Always use `--filter @{project}/api` (full package name), not bare `api`.**
-
-### 1.3 Seed user fixture pattern
-
-**For in-memory auth (no storageState):**
-
-```ts
-// fixtures/auth.fixture.ts
-async function loginPage(browser: Browser, email: string, password: string): Promise<Page> {
-  const ctx = await browser.newContext()
-  const page = await ctx.newPage()
-  await page.goto(`${BASE_URL}/login`)
-  await page.getByLabel('Email').fill(email)
-  await page.getByLabel('Password').fill(password)
-  await page.getByRole('button', { name: /sign in/i, exact: true }).click()
-  // Adjust URL pattern to match your app's post-login redirect
-  await page.waitForURL(/\/(home|dashboard|workspaces|ws\/)/, { timeout: 15_000 })
-  return page
-}
-```
-
-**For cookie/localStorage auth:**
-
-```ts
-// fixtures/auth.fixture.ts
-// Run once in global-setup.ts:
-await page.context().storageState({ path: '.auth/admin.json' })
-
-// In fixture:
-adminPage: async ({}, use) => {
-  const ctx = await browser.newContext({ storageState: '.auth/admin.json' })
-  const page = await ctx.newPage()
-  await use(page)
-  await ctx.close()
-}
-```
-
-### 1.4 Add pnpm shortcuts to root package.json
-
-```json
-"e2e":        "pnpm --filter @{project}/e2e test",
-"e2e:report": "pnpm --filter @{project}/e2e run report",
-"e2e:jira":   "pnpm --filter @{project}/e2e test -- --grep @jira"
-```
+Skip to Phase 2 if Phase 0 found an existing e2e suite. Otherwise scaffold one — package layout, Playwright config, seed-user fixtures (in-memory vs storageState), pnpm shortcuts — following `SCAFFOLD.md`.
 
 ---
 
@@ -301,80 +197,15 @@ Read them via the Read tool (they render as images). Log every defect — even m
 
 ## Phase 5: Export Diagnostic Report
 
-Generate `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md`:
-
-```markdown
-# {App} — End-to-End Demo & Gap Audit
-
-**Date:** YYYY-MM-DD
-**Run:** Playwright N.N · `tests/demo/full-demo.spec.ts` · N tests passed
-**Personas:** {list}
-**Screenshots:** `outputs/analyses/e2e-demo-screenshots/` (N PNGs)
-**Regression run:** P passed · F failed · S skipped
-
-## Summary
-<2-3 sentence executive summary — route coverage %, top P0/P1 themes>
-
-## Demo Walkthrough — by Persona
-
-### Public / Unauthenticated
-| # | Screen | Route | Screenshot |
-### Super Admin
-### Workspace Admin
-### Product Owner
-### Viewer
-
-## Regression Run — Failures
-| Test | Area | Failure |
-
-## Bug Catalogue (→ fix_plan)
-| ID | Severity | Screen | Summary |
-| QA-DEMO-01 | P0/P1/P2 | … | one-line defect |
-
-## How to Reproduce
-```
-
-Structure each persona section as a table with a screenshot path and observations column — do not inline the PNGs unless the report is intended for a slide deck.
+Generate `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` following the report skeleton in `TEMPLATES.md`. Structure each persona section as a table with a screenshot path and observations column; inline the PNGs only if the report is meant as a slide deck.
 
 ---
 
 ## Phase 6: Emit fix_plan Bug List
 
-**Every defect becomes a ralph task.** Append a new `QA-DEMO` epic to `.ralph/fix_plan.md`. One checkbox per bug, each with enough detail that a ralph agent can execute without re-inspecting screenshots.
+**Every defect becomes a ralph task.** Append a new `QA-DEMO` epic to `.ralph/fix_plan.md`, using the epic-header and task templates in `TEMPLATES.md`. One checkbox per bug, each with enough detail that a ralph agent can execute without re-inspecting screenshots.
 
-### 6.1 Epic header
-
-```markdown
----
-
-## Active Epic: QA-DEMO — E2E Demo Audit Findings
-
-**Source:** `outputs/analyses/YYYY-MM-DD-e2e-audit-results.md` (Playwright demo spec + regression run YYYY-MM-DD)
-**Status:** N tasks pending
-**Depends on:** {previous completed epic}
-**Blocks:** {downstream release / launch readiness}
-**Success metric:** All N tasks resolved; regression green; screenshot re-capture shows no regression.
-
-### Summary of findings
-| ID | Severity | Area | Defect (one line) |
-```
-
-### 6.2 Task template (one per bug)
-
-```markdown
-- [ ] **QA-DEMO-NN** — {one-line title}
-  - **Screens:** {route(s) affected — multiple personas → list all}
-  - **Evidence:** `outputs/analyses/e2e-demo-screenshots/NN-persona-screen.png`
-  - **Symptom:** {what the user sees, with exact quoted strings where applicable}
-  - **Likely cause:** {1-3 hypotheses — don't diagnose blind, read the code path first if obvious}
-  - **Files to inspect/fix:**
-    - `apps/web/src/features/.../page.tsx:LINE`
-    - `apps/api/src/adapters/...`
-  - **Fix plan:** {numbered steps a ralph agent can follow mechanically}
-  - **Exit criteria:** {observable assertion — "Playwright `expect(...).toHaveCount(0)`" or "screenshot shows X"}
-```
-
-### 6.3 Severity rubric
+### 6.1 Severity rubric
 
 | Level | Trigger |
 |-------|---------|
@@ -382,7 +213,7 @@ Structure each persona section as a table with a screenshot path and observation
 | **P1** | Core data view broken (stats empty, chart missing, table absent), raw API codes leaked to users, RBAC UI gate missing |
 | **P2** | Copy/i18n/cosmetic (literal `\u2013`, column fallback, minor permission UI leaks) |
 
-### 6.4 Don't emit for
+### 6.2 Exclude from the bug list
 
 - Intentional permission gates that render the correct "Access Denied" fallback — those are passes, not bugs
 - Known TODO routes labelled as such in the PRD (e.g. `Integrations (Soon)` chip in sidebar)
@@ -422,7 +253,7 @@ A single re-audit should also refresh the summary table at the top of the epic w
 ## Common Pitfalls
 
 ### Auth
-- **Don't assume storageState works** — check how the app stores auth before designing fixtures. In-memory Zustand requires real UI login per test.
+- **Confirm how auth is actually stored before designing fixtures** — storageState only works for cookies/localStorage; in-memory Zustand requires real UI login per test.
 - **Post-login URL pattern must match actual redirect** — if the app goes to `/dashboard` but your pattern only checks for `/home`, global setup will time out.
 
 ### Routes

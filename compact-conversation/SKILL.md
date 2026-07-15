@@ -1,16 +1,18 @@
+---
+name: compact-conversation
+description: Compact a long conversation into a saved progress summary — completed work, key decisions, current state, pending tasks — so a fresh session can pick up without losing context. Fires only as a fallback when the agent has no native /compact command; check for one first. Use when the user says "compact this conversation", "compact the context", "reduce context window", "summarize our progress", or "create a conversation summary".
+---
+
 # Compact Conversation Context
 
-## Description
-Compacts the current conversation by creating a concise summary and progress document, effectively reducing context window usage while preserving critical information.
+## When to Use
 
-**⚠️ IMPORTANT**: Most CLI agents (like Claude Code, Aider, etc.) have a built-in `/compact` command. **NEVER use this skill if the agent already has a native `/compact` command or workflow.** Always check for and prefer the agent's built-in compaction feature first.
+Use this skill only as a fallback for agents without a built-in compaction feature. Before proceeding, check whether the agent already offers `/compact` or another native context-management workflow (Claude Code and Aider both do) — if so, use that instead and stop here.
 
-## Trigger Phrases
-- "compact this conversation"
-- "compact the context"
-- "reduce context window"
-- "summarize our progress"
-- "create a conversation summary"
+Reach for it when all of these hold:
+- The agent has no native `/compact` (or equivalent) command
+- The conversation has grown long (10+ messages)
+- You are between tasks, not mid-debug or mid multi-step task
 
 ## Instructions
 
@@ -29,13 +31,13 @@ When this skill is invoked:
      - **Current State**: What's working, what's deployed, what's tested
      - **Pending Tasks**: What still needs to be done
      - **Important Notes**: Any critical context for future sessions
-   
+
 3. **Format Requirements**
-   - Use concise bullet points (not paragraphs)
-   - Include file paths with citations where relevant
+   - Use concise bullet points, not paragraphs
+   - Include absolute file paths with citations where relevant
    - Keep total summary under 500 lines
    - Use markdown headers for organization
-   - Include timestamps for when summary was created
+   - Include a timestamp for when the summary was created
 
 4. **After Creating Summary**
    - Inform the user that context has been compacted
@@ -71,22 +73,6 @@ When this skill is invoked:
 ```
 
 ## Best Practices
-- Only include information that would be needed in future sessions
-- Omit verbose explanations or intermediate debugging steps
-- Focus on outcomes, not process
-- Update existing summary rather than creating duplicates
-- Use absolute file paths for all code references
 
-## When NOT to Use
-- **NEVER use if the agent has a built-in `/compact` command** (e.g., Claude Code CLI, Aider, etc.) - Always prefer the native command
-- Don't compact if conversation is already short (<10 messages)
-- Don't compact if actively debugging (preserve full context)
-- Don't compact if user is in middle of complex multi-step task
-
-## How to Check for Built-in Compact
-Before using this skill, check if the agent supports:
-- `/compact` command (most CLI agents)
-- Native conversation compaction workflows
-- Built-in context management tools
-
-If any of these exist, inform the user to use the native feature instead and DO NOT proceed with this skill.
+- Include only what's needed in a future session — outcomes, not process or debugging blow-by-blow
+- Update the existing summary rather than creating a duplicate

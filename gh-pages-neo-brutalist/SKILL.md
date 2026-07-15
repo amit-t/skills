@@ -7,9 +7,9 @@ description: Use when scaffolding a GitHub Pages site for a new (or existing) re
 
 ## Overview
 
-A cohesive GitHub Pages design system: hard 3px borders, 5/8 px offset solid shadows, IBM Plex Mono everywhere, eight saturated accents (hot-pink / lime-green / electric-blue / cyan / yellow / coral / orange / purple), four themes via `<select>` (light, dark, cyberpunk grid, solarized IDE).
+A cohesive GitHub Pages design system — square borders, solid offset shadows, monospace type throughout, eight saturated accents, and four switchable themes; see Quick Reference below for exact tokens.
 
-This skill packages that system as drop-in Jekyll templates plus a scaffolder. Use it the moment a repo gets created so the page lands in style on day one.
+This skill packages that system as drop-in Jekyll templates plus a scaffolder.
 
 ## When to Use
 
@@ -18,10 +18,10 @@ This skill packages that system as drop-in Jekyll templates plus a scaffolder. U
 - User asks for "GitHub page", "landing page", "docs site" for a repo
 - User mentions "neo-brutalist", "house design system", "drop-in Jekyll site"
 
-**Skip when:** target repo already wires its own Pages build (Next.js, Astro, Docusaurus, MkDocs); the repo is a fork that must keep upstream docs.
-
 ## When NOT to Use
 
+- Target repo already wires its own Pages build (Next.js, Astro, Docusaurus, MkDocs)
+- Repo is a fork that must keep upstream docs
 - Production marketing sites needing CMS / dynamic routing
 - Sites that must avoid Google Fonts (privacy-first)
 - Repos forbidden from running Jekyll (rare; Pages runs Jekyll by default)

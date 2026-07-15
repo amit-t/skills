@@ -4,6 +4,10 @@
 
 **Category:** AI Agent
 
+## Design Principles
+
+This skill integrates the skill-authoring principles from [writing-great-skills in mattpocock/skills](https://github.com/mattpocock/skills/tree/main/skills/productivity/writing-great-skills): predictability as the root virtue, the model-invoked vs user-invoked trade (context load vs cognitive load), one trigger per branch in descriptions, the information hierarchy with progressive disclosure, checkable and exhaustive completion criteria, leading words, and positive phrasing. A failure-mode diagnostic reference (premature completion, duplication, sediment, sprawl, no-ops, negation) is disclosed in [`principles.md`](principles.md).
+
 ## Install
 
 Install using the [`skills`](https://github.com/vercel-labs/skills) CLI:

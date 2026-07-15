@@ -39,7 +39,7 @@ Walk every user turn. Drop pure acks, typos, and clarifying questions with no pr
 - **Do differently** — *synthesised* general principles, not local fixes. Each entry should apply to multiple future situations.
 
 ### 3. Emit the file
-Use the structure in [TEMPLATE.md](TEMPLATE.md). Stable IDs (`C1`–`Cn`, `P1`–`Pn`, `D1`–`Dn`). No checkboxes — items are durable candidates. Cite the user's actual words for corrections; phrasing encodes the principle better than a summary.
+Use the structure and ID/citation conventions in [TEMPLATE.md](TEMPLATE.md).
 
 ### 4. Update memory index
 Add a line to `<memory-dir>/MEMORY.md`:

@@ -23,7 +23,7 @@ If the invocation includes a recognized depth (see the table in [`REFERENCE.md`]
 
 ## Step 1 — gather context silently
 
-Inspect the prompt, linked artifacts, touched files, repo instructions, `CONTEXT.md`, ADRs, docs, and recent commits before writing questions. Do not ask the user anything the agent can read. Mention blockers only if needed.
+Inspect the prompt, linked artifacts, touched files, repo instructions, `CONTEXT.md`, ADRs, docs, and recent commits before writing questions. If a *fact* can be found by exploring the environment (filesystem, tools, etc.), look it up rather than asking the user. The *decisions*, though, are the user's — put each one in the grill document and wait for their answer. Mention blockers only if needed.
 
 ## Step 2 — write the grill document
 
@@ -65,4 +65,4 @@ After parsing:
 
 ---
 
-_Forked from [`grill-me`](../grill-me/SKILL.md), itself a fork of Matt Pocock's [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md). Matt's relentless-interview core remains; this fork adds batch document delivery._
+_Forked from [`grill-me`](../grill-me/SKILL.md), itself a fork of Matt Pocock's [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md), whose interview core now lives in his [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md) skill. Matt's relentless-interview core remains, re-synced via `grill-me`; this fork adds batch document delivery._

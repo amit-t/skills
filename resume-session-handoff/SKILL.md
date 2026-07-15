@@ -1,6 +1,6 @@
 ---
 name: resume-session-handoff
-description: Pick up where a previous session left off by loading the newest open handoff document written by /session-handoff. Reads `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, runs an environment preflight (branch, cwd, uncommitted state) against the handoff's frontmatter, then on user confirmation moves the file to `.claude/handoffs/resumed/`, internalises the content, and **asks the user what to do next** — never auto-executes. Triggers include "/resume-session-handoff", "resume the session handoff", "load the handoff", "continue from the last session", "pick up where we left off". Named `resume-session-handoff` (not `/resume` or `/resume-handoff`) because most agents already ship a built-in `/resume` that restores the prior conversation and Devin already ships a built-in `/handoff`; both would shadow shorter names.
+description: Pick up where a previous session left off by loading the newest open handoff document written by /session-handoff. Reads `.claude/handoffs/<timestamp>-<slug>.md` inside the project root, runs an environment preflight (branch, cwd, uncommitted state) against the handoff's frontmatter, then on user confirmation moves the file to `.claude/handoffs/resumed/`, internalises the content, and **asks the user what to do next** — never auto-executes. Triggers include "/resume-session-handoff", "resume the session handoff", or "pick up where we left off".
 argument-hint: "list | <slug-substring> | <number>  (optional: select a non-newest handoff)"
 ---
 

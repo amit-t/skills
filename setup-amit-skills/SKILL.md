@@ -1,6 +1,6 @@
 ---
 name: setup-amit-skills
-description: Use when configuring a repository for amit-t/skills conventions, bootstrapping AGENTS.md or CLAUDE.md, docs/agents context docs, ADR layout, or skill catalog category vocabulary. Triggers include "setup amit skills", "configure amit skills", "/setup-amit-skills", and "make this repo work with amit-t/skills".
+description: Configure a repository for amit-t/skills conventions — bootstrap AGENTS.md/CLAUDE.md, docs/agents context docs, ADR layout, or skill catalog category vocabulary. Triggers include "setup amit skills", "/setup-amit-skills", and "make this repo work with amit-t/skills".
 ---
 
 # Setup Amit Skills
@@ -82,7 +82,7 @@ Draft the exact file changes from the decisions. Show:
   - `templates/catalog-categories.md`
 - Any assumptions or inferred mappings
 
-Ask: `Write these changes?` Do not edit files until the user confirms.
+Ask `Write these changes?` and wait for explicit confirmation before editing any file.
 
 ### 4. Write/update files
 
@@ -111,11 +111,10 @@ Report:
 - Follow-up commands the user may run next
 - Any assumptions still unresolved
 
-Do not claim downstream skills ran unless you actually ran them.
+Report exactly which downstream skills you ran; never claim one ran that didn't.
 
 ## Common mistakes
 
-- Writing files before the confirmation step.
 - Copying catalog sync rules into a non-catalog repo.
 - Creating both `CONTEXT.md` and `CONTEXT-MAP.md` without choosing single vs multi.
 - Editing existing ADRs instead of appending new numbered ADRs.

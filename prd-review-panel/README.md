@@ -1,6 +1,6 @@
 # prd-review-panel
 
-> Multi-agent PRD review from 7 perspectives
+> Run a 7-perspective multi-agent PRD review that catches gaps before stakeholder review
 
 **Category:** Product Management
 

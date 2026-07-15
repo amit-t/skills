@@ -78,8 +78,8 @@
       "slug": "tdd",
       "name": "tdd",
       "category": "Engineering",
-      "tagline": "Use a disciplined red-green-refactor workflow.",
-      "detail": "Fits feature work and bug fixes where the user wants test-first implementation and tighter feedback loops.",
+      "tagline": "Test-driven development via the red-green loop — seams, anti-patterns, and vertical slices.",
+      "detail": "Fits feature work and bug fixes where the user wants test-first implementation with pre-agreed seams and tracer-bullet vertical slices. Refactoring is deliberately out of the loop — it belongs to the review stage handled by two-axis-review.",
       "usage": "/tdd"
     },
     {

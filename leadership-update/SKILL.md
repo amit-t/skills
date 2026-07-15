@@ -9,7 +9,7 @@ Turn the user's raw notes into an exec-ready update that makes them remembered, 
 
 This skill is based on the framework from Yasar Ahmad's reel (https://www.instagram.com/p/DVtAWlpjU67/): leaders don't remember data — they remember clarity. An update is three things in this order: **outcome → reasoning → next**, finished with **what you need from them**.
 
-## Core principles (do not violate)
+## Core principles (non-negotiable)
 
 1. **Lead with the outcome, not the activity.**
    - Right: "We're on track to cut client onboarding from 14 → 7 days."
@@ -29,7 +29,7 @@ When invoked, decide between **reformat-mode** and **interview-mode** based on w
 
 **Reformat-mode** (default when context is rich): if the user has given enough to fill in status, reasoning, next step, and ask — reformat directly. Don't ask questions.
 
-**Interview-mode** (when notes are thin): if any of the four required slots is missing, ask 1–3 short questions, one at a time, to fill the gaps. Stop asking the moment you have enough. Never ask more than 3.
+**Interview-mode** (when notes are thin): if any of the four required slots is missing, ask 1–3 short questions, one at a time, to fill the gaps. Stop asking the moment you have enough.
 
 Required slots:
 - **Status / outcome** — where things stand, framed as a result
@@ -37,7 +37,7 @@ Required slots:
 - **Next** — what happens next, with a timeline
 - **Ask** — what you need from the leader (or explicit "nothing")
 
-If the user mentions a blocker, also ask for **options** + **lean** — never surface a problem without proposed paths.
+If the user mentions a blocker, also ask for **options** + **lean**.
 
 ## Output format selection
 
@@ -95,7 +95,7 @@ A drop-in block for a weekly update doc. Allowed to use bullets here (the only f
 
 ## Anti-patterns to refuse
 
-When you see these in the user's raw notes, rewrite them — don't preserve them.
+When you see these in the user's raw notes, rewrite them.
 
 - **Activity dumps.** "I worked on X, then Y, then Z" → collapse to the outcome.
 - **Unstructured blockers.** "Stuck on X" → demand options before producing the update.
@@ -106,9 +106,9 @@ When you see these in the user's raw notes, rewrite them — don't preserve them
 
 ## Edge cases
 
-- **No ask exists.** Use the explicit "Nothing needed — just keeping you informed" line. Don't invent an ask.
+- **No ask exists.** Use the explicit "Nothing needed — just keeping you informed" line.
 - **Multiple workstreams.** Produce one block per workstream; don't merge. Headline the most important first.
-- **Bad news.** Lead with the outcome anyway ("We're going to miss the Friday deadline by 3 days"), then reasoning, then the recovery plan as the "next", then the ask. No softening.
+- **Bad news.** Lead with the outcome anyway ("We're going to miss the Friday deadline by 3 days"), then reasoning, then the recovery plan as the "next", then the ask. State it straight.
 - **Pure FYI.** Still use the three-sentence structure. End with "Nothing needed — FYI."
 
 ## Quality bar before delivering

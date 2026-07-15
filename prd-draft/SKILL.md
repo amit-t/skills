@@ -176,11 +176,11 @@ Based on what the PM shares, ask:
 
 - **If AI behavior is unclear:** "Can you give me 3 example inputs: one that should work great, one that's borderline, and one that should be rejected?"
 
-### What NOT to Ask
+### Question Scope
 
-- Don't ask about technical implementation details yet (that's for engineers)
-- Don't ask for exhaustive edge case lists (capture the pattern, not every scenario)
-- Don't ask for final copy or UI details (PRD is about "what" not "how exactly")
+- Leave technical implementation details to engineers
+- Capture the pattern of edge cases, not an exhaustive list
+- Leave final copy and UI details to design — PRD is about "what," not "how exactly"
 
 ---
 
@@ -315,7 +315,7 @@ If [scenario], we will [specific action].
 
 ## AI Behavior Contract (AI features only)
 
-> Include for AI/ML features. Delete for non-AI features. See `templates/prd-template.md` Section 3 for the full contract format.
+> Include for AI/ML features. Delete for non-AI features. See `templates/prd-template.md` Section 3 for the full contract format, and [AI-PRD-GUIDE.md](AI-PRD-GUIDE.md) for the complete AI PRD reference — constraints, edge cases, evaluation plan, and the 10 principles for AI products.
 
 | Dimension | Specification |
 |-----------|--------------|
@@ -422,56 +422,7 @@ Quick prototype options:
 Which would be helpful?
 ```
 
-### Prototype Templates
-
-**Napkin Sketch (ASCII):**
-```
-┌─────────────────────────────┐
-│  Header / Navigation        │
-├─────────────────────────────┤
-│                             │
-│  [Main Content Area]        │
-│                             │
-│  ┌─────────┐  ┌─────────┐  │
-│  │ Card 1  │  │ Card 2  │  │
-│  └─────────┘  └─────────┘  │
-│                             │
-│  [ Primary CTA Button ]     │
-│                             │
-└─────────────────────────────┘
-```
-
-**v0.dev / Lovable Prompt Template:**
-```
-Create a [component type] for [product context].
-
-**User Goal:** [What the user is trying to accomplish]
-
-**Key Elements:**
-- [Element 1 with behavior]
-- [Element 2 with behavior]
-- [Element 3 with behavior]
-
-**Interactions:**
-- When user [action], [result]
-- When user [action], [result]
-
-**Style:** [Modern/minimal/playful] with [brand colors if known]
-
-**Edge Cases:**
-- Empty state: [what to show]
-- Error state: [what to show]
-- Loading state: [what to show]
-```
-
-**User Flow Diagram:**
-```
-[Entry Point] → [Step 1] → [Decision Point]
-                              ↓ Yes      ↓ No
-                          [Step 2A]   [Step 2B]
-                              ↓           ↓
-                          [Success]   [Recovery]
-```
+Once the PM picks an option, use the matching template in [PROTOTYPE-TEMPLATES.md](PROTOTYPE-TEMPLATES.md).
 
 ---
 
@@ -604,7 +555,7 @@ After stakeholder meetings, user research, or team discussions, tell me what hap
 **Use dictation:**
 Talking is faster than typing. Just ramble about the feature and I'll structure it.
 
-**Don't aim for perfect:**
+**Ship imperfect drafts:**
 PRDs evolve. Ship the draft, get feedback, iterate.
 
 **Add real examples:**
@@ -704,238 +655,4 @@ Before presenting the PRD draft to the PM, verify:
 ---
 
 **Remember:** The PRD is a tool for alignment, not a work of art. Ship it, discuss it, iterate on it.
-
----
-
-# Part 2: Full PRD Workflow
-
-For comprehensive end-to-end PRD creation, follow this 7-step process.
-
-## Step-by-Step Workflow
-
-### Workflow Step 1: Gather Context (10 min)
-
-Before touching AI, collect:
-
-**Research & Data:**
-- User research findings (interviews, surveys)
-- Analytics data (usage patterns, metrics)
-- Support tickets (common issues, requests)
-- Competitive analysis
-
-**Strategic Context:**
-- How this ladders to OKRs
-- Business case (revenue/user impact)
-- Strategic importance (why now?)
-
-**Technical Context:**
-- Existing architecture constraints
-- Integration requirements
-- Known dependencies
-
-### Workflow Step 2: Generate First Draft (5 min)
-
-Use the conversational workflow in Step 1-3 above to generate your first draft.
-
-### Workflow Step 3: Enhance Each Section (30-60 min)
-
-**Problem Statement:**
-- [ ] Add specific customer quotes
-- [ ] Include quantitative data
-- [ ] Connect to company strategy
-
-**Solution:**
-- [ ] Explain WHY this solution
-- [ ] Detail alternatives considered
-- [ ] Call out tradeoffs made
-
-**Success Metrics:**
-- [ ] Define leading AND lagging indicators
-- [ ] Set specific targets
-- [ ] Define success criteria
-
-### Workflow Step 4: Multi-Perspective Review (15 min)
-
-Use the multi-agent review in Step 3 above to get feedback from:
-- Engineering (feasibility)
-- Design (UX)
-- Executive (strategy)
-- Customer voice (user needs)
-
-### Workflow Step 5: Human Review
-
-**Must review with:**
-- Engineering lead
-- Design lead
-- Your manager
-
-**Should review with:**
-- Key stakeholders
-- PM peers
-
-### Workflow Step 6: Refine & Ship (30 min)
-
-**Final checklist:**
-- [ ] Can someone unfamiliar understand it?
-- [ ] All sections complete
-- [ ] Dependencies identified
-- [ ] Success criteria clear
-- [ ] Next steps defined
-
-### Workflow Step 7: Announce
-
-```
-Hi team,
-
-I've published the PRD for [Feature Name]: [link]
-
-TL;DR: [One sentence]
-Why now: [Strategic rationale]
-Timeline: [When we plan to start/ship]
-
-Action needed:
-- Engineering: Review technical approach by [date]
-- Design: Review UX approach by [date]
-
-Questions? Drop them in [Slack channel].
-```
-
----
-
-# Part 3: AI Feature PRDs
-
-**When to use:** When building any AI-powered feature, LLM integration, or ML product.
-
-## Why AI PRDs Are Different
-
-AI is fundamentally different from traditional features:
-- **Non-deterministic:** Same input → different outputs
-- **Probabilistic:** Can't guarantee 100% accuracy
-- **Context-dependent:** Quality depends on prompt, data, user intent
-- **Edge cases everywhere:** Infinite ways to break it
-
-## AI PRD Additional Sections
-
-### Behavior Specification (Required for AI)
-
-Create a table with three categories:
-
-| User Input | Expected Behavior | Category |
-|------------|-------------------|----------|
-| [Example 1] | [What AI should do] | ✅ Good |
-| [Example 2] | [What AI should do] | ✅ Good |
-| [Example 3] | [Graceful handling] | ❌ Bad |
-| [Example 4] | [Must refuse] | 🚫 Reject |
-
-**Good:** AI performs correctly
-**Bad:** AI should handle gracefully (don't break)
-**Reject:** AI must refuse (safety, policy violations)
-
-**Tip:** Write 10-20 examples covering edge cases.
-
-### AI Constraints
-
-**Model constraints:**
-- Model type: (GPT-5.2, Claude Opus 4.5, etc.)
-- Max tokens: input/output limits
-- Latency requirements: response time SLA
-- Cost constraints: $ per 1M tokens
-
-**Quality constraints:**
-- Accuracy target: % correct responses
-- Hallucination rate: max % of made-up facts
-- Refusal rate: % of "I don't know" responses
-
-**Safety constraints:**
-- Content filtering requirements
-- PII handling policy
-- Bias mitigation requirements
-
-### Edge Case Handling
-
-**Common AI edge cases:**
-
-1. **Ambiguous input**
-   - AI asks clarifying questions
-
-2. **Out-of-scope request**
-   - AI explains what it can help with instead
-
-3. **Harmful/unsafe request**
-   - AI refuses with explanation
-
-4. **Insufficient context**
-   - AI asks for more information
-
-5. **Low confidence**
-   - AI admits uncertainty
-
-### Graceful Degradation
-
-**Fallback hierarchy:**
-1. Retry with modified prompt
-2. Offer alternative action
-3. Escalate to human
-4. Fail gracefully with clear message
-
-### AI Evaluation Plan
-
-**Pre-launch:**
-- Test set: 100-500 hand-labeled examples
-- Human evaluation: Team rates 50 outputs
-- Edge case coverage: Test all known failure modes
-
-**Post-launch:**
-- Thumbs up/down feedback
-- Correction rate (% of edited outputs)
-- Abandonment rate
-- Escalation rate
-
-## 10 Principles for AI Products
-
-1. **Focus on user value** - Users care about outcomes, not technology
-2. **Anticipate mistakes** - Show confidence, allow corrections
-3. **Start simple** - One use case, nail it, expand
-4. **Make AI transparent** - What it can/can't do, when uncertain
-5. **Build for iteration** - Feedback loops from Day 1
-6. **Design for diverse users** - Beginners and experts
-7. **Control context** - System instructions, user history, RAG
-8. **Optimize for latency** - Streaming, perceived performance
-9. **Safety is non-negotiable** - Input/output filtering, rate limiting
-10. **Measure what matters** - Satisfaction, completion, corrections
-
-## AI PRD Template Addition
-
-Add this to the standard PRD for AI features:
-
-```markdown
-## AI Behavior Specification
-
-| User Input | Expected Behavior | Category |
-|------------|-------------------|----------|
-| [Example] | [Response] | ✅ Good |
-| [Example] | [Response] | ❌ Bad |
-| [Example] | [Response] | 🚫 Reject |
-
-## AI Constraints
-- Model: [GPT-5.2 / Claude Opus 4.5 / etc.]
-- Latency: P95 < ___ ms
-- Accuracy target: >___%
-- Hallucination rate: <___%
-
-## Safety & Compliance
-- Content filtering: [policy]
-- PII handling: [policy]
-- Audit logging: [policy]
-
-## Graceful Degradation
-1. [First fallback]
-2. [Second fallback]
-3. [Human escalation]
-4. [Final error state]
-
-## AI-Specific Kill Criteria
-- Accuracy < ___% after 2 weeks
-- User satisfaction < ___%
-- Escalation rate > ___%
-```
+For the longer, cross-functional-review process — gathering context up front, section-by-section enhancement, human review gates, and an announce template — see [FULL-WORKFLOW.md](FULL-WORKFLOW.md).

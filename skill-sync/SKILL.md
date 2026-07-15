@@ -20,8 +20,8 @@ When this skill is invoked, drive the `skill-sync` zsh utility (installed from `
 ```
 
 **What you get:**
-- **Sync mode**: Source skill mirrored into `<cwd>/<skill-name>/`, plus catalog entries upserted in `README.md`, `site.js` (skills + changes arrays), `CHANGELOG.md`, and `skills-lock.json`. Idempotent.
-- **Build mode**: A new skill scaffold written by the chosen agent CLI, following the at-skills `write-a-skill` skill conventions and the catalog-sync rule in `CLAUDE.md`.
+- **Sync mode**: source skill mirrored into `<cwd>/<skill-name>/`, catalog entries upserted (see Output Files below). Idempotent.
+- **Build mode**: a new skill scaffold written by the chosen agent CLI, following the at-skills `write-a-skill` skill conventions and the catalog-sync rule in `CLAUDE.md`.
 
 ## Preconditions
 

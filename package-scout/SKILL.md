@@ -1,11 +1,11 @@
 ---
 name: package-scout
-description: Research, compare, and select the best npm/pnpm/yarn packages before installing. Use when scaffolding a project, adding a new dependency or devDependency, choosing between competing libraries, or when user says "find a package", "which library", "add dependency", or "install package".
+description: Research, compare, and select the best npm/pnpm/yarn packages before installing. Use when scaffolding a project, adding a dependency or devDependency, or choosing between competing libraries — including when the user says "add dependency" or "which library should I use".
 ---
 
 # Package Scout
 
-Before installing **any** external package (npm, pnpm, yarn, or other package managers), stop and run this workflow. Never blindly install a package without researching alternatives first.
+Before installing **any** external package (npm, pnpm, yarn, or other package managers), stop and run this workflow.
 
 ## When This Applies
 
@@ -115,8 +115,6 @@ Install using the project's package manager (detect from lockfile):
 
 ## Rules
 
-- **Never install without research.** Even if the user names a specific package, present at least one alternative.
-- **Never install pre-release versions** unless the user explicitly asks for beta/canary/next.
-- **Always use web search** for version info — do not rely on training data, which may be outdated.
-- **Respect the project's existing package manager.** Do not mix npm/pnpm/yarn.
-- **Ask before adding** — always get user confirmation on the final package + version before running the install command.
+- **Present at least one alternative**, even when the user already named a specific package.
+- **Install only stable releases** (never `next`/`beta`/`rc`/`canary`) unless the user explicitly asks for a pre-release.
+- **Confirm the final package + version with the user** before running the install command, and stick to the project's existing package manager.
