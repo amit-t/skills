@@ -2,6 +2,11 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-08-17
+
+- `code-review-multi-axis` (pre-PR mode, `PRE-PR.md`) and `two-axis-review` re-synced against upstream [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) and its docs page: (1) both sub-agent briefs now end with a recursion guard ("do not invoke the review skill or spawn further agents — perform this review directly") — upstream's most-reported open bug is a sub-agent rediscovering the skill and fanning out to 50+ agents; (2) the sub-agent dispatch step is harness-neutral (Claude Code `Agent` tool named as one example; Codex/Devin use their own spawn tools; sequential fallback if the harness has none) instead of Claude-only wording; (3) step 1 checks `git status --porcelain` and warns that staged/working-tree changes are invisible to the three-dot diff; (4) the `/setup-amit-skills` precondition is phrased as an instruction for the human, per upstream's model-invoked vs user-invoked invocation rule.
+- `code-review-multi-axis` and `two-axis-review` gained `agents/openai.yaml` (Codex skill-picker metadata); the multi-axis one sets `policy.allow_implicit_invocation: false` so Codex matches `disable-model-invocation: true` — user-invoked on both harnesses. Codex install blocks in both READMEs now copy into `.agents/skills/` (Agent Skills standard dir) instead of appending SKILL.md to `AGENTS.md`, and document the `$skill-name` explicit mention. `code-review-multi-axis` SKILL.md/README add the fresh-session recommendation.
+
 ## 2026-07-15
 
 - Renamed `code-review` to `code-review-multi-axis` and made it slash-invoked only (`disable-model-invocation: true`) — the model never fires it autonomously; invoke with `/code-review-multi-axis`. Posted-comment dedupe markers keep the historical `code-review-skill:` prefix so re-reviews still match reviews posted under the old name.

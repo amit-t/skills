@@ -1,0 +1,8 @@
+# Codex skill metadata. `policy.allow_implicit_invocation: false` is the Codex
+# pair of the SKILL.md frontmatter `disable-model-invocation: true` — the skill
+# is user-invoked on both harnesses (Codex: type `$code-review-multi-axis`).
+interface:
+  display_name: "Code Review (multi-axis)"
+  short_description: "Pre-PR Standards+Spec pass, or post-PR GitHub review"
+policy:
+  allow_implicit_invocation: false
