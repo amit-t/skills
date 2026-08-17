@@ -1,6 +1,6 @@
 ---
 name: code-review-multi-axis
-description: Principal-engineer code review in two modes — pre-PR (local Standards + Spec axes via parallel sub-agents, nothing posted) and post-PR (11-dimension rubric, per-comment approval loop, posts one grouped GitHub Review). Invoked only by typing /code-review-multi-axis.
+description: Principal-engineer code review in two modes — pre-PR (local Standards + Spec axes via parallel sub-agents, nothing posted) and post-PR (11-dimension rubric, per-comment approval loop, posts one grouped GitHub Review). Invoked only by typing /code-review-multi-axis (Codex: $code-review-multi-axis).
 user-invocable: true
 disable-model-invocation: true
 ---
@@ -29,6 +29,8 @@ submit review                 → POST grouped review
 submit review --approve       → only if zero blocker/major in approved pool
 submit review --lgtm          → clean APPROVE for empty-findings PR
 ```
+
+Prefer running this from a fresh session rather than the one that authored the diff — the authoring session holds every assumption that shaped the code, which is exactly the context an independent reviewer should not have.
 
 Everything below is the **post-PR** mode; the pre-PR process lives whole in [PRE-PR.md](PRE-PR.md).
 

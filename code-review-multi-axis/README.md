@@ -64,9 +64,14 @@ cp -r code-review-multi-axis .cursor/skills/code-review-multi-axis
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat code-review-multi-axis/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r code-review-multi-axis .agents/skills/code-review-multi-axis
+
+# Global
+cp -r code-review-multi-axis ~/.agents/skills/code-review-multi-axis
 ```
+
+Invoke with `$code-review-multi-axis <args>` — the explicit skill mention; `agents/openai.yaml` sets `allow_implicit_invocation: false` so the model never fires it on its own, mirroring `disable-model-invocation: true`.
 
 </details>
 
@@ -108,6 +113,8 @@ submit review              # POST grouped review with current verdict policy
 submit review --approve    # only if zero approved blocker/major
 submit review --lgtm       # clean APPROVE on a zero-findings PR
 ```
+
+Invocation token per harness: Claude Code and Devin `/code-review-multi-axis`, Codex `$code-review-multi-axis`. Prefer a fresh session over the one that wrote the diff. Uncommitted changes are invisible to the pre-PR three-dot diff — the skill warns on a dirty worktree; commit first.
 
 ## Requirements
 

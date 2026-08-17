@@ -10,7 +10,7 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 
 Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
 
-If `docs/agents/issue-tracker.md` exists, use its workflow to fetch issues; otherwise fall back to the tracker CLI directly (`gh issue view`, `glab`, etc.). Run `/setup-amit-skills` to bootstrap agent docs if the repo has none.
+If `docs/agents/issue-tracker.md` exists, use its workflow to fetch issues; otherwise fall back to the tracker CLI directly (`gh issue view`, `glab`, etc.). If the repo has no agent docs at all, tell the user to run `/setup-amit-skills` to bootstrap them — do not call it yourself.
 
 ## Process
 
@@ -21,6 +21,8 @@ Whatever the user said is the fixed point — a commit SHA, branch name, tag, `m
 Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
 
 Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here — not inside two parallel sub-agents.
+
+Also check `git status --porcelain`. The three-dot diff measures committed history only, so staged and working-tree changes are invisible to both axes. If it is non-empty, say so and offer to stop so the user can commit first; continue only if they say to review what is committed.
 
 ### 2. Identify the spec source
 
@@ -57,21 +59,23 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 
 ### 4. Spawn both sub-agents in parallel
 
-Send a single message with two `Agent` tool calls. Use the `general-purpose` subagent for both.
+Dispatch both sub-agents concurrently, in one turn, with whatever sub-agent mechanism the harness offers (in Claude Code that is two `Agent` tool calls in one message, `general-purpose` type; Codex and Devin have their own spawn-agent tools). If the harness offers no sub-agents, run the two axes as two separate sequential passes and still keep their reports apart.
 
 **Standards sub-agent prompt** — include:
 
 - The full diff command and commit list.
 - The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full — the sub-agent has no other access to it.
-- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words. Do not invoke `/two-axis-review` (or any other review skill) and do not spawn further agents — perform this review directly."
 
 **Spec sub-agent prompt** — include:
 
 - The diff command and commit list.
 - The path or fetched contents of the spec.
-- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
+- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words. Do not invoke `/two-axis-review` (or any other review skill) and do not spawn further agents — perform this review directly."
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report.
+
+The closing line of each brief is a recursion guard: without it a sub-agent can rediscover this skill and fan out again (upstream reports of 50+ agents from one review). Keep it in both briefs verbatim.
 
 ### 5. Aggregate
 
