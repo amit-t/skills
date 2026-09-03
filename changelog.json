@@ -2,6 +2,12 @@
   "version": 1,
   "changes": [
     {
+      "date": "2026-09-03",
+      "items": [
+        "Added `faq` skill — `/faq <question>` answers a question about the current repo from its source of truth and records the Q&A as a deduped entry in the repo's FAQ document (locating or creating `docs/faq.md` / `FAQ.md`, matching existing front matter and voice)."
+      ]
+    },
+    {
       "date": "2026-08-17",
       "items": [
         "`code-review-multi-axis` (pre-PR mode, `PRE-PR.md`) and `two-axis-review` re-synced against upstream [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md) and its docs page: (1) both sub-agent briefs now end with a recursion guard (\"do not invoke the review skill or spawn further agents — perform this review directly\") — upstream's most-reported open bug is a sub-agent rediscovering the skill and fanning out to 50+ agents; (2) the sub-agent dispatch step is harness-neutral (Claude Code `Agent` tool named as one example; Codex/Devin use their own spawn tools; sequential fallback if the harness has none) instead of Claude-only wording; (3) step 1 checks `git status --porcelain` and warns that staged/working-tree changes are invisible to the three-dot diff; (4) the `/setup-amit-skills` precondition is phrased as an instruction for the human, per upstream's model-invoked vs user-invoked invocation rule.",

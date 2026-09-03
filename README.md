@@ -59,6 +59,7 @@ npx skills@latest add amit-t/skills -g
 | [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start; use `/grill-me` for PRDs and non-technical plans |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
+| [`faq`](./faq) | Answer a repo question from source of truth and record it as a deduped entry in the repo's FAQ doc |
 | [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
 | [`gh-repo-mirror`](./gh-repo-mirror) | Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, team + direct-collaborator access, and (optional) GitHub Pages site |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
