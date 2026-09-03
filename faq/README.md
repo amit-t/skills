@@ -9,10 +9,11 @@
 Turns real questions (often pasted from a teammate) into durable documentation:
 
 1. Locates the repo's FAQ (`docs/faq.md`, `FAQ.md`, variants) or creates one, matching sibling front-matter conventions (Jekyll/MkDocs aware).
-2. Checks existing entries first; an entry covering the same topic gets updated, never duplicated.
-3. Researches the answer from code and scripts before docs, quoting exact flags, paths, defaults, and enums.
-4. Writes one dense entry per question: heading is the question, answer leads with the direct answer.
-5. Replies in chat with the forwardable answer plus the FAQ path and heading. Never commits on its own.
+2. Detects flat (`##` = question) vs categorized (`##` = category, `###` = question) layout; in a categorized FAQ the entry lands under the best-fitting category, with a new category created when none fits.
+3. Checks existing entries first; an entry covering the same topic gets updated, never duplicated.
+4. Researches the answer from code and scripts before docs, quoting exact flags, paths, defaults, and enums.
+5. Writes one dense entry per question: heading is the question, answer leads with the direct answer.
+6. Replies in chat with the forwardable answer plus the FAQ path and heading. Never commits on its own.
 
 Project-agnostic. Strips the asker's name from the recorded entry and respects the repo's writing rules from `CLAUDE.md` / `AGENTS.md`.
 
