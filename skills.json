@@ -175,7 +175,7 @@
       "name": "faq",
       "category": "Engineering",
       "tagline": "Answer a repo question and record it in the repo's FAQ doc.",
-      "detail": "Locates (or creates) the repo's FAQ document, checks for an existing entry covering the same topic before adding, researches the answer from code and scripts rather than memory, and writes one dense question-headed entry matching the FAQ's voice. Replies in chat with the forwardable answer plus the file path. Never commits on its own. Project-agnostic.",
+      "detail": "Locates (or creates) the repo's FAQ document, detects flat vs categorized layout (## category / ### question) and files entries under the best-fitting category, checks for an existing entry covering the same topic before adding, researches the answer from code and scripts rather than memory, and writes one dense question-headed entry matching the FAQ's voice. Replies in chat with the forwardable answer plus the file path. Never commits on its own. Project-agnostic.",
       "usage": "/faq <question>"
     },
     {

@@ -28,9 +28,14 @@ On case-insensitive filesystems (macOS, Windows) several candidates resolve to o
 
 None found → create `docs/faq.md` (or `FAQ.md` if the repo has no `docs/`). Match sibling conventions: if other files in the same directory carry YAML front matter (Jekyll/MkDocs), copy their front-matter shape (`title: FAQ`, same `layout`); otherwise start with a plain `# FAQ` heading.
 
-## Step 2 — Check for an existing entry
+## Step 2 — Detect structure and check for an existing entry
 
-Read the FAQ's `##` headings. If one already covers the question (same topic, not just similar words), **update that entry** instead of adding a duplicate, and tell the user you updated rather than added. If the existing entry already answers the question fully and accurately, change nothing: report the existing heading and give the answer in chat. Never churn a correct entry to justify an "update".
+Detect which of two layouts the FAQ uses:
+
+- **Flat**: every `##` heading is a question.
+- **Categorized**: `##` headings are category names (short noun phrases, not questions) and `###` headings under them are the questions.
+
+Read all question headings (whichever level they are). If one already covers the question (same topic, not just similar words), **update that entry** instead of adding a duplicate, and tell the user you updated rather than added. If the existing entry already answers the question fully and accurately, change nothing: report the existing heading and give the answer in chat. Never churn a correct entry to justify an "update".
 
 ## Step 3 — Answer from source of truth
 
@@ -40,10 +45,10 @@ If the question came from a named person, the FAQ entry must not name them. The 
 
 ## Step 4 — Write the entry
 
-Format, matching the existing FAQ voice:
+Format, matching the existing FAQ voice and the detected structure (question heading is `##` in a flat FAQ, `###` in a categorized one):
 
 ```markdown
-## <Question rewritten as one clean question ending in ?>
+### <Question rewritten as one clean question ending in ?>
 
 <Dense answer. Lead with the direct answer, then the one or two facts
 that prevent the follow-up question. Link related docs with relative
@@ -52,7 +57,9 @@ links. No greeting, no restating the question in the body.>
 
 Heading rewrite: keep the asker's substance and key terms (they are what the next person searches for); rewrite only for clarity, drop filler words.
 
-Placement: insert next to entries on the same topic; when no clear neighbor exists, append at the end. Never reorder existing entries.
+Placement, flat FAQ: insert next to entries on the same topic; when no clear neighbor exists, append at the end. Never reorder existing entries.
+
+Placement, categorized FAQ: put the entry under the best-fitting existing `##` category (last position in that category). When no existing category fits, add a new `##` category named as a short noun phrase consistent with the others, at the end, and tell the user you created it. Never file a question under a stretched category to avoid creating one.
 
 ## Step 5 — Report
 

@@ -5,6 +5,7 @@ Recent project updates, summarized from repository history.
 ## 2026-09-03
 
 - Added the `faq` skill — `/faq <question>` answers a question about the current repo from its source of truth and records the Q&A as a deduped entry in the repo's FAQ document (locating or creating `docs/faq.md` / `FAQ.md`, matching existing front matter and voice).
+- The `faq` skill learned categorized FAQs: it detects flat (`##` = question) vs categorized (`##` = category, `###` = question) layout, files new entries under the best-fitting category, and creates a new category (telling the user) when none fits.
 
 ## 2026-08-17
 
