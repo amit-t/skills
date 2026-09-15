@@ -1,20 +1,20 @@
 {
   "site.js": {
-    "mtime": 1780200030.3122272,
-    "seen": 1789470861.646636,
-    "ast_hash": "18fe68d39dcbbb6f5f8ebe4d0fa0dd74",
+    "mtime": 1789475613.2842596,
+    "seen": 1789475669.6597161,
+    "ast_hash": "5cffb07954cc3e0b6bf1e35ee1dbb294",
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1789470749.9926453,
-    "seen": 1789470861.6466408,
-    "ast_hash": "cfa2cd8abf3642b0b4e3e4b3000f6477",
+    "mtime": 1789475642.0013118,
+    "seen": 1789475669.659722,
+    "ast_hash": "9d6a17b57055d8e030689e4d7fa35ad2",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1789470749.991514,
-    "seen": 1789470861.646642,
-    "ast_hash": "4a1f1df9639ff4b3a1ed055b962c05e5",
+    "mtime": 1789475613.283564,
+    "seen": 1789475669.659723,
+    "ast_hash": "b5c9da7a1c92a457a9aca12252b07bf1",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -30,9 +30,9 @@
     "semantic_hash": ""
   },
   "eng-spec/README.md": {
-    "mtime": 1776649940.4558136,
-    "seen": 1789470861.646656,
-    "ast_hash": "805054acd281f0053881750c2cd7db79",
+    "mtime": 1789475591.2445576,
+    "seen": 1789475669.6597388,
+    "ast_hash": "2b22f766287c6566b64e2ac497cb8767",
     "semantic_hash": ""
   },
   "eng-spec/SKILL.md": {
@@ -42,9 +42,9 @@
     "semantic_hash": ""
   },
   "compact-conversation/README.md": {
-    "mtime": 1776649940.4543045,
-    "seen": 1789470861.646645,
-    "ast_hash": "2ca7e455c2c6e3d38019278f61e2d24f",
+    "mtime": 1789475591.2429836,
+    "seen": 1789475669.6597261,
+    "ast_hash": "f3eca1ad1323b878dc7f596365994e07",
     "semantic_hash": ""
   },
   "compact-conversation/SKILL.md": {
@@ -54,9 +54,9 @@
     "semantic_hash": ""
   },
   "write-a-prd/README.md": {
-    "mtime": 1776649940.4680922,
-    "seen": 1789470861.646695,
-    "ast_hash": "96526466c6204cbfc90e6f916b2bcfa6",
+    "mtime": 1789475591.2505352,
+    "seen": 1789475669.659791,
+    "ast_hash": "e5f3572503839e6bcf79715e115f5306",
     "semantic_hash": ""
   },
   "write-a-prd/SKILL.md": {
@@ -66,9 +66,9 @@
     "semantic_hash": ""
   },
   "e2e-audit/README.md": {
-    "mtime": 1775636281.0,
-    "seen": 1789470861.646653,
-    "ast_hash": "0961f019439262d9749a4c8446cbfcb6",
+    "mtime": 1789475591.2444208,
+    "seen": 1789475669.6597362,
+    "ast_hash": "f75be6e05c28e4c0350db6968da99827",
     "semantic_hash": ""
   },
   "e2e-audit/SKILL.md": {
@@ -78,9 +78,9 @@
     "semantic_hash": ""
   },
   "prd-to-plan/README.md": {
-    "mtime": 1776649940.4649963,
-    "seen": 1789470861.646674,
-    "ast_hash": "ec02b09df93541d3821ae7ae25e5424d",
+    "mtime": 1789475591.247511,
+    "seen": 1789475669.659762,
+    "ast_hash": "385c47ef895002daebff56115f6c6be4",
     "semantic_hash": ""
   },
   "prd-to-plan/SKILL.md": {
@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "precision-mode/README.md": {
-    "mtime": 1776649940.4651873,
-    "seen": 1789470861.6466749,
-    "ast_hash": "21f916c7f36636435f202b8ae76da315",
+    "mtime": 1789475591.2475996,
+    "seen": 1789475669.6597629,
+    "ast_hash": "f868afbf062ed47f7df662d448f6bc7d",
     "semantic_hash": ""
   },
   "precision-mode/SKILL.md": {
@@ -114,9 +114,9 @@
     "semantic_hash": ""
   },
   "git-guardrails-claude-code/README.md": {
-    "mtime": 1776649940.4561503,
-    "seen": 1789470861.646663,
-    "ast_hash": "091c6fae6339299203982d28cb912c51",
+    "mtime": 1789475591.245518,
+    "seen": 1789475669.659748,
+    "ast_hash": "32088c7fbc28a222c1d4baf6f3605470",
     "semantic_hash": ""
   },
   "git-guardrails-claude-code/SKILL.md": {
@@ -126,9 +126,9 @@
     "semantic_hash": ""
   },
   "request-refactor-plan/README.md": {
-    "mtime": 1776649940.465697,
-    "seen": 1789470861.646678,
-    "ast_hash": "8af26922e43653be8e5cda901193852a",
+    "mtime": 1789475591.2480655,
+    "seen": 1789475669.6597672,
+    "ast_hash": "7491a4cf1cef825f081eaa59d5ca2e79",
     "semantic_hash": ""
   },
   "request-refactor-plan/SKILL.md": {
@@ -138,9 +138,9 @@
     "semantic_hash": ""
   },
   "qa/README.md": {
-    "mtime": 1776649940.4653955,
-    "seen": 1789470861.646676,
-    "ast_hash": "471a8e5f7598984200401070f51a598c",
+    "mtime": 1789475591.2476895,
+    "seen": 1789475669.659764,
+    "ast_hash": "5862ef86ca63432a349ec0f4a11a92fd",
     "semantic_hash": ""
   },
   "qa/SKILL.md": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "design-interview/README.md": {
-    "mtime": 1776649940.4550123,
-    "seen": 1789470861.6466482,
-    "ast_hash": "e4818ae4f34be100d3faf711cdf046b2",
+    "mtime": 1789475591.2433302,
+    "seen": 1789475669.65973,
+    "ast_hash": "433cd1542c1af7b4ef8928f7f7c60a9e",
     "semantic_hash": ""
   },
   "design-interview/SKILL.md": {
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "prd-approve/README.md": {
-    "mtime": 1776649940.4642618,
-    "seen": 1789470861.64667,
-    "ast_hash": "60cff4466ab58a3fef821bbcac771339",
+    "mtime": 1789475591.247043,
+    "seen": 1789475669.6597571,
+    "ast_hash": "e868b460d00cc47c093664203ca39505",
     "semantic_hash": ""
   },
   "prd-approve/SKILL.md": {
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "pmo-status/README.md": {
-    "mtime": 1776649940.4640665,
-    "seen": 1789470861.6466691,
-    "ast_hash": "b8fc3c3ae50db360bcce2ab5c6aa81bf",
+    "mtime": 1789475591.2469559,
+    "seen": 1789475669.659756,
+    "ast_hash": "cd9193a4237a05dabd9360127497a93f",
     "semantic_hash": ""
   },
   "pmo-status/SKILL.md": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "prd-review-panel/README.md": {
-    "mtime": 1784206005.6098316,
-    "seen": 1789470861.6466718,
-    "ast_hash": "79548dbb8cdd5baaddaa6f7875886d0a",
+    "mtime": 1789475591.247396,
+    "seen": 1789475669.6597602,
+    "ast_hash": "6586bbf1d8b6f6a84bcb6a4bae36ee9a",
     "semantic_hash": ""
   },
   "prd-review-panel/SKILL.md": {
@@ -198,9 +198,9 @@
     "semantic_hash": ""
   },
   "package-scout/README.md": {
-    "mtime": 1776649940.463791,
-    "seen": 1789470861.646668,
-    "ast_hash": "87b490b5475299f77c3a1e76061c7be5",
+    "mtime": 1789475591.2468665,
+    "seen": 1789475669.659755,
+    "ast_hash": "0d114f24bf12365f3624af24658f105c",
     "semantic_hash": ""
   },
   "package-scout/SKILL.md": {
@@ -210,9 +210,9 @@
     "semantic_hash": ""
   },
   "write-a-skill/README.md": {
-    "mtime": 1784206005.6156638,
-    "seen": 1789470861.6466959,
-    "ast_hash": "becf9fac52fa42997b10c75d6c9c4069",
+    "mtime": 1789475591.2507374,
+    "seen": 1789475669.659792,
+    "ast_hash": "d0aa7420fa9dbf44b846deae6686a04c",
     "semantic_hash": ""
   },
   "write-a-skill/SKILL.md": {
@@ -222,9 +222,9 @@
     "semantic_hash": ""
   },
   "design-draft/README.md": {
-    "mtime": 1776649940.4547412,
-    "seen": 1789470861.646647,
-    "ast_hash": "273523b21992dd92ed707bb078f38e14",
+    "mtime": 1789475591.2432292,
+    "seen": 1789475669.659729,
+    "ast_hash": "4266cd40e488e1a48cc84ce6d27c88af",
     "semantic_hash": ""
   },
   "design-draft/SKILL.md": {
@@ -234,9 +234,9 @@
     "semantic_hash": ""
   },
   "concise-reporting/README.md": {
-    "mtime": 1776649940.4545233,
-    "seen": 1789470861.646646,
-    "ast_hash": "5de2c45c9c23c0d5fbc4474aaa4065a7",
+    "mtime": 1789475591.2431302,
+    "seen": 1789475669.6597278,
+    "ast_hash": "162290641969fc82c56b1a2b05f04f46",
     "semantic_hash": ""
   },
   "concise-reporting/SKILL.md": {
@@ -246,9 +246,9 @@
     "semantic_hash": ""
   },
   "prd-draft/README.md": {
-    "mtime": 1776649940.4645135,
-    "seen": 1789470861.6466718,
-    "ast_hash": "1145c7d27ef48af8af1b77eaf1315820",
+    "mtime": 1789475591.2471309,
+    "seen": 1789475669.659759,
+    "ast_hash": "cd7d10ed864ece7b2cedb897c62ddefe",
     "semantic_hash": ""
   },
   "prd-draft/SKILL.md": {
@@ -258,9 +258,9 @@
     "semantic_hash": ""
   },
   "design-review/README.md": {
-    "mtime": 1776649940.455264,
-    "seen": 1789470861.6466491,
-    "ast_hash": "f8b8d14737b49794bd86259621fb15f3",
+    "mtime": 1789475591.243452,
+    "seen": 1789475669.659731,
+    "ast_hash": "e63fa714270cd272e1c962021c365f87",
     "semantic_hash": ""
   },
   "design-review/SKILL.md": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "tdd/README.md": {
-    "mtime": 1784206005.6148455,
-    "seen": 1789470861.646688,
-    "ast_hash": "adbc4daf3c1e189de163b08121382994",
+    "mtime": 1789475591.2498791,
+    "seen": 1789475669.6597812,
+    "ast_hash": "1283eff1c855673e3e9481d0602a32c0",
     "semantic_hash": ""
   },
   "tdd/SKILL.md": {
@@ -294,9 +294,9 @@
     "semantic_hash": ""
   },
   "grill-me/README.md": {
-    "mtime": 1780155386.6850905,
-    "seen": 1789470861.6466649,
-    "ast_hash": "813a9657cb11da687301cefc2e7c41bc",
+    "mtime": 1789475591.246352,
+    "seen": 1789475669.659751,
+    "ast_hash": "a3dc177fe9ae07756b36c11edf9693ca",
     "semantic_hash": ""
   },
   "grill-me/SKILL.md": {
@@ -318,9 +318,9 @@
     "semantic_hash": ""
   },
   "changelog.json": {
-    "mtime": 1789470749.992407,
-    "seen": 1789470861.646634,
-    "ast_hash": "434fa274c0e85dd1ec1994505dd4611e",
+    "mtime": 1789475637.5651217,
+    "seen": 1789475669.659713,
+    "ast_hash": "441b3f5aa83555fe5b12d7f313f6e9f8",
     "semantic_hash": ""
   },
   "gh-pages-neo-brutalist/templates/assets/js/site.js": {
@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "gh-repo-mirror/templates/site.js": {
-    "mtime": 1778637470.5348742,
-    "seen": 1789470861.646635,
-    "ast_hash": "ca5dfe284ebe4246c1d41939bc6bdc5b",
+    "mtime": 1789475637.563204,
+    "seen": 1789475669.659714,
+    "ast_hash": "070cee7bd5fde0924c82730feec4c736",
     "semantic_hash": ""
   },
   "git-guardrails-claude-code/scripts/block-dangerous-git.sh": {
@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "docs-from-prs/README.md": {
-    "mtime": 1777096421.919446,
-    "seen": 1789470861.64665,
-    "ast_hash": "b094fa996a3a87505f8b613583ab03c3",
+    "mtime": 1789475591.2437408,
+    "seen": 1789475669.6597319,
+    "ast_hash": "876ed613a71600f7842d9a8447bdfb75",
     "semantic_hash": ""
   },
   "docs-from-prs/SKILL.md": {
@@ -492,9 +492,9 @@
     "semantic_hash": ""
   },
   "domain-grill/README.md": {
-    "mtime": 1778744154.6175706,
-    "seen": 1789470861.646653,
-    "ast_hash": "84a998a57dec49d846278c1f031322a4",
+    "mtime": 1789475591.244096,
+    "seen": 1789475669.6597362,
+    "ast_hash": "63714c1ea86e391136e90c6656d9336b",
     "semantic_hash": ""
   },
   "domain-grill/SKILL.md": {
@@ -534,9 +534,9 @@
     "semantic_hash": ""
   },
   "faq/README.md": {
-    "mtime": 1788437733.9131835,
-    "seen": 1789470861.646657,
-    "ast_hash": "1da8fab9f593dafca0efb5fb7294c5ba",
+    "mtime": 1789475591.244873,
+    "seen": 1789475669.659741,
+    "ast_hash": "cdb1e4f6ae04f6250c215528690b1e5c",
     "semantic_hash": ""
   },
   "faq/SKILL.md": {
@@ -600,9 +600,9 @@
     "semantic_hash": ""
   },
   "gh-repo-mirror/README.md": {
-    "mtime": 1782186032.4396143,
-    "seen": 1789470861.646662,
-    "ast_hash": "0f96f35101f6daa116623952de0749e7",
+    "mtime": 1789475591.2452612,
+    "seen": 1789475669.659746,
+    "ast_hash": "069366fe336b2f1e80b67c438746c72c",
     "semantic_hash": ""
   },
   "gh-repo-mirror/REFERENCE.md": {
@@ -618,15 +618,15 @@
     "semantic_hash": ""
   },
   "gh-repo-mirror/templates/index.html": {
-    "mtime": 1778637470.5343673,
-    "seen": 1789470861.646663,
-    "ast_hash": "bb50b021fd4d418360550da75bc451fd",
+    "mtime": 1789475637.5628607,
+    "seen": 1789475669.659748,
+    "ast_hash": "f04b2c4b3dbd2ed1c1762a6f103bb67f",
     "semantic_hash": ""
   },
   "grill-me-auto/README.md": {
-    "mtime": 1780200030.3113415,
-    "seen": 1789470861.646664,
-    "ast_hash": "210cab460fa014b59f85178117dbedbc",
+    "mtime": 1789475591.2457995,
+    "seen": 1789475669.659749,
+    "ast_hash": "f0a52157974a81ed52ef8f51ca1a8d1f",
     "semantic_hash": ""
   },
   "grill-me-auto/REFERENCE.md": {
@@ -666,15 +666,15 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1780155386.6855886,
-    "seen": 1789470861.646667,
-    "ast_hash": "83f61e6aeec4ff0cf60b3a92113b8f84",
+    "mtime": 1789475613.283927,
+    "seen": 1789475669.6597528,
+    "ast_hash": "5b1a5b3a4a716b496c88d2e10877a08d",
     "semantic_hash": ""
   },
   "leadership-update/README.md": {
-    "mtime": 1778637470.5357409,
-    "seen": 1789470861.646667,
-    "ast_hash": "7b49bafff5f73a16f0abbf29578d126f",
+    "mtime": 1789475591.2467399,
+    "seen": 1789475669.659754,
+    "ast_hash": "e020cd5fcd73a075c39ccc1715f78e0f",
     "semantic_hash": ""
   },
   "leadership-update/SKILL.md": {
@@ -732,9 +732,9 @@
     "semantic_hash": ""
   },
   "repo-context-scan/README.md": {
-    "mtime": 1778227628.8320408,
-    "seen": 1789470861.646677,
-    "ast_hash": "fa693c3035048e7cb6facf76054e2b8e",
+    "mtime": 1789475591.2479737,
+    "seen": 1789475669.659766,
+    "ast_hash": "49faa96f8c11f3540ef500f37ba0dba8",
     "semantic_hash": ""
   },
   "repo-context-scan/SKILL.md": {
@@ -744,9 +744,9 @@
     "semantic_hash": ""
   },
   "resume-session-handoff/README.md": {
-    "mtime": 1778744154.6191223,
-    "seen": 1789470861.646679,
-    "ast_hash": "56bdd998df31cacb1bbe118d10ee2e10",
+    "mtime": 1789475591.2483637,
+    "seen": 1789475669.659768,
+    "ast_hash": "7312d252943a18ebe2e854bfa939052c",
     "semantic_hash": ""
   },
   "resume-session-handoff/SKILL.md": {
@@ -756,9 +756,9 @@
     "semantic_hash": ""
   },
   "resume-tailoring/README.md": {
-    "mtime": 1776649940.465989,
-    "seen": 1789470861.64668,
-    "ast_hash": "0f3bbb9a6b53b9615382967642462979",
+    "mtime": 1789475600.5274959,
+    "seen": 1789475669.659769,
+    "ast_hash": "bbcb2d24ac4d43501c3e0751eda6bbcd",
     "semantic_hash": ""
   },
   "resume-tailoring/SKILL.md": {
@@ -798,9 +798,9 @@
     "semantic_hash": ""
   },
   "session-feedback/README.md": {
-    "mtime": 1778662944.553099,
-    "seen": 1789470861.646682,
-    "ast_hash": "1bcfd0f4ad5b16093b3977de4586b636",
+    "mtime": 1789475591.2488506,
+    "seen": 1789475669.659772,
+    "ast_hash": "9b20539dcb71d362aa13cbcb0fed0c78",
     "semantic_hash": ""
   },
   "session-feedback/SKILL.md": {
@@ -822,9 +822,9 @@
     "semantic_hash": ""
   },
   "session-handoff/README.md": {
-    "mtime": 1778744154.6196444,
-    "seen": 1789470861.646684,
-    "ast_hash": "f1336fbce697889238a2c95653823b30",
+    "mtime": 1789475591.2491026,
+    "seen": 1789475669.659774,
+    "ast_hash": "17176b563782f301f83f74d5df275837",
     "semantic_hash": ""
   },
   "session-handoff/SKILL.md": {
@@ -834,9 +834,9 @@
     "semantic_hash": ""
   },
   "setup-amit-skills/README.md": {
-    "mtime": 1782186032.4411418,
-    "seen": 1789470861.646684,
-    "ast_hash": "21495a68908fd72c1c71034875a833d4",
+    "mtime": 1789475591.249458,
+    "seen": 1789475669.659775,
+    "ast_hash": "6428722f78d24c2bf091fd65d2cac0f5",
     "semantic_hash": ""
   },
   "setup-amit-skills/SKILL.md": {
@@ -876,9 +876,9 @@
     "semantic_hash": ""
   },
   "setup-pre-commit/README.md": {
-    "mtime": 1782186032.4421597,
-    "seen": 1789470861.646687,
-    "ast_hash": "b54df78a5f4f83b00a8a3cdc1880fa38",
+    "mtime": 1789475591.2495952,
+    "seen": 1789475669.659779,
+    "ast_hash": "5a875639ad54ae4025e38a5833b46f5a",
     "semantic_hash": ""
   },
   "setup-pre-commit/SKILL.md": {
@@ -888,9 +888,9 @@
     "semantic_hash": ""
   },
   "skill-sync/README.md": {
-    "mtime": 1777096134.5564451,
-    "seen": 1789470861.646688,
-    "ast_hash": "b75ac7e6bebe21e0b8df8ed908605e50",
+    "mtime": 1789475591.2497368,
+    "seen": 1789475669.65978,
+    "ast_hash": "93973e0b8bfb513f071ba8eade6709a5",
     "semantic_hash": ""
   },
   "skill-sync/SKILL.md": {
@@ -924,9 +924,9 @@
     "semantic_hash": ""
   },
   "wisdom-capture/README.md": {
-    "mtime": 1778687760.1543183,
-    "seen": 1789470861.646692,
-    "ast_hash": "0e55f9f247ced7b635f2360b518c1c17",
+    "mtime": 1789475591.2504048,
+    "seen": 1789475669.659787,
+    "ast_hash": "424c98e71dc1774843eaf601c1134adf",
     "semantic_hash": ""
   },
   "wisdom-capture/REFERENCE.md": {

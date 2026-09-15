@@ -1,7 +1,7 @@
 # Graph Report - at-skills  (2026-09-15)
 
 ## Corpus Check
-- 154 files · ~103,371 words
+- 154 files · ~104,109 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8deaab89`
+- Built from commit: `9e3e7db8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -131,10 +131,10 @@
 10. `Process` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `write-a-prd Skill` --semantically_similar_to--> `5-Section Interview (Product/Users/Visual/Constraints/Success)`  [INFERRED] [semantically similar]
-  write-a-prd/SKILL.md → design-interview/SKILL.md
 - `Catalog Sync Rule (Mandatory)` --semantically_similar_to--> `CLAUDE Catalog Sync Rule (Mandatory)`  [INFERRED] [semantically similar]
   AGENTS.md → CLAUDE.md
+- `write-a-prd Skill` --semantically_similar_to--> `5-Section Interview (Product/Users/Visual/Constraints/Success)`  [INFERRED] [semantically similar]
+  write-a-prd/SKILL.md → design-interview/SKILL.md
 - `5-Agent Engineering Panel Review` --semantically_similar_to--> `Review Panel Synthesis File`  [INFERRED] [semantically similar]
   eng-spec/SKILL.md → prd-approve/SKILL.md
 - `Write-a-Skill Skill` --semantically_similar_to--> `PRD Draft Skill`  [INFERRED] [semantically similar]
@@ -538,9 +538,11 @@ Nodes (4): design-draft — Reference, `--from` flag values, `--list` output, Re
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `code-review-multi-axis — Reference` connect `code-review-multi-axis — Reference` to `/code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `write-a-prd Skill` connect `write-a-prd Skill` to `design-review Skill`, `prd-to-plan Skill`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `design-review Skill` connect `design-review Skill` to `7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)`, `design-interview Skill`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `code-review-multi-axis — Reference` connect `code-review-multi-axis — Reference` to `/code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `skills`, `changes`, `state` to the rest of the system?**
   _816 weakly-connected nodes found - possible documentation gaps or missing edges._
@@ -550,5 +552,3 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
 - **Should `PRD Draft Skill` be split into smaller, more focused modules?**
   _Cohesion score 0.09420289855072464 - nodes in this community are weakly interconnected._
-- **Should `site.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.09659090909090909 - nodes in this community are weakly interconnected._
