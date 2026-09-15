@@ -155,6 +155,14 @@
       "usage": "/grill-me-auto [quick|standard|deep]"
     },
     {
+      "slug": "grill-summary",
+      "name": "grill-summary",
+      "category": "Engineering",
+      "tagline": "Explain a written grill as a concise, plain-English decision story.",
+      "detail": "Runs automatically after a grill document is written, or manually with /grill-summary [path]. Connects the bigger goal to why this grill matters, groups the unanswered decisions, and explains what the answers enable. Reads the matching Wayfinder map when the grill relates to one. Read-only: never answers questions, approves recommendations, or changes the source grill or map.",
+      "usage": "/grill-summary [path]"
+    },
+    {
       "slug": "package-scout",
       "name": "package-scout",
       "category": "Engineering",
