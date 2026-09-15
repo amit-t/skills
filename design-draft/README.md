@@ -62,9 +62,14 @@ cp -r design-draft .cursor/skills/design-draft
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat design-draft/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r design-draft .agents/skills/design-draft
+
+# Global
+cp -r design-draft ~/.agents/skills/design-draft
 ```
+
+Model-invoked, or mention explicitly with `$design-draft`.
 
 </details>
 

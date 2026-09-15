@@ -96,9 +96,14 @@ cp -r setup-amit-skills .cursor/skills/setup-amit-skills
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat setup-amit-skills/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r setup-amit-skills .agents/skills/setup-amit-skills
+
+# Global
+cp -r setup-amit-skills ~/.agents/skills/setup-amit-skills
 ```
+
+Model-invoked, or mention explicitly with `$setup-amit-skills`.
 
 </details>
 

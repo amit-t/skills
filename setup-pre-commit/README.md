@@ -73,9 +73,14 @@ cp -r setup-pre-commit .cursor/skills/setup-pre-commit
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat setup-pre-commit/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r setup-pre-commit .agents/skills/setup-pre-commit
+
+# Global
+cp -r setup-pre-commit ~/.agents/skills/setup-pre-commit
 ```
+
+Model-invoked, or mention explicitly with `$setup-pre-commit`.
 
 </details>
 

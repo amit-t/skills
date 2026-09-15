@@ -62,9 +62,14 @@ cp -r concise-reporting .cursor/skills/concise-reporting
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat concise-reporting/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r concise-reporting .agents/skills/concise-reporting
+
+# Global
+cp -r concise-reporting ~/.agents/skills/concise-reporting
 ```
+
+Model-invoked, or mention explicitly with `$concise-reporting`.
 
 </details>
 

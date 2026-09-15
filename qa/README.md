@@ -62,9 +62,14 @@ cp -r qa .cursor/skills/qa
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat qa/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r qa .agents/skills/qa
+
+# Global
+cp -r qa ~/.agents/skills/qa
 ```
+
+Model-invoked, or mention explicitly with `$qa`.
 
 </details>
 

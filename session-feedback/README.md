@@ -62,9 +62,14 @@ cp -r session-feedback .cursor/skills/session-feedback
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat session-feedback/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r session-feedback .agents/skills/session-feedback
+
+# Global
+cp -r session-feedback ~/.agents/skills/session-feedback
 ```
+
+Model-invoked, or mention explicitly with `$session-feedback`.
 
 </details>
 

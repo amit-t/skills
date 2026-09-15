@@ -115,8 +115,14 @@ cp -r session-handoff .cursor/skills/session-handoff
 <summary>Codex</summary>
 
 ```bash
-cat session-handoff/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r session-handoff .agents/skills/session-handoff
+
+# Global
+cp -r session-handoff ~/.agents/skills/session-handoff
 ```
+
+Model-invoked, or mention explicitly with `$session-handoff`.
 
 </details>
 

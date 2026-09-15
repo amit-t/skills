@@ -73,8 +73,14 @@ cp -r compact-conversation .cursor/skills/compact-conversation
 <summary>Codex</summary>
 
 ```bash
-cat compact-conversation/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r compact-conversation .agents/skills/compact-conversation
+
+# Global
+cp -r compact-conversation ~/.agents/skills/compact-conversation
 ```
+
+Model-invoked, or mention explicitly with `$compact-conversation`.
 
 </details>
 

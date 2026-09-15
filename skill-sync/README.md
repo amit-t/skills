@@ -78,8 +78,14 @@ cp -r skill-sync .cursor/skills/skill-sync
 <summary>Codex</summary>
 
 ```bash
-cat skill-sync/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r skill-sync .agents/skills/skill-sync
+
+# Global
+cp -r skill-sync ~/.agents/skills/skill-sync
 ```
+
+Model-invoked, or mention explicitly with `$skill-sync`.
 
 </details>
 

@@ -62,9 +62,14 @@ cp -r git-guardrails-claude-code .cursor/skills/git-guardrails-claude-code
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat git-guardrails-claude-code/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r git-guardrails-claude-code .agents/skills/git-guardrails-claude-code
+
+# Global
+cp -r git-guardrails-claude-code ~/.agents/skills/git-guardrails-claude-code
 ```
+
+Model-invoked, or mention explicitly with `$git-guardrails-claude-code`.
 
 </details>
 

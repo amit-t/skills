@@ -68,8 +68,14 @@ cp -r docs-from-prs .cursor/skills/docs-from-prs
 <summary>Codex</summary>
 
 ```bash
-cat docs-from-prs/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r docs-from-prs .agents/skills/docs-from-prs
+
+# Global
+cp -r docs-from-prs ~/.agents/skills/docs-from-prs
 ```
+
+Model-invoked, or mention explicitly with `$docs-from-prs`.
 
 </details>
 

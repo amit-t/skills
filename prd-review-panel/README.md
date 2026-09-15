@@ -62,9 +62,14 @@ cp -r prd-review-panel .cursor/skills/prd-review-panel
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat prd-review-panel/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r prd-review-panel .agents/skills/prd-review-panel
+
+# Global
+cp -r prd-review-panel ~/.agents/skills/prd-review-panel
 ```
+
+Model-invoked, or mention explicitly with `$prd-review-panel`.
 
 </details>
 

@@ -62,9 +62,14 @@ cp -r prd-approve .cursor/skills/prd-approve
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat prd-approve/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r prd-approve .agents/skills/prd-approve
+
+# Global
+cp -r prd-approve ~/.agents/skills/prd-approve
 ```
+
+Model-invoked, or mention explicitly with `$prd-approve`.
 
 </details>
 

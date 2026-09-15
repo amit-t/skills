@@ -100,16 +100,19 @@ cp -r resume-tailoring .cursor/skills/resume-tailoring
 <details>
 <summary>Codex</summary>
 
-Codex uses `AGENTS.md` for skills. Append the skill's main file and reference files:
+Copy the whole directory so the companion reference files travel with `SKILL.md`:
 
 ```bash
-cat resume-tailoring/SKILL.md >> AGENTS.md
-# Optional: make companion files discoverable by keeping them next to AGENTS.md
-mkdir -p .codex/resume-tailoring
-cp resume-tailoring/*.md .codex/resume-tailoring/
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r resume-tailoring .agents/skills/resume-tailoring
+
+# Global
+cp -r resume-tailoring ~/.agents/skills/resume-tailoring
 ```
 
-Or use the portable bundle:
+Model-invoked, or mention explicitly with `$resume-tailoring`.
+
+For a setup that loads instructions only from `AGENTS.md`, append the portable bundle instead:
 
 ```bash
 cat resume-tailoring/resume-tailoring.skill >> AGENTS.md

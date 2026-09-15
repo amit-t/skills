@@ -62,9 +62,14 @@ cp -r repo-context-scan .cursor/skills/repo-context-scan
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat repo-context-scan/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r repo-context-scan .agents/skills/repo-context-scan
+
+# Global
+cp -r repo-context-scan ~/.agents/skills/repo-context-scan
 ```
+
+Model-invoked, or mention explicitly with `$repo-context-scan`.
 
 </details>
 
