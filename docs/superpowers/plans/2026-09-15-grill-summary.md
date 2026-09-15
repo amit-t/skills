@@ -27,5 +27,5 @@ fixtures live outside the installed skill.
 - [x] Run `graphify update .` because the test script is new code; inspect scope of
   generated changes. Record any tool limitation without overstating verification.
 - [x] Record actual behavioral outcomes and audit requirements.
-- [ ] Commit only scoped files and push the short-lived feature branch. Do not merge
+- [x] Commit only scoped files and push the short-lived feature branch. Do not merge
   or deploy without permission.
