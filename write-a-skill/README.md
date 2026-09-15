@@ -66,9 +66,14 @@ cp -r write-a-skill .cursor/skills/write-a-skill
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat write-a-skill/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r write-a-skill .agents/skills/write-a-skill
+
+# Global
+cp -r write-a-skill ~/.agents/skills/write-a-skill
 ```
+
+Model-invoked, or mention explicitly with `$write-a-skill`.
 
 </details>
 

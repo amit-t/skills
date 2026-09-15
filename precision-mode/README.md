@@ -71,8 +71,14 @@ cp -r precision-mode .cursor/skills/precision-mode
 <summary>Codex</summary>
 
 ```bash
-cat precision-mode/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r precision-mode .agents/skills/precision-mode
+
+# Global
+cp -r precision-mode ~/.agents/skills/precision-mode
 ```
+
+Model-invoked, or mention explicitly with `$precision-mode`.
 
 </details>
 

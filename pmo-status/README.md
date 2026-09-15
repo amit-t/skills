@@ -62,9 +62,14 @@ cp -r pmo-status .cursor/skills/pmo-status
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat pmo-status/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r pmo-status .agents/skills/pmo-status
+
+# Global
+cp -r pmo-status ~/.agents/skills/pmo-status
 ```
+
+Model-invoked, or mention explicitly with `$pmo-status`.
 
 </details>
 

@@ -72,8 +72,14 @@ cp -r package-scout .cursor/skills/package-scout
 <summary>Codex</summary>
 
 ```bash
-cat package-scout/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r package-scout .agents/skills/package-scout
+
+# Global
+cp -r package-scout ~/.agents/skills/package-scout
 ```
+
+Model-invoked, or mention explicitly with `$package-scout`.
 
 </details>
 

@@ -62,9 +62,14 @@ cp -r request-refactor-plan .cursor/skills/request-refactor-plan
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat request-refactor-plan/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r request-refactor-plan .agents/skills/request-refactor-plan
+
+# Global
+cp -r request-refactor-plan ~/.agents/skills/request-refactor-plan
 ```
+
+Model-invoked, or mention explicitly with `$request-refactor-plan`.
 
 </details>
 

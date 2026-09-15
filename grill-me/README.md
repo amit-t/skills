@@ -62,9 +62,14 @@ cp -r grill-me .cursor/skills/grill-me
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat grill-me/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r grill-me .agents/skills/grill-me
+
+# Global
+cp -r grill-me ~/.agents/skills/grill-me
 ```
+
+Model-invoked, or mention explicitly with `$grill-me`.
 
 </details>
 

@@ -62,9 +62,14 @@ cp -r domain-grill .cursor/skills/domain-grill
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat domain-grill/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r domain-grill .agents/skills/domain-grill
+
+# Global
+cp -r domain-grill ~/.agents/skills/domain-grill
 ```
+
+Model-invoked, or mention explicitly with `$domain-grill`.
 
 </details>
 

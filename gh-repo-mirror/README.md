@@ -64,9 +64,14 @@ cp -r gh-repo-mirror .cursor/skills/gh-repo-mirror
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat gh-repo-mirror/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r gh-repo-mirror .agents/skills/gh-repo-mirror
+
+# Global
+cp -r gh-repo-mirror ~/.agents/skills/gh-repo-mirror
 ```
+
+Model-invoked, or mention explicitly with `$gh-repo-mirror`.
 
 </details>
 

@@ -62,9 +62,14 @@ cp -r prd-to-plan .cursor/skills/prd-to-plan
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat prd-to-plan/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r prd-to-plan .agents/skills/prd-to-plan
+
+# Global
+cp -r prd-to-plan ~/.agents/skills/prd-to-plan
 ```
+
+Model-invoked, or mention explicitly with `$prd-to-plan`.
 
 </details>
 

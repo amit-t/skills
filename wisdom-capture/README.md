@@ -62,9 +62,14 @@ cp -r wisdom-capture .cursor/skills/wisdom-capture
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat wisdom-capture/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r wisdom-capture .agents/skills/wisdom-capture
+
+# Global
+cp -r wisdom-capture ~/.agents/skills/wisdom-capture
 ```
+
+Model-invoked, or mention explicitly with `$wisdom-capture`.
 
 </details>
 

@@ -295,7 +295,11 @@ cp -r ${slug} .cursor/skills/${slug}</code></pre>
 
     <details class="install-expand">
       <summary>Codex</summary>
-      <pre><code>cat ${slug}/SKILL.md >> AGENTS.md</code></pre>
+      <pre><code># Project-level
+cp -r ${slug} .agents/skills/${slug}
+
+# Global
+cp -r ${slug} ~/.agents/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">

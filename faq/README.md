@@ -67,8 +67,14 @@ cp -r faq .cursor/skills/faq
 <summary>Codex</summary>
 
 ```bash
-cat faq/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r faq .agents/skills/faq
+
+# Global
+cp -r faq ~/.agents/skills/faq
 ```
+
+Model-invoked, or mention explicitly with `$faq`.
 
 </details>
 

@@ -73,9 +73,14 @@ cp -r tdd .cursor/skills/tdd
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat tdd/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r tdd .agents/skills/tdd
+
+# Global
+cp -r tdd ~/.agents/skills/tdd
 ```
+
+Model-invoked, or mention explicitly with `$tdd`.
 
 </details>
 

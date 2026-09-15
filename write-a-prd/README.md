@@ -62,9 +62,14 @@ cp -r write-a-prd .cursor/skills/write-a-prd
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat write-a-prd/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r write-a-prd .agents/skills/write-a-prd
+
+# Global
+cp -r write-a-prd ~/.agents/skills/write-a-prd
 ```
+
+Model-invoked, or mention explicitly with `$write-a-prd`.
 
 </details>
 

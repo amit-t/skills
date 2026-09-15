@@ -71,8 +71,14 @@ cp -r e2e-audit .cursor/skills/e2e-audit
 <summary>Codex</summary>
 
 ```bash
-cat e2e-audit/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r e2e-audit .agents/skills/e2e-audit
+
+# Global
+cp -r e2e-audit ~/.agents/skills/e2e-audit
 ```
+
+Model-invoked, or mention explicitly with `$e2e-audit`.
 
 </details>
 

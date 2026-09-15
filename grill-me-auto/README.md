@@ -83,9 +83,14 @@ cp -r grill-me-auto .cursor/skills/grill-me-auto
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat grill-me-auto/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r grill-me-auto .agents/skills/grill-me-auto
+
+# Global
+cp -r grill-me-auto ~/.agents/skills/grill-me-auto
 ```
+
+Model-invoked, or mention explicitly with `$grill-me-auto`.
 
 </details>
 

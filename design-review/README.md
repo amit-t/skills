@@ -62,9 +62,14 @@ cp -r design-review .cursor/skills/design-review
 <summary>Codex</summary>
 
 ```bash
-# Copy SKILL.md content into your codex instructions
-cat design-review/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r design-review .agents/skills/design-review
+
+# Global
+cp -r design-review ~/.agents/skills/design-review
 ```
+
+Model-invoked, or mention explicitly with `$design-review`.
 
 </details>
 

@@ -134,8 +134,14 @@ cp -r resume-session-handoff .cursor/skills/resume-session-handoff
 <summary>Codex</summary>
 
 ```bash
-cat resume-session-handoff/SKILL.md >> AGENTS.md
+# Project-level (Agent Skills standard dir; Codex discovers SKILL.md here)
+cp -r resume-session-handoff .agents/skills/resume-session-handoff
+
+# Global
+cp -r resume-session-handoff ~/.agents/skills/resume-session-handoff
 ```
+
+Model-invoked, or mention explicitly with `$resume-session-handoff`.
 
 </details>
 

@@ -4,7 +4,8 @@
     {
       "date": "2026-09-15",
       "items": [
-        "Added grill-summary skill — a read-only, plain-English story connecting a written grill's bigger goal, purpose, grouped unanswered decisions, and what answers enable; runs automatically after writing or via /grill-summary [path], using the matching Wayfinder map when relevant."
+        "Added grill-summary skill — a read-only, plain-English story connecting a written grill's bigger goal, purpose, grouped unanswered decisions, and what answers enable; runs automatically after writing or via /grill-summary [path], using the matching Wayfinder map when relevant.",
+        "Codex install instructions now copy each skill into `.agents/skills/` (project) or `~/.agents/skills/` (global), where Codex discovers skills, instead of appending `SKILL.md` to `AGENTS.md`. Updated across the root README, the site's install table and per-skill panel, every per-skill README, and the `gh-repo-mirror` scaffold templates; `resume-tailoring` keeps its portable `.skill` bundle as the `AGENTS.md`-only fallback. Also: the root README's `faq` row now notes flat or categorized FAQs, and the Agent Behavior table is alphabetical again."
       ]
     },
     {
