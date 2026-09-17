@@ -23,6 +23,28 @@ class TestStats(unittest.TestCase):
         self.assertEqual(s["error_count"], 1)
         self.assertEqual(s["retry_count"], 1)
 
+class TestRetryStrictAdjacency(unittest.TestCase):
+    def test_intervening_different_tool_breaks_retry(self):
+        turns = [
+            Turn(role="assistant", tool_calls=[{"name": "bash", "input_summary": "npx jest"}],
+                 tool_results=[{"name": "bash", "ok": False, "output_summary": "ERR"}]),
+            Turn(role="assistant", tool_calls=[{"name": "read", "input_summary": "cat foo"}],
+                 tool_results=[{"name": "read", "ok": True, "output_summary": "ok"}]),
+            Turn(role="assistant", tool_calls=[{"name": "bash", "input_summary": "npx jest"}],
+                 tool_results=[{"name": "bash", "ok": True, "output_summary": "pass"}]),
+        ]
+        self.assertEqual(compute_stats(turns)["retry_count"], 0)
+
+    def test_immediate_same_tool_retry_counts(self):
+        turns = [
+            Turn(role="assistant", tool_calls=[{"name": "bash", "input_summary": "npx jest"}],
+                 tool_results=[{"name": "bash", "ok": False, "output_summary": "ERR"}]),
+            Turn(role="assistant", tool_calls=[{"name": "bash", "input_summary": "npx jest"}],
+                 tool_results=[{"name": "bash", "ok": True, "output_summary": "pass"}]),
+        ]
+        self.assertEqual(compute_stats(turns)["retry_count"], 1)
+
+
 class TestOutcome(unittest.TestCase):
     def test_positive_ack(self):
         o = detect_outcome_signals(turns_with_error_recovery())

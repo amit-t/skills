@@ -76,18 +76,23 @@ def compute_stats(turns: List[Turn]) -> dict:
             if result.get("ok") is False:
                 error_count += 1
 
+    # Strict adjacency: a retry only counts when the very next tool_call
+    # after an error result is the same tool. Any intervening tool_call
+    # (same tool or not) consumes the pending error and breaks the
+    # sequence, so it can credit at most one retry per error.
     retry_count = 0
-    last_error_tool = None
+    pending_error_tool = None
     for t in turns:
         for call in t.tool_calls:
-            if last_error_tool is not None and call.get("name") == last_error_tool:
-                retry_count += 1
-                last_error_tool = None
+            if pending_error_tool is not None:
+                if call.get("name") == pending_error_tool:
+                    retry_count += 1
+                pending_error_tool = None
         for result in t.tool_results:
             if result.get("ok") is False:
-                last_error_tool = result.get("name")
-            elif result.get("name") == last_error_tool:
-                last_error_tool = None
+                pending_error_tool = result.get("name")
+            elif result.get("name") == pending_error_tool:
+                pending_error_tool = None
 
     return {
         "turn_count": turn_count,

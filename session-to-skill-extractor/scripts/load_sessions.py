@@ -44,8 +44,6 @@ def main(argv=None):
         config["paths"] = args.paths
     if args.lookback_days is not None:
         config.setdefault("filter", {})["lookback_days"] = args.lookback_days
-    if args.max is not None:
-        config.setdefault("filter", {})["max_sessions_per_run"] = args.max
 
     adapter = ADAPTERS[args.host]()
 
