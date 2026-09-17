@@ -1,16 +1,16 @@
-# Graph Report - at-skills  (2026-09-15)
+# Graph Report - at-skills  (2026-09-17)
 
 ## Corpus Check
-- 154 files · ~104,109 words
+- 202 files · ~128,275 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1195 nodes · 1160 edges · 103 communities (93 shown, 9 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 34 edges (avg confidence: 0.81)
+- 2153 nodes · 2655 edges · 181 communities (164 shown, 15 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 153 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9e3e7db8`
+- Built from commit: `9f5baec6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -35,7 +35,7 @@
 - templates/site.js
 - Part 2 — `skill-sync` utility
 - gh-repo-mirror — Reference
-- code-review-multi-axis — Reference
+- Rubric
 - The 10-step flow
 - PRD template
 - grill-summary
@@ -117,18 +117,95 @@
 - prd-to-plan Skill
 - design-interview Skill
 - Resume and Status
+- load_config
+- retire_review.py
+- validate_candidate.py
+- filter_sessions.py
+- dedup_prescreen.py
+- DevinAdapter
+- CopilotAdapter
+- properties
+- properties
+- properties
+- Turn
+- CodexAdapter
+- render_skill.py
+- type
+- ClaudeCodeAdapter
+- properties
+- Session
+- render_skill_md
+- properties
+- properties
+- properties
+- properties
+- detect
+- session-to-skill-extractor
+- properties
+- codex.py
+- GenericAdapter
+- Session-to-Skill Extractor
+- description
+- properties
+- provenance
+- test_render.py
+- _output_ok
+- generic.py
+- code-review-multi-axis — Reference
+- Branching Questions
+- evidence
+- items
+- claude_code.py
+- render_candidate
+- Writing Skills
+- Process
+- code-review-multi-axis
+- PRD Template (templates/prd-template.md)
+- Precision Mode Skill
+- Workflow
+- candidate.schema.json
+- registry.schema.json
+- items
+- session.schema.json
+- yaml_scalar
+- Failure Modes — Diagnosing a Skill
+- Host Notes — Detection, Session Sources, Skill Install Locations, Scheduling
+- additionalProperties
+- properties
+- __init__.py
+- resume-tailoring.skill
+- Research Prompts
+- Scoring Formula
+- Adapter
+- Reframing Strategies
+- Rubric — Stage 2: Procedure Identification
+- TestRecommendedActionDistinctFindings
+- Principles (book-grounded)
+- Part 3: AI Feature PRDs
+- name
+- version
+- version
+- stats
+- title_case_name
+- Anti-Patterns — Spec A7
+- until
+- updated_at
+- quality-criteria.md
+- detect_host.sh script
+- _bullets
+- jest-to-vitest-migration/SKILL.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `gh-repo-mirror — Reference` - 17 edges
-2. `4. Components` - 15 edges
-3. `design-draft Skill (Full UXD Workflow)` - 13 edges
-4. `code-review-multi-axis — Reference` - 12 edges
-5. `Rubric` - 12 edges
-6. `docs-from-prs` - 11 edges
-7. `docs-from-prs` - 11 edges
-8. `/code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR` - 11 edges
-9. `docs-from-prs` - 11 edges
-10. `Process` - 11 edges
+1. `DevinAdapter` - 27 edges
+2. `CopilotAdapter` - 26 edges
+3. `Turn` - 24 edges
+4. `Session` - 23 edges
+5. `render_skill_md()` - 23 edges
+6. `load_fixture()` - 22 edges
+7. `load_config()` - 20 edges
+8. `validate()` - 19 edges
+9. `read_json()` - 17 edges
+10. `PromoteFixture` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Catalog Sync Rule (Mandatory)` --semantically_similar_to--> `CLAUDE Catalog Sync Rule (Mandatory)`  [INFERRED] [semantically similar]
@@ -156,7 +233,7 @@
 - **Engineering Spec Artifact Trio (TDD/SPEC/ADR)** — engspec_tdd, engspec_spec, engspec_adr [EXTRACTED 1.00]
 - **PRD Review 7-Agent Panel** — prdreviewpanel_engineer_agent, prdreviewpanel_designer_agent, prdreviewpanel_exec_agent, prdreviewpanel_legal_agent, prdreviewpanel_uxr_agent, prdreviewpanel_skeptic_agent, prdreviewpanel_customer_voice_agent [EXTRACTED 1.00]
 
-## Communities (103 total, 9 thin omitted)
+## Communities (181 total, 15 thin omitted)
 
 ### Community 0 - "7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)"
 Cohesion: 0.16
@@ -171,8 +248,8 @@ Cohesion: 0.06
 Nodes (37): Auth Storage Discovery, Diagnostic Report (Markdown), False Positive Check (negative assertions), In-Memory Auth (Zustand) Strategy, Playwright Test Framework, PRD-Driven Tests, Rationale: Auth Storage Drives Fixture Strategy, e2e-audit README (+29 more)
 
 ### Community 3 - "PRD Draft Skill"
-Cohesion: 0.09
-Nodes (24): 10 Principles for AI Products, AI Behavior Contract, Part 3: AI Feature PRDs, AI Behavior Specification (Good/Bad/Reject), Context Routing Logic, $1-$10-$100 Prototype Rule, Part 2: Full PRD Workflow (7 steps), PRD Hypothesis Section (If/Then/Because) (+16 more)
+Cohesion: 0.20
+Nodes (12): Context Routing Logic, $1-$10-$100 Prototype Rule, Part 2: Full PRD Workflow (7 steps), Output Quality Self-Check, prd-draft README, PRD Draft Skill, Stage-Specific Length Guidance, Step 0: Feature Context Check (+4 more)
 
 ### Community 4 - "site.js"
 Cohesion: 0.10
@@ -187,12 +264,12 @@ Cohesion: 0.12
 Nodes (17): Catalog Sync Rule (Mandatory), Category to CSS Class Mapping, AGENTS.md - Project Agent Instructions, Git Conventions (dev branch, conventional commits), site.js changes array requirement, site.js skills array requirement, Skill Authoring Reference (write-a-skill), CLAUDE Catalog Sync Rule (Mandatory) (+9 more)
 
 ### Community 7 - "Write-a-Skill Skill"
-Cohesion: 0.06
-Nodes (32): Description Requirements, Process, Review Checklist, SKILL.md Template, Skill Structure, When to Add Scripts, When to Split Files, Writing Skills (+24 more)
+Cohesion: 0.20
+Nodes (8): Skill Authoring Process (gather, draft, review), write-a-skill README, Review Checklist, Write-a-Skill Skill, Skill Folder Structure, SKILL.md Template, When to Add Scripts, When to Split Files
 
 ### Community 8 - "Multi-Job Workflow"
-Cohesion: 0.05
-Nodes (41): 1. JD Parsing, 2. Company Research, 3. Role Benchmarking, 4. Success Profile Synthesis, 5. Graceful Degradation, Adjacent (20%), Branching Questions, Capture Template (+33 more)
+Cohesion: 0.20
+Nodes (10): Failure Modes, Incremental Additions, Multi-Job Workflow, Phase 0 — Intake & Batch Init, Phase 1 — Aggregate Gap Analysis, Phase 2 — Shared Discovery, Phase 3 — Per-Job Processing, Phase 4 — Batch Finalization (+2 more)
 
 ### Community 9 - "grill-me-auto"
 Cohesion: 0.05
@@ -219,8 +296,8 @@ Cohesion: 0.22
 Nodes (9): bundlephobia.com (cited), Package Comparison Table, Lockfile-Based Package Manager Detection, Quality Signals (stars, downloads, vulns), Rationale: Avoid Stale Training Data, package-scout README, package-scout Skill, Snyk / socket.dev (cited) (+1 more)
 
 ### Community 15 - "/code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR"
-Cohesion: 0.07
-Nodes (27): 1. Pin the fixed point, 2. Identify the spec source, 3. Identify the standards sources, 4. Spawn both sub-agents in parallel, 5. Aggregate, Pre-PR mode — two-axis local review, Process, Why two axes (+19 more)
+Cohesion: 0.18
+Nodes (11): /code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR, Config, One-time identity ack, Phase 1 — Approval loop, Phase 1 — Deep review, Phase 1 — Pre-check (3 arms, all gated by `--force`), Phase 2 — Submit, Preflight (fail-fast) (+3 more)
 
 ### Community 16 - "concise-reporting Skill"
 Cohesion: 0.50
@@ -238,9 +315,9 @@ Nodes (26): Body outline, Build mode (skill-name omitted), Catalog entries added
 Cohesion: 0.07
 Nodes (25): Bootstrapping a starter skill (--bootstrap-skill), Branch protection PUT, Creating the new repo, DNS CNAME (--cname-provider), Finding the right org, gh-repo-mirror — Reference, HTTPS enforcement — async cert, Mirroring access: teams + direct collaborators (default-on, `--no-mirror-access` to skip) (+17 more)
 
-### Community 20 - "code-review-multi-axis — Reference"
-Cohesion: 0.08
-Nodes (26): 10. Scope discipline, 11. Data migration safety, 1. Correctness, 2. Design / architecture, 3. Security, 4. Reliability, 5. Performance, 6. Testing (+18 more)
+### Community 20 - "Rubric"
+Cohesion: 0.17
+Nodes (12): 10. Scope discipline, 11. Data migration safety, 1. Correctness, 2. Design / architecture, 3. Security, 4. Reliability, 5. Performance, 6. Testing (+4 more)
 
 ### Community 21 - "The 10-step flow"
 Cohesion: 0.08
@@ -283,8 +360,8 @@ Cohesion: 0.12
 Nodes (15): Adjacent (20%), Confidence Bands, Direct Match (40%), Gap Handling (<60% on a must-have), Impact (10%), Matching Strategies, Reframing Strategies, Role Consolidation (Phase 2) (+7 more)
 
 ### Community 31 - "/resume-tailoring — Job-Specific Resume Workflow"
-Cohesion: 0.12
-Nodes (16): Checkpoints & User Control, Edge Cases, Multi-Job Mode, Phase 0 — Library build (always first), Phase 1 — Research, Phase 2.5 — Experience discovery (optional, offered when gaps found), Phase 2 — Template, Phase 3 — Assembly (match + score) (+8 more)
+Cohesion: 0.25
+Nodes (8): Checkpoints & User Control, Edge Cases, Multi-Job Mode, Quick Start, References, /resume-tailoring — Job-Specific Resume Workflow, Sub-Skills Used, Truthfulness Rules (non-negotiable)
 
 ### Community 32 - "GitHub Pages — Neo-Brutalist"
 Cohesion: 0.13
@@ -530,25 +607,309 @@ Nodes (6): Step 2: Design Interview, Design Brief Output Template, Context Routi
 Cohesion: 0.40
 Nodes (4): design-draft — Reference, `--from` flag values, `--list` output, Resume and Status
 
+### Community 103 - "load_config"
+Cohesion: 0.05
+Nodes (54): Exception, main(), parse_args(), CLI: locate and load sessions for one host adapter, writing a sessions+errors…, cmd_promote(), _load_or_init_registry(), main(), parse_args() (+46 more)
+
+### Community 104 - "retire_review.py"
+Cohesion: 0.07
+Nodes (37): build_report(), compute_skill_stats(), _conflicts_block(), find_conflicts(), _jaccard(), _library_size_block(), load_usage_rows(), main() (+29 more)
+
+### Community 105 - "validate_candidate.py"
+Cohesion: 0.06
+Nodes (43): _anti_patterns_path(), _check_decision_points(), _check_edge_cases(), _check_prose_blacklist_and_checkable(), _check_rubric(), _check_schema_lite(), _check_single_session_review(), _check_steps() (+35 more)
+
+### Community 106 - "filter_sessions.py"
+Cohesion: 0.08
+Nodes (35): _evaluate(), _filter_cfg(), filter_sessions(), _has_novelty(), _has_structured_output(), _load_sessions(), main(), parse_args() (+27 more)
+
+### Community 107 - "dedup_prescreen.py"
+Cohesion: 0.09
+Nodes (27): build_shortlist(), _candidate_tokens(), _jaccard(), main(), parse_args(), _parse_frontmatter(), Yield (skill_name, path, tokens) for every registry skills{} entry. A…, Score candidate vs every existing SKILL.md + registry entry; return entries… (+19 more)
+
+### Community 108 - "DevinAdapter"
+Cohesion: 0.09
+Nodes (9): DevinAdapter, Paste/export-first: devin_session_files config points straight at JSON files., Binding Task-2 contract: locate() returns refs newest first., API path is mocked -- no real network calls in tests., TestDevinAdapterLoadFromFile, TestDevinAdapterLocateNoSource, TestDevinAdapterLocateOrdering, TestDevinAdapterLocateViaApi (+1 more)
+
+### Community 109 - "CopilotAdapter"
+Cohesion: 0.09
+Nodes (12): CopilotAdapter, _make_sessions_db(), Binding Task-2 contract: locate() returns refs newest first., rows: list of (id, title, session_type, model, created_at) tuples., ~/.copilot/session-state/<id>/ per-session dir, file names UNVERIFIED (best-…, Legacy history-session-state/<id>/state.json shape (host-notes: schema…, sessions table in session-store.db/data.db is metadata-only -- no message…, TestCopilotAdapterDbMetadataOnly (+4 more)
+
+### Community 110 - "properties"
+Cohesion: 0.07
+Nodes (29): q1, q2, q3, q4, q5, rubric, total, maximum (+21 more)
+
+### Community 111 - "properties"
+Cohesion: 0.08
+Nodes (26): description, type, type, type, type, type, properties, type (+18 more)
+
+### Community 112 - "properties"
+Cohesion: 0.08
+Nodes (25): description, type, description, type, description, type, description, type (+17 more)
+
+### Community 113 - "Turn"
+Cohesion: 0.18
+Nodes (14): compute_stats(), detect_outcome_signals(), Normalized session model: Turn/Session dataclasses, stats, and outcome signals.…, Scan user turns for positive/negative acks; scan tool calls for a completion…, turn_count, assistant_turns, tool_call_count, distinct_tools, char_count,…, Turn, _devin_role(), Devin adapter: paste/export-first, with an optional Devin API fallback.… (+6 more)
+
+### Community 114 - "CodexAdapter"
+Cohesion: 0.12
+Nodes (4): CodexAdapter, TestCodexAdapterLoad, TestCodexAdapterLocate, TestCodexAdapterMalformedLines
+
+### Community 115 - "render_skill.py"
+Cohesion: 0.12
+Nodes (19): _decision_points_block(), _dedup_findings_block(), _evidence_block(), _load_extra_dedup_findings(), main(), _numbered_steps(), parse_args(), _quality_criteria_block() (+11 more)
+
+### Community 116 - "type"
+Cohesion: 0.12
+Nodes (21): items, type, items, additionalProperties, properties, type, items, type (+13 more)
+
+### Community 117 - "ClaudeCodeAdapter"
+Cohesion: 0.13
+Nodes (4): ClaudeCodeAdapter, TestClaudeCodeAdapterLoad, TestClaudeCodeAdapterLocate, TestClaudeCodeAdapterMalformedLines
+
+### Community 118 - "properties"
+Cohesion: 0.11
+Nodes (18): description, type, type, type, type, properties, at, candidates (+10 more)
+
+### Community 119 - "Session"
+Cohesion: 0.18
+Nodes (11): Session, _find_message_list(), _message_to_turn(), _messages_to_turns(), Copilot (GitHub Copilot CLI/chat) adapter. Probe order under `~/.copilot`…, Best-effort role normalization. # unverified: exact role vocabulary Copilot…, First non-empty list under a common message-list key, in priority order., _role_from_raw() (+3 more)
+
+### Community 120 - "render_skill_md"
+Cohesion: 0.24
+Nodes (6): Build the rendered SKILL.md text (spec D3) for a D2 candidate dict., render_skill_md(), load_fixture(), Fix round 1, item 1: a description containing ': ' must not corrupt the…, TestRenderSkillMdBodySections, TestRenderSkillMdFrontmatterYamlSafety
+
+### Community 121 - "properties"
+Cohesion: 0.12
+Nodes (16): properties, description, type, type, description, type, created_at, human_edited (+8 more)
+
+### Community 122 - "properties"
+Cohesion: 0.12
+Nodes (16): type, description, type, enum, type, properties, cwd, ended_at (+8 more)
+
+### Community 123 - "properties"
+Cohesion: 0.13
+Nodes (15): type, type, type, type, assistant_turns, char_count, distinct_tools, error_count (+7 more)
+
+### Community 124 - "properties"
+Cohesion: 0.13
+Nodes (15): type, type, additionalProperties, properties, required, type, explicit_user_rating, notes (+7 more)
+
+### Community 125 - "detect"
+Cohesion: 0.24
+Nodes (7): detect(), _enumerate_session_sources(), main(), Detect which agent host is running (or produced session logs on this machine).…, Return every known session store that exists under `home`., Detect the host agent runtime. env: mapping to read env vars from (defaults to…, TestDetect
+
+### Community 126 - "session-to-skill-extractor"
+Cohesion: 0.14
+Nodes (13): Configuration, Install as Agent Skill, License, Manual Installation, Owner decisions defaulted, Related Skills, Scheduled use, session-to-skill-extractor (+5 more)
+
+### Community 127 - "properties"
+Cohesion: 0.14
+Nodes (14): type, type, type, clearly_articulable, measurable_quality, non_obvious, quality_criteria, recurrence (+6 more)
+
+### Community 128 - "codex.py"
+Cohesion: 0.20
+Nodes (8): _current_assistant_turn(), _extract_message_text(), _input_summary(), Codex adapter: loads local Codex CLI rollout JSONL files. Each Codex session is…, The last turn if it's an assistant turn, so sequential tool calls with no…, Join input_text/output_text blocks from a message payload's content list., arguments (function_call, a JSON string) or input (custom_tool_call), first 200…, TestInputSummary
+
+### Community 129 - "GenericAdapter"
+Cohesion: 0.24
+Nodes (6): GenericAdapter, Malformed input must never raise; it always degrades to one user turn., TestGenericAdapterFallback, TestGenericAdapterJsonl, TestGenericAdapterPlainText, _write_temp()
+
+### Community 130 - "Session-to-Skill Extractor"
+Cohesion: 0.14
+Nodes (13): Feedback commands, Guardrails, Scheduled use, Session-to-Skill Extractor, Step 0 — Detect host, Step 1 — Locate and filter sessions, Step 2 — Identify, Step 3 — Cluster and gate (+5 more)
+
+### Community 131 - "description"
+Cohesion: 0.15
+Nodes (13): description, maxLength, type, description, signals, trigger, description, items (+5 more)
+
+### Community 132 - "properties"
+Cohesion: 0.15
+Nodes (13): properties, role, text, timestamp, tool_calls, tool_results, enum, type (+5 more)
+
+### Community 133 - "provenance"
+Cohesion: 0.17
+Nodes (12): description, type, type, type, extracted_at, extracted_by_host, extractor_version, provenance (+4 more)
+
+### Community 134 - "test_render.py"
+Cohesion: 0.20
+Nodes (8): h2_headings(), parse_frontmatter(), Minimal 'key: value' frontmatter parser (top-level keys only, quotes stripped)., Brief Step 1: the rendered SKILL.md's H2 headings appear in exact spec order., TestRenderSkillCli, TestRenderSkillMdFrontmatter, TestRenderSkillMdH2Sequence, TestRenderSkillMdNoDollarResidue
+
+### Community 135 - "_output_ok"
+Cohesion: 0.27
+Nodes (5): _maybe_json_object(), _output_ok(), Parse text as JSON; return it only if the result is itself a dict, else None., Best-effort success heuristic: not a nonzero exit_code, not an ERROR-prefixed…, TestOutputOkHeuristic
+
+### Community 136 - "generic.py"
+Cohesion: 0.24
+Nodes (9): parse_transcript(), Generic adapter: loads plain-text or JSONL session transcripts from file paths.…, One JSON object per non-blank line, each with a 'role' key. None if not JSONL., Blank-line-separated blocks, each prefixed 'User:' or 'Assistant:'. None if not…, Parse text as JSONL, else blank-line User:/Assistant: blocks, else one user…, _try_jsonl(), _try_plain_text(), Lowercase, alnum-and-hyphen slug of s. (+1 more)
+
+### Community 137 - "code-review-multi-axis — Reference"
+Cohesion: 0.20
+Nodes (10): code-review-multi-axis — Reference, Comment layout (Phase 1 verb loop), Config schema, Error handling, gh commands, Identity ack, Pre-check thresholds (config-driven), Re-review dedupe (+2 more)
+
+### Community 138 - "Branching Questions"
+Cohesion: 0.22
+Nodes (9): Branching Questions, Capture Template, Example Flow, Handing Off, Multi-Job Leverage Prefix, Pattern A — Technical Skill Gap, Pattern B — Soft Skill / Experience Gap, Pattern C — Recent Work Probe (+1 more)
+
+### Community 139 - "evidence"
+Cohesion: 0.22
+Nodes (9): additionalProperties, properties, required, type, evidence, sessions, supporting_sessions, type (+1 more)
+
+### Community 140 - "items"
+Cohesion: 0.33
+Nodes (9): items, additionalProperties, required, type, turns, items, items, items (+1 more)
+
+### Community 141 - "claude_code.py"
+Cohesion: 0.28
+Nodes (7): _extract_content(), _line_to_turn(), Claude Code adapter: loads local Claude Code transcript JSONL files. Each…, Split message.content into (text, tool_calls, tool_results). content is either…, Keep only user/assistant lines that are neither meta nor sidechain., Convert one kept line into a Turn. A "user"-type line whose only content is…, _should_keep()
+
+### Community 142 - "render_candidate"
+Cohesion: 0.22
+Nodes (5): Render one candidate into…, render_candidate(), Fix round 1, item 2a: a candidate JSON missing candidate_id must not crash with…, TestRenderCandidateWritesFiles, TestRenderSkillCliMissingCandidateId
+
+### Community 143 - "Writing Skills"
+Cohesion: 0.25
+Nodes (8): Description Requirements, Process, Review Checklist, SKILL.md Template, Skill Structure, When to Add Scripts, When to Split Files, Writing Skills
+
+### Community 144 - "Process"
+Cohesion: 0.25
+Nodes (8): 1. Pin the fixed point, 2. Identify the spec source, 3. Identify the standards sources, 4. Spawn both sub-agents in parallel, 5. Aggregate, Pre-PR mode — two-axis local review, Process, Why two axes
+
+### Community 145 - "code-review-multi-axis"
+Cohesion: 0.25
+Nodes (8): code-review-multi-axis, Configuration, Install, License, Manual Installation, Requirements, Scope (v1), Usage
+
+### Community 146 - "PRD Template (templates/prd-template.md)"
+Cohesion: 0.25
+Nodes (8): PRD Hypothesis Section (If/Then/Because), PRD Non-Goals, PRD Template (templates/prd-template.md), Risks and Recovery Table, PRD Rollout Plan, Solution Overview (non-AI), PRD Strategic Fit + Impact Sizing, PRD Success Metrics + STEDII
+
+### Community 147 - "Precision Mode Skill"
+Cohesion: 0.29
+Nodes (8): Calibration Examples, What Precision Mode Does NOT Mean, Derived from concise-reporting, 10 Output Rules (lead with answer, no filler, etc.), Prime Directive: Maximize Information Density, precision-mode README, Precision Mode Skill, Description Requirements (1024 chars, triggers)
+
+### Community 148 - "Workflow"
+Cohesion: 0.25
+Nodes (8): Phase 0 — Library build (always first), Phase 1 — Research, Phase 2.5 — Experience discovery (optional, offered when gaps found), Phase 2 — Template, Phase 3 — Assembly (match + score), Phase 4 — Generation, Phase 5 — Save + learn (conditional), Workflow
+
+### Community 149 - "candidate.schema.json"
+Cohesion: 0.25
+Nodes (7): additionalProperties, description, $id, required, $schema, title, type
+
+### Community 150 - "registry.schema.json"
+Cohesion: 0.25
+Nodes (7): additionalProperties, description, $id, required, $schema, title, type
+
+### Community 151 - "items"
+Cohesion: 0.32
+Nodes (8): additionalProperties, required, type, supporting_sessions, items, items, type, items
+
+### Community 152 - "session.schema.json"
+Cohesion: 0.25
+Nodes (7): additionalProperties, description, $id, required, $schema, title, type
+
+### Community 153 - "yaml_scalar"
+Cohesion: 0.36
+Nodes (4): Render value as a YAML frontmatter scalar. Returns the raw string unquoted only…, yaml_scalar(), Fix round 1, item 1: frontmatter scalars must be YAML-safe., TestYamlScalar
+
+### Community 154 - "Failure Modes — Diagnosing a Skill"
+Cohesion: 0.25
+Nodes (8): Duplication, Failure Modes — Diagnosing a Skill, Negation, No-op, Premature completion, Sediment, Sprawl, Supporting vocabulary
+
+### Community 155 - "Host Notes — Detection, Session Sources, Skill Install Locations, Scheduling"
+Cohesion: 0.29
+Nodes (6): claude-code, codex, copilot, devin, generic, Host Notes — Detection, Session Sources, Skill Install Locations, Scheduling
+
+### Community 156 - "additionalProperties"
+Cohesion: 0.29
+Nodes (7): additionalProperties, required, type, skills, additionalProperties, description, type
+
+### Community 157 - "properties"
+Cohesion: 0.29
+Nodes (7): type, properties, extractor_version, runs, suppressed_task_types, type, type
+
+### Community 158 - "__init__.py"
+Cohesion: 0.29
+Nodes (3): Adapter registry: maps host name -> Adapter subclass. Each adapter module is…, TestAdaptersRegistry, TestLoadSessionsCliUnknownHost
+
+### Community 159 - "resume-tailoring.skill"
+Cohesion: 0.33
+Nodes (5): Gap Handling (<60% on a must-have), Matching Strategies, resume-tailoring (portable bundle), Role Consolidation (Phase 2), Title Reframing (Phase 2)
+
+### Community 160 - "Research Prompts"
+Cohesion: 0.33
+Nodes (6): 1. JD Parsing, 2. Company Research, 3. Role Benchmarking, 4. Success Profile Synthesis, 5. Graceful Degradation, Research Prompts
+
+### Community 161 - "Scoring Formula"
+Cohesion: 0.33
+Nodes (6): Adjacent (20%), Confidence Bands, Direct Match (40%), Impact (10%), Scoring Formula, Transferable (30%)
+
+### Community 162 - "Adapter"
+Cohesion: 0.33
+Nodes (4): Adapter, Interface every host adapter implements., Return source refs (paths/ids), newest first., Load a single source ref into a Session.
+
+### Community 163 - "Reframing Strategies"
+Cohesion: 0.40
+Nodes (5): Reframing Strategies, Strategy 1 — Keyword alignment, Strategy 2 — Emphasis shift, Strategy 3 — Abstraction level, Strategy 4 — Scale emphasis
+
+### Community 164 - "Rubric — Stage 2: Procedure Identification"
+Cohesion: 0.40
+Nodes (4): 0–2 anchor table (spec C5 Stage 2), Flag rule, Rubric — Stage 2: Procedure Identification, The five questions (verbatim, spec A4 Stage 2)
+
+### Community 167 - "Principles (book-grounded)"
+Cohesion: 0.50
+Nodes (4): A Philosophy of Software Design (Ousterhout), Domain-Driven Design (Evans), Principles (book-grounded), The Pragmatic Programmer (Hunt & Thomas)
+
+### Community 168 - "Part 3: AI Feature PRDs"
+Cohesion: 0.50
+Nodes (4): 10 Principles for AI Products, AI Behavior Contract, Part 3: AI Feature PRDs, AI Behavior Specification (Good/Bad/Reject)
+
+### Community 169 - "name"
+Cohesion: 0.50
+Nodes (4): description, pattern, type, name
+
+### Community 170 - "version"
+Cohesion: 0.50
+Nodes (4): version, description, pattern, type
+
+### Community 171 - "version"
+Cohesion: 0.50
+Nodes (4): version, description, pattern, type
+
+### Community 172 - "stats"
+Cohesion: 0.50
+Nodes (4): stats, additionalProperties, required, type
+
+### Community 173 - "title_case_name"
+Cohesion: 0.50
+Nodes (3): kebab-case skill name -> Title Case with hyphens rendered as spaces., title_case_name(), TestTitleCaseName
+
+### Community 175 - "until"
+Cohesion: 0.67
+Nodes (3): until, description, type
+
+### Community 176 - "updated_at"
+Cohesion: 0.67
+Nodes (3): updated_at, description, type
+
 ## Knowledge Gaps
-- **816 isolated node(s):** `skills`, `changes`, `state`, `searchInput`, `filtersEl` (+811 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 886 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1032 isolated node(s):** `skills`, `changes`, `state`, `searchInput`, `filtersEl` (+1027 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1295 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `write-a-prd Skill` connect `write-a-prd Skill` to `design-review Skill`, `prd-to-plan Skill`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `design-review Skill` connect `design-review Skill` to `7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)`, `design-interview Skill`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `code-review-multi-axis — Reference` connect `code-review-multi-axis — Reference` to `/code-review-multi-axis — Principal-Engineer Review, Pre-PR and Post-PR`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `skills`, `changes`, `state` to the rest of the system?**
-  _816 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `TDD Skill (red-green-refactor)` be split into smaller, more focused modules?**
-  _Cohesion score 0.09782608695652174 - nodes in this community are weakly interconnected._
-- **Should `eng-spec Skill` be split into smaller, more focused modules?**
-  _Cohesion score 0.05855855855855856 - nodes in this community are weakly interconnected._
-- **Should `PRD Draft Skill` be split into smaller, more focused modules?**
-  _Cohesion score 0.09420289855072464 - nodes in this community are weakly interconnected._
+- **Why does `load_config()` connect `load_config` to `retire_review.py`, `validate_candidate.py`, `filter_sessions.py`, `dedup_prescreen.py`, `render_candidate`, `render_skill.py`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `CodexAdapter` connect `CodexAdapter` to `codex.py`, `Adapter`, `Turn`, `Session`, `__init__.py`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `Session` connect `Session` to `codex.py`, `GenericAdapter`, `Adapter`, `generic.py`, `DevinAdapter`, `claude_code.py`, `CopilotAdapter`, `Turn`, `CodexAdapter`, `ClaudeCodeAdapter`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Are the 6 inferred relationships involving `DevinAdapter` (e.g. with `Session` and `TestDevinAdapterLoadFromFile`) actually correct?**
+  _`DevinAdapter` has 6 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 7 inferred relationships involving `CopilotAdapter` (e.g. with `Session` and `Turn`) actually correct?**
+  _`CopilotAdapter` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 5 inferred relationships involving `Turn` (e.g. with `CodexAdapter` and `CopilotAdapter`) actually correct?**
+  _`Turn` has 5 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 6 inferred relationships involving `Session` (e.g. with `ClaudeCodeAdapter` and `CodexAdapter`) actually correct?**
+  _`Session` has 6 INFERRED edges - model-reasoned connections that need verification._
