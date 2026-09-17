@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from adapters.codex import CodexAdapter
+from adapters.codex import CodexAdapter, _input_summary, _output_ok
 
 FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 CODEX_FIXTURE = FIXTURES_DIR / "codex" / "rollout-sample.jsonl"
@@ -32,7 +32,11 @@ class TestCodexAdapterLoad(unittest.TestCase):
         self.assertEqual(self.session.started_at, "2026-09-17T09:00:00Z")
 
     def test_ended_at_from_last_line_timestamp(self):
-        self.assertEqual(self.session.ended_at, "2026-09-17T09:00:45Z")
+        # The fixture's very last line (ordinal 14) is a skipped event_msg
+        # with a timestamp LATER than the last kept turn (ordinal 13, user
+        # ack at 09:00:45Z). ended_at must come from that last raw line, not
+        # the last turn that actually made it into the Session.
+        self.assertEqual(self.session.ended_at, "2026-09-17T09:00:50Z")
 
     def test_developer_and_environment_context_lines_dropped(self):
         texts = [t.text for t in self.session.turns]
@@ -40,8 +44,8 @@ class TestCodexAdapterLoad(unittest.TestCase):
         self.assertFalse(any("environment_context" in t for t in texts))
 
     def test_reasoning_and_event_msg_lines_skipped(self):
-        # 13 raw lines minus: developer(1), environment_context(1), reasoning(1),
-        # event_msg(1), session_meta(1) = 8 lines that become turns, but the two
+        # 14 raw lines minus: developer(1), environment_context(1), reasoning(1),
+        # event_msg(2), session_meta(1) = 8 lines that become turns, but the two
         # function_call lines attach onto assistant turns rather than creating
         # their own, so the turn count is lower still. Assert role sequence
         # directly instead of a bare count, since that pins the real behavior.
@@ -72,6 +76,46 @@ class TestCodexAdapterLoad(unittest.TestCase):
 
     def test_user_positive_ack_detected(self):
         self.assertTrue(self.session.outcome_signals["user_positive_ack"])
+
+
+class TestInputSummary(unittest.TestCase):
+    def test_empty_string_arguments_falls_through_to_input(self):
+        # Truthy or-chain per shared contract: "" is falsy, same as missing.
+        self.assertEqual(_input_summary({"arguments": "", "input": "fallback"}), "fallback")
+
+    def test_nonempty_arguments_wins_over_input(self):
+        self.assertEqual(_input_summary({"arguments": "primary", "input": "fallback"}), "primary")
+
+    def test_missing_both_yields_empty_string(self):
+        self.assertEqual(_input_summary({}), "")
+
+    def test_non_string_input_is_json_encoded(self):
+        self.assertEqual(_input_summary({"input": {"a": 1}}), '{"a": 1}')
+
+
+class TestOutputOkHeuristic(unittest.TestCase):
+    def test_json_string_with_nested_error_prefix_is_not_ok(self):
+        # exit_code is 0 (would look ok on its own), but the nested "output"
+        # text starts with "error:" -- must still be caught. Before the fix,
+        # this was unreachable: the prefix check ran on the raw JSON string
+        # itself, which starts with "{", so it never fired.
+        self.assertFalse(_output_ok('{"exit_code": 0, "output": "error: lint warnings found"}'))
+
+    def test_json_string_with_clean_output_is_ok(self):
+        self.assertTrue(_output_ok('{"exit_code": 0, "output": "all good"}'))
+
+    def test_json_string_with_nonzero_exit_code_is_not_ok(self):
+        self.assertFalse(_output_ok('{"exit_code": 1, "output": "all good"}'))
+
+    def test_plain_non_json_error_prefixed_string_is_not_ok(self):
+        self.assertFalse(_output_ok("ERROR: boom"))
+
+    def test_plain_non_json_clean_string_is_ok(self):
+        self.assertTrue(_output_ok("all good"))
+
+    def test_dict_output_still_handled_directly(self):
+        self.assertFalse(_output_ok({"exit_code": 1, "output": "boom"}))
+        self.assertTrue(_output_ok({"exit_code": 0, "output": "fine"}))
 
 
 class TestCodexAdapterLocate(unittest.TestCase):

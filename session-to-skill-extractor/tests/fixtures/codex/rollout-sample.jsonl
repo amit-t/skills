@@ -11,3 +11,4 @@
 {"ordinal": 11, "timestamp": "2026-09-17T09:00:35Z", "type": "response_item", "payload": {"type": "function_call_output", "call_id": "call_2", "output": "{\"exit_code\": 0, \"output\": \"PASS tests/foo.test.js\"}"}}
 {"ordinal": 12, "timestamp": "2026-09-17T09:00:40Z", "type": "response_item", "payload": {"type": "message", "role": "assistant", "content": [{"type": "output_text", "text": "I've migrated the test suite to vitest and confirmed the tests pass."}]}}
 {"ordinal": 13, "timestamp": "2026-09-17T09:00:45Z", "type": "response_item", "payload": {"type": "message", "role": "user", "content": [{"type": "input_text", "text": "exactly what I wanted, thanks!"}]}}
+{"ordinal": 14, "timestamp": "2026-09-17T09:00:50Z", "type": "event_msg", "payload": {"type": "task_complete"}}

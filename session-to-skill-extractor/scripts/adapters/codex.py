@@ -43,32 +43,57 @@ def _extract_message_text(content):
 
 
 def _input_summary(payload):
-    """arguments (function_call, a JSON string) or input (custom_tool_call), first 200 chars."""
-    raw = payload.get("arguments")
-    if raw is None:
-        raw = payload.get("input")
-    if raw is None:
-        raw = ""
+    """arguments (function_call, a JSON string) or input (custom_tool_call), first 200 chars.
+
+    Truthy or-chain per shared contract: an empty-string `arguments` falls
+    through to `input`, same as a missing/None `arguments`.
+    """
+    raw = payload.get("arguments") or payload.get("input") or ""
     if not isinstance(raw, str):
         raw = json.dumps(raw)
     return raw[:200]
 
 
+def _maybe_json_object(text):
+    """Parse text as JSON; return it only if the result is itself a dict, else None."""
+    try:
+        parsed = json.loads(text)
+    except ValueError:
+        return None
+    return parsed if isinstance(parsed, dict) else None
+
+
 def _output_ok(output):
-    """Best-effort success heuristic: not a nonzero exit_code, not an ERROR-prefixed message."""
+    """Best-effort success heuristic: not a nonzero exit_code, not an ERROR-prefixed message.
+
+    `output` may be a dict already, or (the realistic Codex shape) a JSON
+    string encoding a dict like `{"exit_code": 1, "output": "..."}`. A
+    JSON-string output is parsed and re-dispatched through the dict branch so
+    the nested "output" text (where an ERROR/error: prefix would actually
+    live) gets checked -- checking the raw JSON string's own prefix would
+    never fire, since it starts with "{".
+    """
+    if isinstance(output, str):
+        parsed = _maybe_json_object(output)
+        if parsed is not None:
+            return _output_ok(parsed)
+        match = _EXIT_CODE_RE.search(output)
+        if match and int(match.group(1)) != 0:
+            return False
+        if output.startswith("ERROR") or output.startswith("error:"):
+            return False
+        return True
+
     if isinstance(output, dict):
         exit_code = output.get("exit_code")
         if isinstance(exit_code, (int, float)) and not isinstance(exit_code, bool) and exit_code != 0:
             return False
         text = output.get("output")
         text = text if isinstance(text, str) else ""
-    else:
-        text = output if isinstance(output, str) else ("" if output is None else str(output))
-        match = _EXIT_CODE_RE.search(text)
-        if match and int(match.group(1)) != 0:
+        if text.startswith("ERROR") or text.startswith("error:"):
             return False
-    if text.startswith("ERROR") or text.startswith("error:"):
-        return False
+        return True
+
     return True
 
 
