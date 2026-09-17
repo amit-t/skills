@@ -1,0 +1,18 @@
+{
+  "sessionId": "copilot-sess-legacy-abc",
+  "startTime": "2026-08-01T09:00:00Z",
+  "chatMessages": [
+    {
+      "role": "user",
+      "content": "Explain how the retry logic works in this repo."
+    },
+    {
+      "role": "assistant",
+      "content": "It retries once immediately after a failed tool call of the same name."
+    },
+    {
+      "role": "user",
+      "content": "Makes sense, thanks."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "sessionId": "copilot-sess-layout1",
+  "startTime": "2026-09-12T10:00:00Z",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How do I add a GitHub Actions workflow for lint?",
+      "timestamp": "2026-09-12T10:00:05Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Create .github/workflows/lint.yml with a job that runs eslint.",
+      "timestamp": "2026-09-12T10:00:30Z"
+    },
+    {
+      "role": "user",
+      "content": "Great, that worked!",
+      "timestamp": "2026-09-12T10:01:00Z"
+    }
+  ]
+}
