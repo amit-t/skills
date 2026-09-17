@@ -1,0 +1,5 @@
+User: summarize the quarterly report
+
+Assistant: I pulled revenue, then costs, then wrote the summary table.
+
+User: perfect
