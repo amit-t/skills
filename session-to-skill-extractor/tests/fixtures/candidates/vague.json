@@ -1,0 +1,105 @@
+{
+  "candidate_id": "cs-20260917-jest-to-vitest-vague",
+  "name": "jest-to-vitest-migration",
+  "description": "Migrates a Jest test suite to Vitest, translating config and mocks. Use when a session's task involves converting jest.config or jest imports to vitest equivalents.",
+  "task_type": "migrate-jest-to-vitest",
+  "trigger": {
+    "description": "User asks to migrate a package's test suite from Jest to Vitest, or session touches jest.config.* and vitest is present in package.json.",
+    "signals": [
+      "jest.config.js present alongside a vitest dependency",
+      "user says \"migrate to vitest\""
+    ]
+  },
+  "prerequisites": [
+    "Node project with an existing Jest test suite",
+    "vitest added as a devDependency"
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "action": "Run the existing jest suite to capture a baseline of passing tests",
+      "why": "Establishes a pass/fail baseline before touching any config.",
+      "tool_hint": "npx jest"
+    },
+    {
+      "n": 2,
+      "action": "Create a vitest.config.ts file that mirrors the jest.config.js settings",
+      "why": "Vitest reads its own config file rather than jest.config.js.",
+      "tool_hint": "vitest.config.ts"
+    },
+    {
+      "n": 3,
+      "action": "Replace jest globals with vitest imports across each test file",
+      "why": "Vitest does not inject globals by default.",
+      "tool_hint": "grep -rl 'from \"jest\"'"
+    },
+    {
+      "n": 4,
+      "action": "Be thorough and use best judgment",
+      "why": "Vague catch-all step, deliberately not concrete."
+    }
+  ],
+  "decision_points": [
+    {
+      "after_step": 1,
+      "condition": "Did the baseline jest run reveal any already-failing tests?",
+      "if_true": "Record the pre-existing failures separately so the migration diff is not blamed for them",
+      "if_false": "Proceed directly to creating the vitest config"
+    }
+  ],
+  "expected_output": "a good answer",
+  "edge_cases": [
+    "Suite has snapshot tests that need jest.mock translated to vi.mock",
+    "Suite relies on a jsdom environment configured only in jest.config.js"
+  ],
+  "rubric": {
+    "q1": 2,
+    "q2": 2,
+    "q3": 1,
+    "q4": 2,
+    "q5": 2,
+    "total": 9
+  },
+  "quality_criteria": {
+    "recurrence": true,
+    "non_obvious": true,
+    "replicable": true,
+    "measurable_quality": true,
+    "clearly_articulable": true
+  },
+  "evidence": {
+    "supporting_sessions": 3,
+    "sessions": [
+      {
+        "session_id": "sess-001",
+        "host": "claude-code",
+        "source_path": "/synthetic/sess-001.jsonl",
+        "excerpt": "migrated jest suite to vitest, all tests passing"
+      },
+      {
+        "session_id": "sess-002",
+        "host": "claude-code",
+        "source_path": "/synthetic/sess-002.jsonl",
+        "excerpt": "converted jest.config.js to vitest.config.ts"
+      },
+      {
+        "session_id": "sess-003",
+        "host": "codex",
+        "source_path": "/synthetic/sess-003.jsonl",
+        "excerpt": "replaced jest globals with vitest equivalents"
+      }
+    ]
+  },
+  "provenance": {
+    "extracted_by_host": "claude-code",
+    "extractor_version": "1.0",
+    "extracted_at": "2026-09-17T00:00:00+00:00"
+  },
+  "dedup": {
+    "checked_against": [],
+    "findings": []
+  },
+  "status": "candidate",
+  "requires_human_review": true,
+  "version": "1.0"
+}

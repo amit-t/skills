@@ -299,6 +299,14 @@
       "usage": "/skill-sync"
     },
     {
+      "slug": "session-to-skill-extractor",
+      "name": "session-to-skill-extractor",
+      "category": "AI Agent",
+      "tagline": "Turn completed agent sessions into reusable SKILL.md skills.",
+      "detail": "Five-stage pipeline — filter, identify, articulate, deduplicate, human review — with host adapters for Claude Code, Codex, Devin, Copilot, and a generic paste fallback; ships a registry, review queue, and quarterly retire-review feedback loop.",
+      "usage": "/session-to-skill-extractor"
+    },
+    {
       "slug": "write-a-skill",
       "name": "write-a-skill",
       "category": "AI Agent",

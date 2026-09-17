@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session-to-skill-extractor/schemas/session.schema.json",
+  "title": "Session",
+  "description": "Normalized session model (spec C4). Adapters may leave fields null; downstream filtering must tolerate nulls.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "host",
+    "source_path",
+    "started_at",
+    "ended_at",
+    "cwd",
+    "turns",
+    "stats",
+    "outcome_signals"
+  ],
+  "properties": {
+    "session_id": {
+      "type": ["string", "null"]
+    },
+    "host": {
+      "type": ["string", "null"],
+      "enum": ["claude-code", "codex", "devin", "copilot", "generic", null]
+    },
+    "source_path": {
+      "type": ["string", "null"]
+    },
+    "started_at": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 timestamp or null"
+    },
+    "ended_at": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 timestamp or null"
+    },
+    "cwd": {
+      "type": ["string", "null"]
+    },
+    "turns": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "text", "tool_calls", "tool_results", "timestamp"],
+        "properties": {
+          "role": {
+            "type": ["string", "null"],
+            "enum": ["user", "assistant", "tool", null]
+          },
+          "text": {
+            "type": ["string", "null"]
+          },
+          "tool_calls": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "input_summary"],
+              "properties": {
+                "name": {
+                  "type": ["string", "null"]
+                },
+                "input_summary": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          },
+          "tool_results": {
+            "type": ["array", "null"],
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "ok", "output_summary"],
+              "properties": {
+                "name": {
+                  "type": ["string", "null"]
+                },
+                "ok": {
+                  "type": ["boolean", "null"]
+                },
+                "output_summary": {
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          },
+          "timestamp": {
+            "type": ["string", "null"],
+            "description": "ISO-8601 timestamp or null"
+          }
+        }
+      }
+    },
+    "stats": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": [
+        "turn_count",
+        "assistant_turns",
+        "tool_call_count",
+        "distinct_tools",
+        "char_count",
+        "error_count",
+        "retry_count"
+      ],
+      "properties": {
+        "turn_count": {
+          "type": ["integer", "null"]
+        },
+        "assistant_turns": {
+          "type": ["integer", "null"]
+        },
+        "tool_call_count": {
+          "type": ["integer", "null"]
+        },
+        "distinct_tools": {
+          "type": ["array", "null"],
+          "items": {
+            "type": ["string", "null"]
+          }
+        },
+        "char_count": {
+          "type": ["integer", "null"]
+        },
+        "error_count": {
+          "type": ["integer", "null"]
+        },
+        "retry_count": {
+          "type": ["integer", "null"]
+        }
+      }
+    },
+    "outcome_signals": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": [
+        "explicit_user_rating",
+        "user_positive_ack",
+        "user_negative_ack",
+        "task_completed_marker",
+        "notes"
+      ],
+      "properties": {
+        "explicit_user_rating": {
+          "type": ["number", "string", "null"]
+        },
+        "user_positive_ack": {
+          "type": ["boolean", "null"]
+        },
+        "user_negative_ack": {
+          "type": ["boolean", "null"]
+        },
+        "task_completed_marker": {
+          "type": ["boolean", "null"]
+        },
+        "notes": {
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}

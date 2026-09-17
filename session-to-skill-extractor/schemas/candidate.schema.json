@@ -1,0 +1,231 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session-to-skill-extractor/schemas/candidate.schema.json",
+  "title": "CandidateSkill",
+  "description": "Canonical machine record for an extracted candidate procedure (spec D2).",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "candidate_id",
+    "name",
+    "description",
+    "task_type",
+    "trigger",
+    "steps",
+    "expected_output",
+    "rubric",
+    "evidence",
+    "provenance",
+    "status",
+    "requires_human_review",
+    "version"
+  ],
+  "properties": {
+    "candidate_id": {
+      "type": "string",
+      "description": "Format: cs-YYYYMMDD-<slug>"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$",
+      "description": "kebab-case, <=64 chars, letters/digits/hyphens, matches folder name"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1024,
+      "description": "Sentence 1: what it does. Sentence 2: when to use it (trigger phrasing)."
+    },
+    "task_type": {
+      "type": "string",
+      "description": "Short label used for clustering"
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "signals"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Task type + observable signals"
+        },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "file pattern, command, error string, request phrasing"
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Inputs/context/state required"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["n", "action"],
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "action": {
+            "type": "string",
+            "description": "Imperative, concrete"
+          },
+          "why": {
+            "type": "string",
+            "description": "Optional rationale"
+          },
+          "tool_hint": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "decision_points": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["after_step", "condition", "if_true", "if_false"],
+        "properties": {
+          "after_step": {
+            "type": "integer"
+          },
+          "condition": {
+            "type": "string"
+          },
+          "if_true": {
+            "type": "string"
+          },
+          "if_false": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "May be empty only if `linear` is true (spec C5 Stage 3)"
+    },
+    "expected_output": {
+      "type": "string",
+      "description": "Checkable description of success"
+    },
+    "edge_cases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["q1", "q2", "q3", "q4", "q5", "total"],
+      "properties": {
+        "q1": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "q2": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "q3": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "q4": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "q5": { "type": "integer", "minimum": 0, "maximum": 2 },
+        "total": { "type": "integer", "minimum": 0, "maximum": 10 }
+      }
+    },
+    "quality_criteria": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recurrence": { "type": "boolean" },
+        "non_obvious": { "type": "boolean" },
+        "replicable": { "type": "boolean" },
+        "measurable_quality": { "type": "boolean" },
+        "clearly_articulable": { "type": "boolean" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supporting_sessions", "sessions"],
+      "properties": {
+        "supporting_sessions": {
+          "type": "integer"
+        },
+        "sessions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "session_id": { "type": "string" },
+              "host": { "type": "string" },
+              "source_path": { "type": ["string", "null"] },
+              "excerpt": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["extracted_by_host", "extractor_version", "extracted_at"],
+      "properties": {
+        "extracted_by_host": {
+          "type": "string"
+        },
+        "extractor_version": {
+          "type": "string"
+        },
+        "extracted_at": {
+          "type": "string",
+          "description": "ISO-8601 timestamp"
+        }
+      }
+    },
+    "dedup": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checked_against": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["skill", "relation"],
+            "properties": {
+              "skill": { "type": "string" },
+              "relation": {
+                "type": "string",
+                "enum": ["distinct", "duplicate", "overlap", "superset", "subset"]
+              },
+              "note": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["candidate", "provisional", "validated", "deprecated"]
+    },
+    "requires_human_review": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "semver-ish MAJOR.MINOR"
+    },
+    "linear": {
+      "type": "boolean",
+      "description": "When true, licenses an empty decision_points array (spec C5 Stage 3: decision_points may be empty only if the LLM explicitly states the procedure is linear)."
+    }
+  }
+}

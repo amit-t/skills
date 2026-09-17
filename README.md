@@ -108,6 +108,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
+| [`session-to-skill-extractor`](./session-to-skill-extractor) | Mine completed agent sessions for non-obvious, recurring procedures and turn them into reviewable SKILL.md candidates (Claude Code, Codex, Devin, Copilot, generic) |
 | [`write-a-skill`](./write-a-skill) | Create new agent skills with proper structure |
 
 ## What Are Skills?

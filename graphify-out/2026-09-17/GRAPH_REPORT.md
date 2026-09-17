@@ -1,16 +1,16 @@
 # Graph Report - at-skills  (2026-09-17)
 
 ## Corpus Check
-- 202 files · ~130,329 words
+- 202 files · ~128,275 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2206 nodes · 2763 edges · 191 communities (171 shown, 18 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 170 edges (avg confidence: 0.86)
+- 2153 nodes · 2655 edges · 181 communities (164 shown, 15 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 153 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `aaca29c5`
+- Built from commit: `9f5baec6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -117,11 +117,11 @@
 - prd-to-plan Skill
 - design-interview Skill
 - Resume and Status
-- PromoteFixture
+- load_config
 - retire_review.py
 - validate_candidate.py
 - filter_sessions.py
-- build_shortlist
+- dedup_prescreen.py
 - DevinAdapter
 - CopilotAdapter
 - properties
@@ -133,7 +133,7 @@
 - type
 - ClaudeCodeAdapter
 - properties
-- copilot.py
+- Session
 - render_skill_md
 - properties
 - properties
@@ -155,7 +155,7 @@
 - Branching Questions
 - evidence
 - items
-- promote.py
+- claude_code.py
 - render_candidate
 - Writing Skills
 - Process
@@ -172,7 +172,7 @@
 - Host Notes — Detection, Session Sources, Skill Install Locations, Scheduling
 - additionalProperties
 - properties
-- test_load_sessions_cli.py
+- __init__.py
 - resume-tailoring.skill
 - Research Prompts
 - Scoring Formula
@@ -194,28 +194,18 @@
 - detect_host.sh script
 - _bullets
 - jest-to-vitest-migration/SKILL.md
-- dedup_prescreen.py
-- load_fixture
-- test_validator.py
-- load_config
-- validate
-- append_usage
-- TestSuppressedTaskType
-- _check_suppression
-- .test_vague_json_has_at_least_two_errors
-- .test_single_session_without_review_flag_fails
 
 ## God Nodes (most connected - your core abstractions)
-1. `validate()` - 30 edges
-2. `DevinAdapter` - 27 edges
-3. `CopilotAdapter` - 26 edges
-4. `Turn` - 24 edges
-5. `Session` - 23 edges
-6. `render_skill_md()` - 23 edges
-7. `load_fixture()` - 22 edges
-8. `load_fixture()` - 22 edges
-9. `blacklist()` - 21 edges
-10. `load_config()` - 20 edges
+1. `DevinAdapter` - 27 edges
+2. `CopilotAdapter` - 26 edges
+3. `Turn` - 24 edges
+4. `Session` - 23 edges
+5. `render_skill_md()` - 23 edges
+6. `load_fixture()` - 22 edges
+7. `load_config()` - 20 edges
+8. `validate()` - 19 edges
+9. `read_json()` - 17 edges
+10. `PromoteFixture` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Catalog Sync Rule (Mandatory)` --semantically_similar_to--> `CLAUDE Catalog Sync Rule (Mandatory)`  [INFERRED] [semantically similar]
@@ -243,7 +233,7 @@
 - **Engineering Spec Artifact Trio (TDD/SPEC/ADR)** — engspec_tdd, engspec_spec, engspec_adr [EXTRACTED 1.00]
 - **PRD Review 7-Agent Panel** — prdreviewpanel_engineer_agent, prdreviewpanel_designer_agent, prdreviewpanel_exec_agent, prdreviewpanel_legal_agent, prdreviewpanel_uxr_agent, prdreviewpanel_skeptic_agent, prdreviewpanel_customer_voice_agent [EXTRACTED 1.00]
 
-## Communities (191 total, 18 thin omitted)
+## Communities (181 total, 15 thin omitted)
 
 ### Community 0 - "7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)"
 Cohesion: 0.16
@@ -617,25 +607,25 @@ Nodes (6): Step 2: Design Interview, Design Brief Output Template, Context Routi
 Cohesion: 0.40
 Nodes (4): design-draft — Reference, `--from` flag values, `--list` output, Resume and Status
 
-### Community 103 - "PromoteFixture"
-Cohesion: 0.12
-Nodes (17): cmd_promote(), Dispatch accept/edit/reject. Raises PromoteError for any CLI-facing failure., load_fixture(), PromoteFixture, Fix round 1, item 2b: a malformed candidate.json in the queue folder must not…, Sets up a tempdir with queue/skill-dir/registry and a rendered candidate., 3-session candidate + accept -> provisional (reviewer-accept, below 20)., 30-session candidate + accept -> validated. (+9 more)
+### Community 103 - "load_config"
+Cohesion: 0.05
+Nodes (54): Exception, main(), parse_args(), CLI: locate and load sessions for one host adapter, writing a sessions+errors…, cmd_promote(), _load_or_init_registry(), main(), parse_args() (+46 more)
 
 ### Community 104 - "retire_review.py"
 Cohesion: 0.07
 Nodes (37): build_report(), compute_skill_stats(), _conflicts_block(), find_conflicts(), _jaccard(), _library_size_block(), load_usage_rows(), main() (+29 more)
 
 ### Community 105 - "validate_candidate.py"
-Cohesion: 0.12
-Nodes (23): _anti_patterns_path(), _as_dict(), _as_list(), _check_decision_points(), _check_edge_cases(), _check_prose_blacklist_and_checkable(), _check_steps(), _check_trigger() (+15 more)
+Cohesion: 0.06
+Nodes (43): _anti_patterns_path(), _check_decision_points(), _check_edge_cases(), _check_prose_blacklist_and_checkable(), _check_rubric(), _check_schema_lite(), _check_single_session_review(), _check_steps() (+35 more)
 
 ### Community 106 - "filter_sessions.py"
-Cohesion: 0.06
-Nodes (39): _evaluate(), _filter_cfg(), filter_sessions(), _has_novelty(), _has_structured_output(), _load_sessions(), main(), parse_args() (+31 more)
+Cohesion: 0.08
+Nodes (35): _evaluate(), _filter_cfg(), filter_sessions(), _has_novelty(), _has_structured_output(), _load_sessions(), main(), parse_args() (+27 more)
 
-### Community 107 - "build_shortlist"
-Cohesion: 0.12
-Nodes (14): build_shortlist(), Score candidate vs every existing SKILL.md + registry entry; return entries…, load_fixture(), Item G: --skill-dirs omitted must fall back to config skill_dirs (config flows…, E3-5: good.json vs a near-identical fixture SKILL.md scores >= 0.3 and is…, An unrelated SKILL.md (different domain entirely) produces an empty shortlist., Nonexistent skill dirs and a missing registry are skipped silently, no crash., A registry skill entry (name + trigger_description) participates in scoring too. (+6 more)
+### Community 107 - "dedup_prescreen.py"
+Cohesion: 0.09
+Nodes (27): build_shortlist(), _candidate_tokens(), _jaccard(), main(), parse_args(), _parse_frontmatter(), Yield (skill_name, path, tokens) for every registry skills{} entry. A…, Score candidate vs every existing SKILL.md + registry entry; return entries… (+19 more)
 
 ### Community 108 - "DevinAdapter"
 Cohesion: 0.09
@@ -658,8 +648,8 @@ Cohesion: 0.08
 Nodes (25): description, type, description, type, description, type, description, type (+17 more)
 
 ### Community 113 - "Turn"
-Cohesion: 0.11
-Nodes (23): compute_stats(), detect_outcome_signals(), Normalized session model: Turn/Session dataclasses, stats, and outcome signals.…, Scan user turns for positive/negative acks; scan tool calls for a completion…, turn_count, assistant_turns, tool_call_count, distinct_tools, char_count,…, Session, Turn, _extract_content() (+15 more)
+Cohesion: 0.18
+Nodes (14): compute_stats(), detect_outcome_signals(), Normalized session model: Turn/Session dataclasses, stats, and outcome signals.…, Scan user turns for positive/negative acks; scan tool calls for a completion…, turn_count, assistant_turns, tool_call_count, distinct_tools, char_count,…, Turn, _devin_role(), Devin adapter: paste/export-first, with an optional Devin API fallback.… (+6 more)
 
 ### Community 114 - "CodexAdapter"
 Cohesion: 0.12
@@ -674,16 +664,16 @@ Cohesion: 0.12
 Nodes (21): items, type, items, additionalProperties, properties, type, items, type (+13 more)
 
 ### Community 117 - "ClaudeCodeAdapter"
-Cohesion: 0.10
-Nodes (7): ClaudeCodeAdapter, Item E, discriminating case: retry_count only credits a retry when the tool…, Item E: tool_results[].name must be the real tool name (looked up via…, TestClaudeCodeAdapterLoad, TestClaudeCodeAdapterLocate, TestClaudeCodeAdapterMalformedLines, TestClaudeCodeAdapterRetryCountNeedsRealToolNames
+Cohesion: 0.13
+Nodes (4): ClaudeCodeAdapter, TestClaudeCodeAdapterLoad, TestClaudeCodeAdapterLocate, TestClaudeCodeAdapterMalformedLines
 
 ### Community 118 - "properties"
 Cohesion: 0.11
 Nodes (18): description, type, type, type, type, properties, at, candidates (+10 more)
 
-### Community 119 - "copilot.py"
-Cohesion: 0.23
-Nodes (9): _find_message_list(), _message_to_turn(), _messages_to_turns(), Copilot (GitHub Copilot CLI/chat) adapter. Probe order under `~/.copilot`…, Best-effort role normalization. # unverified: exact role vocabulary Copilot…, First non-empty list under a common message-list key, in priority order., _role_from_raw(), _session_from_message_obj() (+1 more)
+### Community 119 - "Session"
+Cohesion: 0.18
+Nodes (11): Session, _find_message_list(), _message_to_turn(), _messages_to_turns(), Copilot (GitHub Copilot CLI/chat) adapter. Probe order under `~/.copilot`…, Best-effort role normalization. # unverified: exact role vocabulary Copilot…, First non-empty list under a common message-list key, in priority order., _role_from_raw() (+3 more)
 
 ### Community 120 - "render_skill_md"
 Cohesion: 0.24
@@ -706,7 +696,7 @@ Cohesion: 0.13
 Nodes (15): type, type, additionalProperties, properties, required, type, explicit_user_rating, notes (+7 more)
 
 ### Community 125 - "detect"
-Cohesion: 0.22
+Cohesion: 0.24
 Nodes (7): detect(), _enumerate_session_sources(), main(), Detect which agent host is running (or produced session logs on this machine).…, Return every known session store that exists under `home`., Detect the host agent runtime. env: mapping to read env vars from (defaults to…, TestDetect
 
 ### Community 126 - "session-to-skill-extractor"
@@ -750,8 +740,8 @@ Cohesion: 0.27
 Nodes (5): _maybe_json_object(), _output_ok(), Parse text as JSON; return it only if the result is itself a dict, else None., Best-effort success heuristic: not a nonzero exit_code, not an ERROR-prefixed…, TestOutputOkHeuristic
 
 ### Community 136 - "generic.py"
-Cohesion: 0.19
-Nodes (10): parse_transcript(), Generic adapter: loads plain-text or JSONL session transcripts from file paths.…, One JSON object per non-blank line, each with a 'role' key. None if not JSONL., Blank-line-separated blocks, each prefixed 'User:' or 'Assistant:'. None if not…, Parse text as JSONL, else blank-line User:/Assistant: blocks, else one user…, _try_jsonl(), _try_plain_text(), Adapter registry: maps host name -> Adapter subclass. Each adapter module is… (+2 more)
+Cohesion: 0.24
+Nodes (9): parse_transcript(), Generic adapter: loads plain-text or JSONL session transcripts from file paths.…, One JSON object per non-blank line, each with a 'role' key. None if not JSONL., Blank-line-separated blocks, each prefixed 'User:' or 'Assistant:'. None if not…, Parse text as JSONL, else blank-line User:/Assistant: blocks, else one user…, _try_jsonl(), _try_plain_text(), Lowercase, alnum-and-hyphen slug of s. (+1 more)
 
 ### Community 137 - "code-review-multi-axis — Reference"
 Cohesion: 0.20
@@ -769,9 +759,9 @@ Nodes (9): additionalProperties, properties, required, type, evidence, sessions,
 Cohesion: 0.33
 Nodes (9): items, additionalProperties, required, type, turns, items, items, items (+1 more)
 
-### Community 141 - "promote.py"
-Cohesion: 0.14
-Nodes (24): Exception, _load_or_init_registry(), main(), parse_args(), _patch_status_line(), _promote_accept_or_edit(), _promote_reject(), PromoteError (+16 more)
+### Community 141 - "claude_code.py"
+Cohesion: 0.28
+Nodes (7): _extract_content(), _line_to_turn(), Claude Code adapter: loads local Claude Code transcript JSONL files. Each…, Split message.content into (text, tool_calls, tool_results). content is either…, Keep only user/assistant lines that are neither meta nor sidechain., Convert one kept line into a Turn. A "user"-type line whose only content is…, _should_keep()
 
 ### Community 142 - "render_candidate"
 Cohesion: 0.22
@@ -837,9 +827,9 @@ Nodes (7): additionalProperties, required, type, skills, additionalProperties, d
 Cohesion: 0.29
 Nodes (7): type, properties, extractor_version, runs, suppressed_task_types, type, type
 
-### Community 158 - "test_load_sessions_cli.py"
-Cohesion: 0.22
-Nodes (4): Fix A: --paths must work for every adapter, not just generic -- it bypasses…, TestAdaptersRegistry, TestLoadSessionsCliUnknownHost, TestLoadSessionsPathsBypassesLocate
+### Community 158 - "__init__.py"
+Cohesion: 0.29
+Nodes (3): Adapter registry: maps host name -> Adapter subclass. Each adapter module is…, TestAdaptersRegistry, TestLoadSessionsCliUnknownHost
 
 ### Community 159 - "resume-tailoring.skill"
 Cohesion: 0.33
@@ -901,53 +891,25 @@ Nodes (3): until, description, type
 Cohesion: 0.67
 Nodes (3): updated_at, description, type
 
-### Community 181 - "dedup_prescreen.py"
-Cohesion: 0.15
-Nodes (15): _candidate_tokens(), _jaccard(), main(), parse_args(), _parse_frontmatter(), Yield (skill_name, path, tokens) for every registry skills{} entry. A…, Stage 3 dedup pre-screen: cheap Jaccard token-overlap check before any LLM call…, Lowercase, split on non-alnum, drop stopwords and empty strings. Returns a set. (+7 more)
-
-### Community 182 - "load_fixture"
-Cohesion: 0.21
-Nodes (6): blacklist(), load_fixture(), Item F: every check must type-guard its inputs and collect an error string…, decision_points empty and linear not true must fail (spec C5 Stage 3)., TestEmptyDecisionPointsWithoutLinear, TestMalformedCandidateNeverCrashes
-
-### Community 183 - "test_validator.py"
-Cohesion: 0.13
-Nodes (8): E3-7: a realistic, well-formed D2 candidate produces no errors., rubric.total must equal q1+...+q5, else validation fails., An unflaggable rubric (e.g. q2=0) must not pass validation., TestGoodCandidatePasses, TestMissingRequiredKeys, TestRubricFlagRule, TestRubricTotalMismatch, TestValidateCandidateCli
-
-### Community 184 - "load_config"
-Cohesion: 0.20
-Nodes (12): _expand_paths(), main(), parse_args(), CLI: locate and load sessions for one host adapter, writing a sessions+errors…, Expand glob patterns into a deduplicated list of matches, newest first., main(), parse_args(), Feedback loop, part 1 (spec E3-9): record a single usage-outcome report for a… (+4 more)
-
-### Community 185 - "validate"
-Cohesion: 0.25
-Nodes (8): _check_rubric(), _check_schema_lite(), _check_single_session_review(), Check 7: rubric total == sum(q1..q5); flag rule holds (an unflaggable candidate…, Check 8: evidence.supporting_sessions == 1 => requires_human_review must be…, Run all Stage-3 hard-rule checks against a D2 candidate dict. Returns a list of…, Check 1: required D2 keys present, name pattern, description length., validate()
-
-### Community 186 - "append_usage"
-Cohesion: 0.43
-Nodes (3): append_usage(), Append {"skill","outcome","note","at"} to F/usage-log.jsonl, creating the…, TestReportUsageAppendsJsonLine
-
-### Community 188 - "_check_suppression"
-Cohesion: 0.50
-Nodes (4): _check_suppression(), _parse_iso(), Parse an ISO-8601 timestamp, treating a naive datetime as UTC. None on failure., C5 Stage 5 / item B: reject a candidate whose task_type has an unexpired entry…
-
 ## Knowledge Gaps
 - **1032 isolated node(s):** `skills`, `changes`, `state`, `searchInput`, `filtersEl` (+1027 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1315 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1295 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `load_config()` connect `load_config` to `retire_review.py`, `validate_candidate.py`, `filter_sessions.py`, `promote.py`, `render_candidate`, `render_skill.py`, `dedup_prescreen.py`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **Why does `ClaudeCodeAdapter` connect `ClaudeCodeAdapter` to `generic.py`, `Turn`, `Adapter`, `filter_sessions.py`?**
+- **Why does `load_config()` connect `load_config` to `retire_review.py`, `validate_candidate.py`, `filter_sessions.py`, `dedup_prescreen.py`, `render_candidate`, `render_skill.py`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **Why does `Session` connect `Turn` to `codex.py`, `GenericAdapter`, `Adapter`, `generic.py`, `DevinAdapter`, `CopilotAdapter`, `CodexAdapter`, `ClaudeCodeAdapter`, `copilot.py`?**
+- **Why does `CodexAdapter` connect `CodexAdapter` to `codex.py`, `Adapter`, `Turn`, `Session`, `__init__.py`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
-- **Are the 18 inferred relationships involving `validate()` (e.g. with `.test_empty_decision_points_with_linear_true_passes_that_check()` and `.test_empty_decision_points_without_linear_fails()`) actually correct?**
-  _`validate()` has 18 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `Session` connect `Session` to `codex.py`, `GenericAdapter`, `Adapter`, `generic.py`, `DevinAdapter`, `claude_code.py`, `CopilotAdapter`, `Turn`, `CodexAdapter`, `ClaudeCodeAdapter`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Are the 6 inferred relationships involving `DevinAdapter` (e.g. with `Session` and `TestDevinAdapterLoadFromFile`) actually correct?**
   _`DevinAdapter` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 7 inferred relationships involving `CopilotAdapter` (e.g. with `Session` and `Turn`) actually correct?**
   _`CopilotAdapter` has 7 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 5 inferred relationships involving `Turn` (e.g. with `CodexAdapter` and `CopilotAdapter`) actually correct?**
   _`Turn` has 5 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 6 inferred relationships involving `Session` (e.g. with `ClaudeCodeAdapter` and `CodexAdapter`) actually correct?**
+  _`Session` has 6 INFERRED edges - model-reasoned connections that need verification._

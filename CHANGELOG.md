@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-09-17
+
+- Added the `session-to-skill-extractor` skill — reviews completed agent sessions to find non-obvious, recurring, generalizable procedures and articulates them as SKILL.md candidates with dedup, review queue, versioned registry, and a usage-feedback retire loop; runs in Claude Code, Codex, Devin, Copilot, or any agent.
+
 ## 2026-09-15
 
 - Added the `grill-summary` skill — a read-only, plain-English story connecting a written grill's bigger goal, purpose, grouped unanswered decisions, and what answers enable; runs automatically after writing or via `/grill-summary [path]`, using the matching Wayfinder map when relevant.
