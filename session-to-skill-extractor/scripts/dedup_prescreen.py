@@ -134,7 +134,10 @@ def parse_args(argv=None):
         description="Dedup pre-screen: Jaccard token-overlap vs existing skills + registry."
     )
     parser.add_argument("--candidate", required=True, help="path to a candidate JSON file")
-    parser.add_argument("--skill-dirs", default="", help="comma-separated skill directories")
+    parser.add_argument(
+        "--skill-dirs", default=None,
+        help="comma-separated skill directories; defaults to config skill_dirs when omitted",
+    )
     parser.add_argument("--registry", default=None, help="path to registry.json (optional)")
     parser.add_argument("--threshold", type=float, default=None,
                          help="Jaccard threshold; defaults to config dedup.prescreen_overlap_threshold")
@@ -151,7 +154,10 @@ def main(argv=None):
     if threshold is None:
         threshold = (cfg.get("dedup") or {}).get("prescreen_overlap_threshold", 0.3)
 
-    skill_dirs = [d for d in (args.skill_dirs or "").split(",") if d]
+    if args.skill_dirs is not None:
+        skill_dirs = [d for d in args.skill_dirs.split(",") if d]
+    else:
+        skill_dirs = list(cfg.get("skill_dirs") or [])
 
     registry = None
     if args.registry and Path(args.registry).exists():

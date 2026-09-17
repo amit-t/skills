@@ -56,11 +56,11 @@ Cheap pre-screen first (no LLM call):
 
 ```
 python3 scripts/dedup_prescreen.py --candidate <work_dir>/candidates/<candidate_id>.json \
-  --skill-dirs ".claude/skills,.agents/skills,.github/skills,./skills" \
+  [--skill-dirs ".claude/skills,.agents/skills,.github/skills,./skills"] \
   [--registry <registry_path>] [--threshold 0.3] [--config config.json]
 ```
 
-This returns a `shortlist` of existing skills whose name/description/trigger tokens overlap the candidate above the Jaccard threshold (default 0.3). For every shortlisted pair, classify the relation yourself as `duplicate` (same trigger, same steps), `overlap` (same trigger, different steps — a real conflict), `superset`/`subset`, or `distinct`. Apply the resolution table:
+`--skill-dirs` is optional — when omitted it defaults to config's `skill_dirs` (so passing `--config config.json` alone is enough); pass `--skill-dirs` explicitly only to override that default for one run. This returns a `shortlist` of existing skills whose name/description/trigger tokens overlap the candidate above the Jaccard threshold (default 0.3). For every shortlisted pair, classify the relation yourself as `duplicate` (same trigger, same steps), `overlap` (same trigger, different steps — a real conflict), `superset`/`subset`, or `distinct`. Apply the resolution table:
 
 - `duplicate` → do not create a new folder; note that the new session IDs should be appended to the existing skill's evidence in the registry, and propose a version bump only if the new articulation is measurably better (more decision points/edge cases, clearer steps).
 - `overlap` (conflict) or `superset`/`subset` → never auto-write; route to review with both definitions side by side and a recommended merge.

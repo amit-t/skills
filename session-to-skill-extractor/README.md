@@ -81,7 +81,7 @@ Copy `config.example.json` to `config.json` and pass `--config config.json` to a
 | Key | Default | Meaning |
 |---|---|---|
 | `host_override` | `null` | Force a host instead of auto-detecting |
-| `skill_dirs` | `[".claude/skills", ".agents/skills", ".github/skills", "./skills"]` | Directories `dedup_prescreen.py` scans for existing `SKILL.md` files |
+| `skill_dirs` | `[".claude/skills", ".agents/skills", ".github/skills", "./skills"]` | Directories `dedup_prescreen.py` scans for existing `SKILL.md` files. Read automatically: this is the default when `--skill-dirs` is omitted; passing `--skill-dirs` explicitly still overrides it |
 | `output_skill_dir` | `"./skills"` | Suggested destination for `promote.py --skill-dir`; **not read automatically** — every `promote.py` call must still pass `--skill-dir` explicitly (see Owner decisions defaulted, below) |
 | `review_queue_dir` | `"./review-queue"` | Suggested review-queue location; `render_skill.py --out-dir` and `promote.py --queue` are always explicit args, not sourced from this key. `retire_review.py --out` also defaults to a hardcoded `./review-queue` of its own — the value matches this key by convention only, it is not read from config either |
 | `feedback_dir` | `"./feedback"` | Where `report_usage.py` appends `usage-log.jsonl` when `--feedback-dir` is omitted (this one *is* read from config as a fallback) |

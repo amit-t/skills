@@ -117,6 +117,52 @@ class TestDedupRegistryMatch(unittest.TestCase):
         self.assertTrue(any(e["skill"] == "jest-to-vitest-migration" for e in shortlist))
 
 
+class TestDedupPrescreenCliDefaultsSkillDirsFromConfig(unittest.TestCase):
+    """Item G: --skill-dirs omitted must fall back to config skill_dirs (config
+    flows via --config), not silently scan nothing. --skill-dirs, when given,
+    still overrides the config."""
+
+    def test_skill_dirs_omitted_falls_back_to_config(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            config_path = Path(tmp) / "config.json"
+            config_path.write_text(
+                json.dumps({"skill_dirs": [str(SKILLDIR)]}), encoding="utf-8"
+            )
+            result = subprocess.run(
+                [
+                    sys.executable, str(DEDUP_PRESCREEN),
+                    "--candidate", str(CANDIDATES_DIR / "good.json"),
+                    "--config", str(config_path),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertTrue(payload["shortlist"])
+            self.assertEqual(payload["shortlist"][0]["skill"], "jest-to-vitest-migration")
+
+    def test_explicit_skill_dirs_flag_still_overrides_config(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            config_path = Path(tmp) / "config.json"
+            config_path.write_text(
+                json.dumps({"skill_dirs": ["/no/such/config/dir"]}), encoding="utf-8"
+            )
+            result = subprocess.run(
+                [
+                    sys.executable, str(DEDUP_PRESCREEN),
+                    "--candidate", str(CANDIDATES_DIR / "good.json"),
+                    "--config", str(config_path),
+                    "--skill-dirs", str(SKILLDIR),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertTrue(payload["shortlist"])
+
+
 class TestDedupPrescreenCli(unittest.TestCase):
     def test_cli_outputs_shortlist_json(self):
         result = subprocess.run(
