@@ -65,7 +65,7 @@ Or invoke the scripts directly (all are stdlib-only Python 3.9+, no installs req
 | Script | Purpose | Example |
 |---|---|---|
 | `detect_host.py` | Detect the host agent runtime | `python3 scripts/detect_host.py --override codex` |
-| `load_sessions.py` | Locate + normalize sessions via a host adapter | `python3 scripts/load_sessions.py --host claude-code --out sessions.json --max 25` |
+| `load_sessions.py` | Locate + normalize sessions via a host adapter. `--paths <glob>...` is explicit files: it skips store discovery entirely (all hosts), loading each glob match directly instead of scanning the adapter's session store | `python3 scripts/load_sessions.py --host claude-code --out sessions.json --max 25` |
 | `filter_sessions.py` | Stage 1: gate + rank sessions, no LLM call | `python3 scripts/filter_sessions.py --in sessions.json --out filtered_sessions.json` |
 | `validate_candidate.py` | Stage 3 hard rules: schema, vagueness lint, rubric arithmetic | `python3 scripts/validate_candidate.py --candidate candidate.json` |
 | `dedup_prescreen.py` | Stage 4 pass 1: Jaccard token-overlap shortlist | `python3 scripts/dedup_prescreen.py --candidate candidate.json --skill-dirs "./skills,.claude/skills"` |

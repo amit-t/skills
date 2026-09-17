@@ -4,9 +4,16 @@
 Per-file/per-ref load failures are collected into the "errors" list rather than
 aborting the run. An unknown --host exits 2 with a JSON error naming the hosts
 that are actually available (never a traceback).
+
+When --paths is given, it bypasses adapter.locate() entirely (all hosts): the
+globs are expanded, sorted newest-first by mtime, and each match is passed
+straight to adapter.load(ref, config) -- the host's own session store is never
+scanned. Without --paths, the normal adapter.locate() discovery path is used.
 """
 import argparse
+import glob
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -14,6 +21,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from adapters import ADAPTERS
 from s2s_common import load_config, write_json
+
+
+def _expand_paths(patterns):
+    """Expand glob patterns into a deduplicated list of matches, newest first."""
+    matches = set()
+    for pattern in patterns:
+        matches.update(glob.glob(pattern))
+    return sorted(matches, key=lambda p: os.path.getmtime(p), reverse=True)
 
 
 def parse_args(argv=None):
@@ -49,11 +64,15 @@ def main(argv=None):
 
     sessions = []
     errors = []
-    try:
-        refs = adapter.locate(config)
-    except Exception as exc:
-        refs = []
-        errors.append({"ref": None, "error": str(exc)})
+    if args.paths is not None:
+        # Explicit files: skip store discovery entirely, for every host.
+        refs = _expand_paths(args.paths)
+    else:
+        try:
+            refs = adapter.locate(config)
+        except Exception as exc:
+            refs = []
+            errors.append({"ref": None, "error": str(exc)})
 
     if args.max is not None:
         refs = refs[: args.max]
