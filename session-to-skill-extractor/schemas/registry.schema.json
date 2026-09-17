@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session-to-skill-extractor/schemas/registry.schema.json",
+  "title": "Registry",
+  "description": "Skill-library index (spec D4).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["extractor_version", "skills", "suppressed_task_types", "runs"],
+  "properties": {
+    "extractor_version": {
+      "type": "string"
+    },
+    "skills": {
+      "type": "object",
+      "description": "Object map keyed by skill name.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "status",
+          "version",
+          "task_type",
+          "trigger_description",
+          "supporting_sessions",
+          "created_at",
+          "updated_at",
+          "superseded_by",
+          "human_edited"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "relative/path/to/SKILL.md"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["candidate", "provisional", "validated", "deprecated"]
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+$",
+            "description": "semver-ish MAJOR.MINOR"
+          },
+          "task_type": {
+            "type": "string"
+          },
+          "trigger_description": {
+            "type": "string"
+          },
+          "supporting_sessions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "description": "ISO-8601 timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "ISO-8601 timestamp"
+          },
+          "superseded_by": {
+            "type": ["string", "null"]
+          },
+          "human_edited": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "suppressed_task_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["task_type", "until", "reason"],
+        "properties": {
+          "task_type": {
+            "type": "string"
+          },
+          "until": {
+            "type": "string",
+            "description": "ISO-8601 timestamp"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["run_id", "host", "sessions_scanned", "flagged", "candidates", "at"],
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "sessions_scanned": {
+            "type": "integer"
+          },
+          "flagged": {
+            "type": "integer"
+          },
+          "candidates": {
+            "type": "integer"
+          },
+          "at": {
+            "type": "string",
+            "description": "ISO-8601 timestamp"
+          }
+        }
+      }
+    }
+  }
+}

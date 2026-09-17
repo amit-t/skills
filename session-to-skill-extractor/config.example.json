@@ -1,0 +1,31 @@
+{
+  "host_override": null,
+  "skill_dirs": [".claude/skills", ".agents/skills", ".github/skills", "./skills"],
+  "output_skill_dir": "./skills",
+  "review_queue_dir": "./review-queue",
+  "feedback_dir": "./feedback",
+  "work_dir": "./.session-to-skill",
+  "registry_path": null,
+  "filter": {
+    "min_turns": 6,
+    "min_tool_calls": 2,
+    "min_assistant_turns_if_no_tools": 4,
+    "max_sessions_per_run": 25,
+    "lookback_days": 1
+  },
+  "identify": {
+    "flag_min_questions_at_2": 3,
+    "flag_min_total": 7,
+    "q2_min": 1
+  },
+  "recurrence": {
+    "candidate_min_sessions": 3,
+    "provisional_min_sessions": 20,
+    "validated_min_sessions": 30,
+    "allow_single_session_if_q2_q3_max": true
+  },
+  "dedup": {"prescreen_overlap_threshold": 0.3},
+  "review": {"auto_promote": false, "reject_suppress_days": 30},
+  "feedback": {"review_window_days": 90, "validated_min_good_reports": 5},
+  "library_size_warning": 20
+}
