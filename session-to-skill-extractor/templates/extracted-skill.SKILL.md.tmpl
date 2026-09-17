@@ -1,0 +1,43 @@
+---
+name: $name
+description: $description
+metadata:
+  status: $status
+  version: "$version"
+  task_type: $task_type
+  extracted_by: $extracted_by
+  extracted_from_host: $extracted_from_host
+  supporting_sessions: $supporting_sessions
+  extracted_at: $extracted_at
+  requires_human_review: $requires_human_review
+  superseded_by: null
+---
+
+# $title
+
+## Trigger
+$trigger_description
+Signals: $signals_line
+
+## Prerequisites
+$prerequisites_block
+
+## Steps
+$steps_block
+
+## Decision points
+$decision_points_block
+
+## Expected output
+$expected_output
+
+## Edge cases
+$edge_cases_block
+
+## Provenance
+Extracted from $supporting_sessions session(s) on $extracted_from_host. Evidence session IDs: $evidence_ids.
+Rubric: $rubric_line
+
+## Feedback
+After using this skill, if you can write files, record the outcome:
+`python <extractor-path>/scripts/report_usage.py $name --outcome good|neutral|poor`
