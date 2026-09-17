@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import sys
 import tempfile
 import time
@@ -70,10 +71,20 @@ class TestClaudeCodeAdapterLoad(unittest.TestCase):
 
 class TestClaudeCodeAdapterLocate(unittest.TestCase):
     def test_locate_with_claude_projects_dir_override_finds_one_file(self):
-        adapter = ClaudeCodeAdapter()
-        refs = adapter.locate({"claude_projects_dir": str(FIXTURES_DIR)})
-        self.assertEqual(len(refs), 1)
-        self.assertTrue(refs[0].endswith("claude_code/sample.jsonl") or refs[0].endswith("claude_code\\sample.jsonl"))
+        # Use a private temp root rather than the shared FIXTURES_DIR: the
+        # latter also holds sibling host fixture directories (codex, copilot,
+        # ...), each with their own *.jsonl one level down, which the broad
+        # "*/*.jsonl" locate() pattern would also match.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            project_dir = root / "widget-app"
+            project_dir.mkdir()
+            shutil.copy(str(CLAUDE_FIXTURE), str(project_dir / "sample.jsonl"))
+
+            adapter = ClaudeCodeAdapter()
+            refs = adapter.locate({"claude_projects_dir": str(root)})
+            self.assertEqual(len(refs), 1)
+            self.assertTrue(refs[0].endswith("sample.jsonl"))
 
     def test_locate_excludes_files_older_than_lookback(self):
         with tempfile.TemporaryDirectory() as tmp:
