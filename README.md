@@ -127,6 +127,7 @@ If you prefer not to use the CLI, copy skill directories into your agent's skill
 | Claude Code | `.claude/skills/` | `~/.claude/skills/` |
 | Cursor | `.cursor/skills/` | — |
 | Codex | `.agents/skills/` | `~/.agents/skills/` |
+| GitHub Copilot | `.github/skills/` (also reads `.claude/skills/` and `.agents/skills/`) | `~/.copilot/skills/` or `~/.agents/skills/` |
 | Gemini CLI | Append to `GEMINI.md` | — |
 
 ## License
