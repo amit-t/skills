@@ -134,12 +134,18 @@ class CopilotAdapter(Adapter):
         root = Path(config.get("copilot_dir") or DEFAULT_COPILOT_DIR).expanduser()
 
         session_dirs = sorted(
-            (p for p in glob.glob(str(root / "session-state" / "*")) if os.path.isdir(p))
+            (p for p in glob.glob(str(root / "session-state" / "*")) if os.path.isdir(p)),
+            key=os.path.getmtime,
+            reverse=True,
         )
         if session_dirs:
             return [{"kind": "session_dir", "path": p} for p in session_dirs]
 
-        state_files = sorted(glob.glob(str(root / "history-session-state" / "*" / "state.json")))
+        state_files = sorted(
+            glob.glob(str(root / "history-session-state" / "*" / "state.json")),
+            key=os.path.getmtime,
+            reverse=True,
+        )
         if state_files:
             return [{"kind": "state_json", "path": p} for p in state_files]
 

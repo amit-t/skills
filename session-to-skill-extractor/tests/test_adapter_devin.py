@@ -1,6 +1,9 @@
 import json
 import os
+import socket
 import sys
+import tempfile
+import time
 import unittest
 import urllib.error
 from pathlib import Path
@@ -51,6 +54,26 @@ class TestDevinAdapterLocateViaConfigFiles(unittest.TestCase):
         with mock.patch.dict(os.environ, {"DEVIN_API_KEY": "fake-key"}):
             refs = DevinAdapter().locate({"devin_session_files": [str(SESSION_DETAIL)]})
         self.assertEqual(refs, [str(SESSION_DETAIL)])
+
+
+class TestDevinAdapterLocateOrdering(unittest.TestCase):
+    """Binding Task-2 contract: locate() returns refs newest first."""
+
+    def test_config_files_newest_first(self):
+        # Names deliberately alphabetically ASCENDING in the opposite order
+        # of their mtimes (see copilot ordering tests for why this matters).
+        with tempfile.TemporaryDirectory() as tmp:
+            older = Path(tmp) / "aaa_old.json"
+            newer = Path(tmp) / "zzz_new.json"
+            older.write_text("{}")
+            newer.write_text("{}")
+            old_time = time.time() - 1000
+            new_time = time.time()
+            os.utime(older, (old_time, old_time))
+            os.utime(newer, (new_time, new_time))
+
+            refs = DevinAdapter().locate({"devin_session_files": [str(Path(tmp) / "*.json")]})
+            self.assertEqual([Path(r).name for r in refs], ["zzz_new.json", "aaa_old.json"])
 
 
 class TestDevinAdapterLocateNoSource(unittest.TestCase):
@@ -134,6 +157,51 @@ class TestDevinAdapterLocateViaApi(unittest.TestCase):
         message = str(ctx.exception)
         self.assertNotIn("Traceback", message)
         self.assertIn("sess-x", message)
+
+    def test_load_via_api_url_error_raises_clean_message_no_traceback(self):
+        with mock.patch(
+            "adapters.devin.urllib.request.urlopen",
+            side_effect=urllib.error.URLError("network unreachable"),
+        ):
+            with self.assertRaises(ValueError) as ctx:
+                DevinAdapter().load({"kind": "api", "session_id": "sess-y", "api_key": "bad-key"}, {})
+        message = str(ctx.exception)
+        self.assertNotIn("Traceback", message)
+        self.assertIn("sess-y", message)
+
+    def test_load_via_api_timeout_raises_clean_message_no_traceback(self):
+        with mock.patch(
+            "adapters.devin.urllib.request.urlopen",
+            side_effect=socket.timeout("timed out"),
+        ):
+            with self.assertRaises(ValueError) as ctx:
+                DevinAdapter().load({"kind": "api", "session_id": "sess-z", "api_key": "bad-key"}, {})
+        message = str(ctx.exception)
+        self.assertNotIn("Traceback", message)
+        self.assertIn("sess-z", message)
+        self.assertIn("timed out", message)
+
+    def test_load_via_api_invalid_json_raises_clean_message_no_traceback(self):
+        with mock.patch("adapters.devin.urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._fake_response_raw(b"not valid json {{{")
+            with self.assertRaises(ValueError) as ctx:
+                DevinAdapter().load({"kind": "api", "session_id": "sess-w", "api_key": "bad-key"}, {})
+        message = str(ctx.exception)
+        self.assertNotIn("Traceback", message)
+        self.assertIn("sess-w", message)
+
+    def _fake_response_raw(self, raw_bytes):
+        class _Resp:
+            def __enter__(self_inner):
+                return self_inner
+
+            def __exit__(self_inner, *exc_info):
+                return False
+
+            def read(self_inner):
+                return raw_bytes
+
+        return _Resp()
 
 
 if __name__ == "__main__":

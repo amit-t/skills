@@ -1,6 +1,8 @@
+import os
 import sqlite3
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -143,8 +145,57 @@ class TestCopilotAdapterLocateProbeOrder(unittest.TestCase):
             self.assertEqual(refs, [])
 
     def test_default_root_does_not_crash(self):
-        refs = CopilotAdapter().locate({})
+        # Hermetic: override copilot_dir to an empty tempdir rather than
+        # touching this machine's real ~/.copilot.
+        with tempfile.TemporaryDirectory() as tmp:
+            refs = CopilotAdapter().locate({"copilot_dir": tmp})
         self.assertIsInstance(refs, list)
+        self.assertEqual(refs, [])
+
+
+class TestCopilotAdapterLocateOrdering(unittest.TestCase):
+    """Binding Task-2 contract: locate() returns refs newest first."""
+
+    def test_session_state_dirs_newest_first(self):
+        # Names deliberately alphabetically ASCENDING in the opposite order
+        # of their mtimes, so a bare alphabetical sorted() (the pre-fix bug)
+        # would report "aaa_old" first -- catching the regression, unlike
+        # names that happen to agree with mtime order by coincidence.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            older = root / "session-state" / "aaa_old"
+            newer = root / "session-state" / "zzz_new"
+            older.mkdir(parents=True)
+            newer.mkdir(parents=True)
+            old_time = time.time() - 1000
+            new_time = time.time()
+            os.utime(older, (old_time, old_time))
+            os.utime(newer, (new_time, new_time))
+
+            refs = CopilotAdapter().locate({"copilot_dir": tmp})
+            self.assertEqual([Path(r["path"]).name for r in refs], ["zzz_new", "aaa_old"])
+
+    def test_history_session_state_files_newest_first(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            older_dir = root / "history-session-state" / "aaa_old"
+            newer_dir = root / "history-session-state" / "zzz_new"
+            older_dir.mkdir(parents=True)
+            newer_dir.mkdir(parents=True)
+            older_file = older_dir / "state.json"
+            newer_file = newer_dir / "state.json"
+            older_file.write_text("{}")
+            newer_file.write_text("{}")
+            old_time = time.time() - 1000
+            new_time = time.time()
+            os.utime(older_file, (old_time, old_time))
+            os.utime(newer_file, (new_time, new_time))
+
+            refs = CopilotAdapter().locate({"copilot_dir": tmp})
+            self.assertEqual(
+                [Path(r["path"]).parent.name for r in refs],
+                ["zzz_new", "aaa_old"],
+            )
 
 
 if __name__ == "__main__":

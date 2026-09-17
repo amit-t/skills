@@ -96,7 +96,7 @@ class DevinAdapter(Adapter):
             matches = set()
             for pattern in patterns:
                 matches.update(glob.glob(str(Path(pattern).expanduser())))
-            return sorted(matches)
+            return sorted(matches, key=os.path.getmtime, reverse=True)
 
         api_key = os.environ.get("DEVIN_API_KEY")
         if not api_key:
