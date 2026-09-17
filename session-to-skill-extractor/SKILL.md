@@ -79,6 +79,8 @@ python3 scripts/render_skill.py --candidate <work_dir>/candidates/<candidate_id>
 
 This writes `review-queue/<candidate_id>/{candidate.json,SKILL.md,REVIEW.md}` and prints `{"ok": true, "dir": ...}`. `REVIEW.md` already carries the rubric table, quality-criteria checklist, evidence excerpts, dedup findings, and a `recommended_action` (`accept` only when no blocking dedup relation exists and the rubric total meets the flag threshold; otherwise `review dedup findings`). After rendering every candidate for the run, print your own summary table with columns: candidate, task type, evidence count, status, dedup finding, recommended action.
 
+Then count the current library size: the number of `registry.json` `skills` entries, or (if no registry is available yet) the number of `*/SKILL.md` folders under `output_skill_dir`. When that count exceeds config `library_size_warning` (default 20), add a warning to the run summary recommending description-based selective loading over always-loaded skills, and pointing at `retire_review.py` for pruning candidates. This is a run-summary note only — no script enforces it.
+
 ## Step 7 — Promote (on human instruction only)
 
 Never call `promote.py` unless the human explicitly tells you to accept, edit, or reject a specific candidate — or `review.auto_promote` is `true` in config **and** the candidate is `validated`-tier with zero dedup findings (see Guardrails).

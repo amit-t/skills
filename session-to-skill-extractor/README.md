@@ -185,6 +185,21 @@ cp -r session-to-skill-extractor ~/.agents/skills/session-to-skill-extractor
 </details>
 
 <details>
+<summary>GitHub Copilot</summary>
+
+```bash
+# Project-level
+cp -r session-to-skill-extractor .github/skills/session-to-skill-extractor
+
+# Global
+cp -r session-to-skill-extractor ~/.copilot/skills/session-to-skill-extractor
+```
+
+`.claude/skills/` and `.agents/skills/` also work at the project level, and `~/.agents/skills/` works at the user level (see `references/host-notes.md`).
+
+</details>
+
+<details>
 <summary>Gemini CLI</summary>
 
 ```bash
