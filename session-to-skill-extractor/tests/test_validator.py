@@ -1,7 +1,9 @@
 import copy
+import datetime
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -105,6 +107,169 @@ class TestMissingRequiredKeys(unittest.TestCase):
         del candidate["expected_output"]
         errors = validate(candidate, blacklist(), DEFAULT_CFG)
         self.assertTrue(any("expected_output" in e for e in errors))
+
+
+class TestSuppressedTaskType(unittest.TestCase):
+    """Item B: validate() takes an optional registry dict and rejects a candidate
+    whose task_type has an unexpired suppression entry (registry.json
+    suppressed_task_types, written by promote.py's reject path but never
+    previously enforced anywhere)."""
+
+    def _registry_with_suppression(self, task_type, until, reason="not generalizable enough"):
+        return {
+            "suppressed_task_types": [
+                {"task_type": task_type, "until": until, "reason": reason},
+            ]
+        }
+
+    def test_unexpired_suppression_fails(self):
+        candidate = load_fixture("good.json")
+        future = (
+            datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=10)
+        ).isoformat()
+        registry = self._registry_with_suppression(candidate["task_type"], future)
+        errors = validate(candidate, blacklist(), DEFAULT_CFG, registry)
+        self.assertTrue(any("suppressed" in e.lower() for e in errors))
+        self.assertTrue(any("not generalizable enough" in e for e in errors))
+
+    def test_expired_suppression_passes(self):
+        candidate = load_fixture("good.json")
+        past = (
+            datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=1)
+        ).isoformat()
+        registry = self._registry_with_suppression(candidate["task_type"], past)
+        errors = validate(candidate, blacklist(), DEFAULT_CFG, registry)
+        self.assertEqual(errors, [])
+
+    def test_no_registry_does_not_suppress(self):
+        candidate = load_fixture("good.json")
+        errors = validate(candidate, blacklist(), DEFAULT_CFG, None)
+        self.assertEqual(errors, [])
+
+    def test_cli_registry_flag_suppressed_exits_1_with_error(self):
+        candidate = load_fixture("good.json")
+        future = (
+            datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(days=10)
+        ).isoformat()
+        registry = self._registry_with_suppression(candidate["task_type"], future)
+        with tempfile.TemporaryDirectory() as tmp:
+            registry_path = Path(tmp) / "registry.json"
+            registry_path.write_text(json.dumps(registry), encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable, str(VALIDATE_CANDIDATE),
+                    "--candidate", str(FIXTURES_DIR / "good.json"),
+                    "--registry", str(registry_path),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            payload = json.loads(result.stdout)
+            self.assertFalse(payload["ok"])
+            self.assertTrue(any("suppressed" in e.lower() for e in payload["errors"]))
+
+
+class TestMalformedCandidateNeverCrashes(unittest.TestCase):
+    """Item F: every check must type-guard its inputs and collect an error string
+    instead of raising -- a malformed candidate is a validation failure, not a
+    crash."""
+
+    def test_steps_as_string_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["steps"] = "do stuff"
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("steps" in e.lower() for e in errors))
+
+    def test_rubric_null_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["rubric"] = None
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+
+    def test_rubric_non_dict_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["rubric"] = "high"
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("rubric" in e.lower() for e in errors))
+
+    def test_trigger_non_dict_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["trigger"] = "some trigger text"
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("trigger" in e.lower() for e in errors))
+
+    def test_edge_cases_non_list_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["edge_cases"] = "none observed"
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("edge_cases" in e.lower() for e in errors))
+
+    def test_decision_points_non_list_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["decision_points"] = {"not": "a list"}
+        candidate.pop("linear", None)
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("decision_points" in e.lower() for e in errors))
+
+    def test_step_entry_non_dict_reports_error_not_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["steps"] = [candidate["steps"][0], "not a step object", candidate["steps"][1]]
+        errors = validate(candidate, blacklist(), DEFAULT_CFG)
+        self.assertTrue(errors)
+        self.assertTrue(any("step entry" in e.lower() for e in errors))
+
+    def test_cli_steps_string_exits_1_no_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["steps"] = "do stuff"
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "candidate.json"
+            path.write_text(json.dumps(candidate), encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(VALIDATE_CANDIDATE), "--candidate", str(path)],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertFalse(payload["ok"])
+
+    def test_cli_rubric_null_exits_1_no_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["rubric"] = None
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "candidate.json"
+            path.write_text(json.dumps(candidate), encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(VALIDATE_CANDIDATE), "--candidate", str(path)],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertFalse(payload["ok"])
+
+    def test_cli_malformed_json_file_exits_1_no_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "candidate.json"
+            path.write_text("{not valid json", encoding="utf-8")
+            result = subprocess.run(
+                [sys.executable, str(VALIDATE_CANDIDATE), "--candidate", str(path)],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            payload = json.loads(result.stdout)
+            self.assertFalse(payload["ok"])
+            self.assertTrue(any("malformed" in e.lower() for e in payload["errors"]))
 
 
 class TestValidateCandidateCli(unittest.TestCase):

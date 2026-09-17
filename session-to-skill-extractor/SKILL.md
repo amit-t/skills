@@ -38,17 +38,17 @@ Read `references/rubric.md` first — it has the five article questions verbatim
 
 ## Step 3 — Cluster and gate
 
-Group flagged sessions by `task_type` (exact match first, then judge semantic matches yourself). Count `supporting_sessions` per cluster and apply the recurrence ladder from `config.example.json` (`recurrence.candidate_min_sessions: 3`, `provisional_min_sessions: 20`, `validated_min_sessions: 30` — see the Status ladder table in `README.md` for what each tier means downstream). A cluster with exactly 1 supporting session may still proceed to articulation **only if** Q2 = 2 **and** Q3 = 2 for that session, and it must always be marked `requires_human_review: true` — no other single-session cluster proceeds. Clusters below `candidate_min_sessions` (and not covered by the single-session exception) are not articulated yet; note them to the user as "seen once, watching for recurrence" rather than discarding them.
+Group flagged sessions by `task_type` (exact match first, then judge semantic matches yourself). Before articulating a cluster, read `registry.json`'s `suppressed_task_types`: skip any cluster whose `task_type` has an entry with `until` in the future, unless the cluster's supporting evidence has at least doubled since the rejection (spec C5 Stage 5) — note the skip to the user rather than silently dropping it. Count `supporting_sessions` per cluster and apply the recurrence ladder from `config.example.json` (`recurrence.candidate_min_sessions: 3`, `provisional_min_sessions: 20`, `validated_min_sessions: 30` — see the Status ladder table in `README.md` for what each tier means downstream). A cluster with exactly 1 supporting session may still proceed to articulation **only if** Q2 = 2 **and** Q3 = 2 for that session, and it must always be marked `requires_human_review: true` — no other single-session cluster proceeds. Clusters below `candidate_min_sessions` (and not covered by the single-session exception) are not articulated yet; note them to the user as "seen once, watching for recurrence" rather than discarding them.
 
 ## Step 4 — Articulate
 
 For each gated cluster, fill a `CandidateSkill` JSON per `schemas/candidate.schema.json` (D2): `candidate_id`, `name`, `description`, `task_type`, `trigger` (description + signals), `prerequisites`, `steps` (≥3, each an imperative sentence, no vague phrasing), `decision_points` (or `linear: true` if none), `expected_output` (checkable), `edge_cases` (≥1, or an explicit "none observed in N sessions"), `rubric`, `evidence`, `provenance`, `status`, `requires_human_review`, `version`. Then validate:
 
 ```
-python3 scripts/validate_candidate.py --candidate <work_dir>/candidates/<candidate_id>.json [--config config.json]
+python3 scripts/validate_candidate.py --candidate <work_dir>/candidates/<candidate_id>.json [--registry <registry_path>] [--config config.json]
 ```
 
-On failure (`{"ok": false, "errors": [...]}`), revise the candidate once using the returned error messages, then re-run. Before finalizing, self-check the article's own test: **could another agent follow this without interpretation?** If the honest answer is no, tighten the steps and re-validate — a description like "search the web and then summarize" is not a skill; "run `X`, extract field `Y`, then write `Z`" is.
+Pass `--registry` so a candidate whose `task_type` is still suppressed (see Step 3) fails validation deterministically instead of relying on the cluster-gate check alone. On failure (`{"ok": false, "errors": [...]}`), revise the candidate once using the returned error messages, then re-run. Before finalizing, self-check the article's own test: **could another agent follow this without interpretation?** If the honest answer is no, tighten the steps and re-validate — a description like "search the web and then summarize" is not a skill; "run `X`, extract field `Y`, then write `Z`" is.
 
 ## Step 5 — Dedup and conflict
 

@@ -7,6 +7,7 @@ decision_points/linear consistency, edge_cases coverage, rubric arithmetic +
 flag rule, and the single-session human-review gate.
 """
 import argparse
+import datetime
 import json
 import re
 import sys
@@ -58,6 +59,29 @@ def _find_blacklisted(text, blacklist):
     return None
 
 
+def _as_dict(value, field_name, errors):
+    """Coerce value to a dict for a check that needs one. None -> {} silently
+    (absence is reported by _check_schema_lite's required-key pass instead);
+    any other non-dict type is a malformed-candidate error."""
+    if value is None:
+        return {}
+    if isinstance(value, dict):
+        return value
+    errors.append("%s must be an object, got %s" % (field_name, type(value).__name__))
+    return {}
+
+
+def _as_list(value, field_name, errors):
+    """Coerce value to a list for a check that needs one. None -> [] silently;
+    any other non-list type is a malformed-candidate error."""
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    errors.append("%s must be a list, got %s" % (field_name, type(value).__name__))
+    return []
+
+
 def _check_schema_lite(candidate, errors):
     """Check 1: required D2 keys present, name pattern, description length."""
     for key in _REQUIRED_KEYS:
@@ -75,11 +99,14 @@ def _check_schema_lite(candidate, errors):
 
 def _check_steps(candidate, blacklist, errors):
     """Check 2: >=3 steps; each action >=15 chars, capitalized-verb-ish start, blacklist-free."""
-    steps = candidate.get("steps") or []
+    steps = _as_list(candidate.get("steps"), "steps", errors)
     if len(steps) < 3:
         errors.append("steps: need at least 3, got %d" % len(steps))
 
     for step in steps:
+        if step is not None and not isinstance(step, dict):
+            errors.append("step entry must be an object, got %s: %r" % (type(step).__name__, step))
+            continue
         step = step or {}
         n = step.get("n")
         action = step.get("action") or ""
@@ -111,7 +138,9 @@ def _check_prose_blacklist_and_checkable(candidate, blacklist, errors):
     if not _CHECKABLE_RE.search(expected_output):
         errors.append("expected_output not checkable")
 
-    trigger_description = (candidate.get("trigger") or {}).get("description") or ""
+    raw_trigger = candidate.get("trigger")
+    trigger_for_prose = raw_trigger if isinstance(raw_trigger, dict) else {}
+    trigger_description = trigger_for_prose.get("description") or ""
     phrase = _find_blacklisted(trigger_description, blacklist)
     if phrase:
         errors.append("trigger.description contains blacklisted phrase: %r" % phrase)
@@ -119,7 +148,7 @@ def _check_prose_blacklist_and_checkable(candidate, blacklist, errors):
 
 def _check_trigger(candidate, errors):
     """Check 4: trigger.description non-empty AND trigger.signals >= 1."""
-    trigger = candidate.get("trigger") or {}
+    trigger = _as_dict(candidate.get("trigger"), "trigger", errors)
     description = trigger.get("description") or ""
     signals = trigger.get("signals") or []
     if not description.strip():
@@ -130,14 +159,14 @@ def _check_trigger(candidate, errors):
 
 def _check_decision_points(candidate, errors):
     """Check 5: decision_points empty => linear must be true."""
-    decision_points = candidate.get("decision_points") or []
+    decision_points = _as_list(candidate.get("decision_points"), "decision_points", errors)
     if not decision_points and candidate.get("linear") is not True:
         errors.append("decision_points is empty but linear is not true")
 
 
 def _check_edge_cases(candidate, errors):
     """Check 6: edge_cases >= 1 non-empty entry (a 'none observed in N sessions' string counts)."""
-    edge_cases = candidate.get("edge_cases") or []
+    edge_cases = _as_list(candidate.get("edge_cases"), "edge_cases", errors)
     non_empty = [e for e in edge_cases if isinstance(e, str) and e.strip()]
     if len(non_empty) < 1:
         errors.append("edge_cases must have at least 1 non-empty entry")
@@ -146,7 +175,11 @@ def _check_edge_cases(candidate, errors):
 def _check_rubric(candidate, cfg, errors):
     """Check 7: rubric total == sum(q1..q5); flag rule holds (an unflaggable candidate must
     not reach articulation)."""
-    rubric = candidate.get("rubric") or {}
+    raw_rubric = candidate.get("rubric")
+    if raw_rubric is not None and not isinstance(raw_rubric, dict):
+        errors.append("rubric must be an object, got %s" % type(raw_rubric).__name__)
+        return
+    rubric = raw_rubric or {}
     try:
         q = [rubric["q1"], rubric["q2"], rubric["q3"], rubric["q4"], rubric["q5"]]
         total = rubric["total"]
@@ -182,12 +215,46 @@ def _check_single_session_review(candidate, errors):
         )
 
 
-def validate(candidate, blacklist, cfg):
+def _parse_iso(value):
+    """Parse an ISO-8601 timestamp, treating a naive datetime as UTC. None on failure."""
+    if not isinstance(value, str):
+        return None
+    try:
+        parsed = datetime.datetime.fromisoformat(value)
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=datetime.timezone.utc)
+    return parsed
+
+
+def _check_suppression(candidate, registry, errors):
+    """C5 Stage 5 / item B: reject a candidate whose task_type has an unexpired
+    entry in registry.json's suppressed_task_types (written by promote.py's
+    reject path). No registry given -> no-op."""
+    if not registry:
+        return
+    task_type = candidate.get("task_type")
+    now = datetime.datetime.now(datetime.timezone.utc)
+    for entry in registry.get("suppressed_task_types") or []:
+        entry = entry or {}
+        if entry.get("task_type") != task_type:
+            continue
+        until = _parse_iso(entry.get("until"))
+        if until is not None and until > now:
+            errors.append(
+                "task_type '%s' suppressed until %s (rejected: %s)"
+                % (task_type, entry.get("until"), entry.get("reason"))
+            )
+
+
+def validate(candidate, blacklist, cfg, registry=None):
     """Run all Stage-3 hard-rule checks against a D2 candidate dict.
 
     Returns a list of error strings; an empty list means the candidate is valid.
     Never raises on missing/malformed fields -- each check tolerates absence and
-    reports it as an error instead.
+    reports it as an error instead. `registry` is an optional loaded registry.json
+    dict; when given, a candidate whose task_type is still suppressed also fails.
     """
     candidate = candidate or {}
     errors = []
@@ -199,6 +266,7 @@ def validate(candidate, blacklist, cfg):
     _check_edge_cases(candidate, errors)
     _check_rubric(candidate, cfg, errors)
     _check_single_session_review(candidate, errors)
+    _check_suppression(candidate, registry, errors)
     return errors
 
 
@@ -208,15 +276,29 @@ def parse_args(argv=None):
     )
     parser.add_argument("--candidate", required=True, help="path to a candidate JSON file")
     parser.add_argument("--config", default=None, help="path to a user config.json")
+    parser.add_argument(
+        "--registry", default=None,
+        help="path to registry.json; when given, an unexpired suppressed_task_types entry fails validation",
+    )
     return parser.parse_args(argv)
 
 
 def main(argv=None):
     args = parse_args(argv)
-    candidate = read_json(args.candidate)
+    try:
+        candidate = read_json(args.candidate)
+    except (OSError, ValueError) as exc:
+        print(json.dumps({"ok": False, "errors": ["malformed candidate JSON: %s" % exc]}))
+        return 1
     cfg = load_config(args.config)
     blacklist = load_blacklist(_anti_patterns_path(cfg))
-    errors = validate(candidate, blacklist, cfg)
+    registry = None
+    if args.registry and Path(args.registry).is_file():
+        try:
+            registry = read_json(args.registry)
+        except (OSError, ValueError):
+            registry = None
+    errors = validate(candidate, blacklist, cfg, registry)
     if errors:
         print(json.dumps({"ok": False, "errors": errors}))
         return 1
