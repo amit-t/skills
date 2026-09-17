@@ -1,10 +1,16 @@
+import json
+import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
+sys.path.insert(0, str(SCRIPTS_DIR))
 
 from filter_sessions import filter_sessions
+
+FILTER_SESSIONS = SCRIPTS_DIR / "filter_sessions.py"
 
 DEFAULT_CFG = {
     "filter": {
@@ -203,6 +209,51 @@ class TestNullTolerance(unittest.TestCase):
         self.assertEqual(filtered, [])
         self.assertEqual(len(dropped), 1)
         self.assertEqual(dropped[0]["session_id"], "nullish")
+
+
+class TestFilterSessionsCliMalformedInput(unittest.TestCase):
+    """Item F: a missing or malformed --in file must be a clean one-line stderr
+    JSON error with exit 1, never a traceback."""
+
+    def test_missing_in_file_exits_1_no_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = subprocess.run(
+                [
+                    sys.executable, str(FILTER_SESSIONS),
+                    "--in", str(Path(tmp) / "no-such-file.json"),
+                    "--out", str(Path(tmp) / "out.json"),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            stderr_lines = [l for l in result.stderr.splitlines() if l.strip()]
+            self.assertEqual(len(stderr_lines), 1)
+            payload = json.loads(stderr_lines[0])
+            self.assertFalse(payload["ok"])
+
+    def test_malformed_json_in_file_exits_1_no_traceback(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "bad.json"
+            bad.write_text("{not valid json", encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable, str(FILTER_SESSIONS),
+                    "--in", str(bad),
+                    "--out", str(Path(tmp) / "out.json"),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            stderr_lines = [l for l in result.stderr.splitlines() if l.strip()]
+            self.assertEqual(len(stderr_lines), 1)
+            payload = json.loads(stderr_lines[0])
+            self.assertFalse(payload["ok"])
 
 
 if __name__ == "__main__":

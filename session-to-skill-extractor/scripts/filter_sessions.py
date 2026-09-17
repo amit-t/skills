@@ -9,6 +9,7 @@ fields null, so every read below tolerates missing/null values.
 priority_score = 1*length + 2*complexity + 2*outcome + 3*novelty (each flag is 0 or 1).
 """
 import argparse
+import json
 import re
 import sys
 from pathlib import Path
@@ -201,7 +202,11 @@ def parse_args(argv=None):
 
 def main(argv=None):
     args = parse_args(argv)
-    sessions = _load_sessions(args.in_path)
+    try:
+        sessions = _load_sessions(args.in_path)
+    except (OSError, ValueError) as exc:
+        print(json.dumps({"ok": False, "errors": ["malformed or missing --in file: %s" % exc]}), file=sys.stderr)
+        return 1
     cfg = load_config(args.config)
     filtered, dropped = filter_sessions(sessions, cfg)
     write_json(args.out, {"filtered": filtered, "dropped": dropped})
