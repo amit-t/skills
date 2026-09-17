@@ -10,7 +10,9 @@ from pathlib import Path
 SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
-from render_skill import render_skill_md, render_review_md, render_candidate, title_case_name
+from render_skill import (
+    render_skill_md, render_review_md, render_candidate, title_case_name, yaml_scalar,
+)
 
 FIXTURES_DIR = Path(__file__).resolve().parent / "fixtures"
 CANDIDATES_DIR = FIXTURES_DIR / "candidates"
@@ -199,6 +201,115 @@ class TestRenderCandidateWritesFiles(unittest.TestCase):
             copied = json.loads((dest_dir / "candidate.json").read_text(encoding="utf-8"))
             original = load_fixture("good.json")
             self.assertEqual(copied, original)
+
+
+class TestYamlScalar(unittest.TestCase):
+    """Fix round 1, item 1: frontmatter scalars must be YAML-safe."""
+
+    def test_safe_plain_scalar_returned_unquoted(self):
+        self.assertEqual(yaml_scalar("jest-to-vitest-migration"), "jest-to-vitest-migration")
+
+    def test_colon_space_forces_json_quoting(self):
+        value = "Migrates jest to vitest: converts config and mocks in one pass."
+        self.assertEqual(yaml_scalar(value), json.dumps(value))
+
+    def test_leading_asterisk_forces_json_quoting(self):
+        value = "*emphasis* not a yaml alias"
+        self.assertEqual(yaml_scalar(value), json.dumps(value))
+
+    def test_trailing_space_forces_json_quoting(self):
+        value = "trailing space "
+        self.assertEqual(yaml_scalar(value), json.dumps(value))
+
+
+class TestRenderSkillMdFrontmatterYamlSafety(unittest.TestCase):
+    """Fix round 1, item 1: a description containing ': ' must not corrupt the
+    frontmatter -- it is emitted as a JSON-double-quoted YAML scalar."""
+
+    def test_colon_in_description_renders_json_quoted_line(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["description"] = "Migrates jest to vitest: converts config and mocks in one pass."
+        text = render_skill_md(candidate)
+        lines = text.splitlines()
+        self.assertIn(
+            'description: "Migrates jest to vitest: converts config and mocks in one pass."',
+            lines,
+        )
+
+    def test_leading_special_char_in_task_type_renders_json_quoted(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["task_type"] = "*migrate-jest-to-vitest"
+        text = render_skill_md(candidate)
+        self.assertIn('task_type: "*migrate-jest-to-vitest"', text)
+
+
+class TestRenderSkillCliMissingCandidateId(unittest.TestCase):
+    """Fix round 1, item 2a: a candidate JSON missing candidate_id must not crash
+    with a traceback -- render_candidate raises ValueError, CLI exits 1."""
+
+    def test_render_candidate_raises_value_error_when_candidate_id_missing(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        del candidate["candidate_id"]
+        with tempfile.TemporaryDirectory() as tmp:
+            candidate_path = Path(tmp) / "candidate.json"
+            candidate_path.write_text(json.dumps(candidate), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                render_candidate(str(candidate_path), tmp)
+
+    def test_cli_missing_candidate_id_exits_1_one_line_stderr_no_traceback(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        del candidate["candidate_id"]
+        with tempfile.TemporaryDirectory() as tmp:
+            candidate_path = Path(tmp) / "candidate.json"
+            candidate_path.write_text(json.dumps(candidate), encoding="utf-8")
+            result = subprocess.run(
+                [
+                    sys.executable, str(RENDER_SKILL),
+                    "--candidate", str(candidate_path),
+                    "--out-dir", tmp,
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            stderr_lines = [l for l in result.stderr.splitlines() if l.strip()]
+            self.assertEqual(len(stderr_lines), 1)
+
+
+class TestRecommendedActionDistinctFindings(unittest.TestCase):
+    """Fix round 1, item 3: findings that are all 'distinct' don't block accept;
+    any duplicate/overlap/superset/subset finding does."""
+
+    def test_all_distinct_findings_still_recommend_accept(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["dedup"]["findings"] = [
+            {"skill": "unrelated-skill", "relation": "distinct", "note": "no overlap"}
+        ]
+        text = render_review_md(candidate, DEFAULT_CFG)
+        self.assertIn("## Recommended action\n\naccept", text)
+
+    def test_mixed_distinct_and_overlap_recommends_review(self):
+        candidate = copy.deepcopy(load_fixture("good.json"))
+        candidate["dedup"]["findings"] = [
+            {"skill": "unrelated-skill", "relation": "distinct", "note": "no overlap"},
+            {"skill": "existing-skill-a", "relation": "overlap", "note": "shares steps"},
+        ]
+        text = render_review_md(candidate, DEFAULT_CFG)
+        self.assertIn("## Recommended action\n\nreview dedup findings", text)
+
+    def test_duplicate_superset_subset_all_block_accept(self):
+        for relation in ("duplicate", "superset", "subset"):
+            candidate = copy.deepcopy(load_fixture("good.json"))
+            candidate["dedup"]["findings"] = [
+                {"skill": "existing-skill-a", "relation": relation, "note": "..."}
+            ]
+            text = render_review_md(candidate, DEFAULT_CFG)
+            self.assertIn(
+                "## Recommended action\n\nreview dedup findings", text,
+                "relation=%s should block accept" % relation,
+            )
 
 
 class TestRenderSkillCli(unittest.TestCase):

@@ -83,6 +83,15 @@ def _require_queue_dir(queue_dir, candidate_id):
     return src_dir
 
 
+def _read_candidate_json(path):
+    """read_json wrapped so a malformed candidate.json is a clean PromoteError
+    (CLI: one stderr line, exit 1) rather than an uncaught JSONDecodeError."""
+    try:
+        return read_json(path)
+    except (OSError, ValueError) as exc:
+        raise PromoteError("malformed candidate.json at %s: %s" % (path, exc))
+
+
 def _promote_accept_or_edit(candidate_id, action, queue_dir, skill_dir, registry_path, cfg):
     src_dir = _require_queue_dir(queue_dir, candidate_id)
 
@@ -93,7 +102,7 @@ def _promote_accept_or_edit(candidate_id, action, queue_dir, skill_dir, registry
     if not skill_md_path.is_file():
         raise PromoteError("missing rendered SKILL.md in queue folder: %s" % src_dir)
 
-    candidate = read_json(candidate_path)
+    candidate = _read_candidate_json(candidate_path)
     name = candidate.get("name")
     if not name:
         raise PromoteError("candidate.json is missing 'name': %s" % candidate_path)
@@ -143,7 +152,7 @@ def _promote_reject(candidate_id, queue_dir, registry_path, reason, cfg):
     task_type = None
     candidate_path = src_dir / "candidate.json"
     if candidate_path.is_file():
-        task_type = read_json(candidate_path).get("task_type")
+        task_type = _read_candidate_json(candidate_path).get("task_type")
 
     rejected_dir = Path(queue_dir) / "rejected"
     rejected_dir.mkdir(parents=True, exist_ok=True)

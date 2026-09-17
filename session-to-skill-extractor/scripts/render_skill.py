@@ -10,6 +10,7 @@ and substituted into the template as a single value.
 """
 import argparse
 import json
+import re
 import shutil
 import string
 import sys
@@ -28,6 +29,28 @@ EXTRACTOR_VERSION = "1.0"
 _QUALITY_CRITERIA_ORDER = (
     "recurrence", "non_obvious", "replicable", "measurable_quality", "clearly_articulable",
 )
+
+_BLOCKING_DEDUP_RELATIONS = {"duplicate", "overlap", "superset", "subset"}
+
+# A YAML plain scalar is safe unquoted only when it starts with an alnum (never a
+# YAML indicator char like *, &, !, ?, -, :, #, etc.), contains only alnum/space/
+# ._/- , and has no trailing space (trailing space is itself ambiguous in YAML).
+_SAFE_YAML_PLAIN_SCALAR_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 ._/-]*$")
+
+
+def yaml_scalar(value):
+    """Render value as a YAML frontmatter scalar.
+
+    Returns the raw string unquoted only when it is a safe plain scalar; otherwise
+    returns a JSON-double-quoted string, which is also a valid YAML scalar. Used
+    for every frontmatter value whose content originates from candidate text
+    (name, description, task_type, extracted_from_host, extracted_by, extracted_at) --
+    status/version/booleans/ints are generated internally and already controlled.
+    """
+    text = "" if value is None else str(value)
+    if _SAFE_YAML_PLAIN_SCALAR_RE.match(text) and not text.endswith(" "):
+        return text
+    return json.dumps(text)
 
 
 def title_case_name(name):
@@ -97,15 +120,15 @@ def render_skill_md(candidate, extractor_version=EXTRACTOR_VERSION):
     sessions = evidence.get("sessions") or []
 
     mapping = {
-        "name": candidate.get("name", ""),
-        "description": candidate.get("description", ""),
+        "name": yaml_scalar(candidate.get("name", "")),
+        "description": yaml_scalar(candidate.get("description", "")),
         "status": candidate.get("status", "candidate"),
         "version": candidate.get("version", "1.0"),
-        "task_type": candidate.get("task_type", ""),
-        "extracted_by": "session-to-skill-extractor/%s" % extractor_version,
-        "extracted_from_host": provenance.get("extracted_by_host", ""),
+        "task_type": yaml_scalar(candidate.get("task_type", "")),
+        "extracted_by": yaml_scalar("session-to-skill-extractor/%s" % extractor_version),
+        "extracted_from_host": yaml_scalar(provenance.get("extracted_by_host", "")),
         "supporting_sessions": evidence.get("supporting_sessions", 0),
-        "extracted_at": provenance.get("extracted_at", ""),
+        "extracted_at": yaml_scalar(provenance.get("extracted_at", "")),
         "requires_human_review": _yaml_bool(candidate.get("requires_human_review", True)),
         "title": title_case_name(candidate.get("name", "")),
         "trigger_description": trigger.get("description", ""),
@@ -166,9 +189,15 @@ def _dedup_findings_block(findings):
 
 
 def _recommended_action(findings, rubric, cfg):
+    """'accept' iff no finding has a blocking relation (duplicate/overlap/superset/
+    subset -- 'distinct' findings never block) and rubric total meets the flag
+    threshold; otherwise 'review dedup findings'."""
     flag_min_total = ((cfg or {}).get("identify") or {}).get("flag_min_total", 7)
     total = (rubric or {}).get("total", 0)
-    if not findings and total >= flag_min_total:
+    has_blocking_finding = any(
+        (f or {}).get("relation") in _BLOCKING_DEDUP_RELATIONS for f in (findings or [])
+    )
+    if not has_blocking_finding and total >= flag_min_total:
         return "accept"
     return "review dedup findings"
 
@@ -213,6 +242,11 @@ def render_candidate(candidate_path, out_dir, dedup_findings_path=None, config_p
     cfg = load_config(config_path)
 
     candidate_id = candidate.get("candidate_id")
+    if not candidate_id:
+        raise ValueError("candidate JSON is missing 'candidate_id': %s" % candidate_path)
+    if not candidate.get("name"):
+        raise ValueError("candidate JSON is missing 'name': %s" % candidate_path)
+
     dest_dir = Path(out_dir) / candidate_id
     dest_dir.mkdir(parents=True, exist_ok=True)
 
@@ -239,7 +273,7 @@ def main(argv=None):
     args = parse_args(argv)
     try:
         dest_dir = render_candidate(args.candidate, args.out_dir, args.dedup_findings, args.config)
-    except (OSError, KeyError, ValueError) as exc:
+    except (OSError, KeyError, ValueError, TypeError) as exc:
         print("render_skill: %s" % exc, file=sys.stderr)
         return 1
     print(json.dumps({"ok": True, "dir": str(dest_dir)}))

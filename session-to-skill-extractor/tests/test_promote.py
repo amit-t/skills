@@ -203,6 +203,49 @@ class TestPromoteMissingCandidateRaises(unittest.TestCase):
                 )
 
 
+class TestPromoteMalformedCandidateJson(unittest.TestCase):
+    """Fix round 1, item 2b: a malformed candidate.json in the queue folder must
+    not crash with a json.JSONDecodeError traceback -- PromoteError, exit 1."""
+
+    def test_malformed_candidate_json_raises_promote_error(self):
+        with PromoteFixture() as fx:
+            src_dir = fx.queue / "cs-broken"
+            src_dir.mkdir()
+            (src_dir / "candidate.json").write_text("{not valid json", encoding="utf-8")
+            (src_dir / "SKILL.md").write_text("---\nname: x\n---\n", encoding="utf-8")
+
+            with self.assertRaises(PromoteError):
+                cmd_promote(
+                    "cs-broken", "accept",
+                    str(fx.queue), str(fx.skill_dir), str(fx.registry), None, DEFAULT_CFG,
+                )
+
+    def test_cli_malformed_candidate_json_exits_1_one_line_stderr_no_traceback(self):
+        with PromoteFixture() as fx:
+            src_dir = fx.queue / "cs-broken"
+            src_dir.mkdir()
+            (src_dir / "candidate.json").write_text("{not valid json", encoding="utf-8")
+            (src_dir / "SKILL.md").write_text("---\nname: x\n---\n", encoding="utf-8")
+
+            result = subprocess.run(
+                [
+                    sys.executable, str(PROMOTE),
+                    "cs-broken", "accept",
+                    "--queue", str(fx.queue),
+                    "--skill-dir", str(fx.skill_dir),
+                    "--registry", str(fx.registry),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn("Traceback", result.stdout)
+            self.assertNotIn("Traceback", result.stderr)
+            stderr_lines = [l for l in result.stderr.splitlines() if l.strip()]
+            self.assertEqual(len(stderr_lines), 1)
+            self.assertIn("malformed candidate.json", result.stderr)
+
+
 class TestPromoteCli(unittest.TestCase):
     def test_cli_missing_candidate_exits_1_one_line_stderr_no_traceback(self):
         with PromoteFixture() as fx:
