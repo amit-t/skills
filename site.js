@@ -303,6 +303,15 @@ cp -r ${slug} ~/.agents/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
+      <summary>GitHub Copilot</summary>
+      <pre><code># Project-level
+cp -r ${slug} .github/skills/${slug}
+
+# Global
+cp -r ${slug} ~/.copilot/skills/${slug}</code></pre>
+    </details>
+
+    <details class="install-expand">
       <summary>Gemini CLI</summary>
       <pre><code>cat ${slug}/SKILL.md >> GEMINI.md</code></pre>
     </details>

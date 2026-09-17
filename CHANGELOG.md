@@ -5,6 +5,7 @@ Recent project updates, summarized from repository history.
 ## 2026-09-17
 
 - Added the `session-to-skill-extractor` skill — reviews completed agent sessions to find non-obvious, recurring, generalizable procedures and articulates them as SKILL.md candidates with dedup, review queue, versioned registry, and a usage-feedback retire loop; runs in Claude Code, Codex, Devin, Copilot, or any agent.
+- Added GitHub Copilot to every install surface — the root README's Manual Installation table, the site's install table, and the per-skill install panel — using the verified Agent Skills paths (project `.github/skills/`, global `~/.copilot/skills/`).
 
 ## 2026-09-15
 
