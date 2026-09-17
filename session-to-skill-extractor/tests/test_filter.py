@@ -211,6 +211,22 @@ class TestNullTolerance(unittest.TestCase):
         self.assertEqual(dropped[0]["session_id"], "nullish")
 
 
+class TestNoveltyFromClaudeCodeAdapterSession(unittest.TestCase):
+    """Item E: with tool_results[].name correctly mapped to the erroring tool
+    (fixed in adapters/claude_code.py), a real claude-code session that errors
+    on Bash and later calls Edit is admitted with the novelty flag."""
+
+    def test_claude_code_session_bash_error_then_edit_is_novel(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+        from adapters.claude_code import ClaudeCodeAdapter
+
+        fixture = Path(__file__).resolve().parent / "fixtures" / "claude_code" / "sample.jsonl"
+        session = ClaudeCodeAdapter().load(str(fixture), {})
+        filtered, dropped = filter_sessions([session.to_dict()], DEFAULT_CFG)
+        self.assertTrue(filtered)
+        self.assertIn("novelty", filtered[0]["admitted_by"])
+
+
 class TestFilterSessionsCliMalformedInput(unittest.TestCase):
     """Item F: a missing or malformed --in file must be a clean one-line stderr
     JSON error with exit 1, never a traceback."""

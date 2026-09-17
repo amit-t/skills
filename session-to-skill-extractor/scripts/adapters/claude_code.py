@@ -19,13 +19,15 @@ DEFAULT_PROJECTS_DIR = "~/.claude/projects"
 DEFAULT_LOOKBACK_DAYS = 1
 
 
-def _extract_content(content):
+def _extract_content(content, call_names):
     """Split message.content into (text, tool_calls, tool_results).
 
     content is either a plain string (-> text, no calls/results) or a list of
     blocks. `text` blocks are concatenated; `thinking` blocks are dropped;
-    `tool_use` blocks become tool_calls; `tool_result` blocks (which arrive on
-    user-type lines) become tool_results.
+    `tool_use` blocks become tool_calls (and register their `id` -> `name` in
+    `call_names`, same technique as codex.py's `call_names`); `tool_result`
+    blocks (which arrive on user-type lines) become tool_results, with `name`
+    looked up from `call_names` via the block's `tool_use_id`.
     """
     if isinstance(content, str):
         return content, [], []
@@ -44,13 +46,18 @@ def _extract_content(content):
             elif block_type == "thinking":
                 continue
             elif block_type == "tool_use":
+                name = block.get("name")
+                call_id = block.get("id")
+                if call_id:
+                    call_names[call_id] = name
                 tool_calls.append({
-                    "name": block.get("name"),
+                    "name": name,
                     "input_summary": json.dumps(block.get("input", {}))[:200],
                 })
             elif block_type == "tool_result":
+                tool_use_id = block.get("tool_use_id")
                 tool_results.append({
-                    "name": "",
+                    "name": call_names.get(tool_use_id, ""),
                     "ok": not block.get("is_error", False),
                     "output_summary": str(block.get("content", ""))[:200],
                 })
@@ -69,7 +76,7 @@ def _should_keep(obj):
     return True
 
 
-def _line_to_turn(obj):
+def _line_to_turn(obj, call_names):
     """Convert one kept line into a Turn.
 
     A "user"-type line whose only content is tool_results (no text, no tool
@@ -78,7 +85,7 @@ def _line_to_turn(obj):
     """
     message = obj.get("message") or {}
     content = message.get("content", "")
-    text, tool_calls, tool_results = _extract_content(content)
+    text, tool_calls, tool_results = _extract_content(content, call_names)
 
     role = obj.get("type")
     if role == "user" and not text and tool_results and not tool_calls:
@@ -110,6 +117,7 @@ class ClaudeCodeAdapter(Adapter):
     def load(self, ref, config) -> Session:
         path = Path(ref)
         turns = []
+        call_names = {}
         session_id = None
         cwd = None
         started_at = None
@@ -135,7 +143,7 @@ class ClaudeCodeAdapter(Adapter):
                     started_at = obj.get("timestamp")
                 ended_at = obj.get("timestamp") or ended_at
 
-                turns.append(_line_to_turn(obj))
+                turns.append(_line_to_turn(obj, call_names))
 
         session = Session(
             session_id=session_id or path.stem,

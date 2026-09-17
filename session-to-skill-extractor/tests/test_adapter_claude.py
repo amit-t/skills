@@ -68,6 +68,13 @@ class TestClaudeCodeAdapterLoad(unittest.TestCase):
         self.assertNotIn("Check for a vitest config", first_assistant.text)
         self.assertIn("Let me check the current jest configuration first.", first_assistant.text)
 
+    def test_tool_result_name_maps_to_erroring_tool_via_tool_use_id(self):
+        """Item E: tool_results[].name must be the real tool name (looked up via
+        tool_use_id -> tool_use id), not always ""."""
+        tool_turns = [t for t in self.session.turns if t.role == "tool"]
+        self.assertEqual(tool_turns[0].tool_results[0]["name"], "Bash")
+        self.assertEqual(tool_turns[1].tool_results[0]["name"], "Edit")
+
 
 class TestClaudeCodeAdapterLocate(unittest.TestCase):
     def test_locate_with_claude_projects_dir_override_finds_one_file(self):
@@ -108,6 +115,48 @@ class TestClaudeCodeAdapterLocate(unittest.TestCase):
         adapter = ClaudeCodeAdapter()
         refs = adapter.locate({})
         self.assertIsInstance(refs, list)
+
+
+class TestClaudeCodeAdapterRetryCountNeedsRealToolNames(unittest.TestCase):
+    """Item E, discriminating case: retry_count only credits a retry when the tool
+    that errored is called again. With tool_results[].name hardcoded to "", the
+    erroring tool is never identified, so a genuine same-tool retry was silently
+    dropped (retry_count stuck at 0)."""
+
+    def _write_fixture(self, lines):
+        with tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False) as f:
+            for line in lines:
+                f.write(json.dumps(line) + "\n")
+            return f.name
+
+    def test_bash_error_then_bash_retry_is_counted(self):
+        lines = [
+            {"type": "user", "sessionId": "retry-1", "timestamp": "t0", "cwd": "/tmp",
+             "message": {"role": "user", "content": "fix the failing build"}},
+            {"type": "assistant", "sessionId": "retry-1", "timestamp": "t1",
+             "message": {"role": "assistant", "content": [
+                 {"type": "tool_use", "id": "tu1", "name": "Bash", "input": {"command": "npx jest"}}
+             ]}},
+            {"type": "user", "sessionId": "retry-1", "timestamp": "t2",
+             "message": {"role": "user", "content": [
+                 {"type": "tool_result", "tool_use_id": "tu1", "content": "fail", "is_error": True}
+             ]}},
+            {"type": "assistant", "sessionId": "retry-1", "timestamp": "t3",
+             "message": {"role": "assistant", "content": [
+                 {"type": "tool_use", "id": "tu2", "name": "Bash", "input": {"command": "npx jest"}}
+             ]}},
+            {"type": "user", "sessionId": "retry-1", "timestamp": "t4",
+             "message": {"role": "user", "content": [
+                 {"type": "tool_result", "tool_use_id": "tu2", "content": "pass", "is_error": False}
+             ]}},
+        ]
+        path = self._write_fixture(lines)
+        try:
+            session = ClaudeCodeAdapter().load(path, {})
+            stats = session.to_dict()["stats"]
+            self.assertEqual(stats["retry_count"], 1)
+        finally:
+            Path(path).unlink()
 
 
 class TestClaudeCodeAdapterMalformedLines(unittest.TestCase):
