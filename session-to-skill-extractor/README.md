@@ -83,7 +83,7 @@ Copy `config.example.json` to `config.json` and pass `--config config.json` to a
 | `host_override` | `null` | Force a host instead of auto-detecting |
 | `skill_dirs` | `[".claude/skills", ".agents/skills", ".github/skills", "./skills"]` | Directories `dedup_prescreen.py` scans for existing `SKILL.md` files |
 | `output_skill_dir` | `"./skills"` | Suggested destination for `promote.py --skill-dir`; **not read automatically** — every `promote.py` call must still pass `--skill-dir` explicitly (see Owner decisions defaulted, below) |
-| `review_queue_dir` | `"./review-queue"` | Suggested review-queue location; `render_skill.py --out-dir` and `promote.py --queue` are always explicit args, not sourced from this key |
+| `review_queue_dir` | `"./review-queue"` | Suggested review-queue location; `render_skill.py --out-dir` and `promote.py --queue` are always explicit args, not sourced from this key. `retire_review.py --out` also defaults to a hardcoded `./review-queue` of its own — the value matches this key by convention only, it is not read from config either |
 | `feedback_dir` | `"./feedback"` | Where `report_usage.py` appends `usage-log.jsonl` when `--feedback-dir` is omitted (this one *is* read from config as a fallback) |
 | `work_dir` *(DES)* | `"./.session-to-skill"` | Suggested scratch location for intermediate run artifacts (`sessions.json`, `filtered_sessions.json`, draft candidates) — a convention for the SKILL.md workflow, not consumed by any script |
 | `registry_path` *(DES)* | `null` | Suggested path for `registry.json`; `promote.py --registry` and `retire_review.py --registry` are always required explicit args |
