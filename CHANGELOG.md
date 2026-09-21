@@ -2,6 +2,10 @@
 
 Recent project updates, summarized from repository history.
 
+## 2026-09-21
+
+- Fixed `code-review-multi-axis` not installing via `npx skills add amit-t/skills --skill code-review-multi-axis`: its `description` contained `(Codex: $code-review-multi-axis)`, an unquoted colon-space that made the frontmatter invalid YAML, so the installer skipped the skill and reported "No matching skills found". The description is now quoted, and `tests/skill-frontmatter.test.zsh` checks every `SKILL.md` frontmatter parses, has a `name` matching its directory, and a non-empty `description` of at most 1024 characters.
+
 ## 2026-09-17
 
 - Added the `session-to-skill-extractor` skill — reviews completed agent sessions to find non-obvious, recurring, generalizable procedures and articulates them as SKILL.md candidates with dedup, review queue, versioned registry, and a usage-feedback retire loop; runs in Claude Code, Codex, Devin, Copilot, or any agent.

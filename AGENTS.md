@@ -60,6 +60,8 @@ If you ever touch `site.js` rendering logic, these are the category-to-class map
 
 See the installed `write-a-skill` skill (`.agents/skills/write-a-skill/SKILL.md`) for SKILL.md structure, description requirements, and review checklist.
 
+Frontmatter must parse as strict YAML — `npx skills add` silently skips a skill whose frontmatter fails. Quote any `description` containing `: ` (colon-space) or starting with a YAML indicator character. Check with `zsh tests/skill-frontmatter.test.zsh`.
+
 ## graphify
 
 This project has a graphify knowledge graph at graphify-out/.

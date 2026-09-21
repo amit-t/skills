@@ -1,6 +1,6 @@
 ---
 name: code-review-multi-axis
-description: Principal-engineer code review in two modes — pre-PR (local Standards + Spec axes via parallel sub-agents, nothing posted) and post-PR (11-dimension rubric, per-comment approval loop, posts one grouped GitHub Review). Invoked only by typing /code-review-multi-axis (Codex: $code-review-multi-axis).
+description: "Principal-engineer code review in two modes — pre-PR (local Standards + Spec axes via parallel sub-agents, nothing posted) and post-PR (11-dimension rubric, per-comment approval loop, posts one grouped GitHub Review). Invoked only by typing /code-review-multi-axis (Codex: $code-review-multi-axis)."
 user-invocable: true
 disable-model-invocation: true
 ---
