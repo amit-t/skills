@@ -1,6 +1,7 @@
 ---
 name: session-feedback
 description: Mine the current conversation for every correction the user made, every preference they stated, and every "do-differently" lesson, then write a dated feedback file into the project's auto-memory directory so future sessions can reload the patterns. In future sessions, before applying any item from a past feedback file the agent must ask the user "Do I care about this at the moment, or do I not?" using the compact recall-listing format. Use when user says `/session-feedback` (write mode), `/session-feedback --recall` (bulk recall at session start), or whenever the agent is about to apply a remembered pattern (just-in-time recall).
+disable-model-invocation: true
 user-invocable: true
 ---
 

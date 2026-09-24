@@ -1,6 +1,7 @@
 ---
 name: session-handoff
 description: Compact the current conversation into a discoverable handoff document so a fresh agent can pick it up with /resume-session-handoff. Use when the user wants to hand off work to a fresh session or teammate, or stop here and resume later. Triggers include "/session-handoff", "write a session handoff", "hand this off to another agent".
+disable-model-invocation: true
 argument-hint: "What will the next session be used for?"
 ---
 

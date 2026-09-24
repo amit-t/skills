@@ -56,19 +56,19 @@ npx skills@latest add amit-t/skills -g
 |-------|-------------|
 | [`code-review-multi-axis`](./code-review-multi-axis) | Slash-only principal-engineer review in two modes — pre-PR: Standards + Spec axes side by side vs a fixed point (nothing posted); post-PR: two-phase GitHub review walking 11-dimension findings one at a time before posting. Formerly `code-review` |
 | [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
-| [`domain-grill`](./domain-grill) | Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start; use `/grill-me` for PRDs and non-technical plans |
+| [`domain-grill`](./domain-grill) | Slash-only. Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start; use `/grill-me` for PRDs and non-technical plans |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
 | [`eng-spec`](./eng-spec) | Convert approved PRD into TDD + Spec + ADRs with 5-agent review |
-| [`faq`](./faq) | Answer a repo question from source of truth and record it as a deduped entry in the repo's FAQ doc, flat or categorized |
+| [`faq`](./faq) | Slash-only. Answer a repo question from source of truth and record it as a deduped entry in the repo's FAQ doc, flat or categorized |
 | [`gh-pages-neo-brutalist`](./gh-pages-neo-brutalist) | Drop-in Jekyll templates that scaffold a GitHub Pages site with a neo-brutalist design system (4 themes, IBM Plex Mono, hard borders, offset shadows) |
-| [`gh-repo-mirror`](./gh-repo-mirror) | Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, team + direct-collaborator access, and (optional) GitHub Pages site |
+| [`gh-repo-mirror`](./gh-repo-mirror) | Slash-only. Scaffold a new GitHub repo that mirrors a reference repo's settings, branch protection, security flags, team + direct-collaborator access, and (optional) GitHub Pages site |
 | [`git-guardrails-claude-code`](./git-guardrails-claude-code) | Block dangerous git commands before they execute |
 | [`grill-me`](./grill-me) | Stress-test a plan or design through relentless interview — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start |
 | [`grill-me-auto`](./grill-me-auto) | Batch-mode `grill-me`: write every question, option, recommendation, and alt into one collapsible markdown grill document for one-shot replies |
 | [`grill-summary`](./grill-summary) | Explain a written grill in plain English: bigger goal, why it matters, grouped unanswered decisions, and what answers enable — automatically after writing or via `/grill-summary [path]` |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
-| [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
+| [`repo-context-scan`](./repo-context-scan) | Slash-only. Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
 | [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 | [`setup-amit-skills`](./setup-amit-skills) | Configure a repo for `amit-t/skills` conventions via a guided 3-decision setup (agent instruction surface, context layout, catalog/category mode) — modeled on Matt Pocock's `setup-matt-pocock-skills` |
@@ -99,9 +99,9 @@ npx skills@latest add amit-t/skills -g
 | [`compact-conversation`](./compact-conversation) | Compact the current conversation into a concise summary to reduce context window usage |
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
-| [`resume-session-handoff`](./resume-session-handoff) | Pick up where a previous session left off — loads the newest open handoff written by `/session-handoff`, runs an environment preflight, marks the file resumed on confirm, and **asks what to do next** (no auto-execute). Named `resume-session-handoff` to avoid shadowing agents' built-in `/resume` and Devin's built-in `/handoff` |
-| [`session-feedback`](./session-feedback) | Mine the current conversation for every correction, preference, and do-differently lesson; write a dated feedback file the next session reloads as memory |
-| [`session-handoff`](./session-handoff) | Compact the current conversation into a discoverable handoff document at `.claude/handoffs/` so a fresh agent can pick it up with `/resume-session-handoff` (named `session-handoff` to avoid colliding with Devin's built-in `/handoff`) |
+| [`resume-session-handoff`](./resume-session-handoff) | Slash-only. Pick up where a previous session left off — loads the newest open handoff written by `/session-handoff`, runs an environment preflight, marks the file resumed on confirm, and **asks what to do next** (no auto-execute). Named `resume-session-handoff` to avoid shadowing agents' built-in `/resume` and Devin's built-in `/handoff` |
+| [`session-feedback`](./session-feedback) | Slash-only. Mine the current conversation for every correction, preference, and do-differently lesson; write a dated feedback file the next session reloads as memory |
+| [`session-handoff`](./session-handoff) | Slash-only. Compact the current conversation into a discoverable handoff document at `.claude/handoffs/` so a fresh agent can pick it up with `/resume-session-handoff` (named `session-handoff` to avoid colliding with Devin's built-in `/handoff`) |
 | [`skill-sync`](./skill-sync) | Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin |
 
 ### AI Agent
@@ -115,7 +115,7 @@ npx skills@latest add amit-t/skills -g
 
 Skills are self-contained units of functionality that teach AI coding agents how to perform specific tasks. Each skill is a `SKILL.md` file (with optional companion files) that gets loaded into the agent's context when invoked.
 
-Skills can be invoked by name (e.g., `/tdd`, `/prd-draft`) or automatically triggered by the agent when relevant.
+Skills can be invoked by name (e.g., `/tdd`, `/prd-draft`) or automatically triggered by the agent when relevant. Skills marked **Slash-only** set `disable-model-invocation: true`: they stay out of the agent's automatic skill listing (saving context tokens every session) and run only when you type `/<name>`.
 
 ## Manual Installation
 

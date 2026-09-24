@@ -1,6 +1,7 @@
 ---
 name: gh-repo-mirror
 description: Scaffold a new GitHub repo that mirrors an existing reference repo's general settings, branch-protection rules, security flags, and (optionally) its GitHub Pages site — porting the static HTML/CSS/JS docs and rebranding them. Use when the user says "create a new repo like X", "mirror settings from Y", "new repo same as Z with Pages", or asks for a skills-library / Pages-site scaffold modelled on another repo.
+disable-model-invocation: true
 ---
 
 # gh-repo-mirror

@@ -2,7 +2,7 @@
 name: faq
 description: Use when the user invokes /faq with a question, forwards a question someone asked about the current repo, or says "add this to the FAQ". Answers the question from the repo's source of truth and records it in the repo's FAQ document.
 category: Engineering
-disable-model-invocation: false
+disable-model-invocation: true
 user-invocable: true
 ---
 

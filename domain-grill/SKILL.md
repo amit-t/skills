@@ -1,6 +1,7 @@
 ---
 name: domain-grill
 description: Engineering-only. Stress-tests an engineering artifact (eng spec, TDD plan, refactor proposal, architecture sketch, technical design, schema migration, API contract) against the project's CONTEXT.md. Reads CONTEXT.md read-only, interviews the user against existing terminology and decisions, surfaces conflicts, may add ADRs for new hard-to-reverse decisions. For PRDs, marketing plans, or any non-code artifact, refuse and redirect to /grill-me. Supports a depth selector (quick / standard / deep) — deep is the default. Triggers include "grill this spec", "domain grill", "stress-test against CONTEXT", and "/domain-grill".
+disable-model-invocation: true
 ---
 
 # Domain Grill

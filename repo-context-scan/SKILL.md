@@ -1,6 +1,7 @@
 ---
 name: repo-context-scan
 description: Scans a codebase to build CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) and seed ADRs for clearly-deliberate decisions. Autonomous by default; asks only when ambiguity blocks resolution. Use after cloning a repo, joining a project mid-flight, or when docs have drifted from code. Triggers include "scan repo context", "build CONTEXT.md", "bootstrap domain context", and "/repo-context-scan".
+disable-model-invocation: true
 ---
 
 # Repo Context Scan
