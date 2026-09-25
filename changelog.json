@@ -2,6 +2,12 @@
   "version": 1,
   "changes": [
     {
+      "date": "2026-09-25",
+      "items": [
+        "`repo-context-scan` is model-invocable again: `disable-model-invocation: true` is removed. ai-devkit's `init.wb` / `join.wb` dispatch a sub-agent that invokes `/repo-context-scan`, which fails when the model cannot invoke the skill. The other six skills stay slash-only."
+      ]
+    },
+    {
       "date": "2026-09-24",
       "items": [
         "Seven user-triggered skills are now slash-only: `resume-session-handoff`, `session-handoff`, `session-feedback`, `domain-grill`, `gh-repo-mirror`, `repo-context-scan`, and `faq` set `disable-model-invocation: true` (`faq` flipped from `false`). Claude Code drops them from the model's automatic skill listing, saving context tokens every session; `/<name>` still runs them. The root README and the site catalog mark them Slash-only."

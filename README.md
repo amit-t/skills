@@ -68,7 +68,7 @@ npx skills@latest add amit-t/skills -g
 | [`grill-summary`](./grill-summary) | Explain a written grill in plain English: bigger goal, why it matters, grouped unanswered decisions, and what answers enable — automatically after writing or via `/grill-summary [path]` |
 | [`package-scout`](./package-scout) | Research, compare, and select the best packages before installing any dependency |
 | [`qa`](./qa) | Interactive QA session: report bugs conversationally, agent files GitHub issues |
-| [`repo-context-scan`](./repo-context-scan) | Slash-only. Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
+| [`repo-context-scan`](./repo-context-scan) | Scan a codebase to build `CONTEXT.md` (or `CONTEXT-MAP.md` for multi-context repos) and seed ADRs for clearly-deliberate decisions |
 | [`request-refactor-plan`](./request-refactor-plan) | Create a detailed refactor plan with tiny commits via interview, filed as GitHub issue |
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 | [`setup-amit-skills`](./setup-amit-skills) | Configure a repo for `amit-t/skills` conventions via a guided 3-decision setup (agent instruction surface, context layout, catalog/category mode) — modeled on Matt Pocock's `setup-matt-pocock-skills` |

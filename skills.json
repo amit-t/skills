@@ -111,7 +111,7 @@
       "name": "repo-context-scan",
       "category": "Engineering",
       "tagline": "Scan a codebase to build CONTEXT.md and seed ADRs for clearly-deliberate decisions.",
-      "detail": "Slash-invoked only (/repo-context-scan) — the model never fires it on its own. Autonomous by default — reads code, infers domain language, and writes CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) plus seeded ADRs. Asks only when ambiguity blocks resolution. Idempotent; safe to re-run as the codebase evolves. Run after cloning a repo or whenever code has drifted from docs. Companion to /domain-grill.",
+      "detail": "Model-invocable on purpose: ai-devkit's init.wb / join.wb dispatch a sub-agent that invokes /repo-context-scan, so it must not be slash-only. Autonomous by default — reads code, infers domain language, and writes CONTEXT.md (or CONTEXT-MAP.md for multi-context repos) plus seeded ADRs. Asks only when ambiguity blocks resolution. Idempotent; safe to re-run as the codebase evolves. Run after cloning a repo or whenever code has drifted from docs. Companion to /domain-grill.",
       "usage": "/repo-context-scan"
     },
     {
