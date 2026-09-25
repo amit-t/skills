@@ -1,4 +1,0 @@
-# Codex skill metadata. Model-invoked on every harness, so no policy block.
-interface:
-  display_name: "Two-Axis Review"
-  short_description: "Review a diff on standards and spec"

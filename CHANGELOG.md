@@ -5,6 +5,7 @@ Recent project updates, summarized from repository history.
 ## 2026-09-25
 
 - `repo-context-scan` is model-invocable again: `disable-model-invocation: true` is removed. ai-devkit's `init.wb` / `join.wb` dispatch a sub-agent that invokes `/repo-context-scan`, which fails when the model cannot invoke the skill. The other six skills stay slash-only.
+- Retired the `two-axis-review` skill: its Standards + Spec pass lives on unchanged as the pre-PR mode of `code-review-multi-axis` — run `/code-review-multi-axis <ref>`. The two copies were identical apart from the skill name, so one source of truth replaces two drifting ones and the model's automatic skill listing loses one entry. `tdd` now points its review stage at `/code-review-multi-axis <ref>`.
 
 ## 2026-09-24
 
