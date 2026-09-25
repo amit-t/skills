@@ -14,6 +14,8 @@ Whenever you add, remove, rename, or meaningfully modify a skill, you **must** u
 4. **`CHANGELOG.md`** — add a bullet under today's date heading
 5. **Per-skill files** — `skill-name/SKILL.md` (required) and `skill-name/README.md` (required)
 
+Third-party skills (maintained in another repo) are listed without a local directory; see "Third-party entries" in `AGENTS.md`.
+
 Valid categories: `Product Management`, `Project Management`, `Engineering`, `UX Design`, `Agent Behavior`, `AI Agent`, `Leadership`.
 
 ## Git Conventions

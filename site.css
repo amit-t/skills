@@ -831,9 +831,11 @@ body.dark .meta-pill {
 
 .meta-category { background: var(--lime-green); color: #000; }
 .meta-usage { background: var(--cyan-accent); color: #000; }
+.meta-source { background: var(--vibrant-orange); color: #000; }
 
 body.dark .meta-category { background: #3d6600; color: #fff; }
 body.dark .meta-usage { background: #007a8a; color: #fff; }
+body.dark .meta-source { background: #8a2a0a; color: #fff; }
 
 .drawer-section {
   display: grid;

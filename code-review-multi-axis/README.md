@@ -4,7 +4,7 @@
 
 **Category:** Engineering
 
-Formerly `code-review`; renamed and extended with the pre-PR two-axis mode adapted from [`two-axis-review`](../two-axis-review). Mode is picked by the argument: a git ref → pre-PR ([PRE-PR.md](PRE-PR.md)), a PR number/URL → post-PR.
+Formerly `code-review`; renamed and extended with the pre-PR two-axis mode absorbed from the retired `two-axis-review` skill. Mode is picked by the argument: a git ref → pre-PR ([PRE-PR.md](PRE-PR.md)), a PR number/URL → post-PR.
 
 ## Install
 

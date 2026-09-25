@@ -4,7 +4,9 @@
     {
       "date": "2026-09-25",
       "items": [
-        "`repo-context-scan` is model-invocable again: `disable-model-invocation: true` is removed. ai-devkit's `init.wb` / `join.wb` dispatch a sub-agent that invokes `/repo-context-scan`, which fails when the model cannot invoke the skill. The other six skills stay slash-only."
+        "`repo-context-scan` is model-invocable again: `disable-model-invocation: true` is removed. ai-devkit's `init.wb` / `join.wb` dispatch a sub-agent that invokes `/repo-context-scan`, which fails when the model cannot invoke the skill. The other six skills stay slash-only.",
+        "Retired the `two-axis-review` skill: its Standards + Spec pass lives on unchanged as the pre-PR mode of `code-review-multi-axis` — run `/code-review-multi-axis <ref>`. The two copies were identical apart from the skill name, so one source of truth replaces two drifting ones and the model's automatic skill listing loses one entry. `tdd` now points its review stage at `/code-review-multi-axis <ref>`.",
+        "Added `here-now` to the catalog as the first third-party entry — publish files and sites to live here.now URLs and keep agent files in here.now Drives. It is not vendored: upstream declares MIT in its README but ships no LICENSE file, so the catalog links to [heredotnow/skill](https://github.com/heredotnow/skill) and installs from there (`npx skills@latest add heredotnow/skill --skill here-now`). `skills.json` entries may now carry `source`, `sourceUrl`, and `skillPath`; the site's install panel and file links follow them, and `tests/catalog.test.zsh` checks every entry against the repo."
       ]
     },
     {
