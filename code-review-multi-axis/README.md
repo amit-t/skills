@@ -126,6 +126,10 @@ Invocation token per harness: Claude Code and Devin `/code-review-multi-axis`, C
 
 Defaults ship at `code-review-multi-axis/config.yaml`. Edit in place to tune size thresholds, single-concern strictness, required PR description fields, rubric dimensions, verdict policy, or principles citations. Annotated reference is in `code-review-multi-axis/config.example.yaml`. Full schema: [REFERENCE.md](REFERENCE.md#config-schema).
 
+## State
+
+Runtime data (PR state files, archive, identity ack, PR worktrees) lives in `~/.local/state/code-review-multi-axis/`, outside the skill folder, so `npx skills add` updates never delete in-flight reviews. Override with `CODE_REVIEW_MULTI_AXIS_STATE_DIR` or `XDG_STATE_HOME`. A legacy `code-review-multi-axis/state/` folder from older versions is moved there automatically on the next run. Upgrading from an older install: move the folder yourself before running `npx skills add`, because the update deletes the old skill folder before the new version can migrate it: `mkdir -p ~/.local/state && mv ~/.agents/skills/code-review-multi-axis/state ~/.local/state/code-review-multi-axis`, then run `git -C <worktree> worktree repair` for each `worktree-pr-*` inside it. Details: [REFERENCE.md](REFERENCE.md#state-directory).
+
 ## Scope (v1)
 
 GitHub only. GitLab / Bitbucket / Gerrit not supported.

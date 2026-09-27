@@ -1,16 +1,16 @@
-# Graph Report - at-skills  (2026-09-27)
+# Graph Report - at-skills  (2026-09-25)
 
 ## Corpus Check
-- 200 files · ~130,213 words
+- 200 files · ~129,776 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2193 nodes · 2752 edges · 193 communities (169 shown, 22 thin omitted)
+- 2191 nodes · 2750 edges · 188 communities (167 shown, 19 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 170 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `13d50d91`
+- Built from commit: `889377ed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -78,7 +78,6 @@
 - repo-context-scan
 - Research Prompts
 - setup-pre-commit
-- promote.py
 - Wisdom Capture — Reference
 - grill-me
 - write-a-skill
@@ -117,11 +116,11 @@
 - prd-to-plan Skill
 - design-interview Skill
 - Resume and Status
-- PromoteFixture
+- promote.py
 - retire_review.py
 - validate_candidate.py
 - test_filter.py
-- dedup_prescreen.py
+- test_dedup.py
 - DevinAdapter
 - CopilotAdapter
 - properties
@@ -129,7 +128,7 @@
 - properties
 - Turn
 - TestCodexAdapterLoad
-- render_skill.py
+- render_review_md
 - type
 - ClaudeCodeAdapter
 - properties
@@ -150,13 +149,12 @@
 - provenance
 - test_render.py
 - _output_ok
-- TestClaudeCodeAdapterLoad
 - code-review-multi-axis — Reference
 - Branching Questions
 - evidence
 - items
 - read_json
-- render_candidate
+- TestRenderSkillCliMissingCandidateId
 - Writing Skills
 - Process
 - code-review-multi-axis
@@ -179,11 +177,10 @@
 - Session
 - Reframing Strategies
 - Rubric — Stage 2: Procedure Identification
-- filter_sessions
 - Principles (book-grounded)
 - Part 3: AI Feature PRDs
 - name
-- write_json
+- version
 - version
 - stats
 - title_case_name
@@ -192,20 +189,18 @@
 - updated_at
 - quality-criteria.md
 - detect_host.sh script
-- _bullets
+- render_skill.py
 - jest-to-vitest-migration/SKILL.md
-- dedup
+- dedup_prescreen.py
 - load_fixture
 - test_validator.py
 - load_config
 - validate
-- TestRecommendedActionDistinctFindings
+- append_usage
 - TestSuppressedTaskType
 - _check_suppression
 - .test_vague_json_has_at_least_two_errors
 - .test_single_session_without_review_flag_fails
-- prerequisites
-- .test_capped_at_max_sessions_per_run
 
 ## God Nodes (most connected - your core abstractions)
 1. `validate()` - 30 edges
@@ -245,7 +240,7 @@
 - **Engineering Spec Artifact Trio (TDD/SPEC/ADR)** — engspec_tdd, engspec_spec, engspec_adr [EXTRACTED 1.00]
 - **PRD Review 7-Agent Panel** — prdreviewpanel_engineer_agent, prdreviewpanel_designer_agent, prdreviewpanel_exec_agent, prdreviewpanel_legal_agent, prdreviewpanel_uxr_agent, prdreviewpanel_skeptic_agent, prdreviewpanel_customer_voice_agent [EXTRACTED 1.00]
 
-## Communities (193 total, 22 thin omitted)
+## Communities (188 total, 19 thin omitted)
 
 ### Community 0 - "7 Reviewer Sub-Agents (Eng/Design/Exec/Legal/UXR/Skeptic/Customer)"
 Cohesion: 0.16
@@ -495,10 +490,6 @@ Nodes (6): 1. JD Parsing, 2. Company Research, 3. Role Benchmarking, 4. Success 
 Cohesion: 0.29
 Nodes (6): Install, License, Manual Installation, setup-pre-commit, Usage, When to use
 
-### Community 63 - "promote.py"
-Cohesion: 0.20
-Nodes (17): Exception, _load_or_init_registry(), main(), parse_args(), _patch_status_line(), _promote_accept_or_edit(), _promote_reject(), PromoteError (+9 more)
-
 ### Community 64 - "Wisdom Capture — Reference"
 Cohesion: 0.29
 Nodes (6): Categorization output schema, Commit message body limits, Engine-specific notes, Frontmatter rendering rules, Push policy state, Wisdom Capture — Reference
@@ -615,9 +606,9 @@ Nodes (6): Step 2: Design Interview, Design Brief Output Template, Context Routi
 Cohesion: 0.40
 Nodes (4): design-draft — Reference, `--from` flag values, `--list` output, Resume and Status
 
-### Community 103 - "PromoteFixture"
-Cohesion: 0.12
-Nodes (17): cmd_promote(), Dispatch accept/edit/reject. Raises PromoteError for any CLI-facing failure., load_fixture(), PromoteFixture, Fix round 1, item 2b: a malformed candidate.json in the queue folder must not…, Sets up a tempdir with queue/skill-dir/registry and a rendered candidate., 3-session candidate + accept -> provisional (reviewer-accept, below 20)., 30-session candidate + accept -> validated. (+9 more)
+### Community 103 - "promote.py"
+Cohesion: 0.07
+Nodes (36): Exception, cmd_promote(), _load_or_init_registry(), main(), parse_args(), _patch_status_line(), _promote_accept_or_edit(), _promote_reject() (+28 more)
 
 ### Community 104 - "retire_review.py"
 Cohesion: 0.07
@@ -628,12 +619,12 @@ Cohesion: 0.12
 Nodes (23): _anti_patterns_path(), _as_dict(), _as_list(), _check_decision_points(), _check_edge_cases(), _check_prose_blacklist_and_checkable(), _check_steps(), _check_trigger() (+15 more)
 
 ### Community 106 - "test_filter.py"
-Cohesion: 0.18
-Nodes (14): error_recovery_session(), mk(), plain_pass_session(), E3-1: trivial 2-turn no-tool Q&A session is dropped at the gate., E3-2: 30 Read calls, one tool, no adaptation -> dropped as single-tool…, error->recovery + positive ack is admitted with novelty+outcome and ranks first., e: every admitted entry's admitted_by is non-empty and a subset of the four…, A minimal Task-2 Turn dict. (+6 more)
+Cohesion: 0.13
+Nodes (20): filter_sessions(), Gate, score, and rank sessions. Returns (filtered, dropped): filtered: admitted…, error_recovery_session(), mk(), plain_pass_session(), E3-1: trivial 2-turn no-tool Q&A session is dropped at the gate., E3-2: 30 Read calls, one tool, no adaptation -> dropped as single-tool…, error->recovery + positive ack is admitted with novelty+outcome and ranks first. (+12 more)
 
-### Community 107 - "dedup_prescreen.py"
-Cohesion: 0.07
-Nodes (29): build_shortlist(), _candidate_tokens(), _jaccard(), main(), parse_args(), _parse_frontmatter(), Yield (skill_name, path, tokens) for every registry skills{} entry. A…, Score candidate vs every existing SKILL.md + registry entry; return entries… (+21 more)
+### Community 107 - "test_dedup.py"
+Cohesion: 0.12
+Nodes (12): load_fixture(), Item G: --skill-dirs omitted must fall back to config skill_dirs (config flows…, E3-5: good.json vs a near-identical fixture SKILL.md scores >= 0.3 and is…, An unrelated SKILL.md (different domain entirely) produces an empty shortlist., Nonexistent skill dirs and a missing registry are skipped silently, no crash., A registry skill entry (name + trigger_description) participates in scoring too., TestDedupMissingSkillDirAndRegistry, TestDedupPrescreenCli (+4 more)
 
 ### Community 108 - "DevinAdapter"
 Cohesion: 0.09
@@ -652,24 +643,24 @@ Cohesion: 0.08
 Nodes (26): description, type, type, type, type, type, properties, type (+18 more)
 
 ### Community 112 - "properties"
-Cohesion: 0.09
-Nodes (22): description, type, description, type, description, type, properties, candidate_id (+14 more)
+Cohesion: 0.08
+Nodes (25): description, type, description, type, description, type, description, type (+17 more)
 
 ### Community 113 - "Turn"
 Cohesion: 0.10
 Nodes (26): compute_stats(), detect_outcome_signals(), Normalized session model: Turn/Session dataclasses, stats, and outcome signals.…, Scan user turns for positive/negative acks; scan tool calls for a completion…, turn_count, assistant_turns, tool_call_count, distinct_tools, char_count,…, Turn, _extract_content(), _line_to_turn() (+18 more)
 
-### Community 115 - "render_skill.py"
-Cohesion: 0.12
-Nodes (19): _decision_points_block(), _dedup_findings_block(), _evidence_block(), _load_extra_dedup_findings(), main(), _numbered_steps(), parse_args(), _quality_criteria_block() (+11 more)
+### Community 115 - "render_review_md"
+Cohesion: 0.14
+Nodes (12): _dedup_findings_block(), _evidence_block(), _load_extra_dedup_findings(), _quality_criteria_block(), Load findings from an optional --dedup-findings file: a bare list, or a dict…, accept' iff no finding has a blocking relation (duplicate/overlap/superset/…, Build the REVIEW.md text (rubric table, quality checklist, evidence, dedup…, _recommended_action() (+4 more)
 
 ### Community 116 - "type"
-Cohesion: 0.15
-Nodes (17): items, type, description, items, type, items, type, items (+9 more)
+Cohesion: 0.12
+Nodes (21): items, type, items, additionalProperties, properties, type, items, type (+13 more)
 
 ### Community 117 - "ClaudeCodeAdapter"
-Cohesion: 0.23
-Nodes (5): ClaudeCodeAdapter, Item E, discriminating case: retry_count only credits a retry when the tool…, TestClaudeCodeAdapterLocate, TestClaudeCodeAdapterMalformedLines, TestClaudeCodeAdapterRetryCountNeedsRealToolNames
+Cohesion: 0.09
+Nodes (9): ClaudeCodeAdapter, Item E, discriminating case: retry_count only credits a retry when the tool…, Item E: tool_results[].name must be the real tool name (looked up via…, TestClaudeCodeAdapterLoad, TestClaudeCodeAdapterLocate, TestClaudeCodeAdapterMalformedLines, TestClaudeCodeAdapterRetryCountNeedsRealToolNames, Item E: with tool_results[].name correctly mapped to the erroring tool (fixed… (+1 more)
 
 ### Community 118 - "properties"
 Cohesion: 0.11
@@ -736,24 +727,24 @@ Cohesion: 0.17
 Nodes (12): description, type, type, type, extracted_at, extracted_by_host, extractor_version, provenance (+4 more)
 
 ### Community 134 - "test_render.py"
-Cohesion: 0.20
-Nodes (8): h2_headings(), parse_frontmatter(), Minimal 'key: value' frontmatter parser (top-level keys only, quotes stripped)., Brief Step 1: the rendered SKILL.md's H2 headings appear in exact spec order., TestRenderSkillCli, TestRenderSkillMdFrontmatter, TestRenderSkillMdH2Sequence, TestRenderSkillMdNoDollarResidue
+Cohesion: 0.16
+Nodes (9): h2_headings(), parse_frontmatter(), Minimal 'key: value' frontmatter parser (top-level keys only, quotes stripped)., Brief Step 1: the rendered SKILL.md's H2 headings appear in exact spec order., TestRenderCandidateWritesFiles, TestRenderSkillCli, TestRenderSkillMdFrontmatter, TestRenderSkillMdH2Sequence (+1 more)
 
 ### Community 135 - "_output_ok"
 Cohesion: 0.27
 Nodes (5): _maybe_json_object(), _output_ok(), Parse text as JSON; return it only if the result is itself a dict, else None., Best-effort success heuristic: not a nonzero exit_code, not an ERROR-prefixed…, TestOutputOkHeuristic
 
 ### Community 137 - "code-review-multi-axis — Reference"
-Cohesion: 0.18
-Nodes (11): code-review-multi-axis — Reference, Comment layout (Phase 1 verb loop), Config schema, Error handling, gh commands, Identity ack, Pre-check thresholds (config-driven), Re-review dedupe (+3 more)
+Cohesion: 0.20
+Nodes (10): code-review-multi-axis — Reference, Comment layout (Phase 1 verb loop), Config schema, Error handling, gh commands, Identity ack, Pre-check thresholds (config-driven), Re-review dedupe (+2 more)
 
 ### Community 138 - "Branching Questions"
 Cohesion: 0.22
 Nodes (9): Branching Questions, Capture Template, Example Flow, Handing Off, Multi-Job Leverage Prefix, Pattern A — Technical Skill Gap, Pattern B — Soft Skill / Experience Gap, Pattern C — Recent Work Probe (+1 more)
 
 ### Community 139 - "evidence"
-Cohesion: 0.20
-Nodes (10): additionalProperties, properties, required, type, evidence, sessions, supporting_sessions, items (+2 more)
+Cohesion: 0.22
+Nodes (9): additionalProperties, properties, required, type, evidence, sessions, supporting_sessions, type (+1 more)
 
 ### Community 140 - "items"
 Cohesion: 0.33
@@ -762,10 +753,6 @@ Nodes (9): items, additionalProperties, required, type, turns, items, items, ite
 ### Community 141 - "read_json"
 Cohesion: 0.15
 Nodes (17): _evaluate(), _filter_cfg(), _has_novelty(), _has_structured_output(), _load_sessions(), main(), parse_args(), _rating_is_positive() (+9 more)
-
-### Community 142 - "render_candidate"
-Cohesion: 0.22
-Nodes (5): Render one candidate into…, render_candidate(), Fix round 1, item 2a: a candidate JSON missing candidate_id must not crash with…, TestRenderCandidateWritesFiles, TestRenderSkillCliMissingCandidateId
 
 ### Community 143 - "Writing Skills"
 Cohesion: 0.25
@@ -776,8 +763,8 @@ Cohesion: 0.25
 Nodes (8): 1. Pin the fixed point, 2. Identify the spec source, 3. Identify the standards sources, 4. Spawn both sub-agents in parallel, 5. Aggregate, Pre-PR mode — two-axis local review, Process, Why two axes
 
 ### Community 145 - "code-review-multi-axis"
-Cohesion: 0.22
-Nodes (9): code-review-multi-axis, Configuration, Install, License, Manual Installation, Requirements, Scope (v1), State (+1 more)
+Cohesion: 0.25
+Nodes (8): code-review-multi-axis, Configuration, Install, License, Manual Installation, Requirements, Scope (v1), Usage
 
 ### Community 146 - "PRD Template (templates/prd-template.md)"
 Cohesion: 0.25
@@ -855,10 +842,6 @@ Nodes (5): Reframing Strategies, Strategy 1 — Keyword alignment, Strategy 2 �
 Cohesion: 0.40
 Nodes (4): 0–2 anchor table (spec C5 Stage 2), Flag rule, Rubric — Stage 2: Procedure Identification, The five questions (verbatim, spec A4 Stage 2)
 
-### Community 165 - "filter_sessions"
-Cohesion: 0.25
-Nodes (6): filter_sessions(), Gate, score, and rank sessions. Returns (filtered, dropped): filtered: admitted…, Adapters may leave stats/outcome_signals fields null; the filter must not crash., Item E: with tool_results[].name correctly mapped to the erroring tool (fixed…, TestNoveltyFromClaudeCodeAdapterSession, TestNullTolerance
-
 ### Community 167 - "Principles (book-grounded)"
 Cohesion: 0.50
 Nodes (4): A Philosophy of Software Design (Ousterhout), Domain-Driven Design (Evans), Principles (book-grounded), The Pragmatic Programmer (Hunt & Thomas)
@@ -871,9 +854,9 @@ Nodes (4): 10 Principles for AI Products, AI Behavior Contract, Part 3: AI Featu
 Cohesion: 0.50
 Nodes (4): description, pattern, type, name
 
-### Community 170 - "write_json"
-Cohesion: 0.36
-Nodes (7): _expand_paths(), main(), parse_args(), CLI: locate and load sessions for one host adapter, writing a sessions+errors…, Expand glob patterns into a deduplicated list of matches, newest first., Write obj as pretty-printed JSON to path., write_json()
+### Community 170 - "version"
+Cohesion: 0.50
+Nodes (4): version, description, pattern, type
 
 ### Community 171 - "version"
 Cohesion: 0.50
@@ -895,9 +878,13 @@ Nodes (3): until, description, type
 Cohesion: 0.67
 Nodes (3): updated_at, description, type
 
-### Community 181 - "dedup"
-Cohesion: 0.33
-Nodes (6): additionalProperties, properties, type, type, dedup, findings
+### Community 179 - "render_skill.py"
+Cohesion: 0.16
+Nodes (13): _bullets(), _decision_points_block(), main(), _numbered_steps(), parse_args(), Stage 6 renderer (spec D3): a D2 CandidateSkill JSON -> review-queue folder…, Render one candidate into…, Bullet-list block, one '- item' per line; 'none' placeholder if empty. (+5 more)
+
+### Community 181 - "dedup_prescreen.py"
+Cohesion: 0.15
+Nodes (17): build_shortlist(), _candidate_tokens(), _jaccard(), main(), parse_args(), _parse_frontmatter(), Yield (skill_name, path, tokens) for every registry skills{} entry. A…, Score candidate vs every existing SKILL.md + registry entry; return entries… (+9 more)
 
 ### Community 182 - "load_fixture"
 Cohesion: 0.21
@@ -908,32 +895,32 @@ Cohesion: 0.13
 Nodes (8): E3-7: a realistic, well-formed D2 candidate produces no errors., rubric.total must equal q1+...+q5, else validation fails., An unflaggable rubric (e.g. q2=0) must not pass validation., TestGoodCandidatePasses, TestMissingRequiredKeys, TestRubricFlagRule, TestRubricTotalMismatch, TestValidateCandidateCli
 
 ### Community 184 - "load_config"
-Cohesion: 0.16
-Nodes (13): append_usage(), main(), parse_args(), Append {"skill","outcome","note","at"} to F/usage-log.jsonl, creating the…, Feedback loop, part 1 (spec E3-9): record a single usage-outcome report for a…, _deep_merge(), load_config(), now_iso() (+5 more)
+Cohesion: 0.18
+Nodes (15): _expand_paths(), main(), parse_args(), CLI: locate and load sessions for one host adapter, writing a sessions+errors…, Expand glob patterns into a deduplicated list of matches, newest first., main(), parse_args(), Feedback loop, part 1 (spec E3-9): record a single usage-outcome report for a… (+7 more)
 
 ### Community 185 - "validate"
 Cohesion: 0.25
 Nodes (8): _check_rubric(), _check_schema_lite(), _check_single_session_review(), Check 7: rubric total == sum(q1..q5); flag rule holds (an unflaggable candidate…, Check 8: evidence.supporting_sessions == 1 => requires_human_review must be…, Run all Stage-3 hard-rule checks against a D2 candidate dict. Returns a list of…, Check 1: required D2 keys present, name pattern, description length., validate()
 
+### Community 186 - "append_usage"
+Cohesion: 0.43
+Nodes (3): append_usage(), Append {"skill","outcome","note","at"} to F/usage-log.jsonl, creating the…, TestReportUsageAppendsJsonLine
+
 ### Community 188 - "_check_suppression"
 Cohesion: 0.50
 Nodes (4): _check_suppression(), _parse_iso(), Parse an ISO-8601 timestamp, treating a naive datetime as UTC. None on failure., C5 Stage 5 / item B: reject a candidate whose task_type has an unexpired entry…
 
-### Community 191 - "prerequisites"
-Cohesion: 0.50
-Nodes (4): description, items, type, prerequisites
-
 ## Knowledge Gaps
-- **1024 isolated node(s):** `skills`, `changes`, `state`, `searchInput`, `filtersEl` (+1019 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1306 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1022 isolated node(s):** `skills`, `changes`, `state`, `searchInput`, `filtersEl` (+1017 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 1304 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `load_config()` connect `load_config` to `retire_review.py`, `validate_candidate.py`, `write_json`, `dedup_prescreen.py`, `read_json`, `render_candidate`, `render_skill.py`, `promote.py`?**
+- **Why does `load_config()` connect `load_config` to `promote.py`, `retire_review.py`, `validate_candidate.py`, `read_json`, `render_skill.py`, `dedup_prescreen.py`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **Why does `ClaudeCodeAdapter` connect `ClaudeCodeAdapter` to `CodexAdapter`, `Session`, `filter_sessions`, `TestClaudeCodeAdapterLoad`, `Turn`?**
+- **Why does `ClaudeCodeAdapter` connect `ClaudeCodeAdapter` to `CodexAdapter`, `Turn`, `Session`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `Session` connect `Session` to `CodexAdapter`, `GenericAdapter`, `DevinAdapter`, `CopilotAdapter`, `Turn`, `ClaudeCodeAdapter`, `copilot.py`?**
   _High betweenness centrality (0.013) - this node is a cross-community bridge._

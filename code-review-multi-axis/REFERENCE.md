@@ -153,9 +153,9 @@ gh repo view --json owner,name                            # to resolve {owner}/{
 Worktree:
 ```bash
 git fetch origin pull/<num>/head:code-review-multi-axis-pr-<num>
-git worktree add <skill-dir>/state/worktree-pr-<num> code-review-multi-axis-pr-<num>
+git worktree add <state-dir>/worktree-pr-<num> code-review-multi-axis-pr-<num>
 # tear down on submit/abort:
-git worktree remove --force <skill-dir>/state/worktree-pr-<num>
+git worktree remove --force <state-dir>/worktree-pr-<num>
 git branch -D code-review-multi-axis-pr-<num>
 ```
 
@@ -181,9 +181,39 @@ Every posted comment body ends with `\n\n<!-- code-review-skill:<sha256(file+lin
 
 ---
 
+## State directory
+
+`<state-dir>` holds everything the skill writes at runtime: PR state files, `archive/`, `.acknowledged`, and PR worktrees. It lives outside the skill folder because `npx skills add` replaces the skill folder on every install or update, which would delete in-flight reviews and orphan worktrees.
+
+Resolve it once per run, first match wins:
+
+1. `$CODE_REVIEW_MULTI_AXIS_STATE_DIR`
+2. `$XDG_STATE_HOME/code-review-multi-axis`
+3. `~/.local/state/code-review-multi-axis`
+
+**Legacy migration.** Versions before 2026-09-27 kept state in `<skill-dir>/state/`. If that directory exists, migrate before doing anything else:
+
+```bash
+state_dir="${CODE_REVIEW_MULTI_AXIS_STATE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/code-review-multi-axis}"
+legacy="<skill-dir>/state"
+if [ -d "$legacy" ]; then
+  if [ -e "$state_dir" ]; then
+    echo "Both $legacy and $state_dir exist; merge by hand" >&2; exit 1   # never overwrite
+  fi
+  mkdir -p "$(dirname "$state_dir")"
+  mv "$legacy" "$state_dir"
+  for wt in "$state_dir"/worktree-pr-*; do
+    [ -e "$wt/.git" ] && git -C "$wt" worktree repair   # re-point the owning repo at the new path
+  done
+fi
+mkdir -p "$state_dir"
+```
+
+Tell the user the old and new paths and how many worktrees were repaired. If both directories exist, stop and ask; never merge or overwrite automatically.
+
 ## State file
 
-Path: `<skill-dir>/state/pr-<num>.json`. Format:
+Path: `<state-dir>/pr-<num>.json`. Format:
 
 ```json
 {
@@ -214,7 +244,7 @@ Path: `<skill-dir>/state/pr-<num>.json`. Format:
 
 `status` ∈ `pending | approved | skipped | deferred | submitted`. Writes happen on every verb (atomic via tmp-file + rename).
 
-Archive on submit: `<skill-dir>/state/archive/pr-<num>-<ISO8601>.json`.
+Archive on submit: `<state-dir>/archive/pr-<num>-<ISO8601>.json`.
 
 ---
 
@@ -240,7 +270,7 @@ First-ever use per skill install:
   You are responsible for what gets posted. Type "I understand" to continue.
 ```
 
-Store ack at `<skill-dir>/state/.acknowledged` (touch-file, no content). Skip if `safety.identity_ack_required: false`.
+Store ack at `<state-dir>/.acknowledged` (touch-file, no content). Skip if `safety.identity_ack_required: false`.
 
 ---
 
