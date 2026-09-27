@@ -73,8 +73,8 @@ principles:
   philosophy_of_software_design: true       # John Ousterhout
 
 safety:
-  # One-time banner on first use per skill install:
+  # One-time banner on first use on this machine:
   #   "comments post as your GitHub identity, you are responsible"
   # User must type `I understand` to proceed. Ack is stored at
-  # <skill-dir>/state/.acknowledged. Set false only for trusted automation.
+  # <state-dir>/.acknowledged (see REFERENCE.md#state-directory). Set false only for trusted automation.
   identity_ack_required: true

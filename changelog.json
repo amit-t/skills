@@ -2,6 +2,12 @@
   "version": 1,
   "changes": [
     {
+      "date": "2026-09-27",
+      "items": [
+        "`code-review-multi-axis` now keeps its runtime data (PR state files, archive, identity ack, PR worktrees) in `~/.local/state/code-review-multi-axis/` instead of inside the skill folder. `npx skills add` replaces the skill folder on every install or update, so the old `state/` location deleted in-flight reviews and orphaned their worktrees. Override the location with `CODE_REVIEW_MULTI_AXIS_STATE_DIR` or `XDG_STATE_HOME`. An existing `state/` folder moves on the next run: worktrees are re-attached with `git worktree repair`, and the run stops rather than overwriting if both locations exist. `tests/code-review-multi-axis-state.test.zsh` runs the documented migration in bash and zsh."
+      ]
+    },
+    {
       "date": "2026-09-25",
       "items": [
         "`repo-context-scan` is model-invocable again: `disable-model-invocation: true` is removed. ai-devkit's `init.wb` / `join.wb` dispatch a sub-agent that invokes `/repo-context-scan`, which fails when the model cannot invoke the skill. The other six skills stay slash-only.",

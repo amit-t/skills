@@ -140,13 +140,26 @@
   },
   "nodes": [
     {
+      "id": "session_to_skill_extractor_scripts_promote_promoteerror",
+      "label": "PromoteError",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "promoteerror",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L38"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_promote_promotefixture",
       "label": "PromoteFixture",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "promotefixture",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -159,7 +172,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromoteacceptmovesfolderandregisters",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -172,7 +185,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromoteacceptthirtysessionsvalidated",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -185,7 +198,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromotecli",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -198,7 +211,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromoteeditsetshumanedited",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -211,7 +224,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromotemalformedcandidatejson",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -224,7 +237,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromotemissingcandidateraises",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -237,7 +250,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromoteregistrycreatedonfirstuse",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -250,7 +263,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromoteregistrypathrelative",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -263,7 +276,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "testpromotereject",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -413,6 +426,32 @@
       "source_location": "L118"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_filter_testmaxsessionscap",
+      "label": "TestMaxSessionsCap",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "code",
+      "norm_label": "testmaxsessionscap",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L162"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_testnulltolerance",
+      "label": "TestNullTolerance",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "code",
+      "norm_label": "testnulltolerance",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L196"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_filter_testsingletoolrepetition",
       "label": "TestSingleToolRepetition",
       "_callable": true,
@@ -432,7 +471,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupmissingskilldirandregistry",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -445,7 +484,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupprescreencli",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -458,7 +497,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupprescreenclidefaultsskilldirsfromconfig",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -471,7 +510,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupregistrymatch",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -484,7 +523,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupshortlistsnearduplicate",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -497,24 +536,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "testdedupunrelatedskillnotshortlisted",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
       "source_location": "L55"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize",
-      "label": "TestTokenize",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "testtokenize",
-      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
-      "source_location": "L24"
     },
     {
       "id": "session_to_skill_extractor_scripts_adapters_devin_devinadapter",
@@ -738,13 +764,26 @@
       "source_location": "L20"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings",
+      "label": "TestRecommendedActionDistinctFindings",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 115,
+      "community_name": "render_review_md",
+      "file_type": "code",
+      "norm_label": "testrecommendedactiondistinctfindings",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L281"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_render_testrenderreviewmd",
       "label": "TestRenderReviewMd",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "testrenderreviewmd",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -762,6 +801,19 @@
       "norm_label": "claudecodeadapter",
       "source_file": "session-to-skill-extractor/scripts/adapters/claude_code.py",
       "source_location": "L103"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload",
+      "label": "TestClaudeCodeAdapterLoad",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": "testclaudecodeadapterload",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L20"
     },
     {
       "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterlocate",
@@ -801,6 +853,19 @@
       "norm_label": "testclaudecodeadapterretrycountneedsrealtoolnames",
       "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
       "source_location": "L120"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_testnoveltyfromclaudecodeadaptersession",
+      "label": "TestNoveltyFromClaudeCodeAdapterSession",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": "testnoveltyfromclaudecodeadaptersession",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L214"
     },
     {
       "id": "session_to_skill_extractor_tests_test_render_testrenderskillmdbodysections",
@@ -959,6 +1024,19 @@
       "source_location": "L9"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_render_testrendercandidatewritesfiles",
+      "label": "TestRenderCandidateWritesFiles",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "test_render.py",
+      "file_type": "code",
+      "norm_label": "testrendercandidatewritesfiles",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L191"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_render_testrenderskillcli",
       "label": "TestRenderSkillCli",
       "_callable": true,
@@ -1024,39 +1102,13 @@
       "source_location": "L96"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload",
-      "label": "TestClaudeCodeAdapterLoad",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": "testclaudecodeadapterload",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L20"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_render_testrendercandidatewritesfiles",
-      "label": "TestRenderCandidateWritesFiles",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "render_candidate",
-      "file_type": "code",
-      "norm_label": "testrendercandidatewritesfiles",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L191"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_render_testrenderskillclimissingcandidateid",
       "label": "TestRenderSkillCliMissingCandidateId",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "render_candidate",
+      "community_name": "TestRenderSkillCliMissingCandidateId",
       "file_type": "code",
       "norm_label": "testrenderskillclimissingcandidateid",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -1141,32 +1193,6 @@
       "source_location": "L56"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_filter_testnoveltyfromclaudecodeadaptersession",
-      "label": "TestNoveltyFromClaudeCodeAdapterSession",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "code",
-      "norm_label": "testnoveltyfromclaudecodeadaptersession",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L214"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_testnulltolerance",
-      "label": "TestNullTolerance",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "code",
-      "norm_label": "testnulltolerance",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L196"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_render_testtitlecasename",
       "label": "TestTitleCaseName",
       "_callable": true,
@@ -1178,6 +1204,19 @@
       "norm_label": "testtitlecasename",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
       "source_location": "L64"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize",
+      "label": "TestTokenize",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "testtokenize",
+      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
+      "source_location": "L24"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_testemptydecisionpointswithoutlinear",
@@ -1276,25 +1315,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
+      "community": 186,
+      "community_name": "append_usage",
       "file_type": "code",
       "norm_label": "testreportusageappendsjsonline",
       "source_file": "session-to-skill-extractor/tests/test_feedback.py",
       "source_location": "L91"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings",
-      "label": "TestRecommendedActionDistinctFindings",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 186,
-      "community_name": "TestRecommendedActionDistinctFindings",
-      "file_type": "code",
-      "norm_label": "testrecommendedactiondistinctfindings",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L281"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_testsuppressedtasktype",
@@ -1336,19 +1362,6 @@
       "source_location": "L64"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_filter_testmaxsessionscap",
-      "label": "TestMaxSessionsCap",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 192,
-      "community_name": ".test_capped_at_max_sessions_per_run",
-      "file_type": "code",
-      "norm_label": "testmaxsessionscap",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L162"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_filter_testfiltersessionsclimalformedinput",
       "label": "TestFilterSessionsCliMalformedInput",
       "_callable": true,
@@ -1362,29 +1375,148 @@
       "source_location": "L230"
     },
     {
-      "id": "session_to_skill_extractor_scripts_promote_promoteerror",
-      "label": "PromoteError",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "promoteerror",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L38"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_promote_cmd_promote",
       "label": "cmd_promote()",
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "cmd_promote()",
       "source_file": "session-to-skill-extractor/scripts/promote.py",
       "source_location": "L178"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_load_or_init_registry",
+      "label": "_load_or_init_registry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_load_or_init_registry()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L67"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L201"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_parse_args",
+      "label": "parse_args()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "parse_args()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L187"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_patch_status_line",
+      "label": "_patch_status_line()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_patch_status_line()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_promote_accept_or_edit",
+      "label": "_promote_accept_or_edit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_promote_accept_or_edit()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L95"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_promote_reject",
+      "label": "_promote_reject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_promote_reject()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L149"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_read_candidate_json",
+      "label": "_read_candidate_json()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_read_candidate_json()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L86"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_relative_to_registry",
+      "label": "_relative_to_registry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_relative_to_registry()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L74"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_require_queue_dir",
+      "label": "_require_queue_dir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_require_queue_dir()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L79"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_status_for",
+      "label": "_status_for()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "_status_for()",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_s2s_common_now_iso",
+      "label": "now_iso()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "now_iso()",
+      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
+      "source_location": "L50"
     },
     {
       "id": "session_to_skill_extractor_tests_test_promote_load_fixture",
@@ -1392,7 +1524,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "load_fixture()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1404,7 +1536,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".__enter__()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1416,11 +1548,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".__exit__()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
       "source_location": "L44"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_promote_promotefixture_render",
+      "label": ".render()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": ".render()",
+      "source_file": "session-to-skill-extractor/tests/test_promote.py",
+      "source_location": "L47"
     },
     {
       "id": "session_to_skill_extractor_tests_test_promote_testpromoteacceptmovesfolderandregisters_test_accept_provisional_status",
@@ -1428,7 +1572,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_accept_provisional_status()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1440,7 +1584,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_thirty_sessions_validated_status()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1452,7 +1596,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_cli_accept_success_exits_0()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1464,7 +1608,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_cli_missing_candidate_exits_1_one_line_stderr_no_traceback()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1476,7 +1620,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_edit_sets_human_edited_true()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1488,7 +1632,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_cli_malformed_candidate_json_exits_1_one_line_stderr_no_traceback()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1500,7 +1644,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_malformed_candidate_json_raises_promote_error()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1512,7 +1656,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_missing_candidate_id_raises_promote_error()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1524,7 +1668,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_registry_created_with_skeleton()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1536,7 +1680,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_registry_path_is_relative_to_registry_dir()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1548,7 +1692,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_reject_moves_and_writes_reason_and_suppression()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -1560,7 +1704,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": ".test_reject_without_reason_uses_unspecified()",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -2167,6 +2311,18 @@
       "source_location": "L273"
     },
     {
+      "id": "session_to_skill_extractor_scripts_filter_sessions_filter_sessions",
+      "label": "filter_sessions()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "code",
+      "norm_label": "filter_sessions()",
+      "source_file": "session-to-skill-extractor/scripts/filter_sessions.py",
+      "source_location": "L146"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_filter_error_recovery_session",
       "label": "error_recovery_session()",
       "_callable": true,
@@ -2239,6 +2395,30 @@
       "source_location": "L121"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_filter_testmaxsessionscap_test_capped_at_max_sessions_per_run",
+      "label": ".test_capped_at_max_sessions_per_run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "code",
+      "norm_label": ".test_capped_at_max_sessions_per_run()",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L165"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_testnulltolerance_test_missing_stats_and_outcome_fields_do_not_crash",
+      "label": ".test_missing_stats_and_outcome_fields_do_not_crash()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "code",
+      "norm_label": ".test_missing_stats_and_outcome_fields_do_not_crash()",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L199"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_filter_testsingletoolrepetition_test_thirty_read_calls_dropped",
       "label": ".test_thirty_read_calls_dropped()",
       "_callable": true,
@@ -2263,120 +2443,12 @@
       "source_location": "L28"
     },
     {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_build_shortlist",
-      "label": "build_shortlist()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "build_shortlist()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L112"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_candidate_tokens",
-      "label": "_candidate_tokens()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "_candidate_tokens()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L41"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_jaccard",
-      "label": "_jaccard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "_jaccard()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L34"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L148"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_parse_args",
-      "label": "parse_args()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "parse_args()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L132"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_parse_frontmatter",
-      "label": "_parse_frontmatter()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "_parse_frontmatter()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L52"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_registry_entries",
-      "label": "_registry_entries()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "_registry_entries()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L100"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_skilldir_entries",
-      "label": "_skilldir_entries()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "_skilldir_entries()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L81"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_tokenize",
-      "label": "tokenize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "tokenize()",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L27"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_dedup_load_fixture",
       "label": "load_fixture()",
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "load_fixture()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2388,7 +2460,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_missing_dirs_and_registry_do_not_crash()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2400,7 +2472,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_cli_outputs_shortlist_json()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2412,7 +2484,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_explicit_skill_dirs_flag_still_overrides_config()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2424,7 +2496,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_skill_dirs_omitted_falls_back_to_config()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2436,7 +2508,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_registry_entry_shortlisted()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2448,7 +2520,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_near_identical_skill_is_shortlisted()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2460,7 +2532,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_shortlist_sorted_desc_by_score()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -2472,47 +2544,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": ".test_unrelated_skill_not_shortlisted()",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
       "source_location": "L58"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_drops_stopwords_and_empty_strings",
-      "label": ".test_drops_stopwords_and_empty_strings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": ".test_drops_stopwords_and_empty_strings()",
-      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
-      "source_location": "L28"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_empty_and_none_return_empty_set",
-      "label": ".test_empty_and_none_return_empty_set()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": ".test_empty_and_none_return_empty_set()",
-      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
-      "source_location": "L31"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_lowercases_and_splits_on_non_alnum",
-      "label": ".test_lowercases_and_splits_on_non_alnum()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": ".test_lowercases_and_splits_on_non_alnum()",
-      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
-      "source_location": "L25"
     },
     {
       "id": "session_to_skill_extractor_scripts_adapters_devin_devinadapter_list_session_ids",
@@ -3487,24 +3523,12 @@
       "source_location": "L77"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_decision_points_block",
-      "label": "_decision_points_block()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "code",
-      "norm_label": "_decision_points_block()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L84"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_render_skill_dedup_findings_block",
       "label": "_dedup_findings_block()",
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "_dedup_findings_block()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
@@ -3516,7 +3540,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "_evidence_block()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
@@ -3528,47 +3552,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "_load_extra_dedup_findings()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L170"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_render_skill_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L272"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_render_skill_numbered_steps",
-      "label": "_numbered_steps()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "code",
-      "norm_label": "_numbered_steps()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L69"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_render_skill_parse_args",
-      "label": "parse_args()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "code",
-      "norm_label": "parse_args()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L261"
     },
     {
       "id": "session_to_skill_extractor_scripts_render_skill_quality_criteria_block",
@@ -3576,7 +3564,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "_quality_criteria_block()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
@@ -3588,7 +3576,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "_recommended_action()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
@@ -3600,35 +3588,47 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": "render_review_md()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L205"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_rubric_line",
-      "label": "_rubric_line()",
+      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_all_distinct_findings_still_recommend_accept",
+      "label": ".test_all_distinct_findings_still_recommend_accept()",
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
-      "norm_label": "_rubric_line()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L99"
+      "norm_label": ".test_all_distinct_findings_still_recommend_accept()",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L285"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_yaml_bool",
-      "label": "_yaml_bool()",
+      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_duplicate_superset_subset_all_block_accept",
+      "label": ".test_duplicate_superset_subset_all_block_accept()",
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
-      "norm_label": "_yaml_bool()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L107"
+      "norm_label": ".test_duplicate_superset_subset_all_block_accept()",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L302"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_mixed_distinct_and_overlap_recommends_review",
+      "label": ".test_mixed_distinct_and_overlap_recommends_review()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 115,
+      "community_name": "render_review_md",
+      "file_type": "code",
+      "norm_label": ".test_mixed_distinct_and_overlap_recommends_review()",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L293"
     },
     {
       "id": "session_to_skill_extractor_tests_test_render_testrenderreviewmd_test_dedup_findings_file_forces_review_action",
@@ -3636,7 +3636,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": ".test_dedup_findings_file_forces_review_action()",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -3648,7 +3648,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "code",
       "norm_label": ".test_review_md_has_rubric_and_none_dedup_and_accept()",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -3677,6 +3677,138 @@
       "norm_label": ".setup()",
       "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
       "source_location": "L21"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_cwd_from_kept_line",
+      "label": ".test_cwd_from_kept_line()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_cwd_from_kept_line()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_drops_meta_and_sidechain_lines_role_sequence",
+      "label": ".test_drops_meta_and_sidechain_lines_role_sequence()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_drops_meta_and_sidechain_lines_role_sequence()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_error_count_from_tool_result_is_error",
+      "label": ".test_error_count_from_tool_result_is_error()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_error_count_from_tool_result_is_error()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L33"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_host_is_claude_code",
+      "label": ".test_host_is_claude_code()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_host_is_claude_code()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_session_id_from_first_kept_line",
+      "label": ".test_session_id_from_first_kept_line()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_session_id_from_first_kept_line()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L40"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_started_and_ended_at_use_first_and_last_kept_timestamps",
+      "label": ".test_started_and_ended_at_use_first_and_last_kept_timestamps()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_started_and_ended_at_use_first_and_last_kept_timestamps()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L46"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_thinking_blocks_excluded_from_text",
+      "label": ".test_thinking_blocks_excluded_from_text()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_thinking_blocks_excluded_from_text()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L66"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_calls_captured_on_assistant_turns",
+      "label": ".test_tool_calls_captured_on_assistant_turns()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_tool_calls_captured_on_assistant_turns()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_only_turn_has_no_text",
+      "label": ".test_tool_only_turn_has_no_text()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_tool_only_turn_has_no_text()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L52"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_result_name_maps_to_erroring_tool_via_tool_use_id",
+      "label": ".test_tool_result_name_maps_to_erroring_tool_via_tool_use_id()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_tool_result_name_maps_to_erroring_tool_via_tool_use_id()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L71"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_user_positive_ack_detected",
+      "label": ".test_user_positive_ack_detected()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_user_positive_ack_detected()",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L37"
     },
     {
       "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterlocate_test_locate_default_root_is_dot_claude_projects",
@@ -3749,6 +3881,18 @@
       "norm_label": "._write_fixture()",
       "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
       "source_location": "L126"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_testnoveltyfromclaudecodeadaptersession_test_claude_code_session_bash_error_then_edit_is_novel",
+      "label": ".test_claude_code_session_bash_error_then_edit_is_novel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "code",
+      "norm_label": ".test_claude_code_session_bash_error_then_edit_is_novel()",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L219"
     },
     {
       "id": "session_to_skill_extractor_scripts_adapters_copilot_find_message_list",
@@ -4411,6 +4555,18 @@
       "source_location": "L43"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_render_testrendercandidatewritesfiles_test_writes_candidate_json_skill_md_review_md",
+      "label": ".test_writes_candidate_json_skill_md_review_md()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 134,
+      "community_name": "test_render.py",
+      "file_type": "code",
+      "norm_label": ".test_writes_candidate_json_skill_md_review_md()",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L192"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_render_testrenderskillcli_test_cli_writes_review_queue_folder",
       "label": ".test_cli_writes_review_queue_folder()",
       "_callable": true,
@@ -4543,138 +4699,6 @@
       "source_location": "L110"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_cwd_from_kept_line",
-      "label": ".test_cwd_from_kept_line()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_cwd_from_kept_line()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L43"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_drops_meta_and_sidechain_lines_role_sequence",
-      "label": ".test_drops_meta_and_sidechain_lines_role_sequence()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_drops_meta_and_sidechain_lines_role_sequence()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L24"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_error_count_from_tool_result_is_error",
-      "label": ".test_error_count_from_tool_result_is_error()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_error_count_from_tool_result_is_error()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L33"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_host_is_claude_code",
-      "label": ".test_host_is_claude_code()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_host_is_claude_code()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L30"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_session_id_from_first_kept_line",
-      "label": ".test_session_id_from_first_kept_line()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_session_id_from_first_kept_line()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L40"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_started_and_ended_at_use_first_and_last_kept_timestamps",
-      "label": ".test_started_and_ended_at_use_first_and_last_kept_timestamps()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_started_and_ended_at_use_first_and_last_kept_timestamps()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L46"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_thinking_blocks_excluded_from_text",
-      "label": ".test_thinking_blocks_excluded_from_text()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_thinking_blocks_excluded_from_text()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L66"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_calls_captured_on_assistant_turns",
-      "label": ".test_tool_calls_captured_on_assistant_turns()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_tool_calls_captured_on_assistant_turns()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L59"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_only_turn_has_no_text",
-      "label": ".test_tool_only_turn_has_no_text()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_tool_only_turn_has_no_text()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L52"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_tool_result_name_maps_to_erroring_tool_via_tool_use_id",
-      "label": ".test_tool_result_name_maps_to_erroring_tool_via_tool_use_id()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_tool_result_name_maps_to_erroring_tool_via_tool_use_id()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L71"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_testclaudecodeadapterload_test_user_positive_ack_detected",
-      "label": ".test_user_positive_ack_detected()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "code",
-      "norm_label": ".test_user_positive_ack_detected()",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L37"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_filter_sessions_evaluate",
       "label": "_evaluate()",
       "_callable": true,
@@ -4783,48 +4807,12 @@
       "source_location": "L17"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_render_candidate",
-      "label": "render_candidate()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "render_candidate",
-      "file_type": "code",
-      "norm_label": "render_candidate()",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L236"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_promote_promotefixture_render",
-      "label": ".render()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "render_candidate",
-      "file_type": "code",
-      "norm_label": ".render()",
-      "source_file": "session-to-skill-extractor/tests/test_promote.py",
-      "source_location": "L47"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_render_testrendercandidatewritesfiles_test_writes_candidate_json_skill_md_review_md",
-      "label": ".test_writes_candidate_json_skill_md_review_md()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "render_candidate",
-      "file_type": "code",
-      "norm_label": ".test_writes_candidate_json_skill_md_review_md()",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L192"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_render_testrenderskillclimissingcandidateid_test_cli_missing_candidate_id_exits_1_one_line_stderr_no_traceback",
       "label": ".test_cli_missing_candidate_id_exits_1_one_line_stderr_no_traceback()",
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "render_candidate",
+      "community_name": "TestRenderSkillCliMissingCandidateId",
       "file_type": "code",
       "norm_label": ".test_cli_missing_candidate_id_exits_1_one_line_stderr_no_traceback()",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -4836,7 +4824,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 142,
-      "community_name": "render_candidate",
+      "community_name": "TestRenderSkillCliMissingCandidateId",
       "file_type": "code",
       "norm_label": ".test_render_candidate_raises_value_error_when_candidate_id_missing()",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -4997,42 +4985,6 @@
       "norm_label": ".test_schema_shape()",
       "source_file": "session-to-skill-extractor/tests/test_base.py",
       "source_location": "L57"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_filter_sessions_filter_sessions",
-      "label": "filter_sessions()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "code",
-      "norm_label": "filter_sessions()",
-      "source_file": "session-to-skill-extractor/scripts/filter_sessions.py",
-      "source_location": "L146"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_testnoveltyfromclaudecodeadaptersession_test_claude_code_session_bash_error_then_edit_is_novel",
-      "label": ".test_claude_code_session_bash_error_then_edit_is_novel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "code",
-      "norm_label": ".test_claude_code_session_bash_error_then_edit_is_novel()",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L219"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_testnulltolerance_test_missing_stats_and_outcome_fields_do_not_crash",
-      "label": ".test_missing_stats_and_outcome_fields_do_not_crash()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "code",
-      "norm_label": ".test_missing_stats_and_outcome_fields_do_not_crash()",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L199"
     },
     {
       "id": "gh_repo_mirror_templates_site_addcopybuttons",
@@ -5215,54 +5167,6 @@
       "source_location": "L47"
     },
     {
-      "id": "session_to_skill_extractor_scripts_load_sessions_expand_paths",
-      "label": "_expand_paths()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 170,
-      "community_name": "write_json",
-      "file_type": "code",
-      "norm_label": "_expand_paths()",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L26"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_load_sessions_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 170,
-      "community_name": "write_json",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L45"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_load_sessions_parse_args",
-      "label": "parse_args()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 170,
-      "community_name": "write_json",
-      "file_type": "code",
-      "norm_label": "parse_args()",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L34"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_s2s_common_write_json",
-      "label": "write_json()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 170,
-      "community_name": "write_json",
-      "file_type": "code",
-      "norm_label": "write_json()",
-      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
-      "source_location": "L23"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_render_skill_title_case_name",
       "label": "title_case_name()",
       "_callable": true,
@@ -5292,11 +5196,239 @@
       "_callable": true,
       "_origin": "ast",
       "community": 179,
-      "community_name": "_bullets",
+      "community_name": "render_skill.py",
       "file_type": "code",
       "norm_label": "_bullets()",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L61"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_decision_points_block",
+      "label": "_decision_points_block()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "_decision_points_block()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L84"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L272"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_numbered_steps",
+      "label": "_numbered_steps()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "_numbered_steps()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_parse_args",
+      "label": "parse_args()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "parse_args()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L261"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_render_candidate",
+      "label": "render_candidate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "render_candidate()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L236"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_rubric_line",
+      "label": "_rubric_line()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "_rubric_line()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L99"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_yaml_bool",
+      "label": "_yaml_bool()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "_yaml_bool()",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L107"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_build_shortlist",
+      "label": "build_shortlist()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "build_shortlist()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L112"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_candidate_tokens",
+      "label": "_candidate_tokens()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "_candidate_tokens()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L41"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_jaccard",
+      "label": "_jaccard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "_jaccard()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L34"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L148"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_parse_args",
+      "label": "parse_args()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "parse_args()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L132"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_parse_frontmatter",
+      "label": "_parse_frontmatter()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "_parse_frontmatter()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L52"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_registry_entries",
+      "label": "_registry_entries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "_registry_entries()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L100"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_skilldir_entries",
+      "label": "_skilldir_entries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "_skilldir_entries()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L81"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_tokenize",
+      "label": "tokenize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": "tokenize()",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L27"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_drops_stopwords_and_empty_strings",
+      "label": ".test_drops_stopwords_and_empty_strings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": ".test_drops_stopwords_and_empty_strings()",
+      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_empty_and_none_return_empty_set",
+      "label": ".test_empty_and_none_return_empty_set()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": ".test_empty_and_none_return_empty_set()",
+      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_dedup_testtokenize_test_lowercases_and_splits_on_non_alnum",
+      "label": ".test_lowercases_and_splits_on_non_alnum()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "code",
+      "norm_label": ".test_lowercases_and_splits_on_non_alnum()",
+      "source_file": "session-to-skill-extractor/tests/test_dedup.py",
+      "source_location": "L25"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_blacklist",
@@ -5551,16 +5683,40 @@
       "source_location": "L285"
     },
     {
-      "id": "session_to_skill_extractor_scripts_report_usage_append_usage",
-      "label": "append_usage()",
+      "id": "session_to_skill_extractor_scripts_load_sessions_expand_paths",
+      "label": "_expand_paths()",
       "_callable": true,
       "_origin": "ast",
       "community": 184,
       "community_name": "load_config",
       "file_type": "code",
-      "norm_label": "append_usage()",
-      "source_file": "session-to-skill-extractor/scripts/report_usage.py",
-      "source_location": "L18"
+      "norm_label": "_expand_paths()",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_load_sessions_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 184,
+      "community_name": "load_config",
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L45"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_load_sessions_parse_args",
+      "label": "parse_args()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 184,
+      "community_name": "load_config",
+      "file_type": "code",
+      "norm_label": "parse_args()",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L34"
     },
     {
       "id": "session_to_skill_extractor_scripts_report_usage_main",
@@ -5611,64 +5767,16 @@
       "source_location": "L41"
     },
     {
-      "id": "session_to_skill_extractor_scripts_s2s_common_now_iso",
-      "label": "now_iso()",
+      "id": "session_to_skill_extractor_scripts_s2s_common_write_json",
+      "label": "write_json()",
       "_callable": true,
       "_origin": "ast",
       "community": 184,
       "community_name": "load_config",
       "file_type": "code",
-      "norm_label": "now_iso()",
+      "norm_label": "write_json()",
       "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
-      "source_location": "L50"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_append_writes_valid_json_line_with_four_keys",
-      "label": ".test_append_writes_valid_json_line_with_four_keys()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
-      "file_type": "code",
-      "norm_label": ".test_append_writes_valid_json_line_with_four_keys()",
-      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
-      "source_location": "L92"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_appends_multiple_lines",
-      "label": ".test_appends_multiple_lines()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
-      "file_type": "code",
-      "norm_label": ".test_appends_multiple_lines()",
-      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
-      "source_location": "L122"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_creates_dir_and_file_when_missing",
-      "label": ".test_creates_dir_and_file_when_missing()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
-      "file_type": "code",
-      "norm_label": ".test_creates_dir_and_file_when_missing()",
-      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
-      "source_location": "L110"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_note_defaults_to_empty_string_when_absent",
-      "label": ".test_note_defaults_to_empty_string_when_absent()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
-      "file_type": "code",
-      "norm_label": ".test_note_defaults_to_empty_string_when_absent()",
-      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
-      "source_location": "L117"
+      "source_location": "L23"
     },
     {
       "id": "session_to_skill_extractor_scripts_validate_candidate_check_rubric",
@@ -5719,40 +5827,64 @@
       "source_location": "L251"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_all_distinct_findings_still_recommend_accept",
-      "label": ".test_all_distinct_findings_still_recommend_accept()",
+      "id": "session_to_skill_extractor_scripts_report_usage_append_usage",
+      "label": "append_usage()",
       "_callable": true,
       "_origin": "ast",
       "community": 186,
-      "community_name": "TestRecommendedActionDistinctFindings",
+      "community_name": "append_usage",
       "file_type": "code",
-      "norm_label": ".test_all_distinct_findings_still_recommend_accept()",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L285"
+      "norm_label": "append_usage()",
+      "source_file": "session-to-skill-extractor/scripts/report_usage.py",
+      "source_location": "L18"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_duplicate_superset_subset_all_block_accept",
-      "label": ".test_duplicate_superset_subset_all_block_accept()",
+      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_append_writes_valid_json_line_with_four_keys",
+      "label": ".test_append_writes_valid_json_line_with_four_keys()",
       "_callable": true,
       "_origin": "ast",
       "community": 186,
-      "community_name": "TestRecommendedActionDistinctFindings",
+      "community_name": "append_usage",
       "file_type": "code",
-      "norm_label": ".test_duplicate_superset_subset_all_block_accept()",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L302"
+      "norm_label": ".test_append_writes_valid_json_line_with_four_keys()",
+      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
+      "source_location": "L92"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_render_testrecommendedactiondistinctfindings_test_mixed_distinct_and_overlap_recommends_review",
-      "label": ".test_mixed_distinct_and_overlap_recommends_review()",
+      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_appends_multiple_lines",
+      "label": ".test_appends_multiple_lines()",
       "_callable": true,
       "_origin": "ast",
       "community": 186,
-      "community_name": "TestRecommendedActionDistinctFindings",
+      "community_name": "append_usage",
       "file_type": "code",
-      "norm_label": ".test_mixed_distinct_and_overlap_recommends_review()",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L293"
+      "norm_label": ".test_appends_multiple_lines()",
+      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
+      "source_location": "L122"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_creates_dir_and_file_when_missing",
+      "label": ".test_creates_dir_and_file_when_missing()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "append_usage",
+      "file_type": "code",
+      "norm_label": ".test_creates_dir_and_file_when_missing()",
+      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
+      "source_location": "L110"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_feedback_testreportusageappendsjsonline_test_note_defaults_to_empty_string_when_absent",
+      "label": ".test_note_defaults_to_empty_string_when_absent()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 186,
+      "community_name": "append_usage",
+      "file_type": "code",
+      "norm_label": ".test_note_defaults_to_empty_string_when_absent()",
+      "source_file": "session-to-skill-extractor/tests/test_feedback.py",
+      "source_location": "L117"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_testsuppressedtasktype_registry_with_suppression",
@@ -5849,18 +5981,6 @@
       "norm_label": ".test_single_session_without_review_flag_fails()",
       "source_file": "session-to-skill-extractor/tests/test_validator.py",
       "source_location": "L67"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_testmaxsessionscap_test_capped_at_max_sessions_per_run",
-      "label": ".test_capped_at_max_sessions_per_run()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 192,
-      "community_name": ".test_capped_at_max_sessions_per_run",
-      "file_type": "code",
-      "norm_label": ".test_capped_at_max_sessions_per_run()",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L165"
     },
     {
       "id": "site_addcopybuttons",
@@ -6089,126 +6209,6 @@
       "norm_label": ".test_missing_in_file_exits_1_no_traceback()",
       "source_file": "session-to-skill-extractor/tests/test_filter.py",
       "source_location": "L234"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_load_or_init_registry",
-      "label": "_load_or_init_registry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_load_or_init_registry()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L67"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_main",
-      "label": "main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L201"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_parse_args",
-      "label": "parse_args()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "parse_args()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L187"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_patch_status_line",
-      "label": "_patch_status_line()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_patch_status_line()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L59"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_promote_accept_or_edit",
-      "label": "_promote_accept_or_edit()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_promote_accept_or_edit()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L95"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_promote_reject",
-      "label": "_promote_reject()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_promote_reject()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L149"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_read_candidate_json",
-      "label": "_read_candidate_json()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_read_candidate_json()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L86"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_relative_to_registry",
-      "label": "_relative_to_registry()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_relative_to_registry()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L74"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_require_queue_dir",
-      "label": "_require_queue_dir()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_require_queue_dir()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L79"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_status_for",
-      "label": "_status_for()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "_status_for()",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L44"
     },
     {
       "id": "gh_pages_neo_brutalist_templates_assets_js_site_apply",
@@ -7843,11 +7843,33 @@
       "source_location": "L7"
     },
     {
+      "id": "exception",
+      "label": "Exception",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "exception",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote",
+      "label": "promote.py",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "code",
+      "norm_label": "promote.py",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L1"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_promote",
       "label": "test_promote.py",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "code",
       "norm_label": "test_promote.py",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -7858,18 +7880,84 @@
       "label": "Dispatch accept/edit/reject. Raises PromoteError for any CLI-facing failure.",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "rationale",
       "norm_label": "dispatch accept/edit/reject. raises promoteerror for any cli-facing failure.",
       "source_file": "session-to-skill-extractor/scripts/promote.py",
       "source_location": "L179"
     },
     {
+      "id": "session_to_skill_extractor_scripts_promote_rationale_2",
+      "label": "Stage 5 promote/reject (spec C6, D4): move a review-queue candidate into the\u2026",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "stage 5 promote/reject (spec c6, d4): move a review-queue candidate into the...",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L2"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_rationale_39",
+      "label": "Raised for CLI-facing failures: missing candidate id, missing queue folder,\u2026",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "raised for cli-facing failures: missing candidate id, missing queue folder,...",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_rationale_45",
+      "label": "C6 ladder: >=validated_min -> validated; >=provisional_min -> provisional;\u2026",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "c6 ladder: >=validated_min -> validated; >=provisional_min -> provisional;...",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L45"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_rationale_60",
+      "label": "Patch the metadata `status:` frontmatter line in place to the ladder status.",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "patch the metadata `status:` frontmatter line in place to the ladder status.",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L60"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_promote_rationale_87",
+      "label": "read_json wrapped so a malformed candidate.json is a clean PromoteError (CLI:\u2026",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "read_json wrapped so a malformed candidate.json is a clean promoteerror (cli:...",
+      "source_file": "session-to-skill-extractor/scripts/promote.py",
+      "source_location": "L87"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_s2s_common_rationale_51",
+      "label": "Current UTC time as an ISO-8601 string.",
+      "_origin": "ast",
+      "community": 103,
+      "community_name": "promote.py",
+      "file_type": "rationale",
+      "norm_label": "current utc time as an iso-8601 string.",
+      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
+      "source_location": "L51"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_promote_rationale_207",
       "label": "Fix round 1, item 2b: a malformed candidate.json in the queue folder must not\u2026",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "rationale",
       "norm_label": "fix round 1, item 2b: a malformed candidate.json in the queue folder must not...",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -7880,7 +7968,7 @@
       "label": "Sets up a tempdir with queue/skill-dir/registry and a rendered candidate.",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "rationale",
       "norm_label": "sets up a tempdir with queue/skill-dir/registry and a rendered candidate.",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -7891,7 +7979,7 @@
       "label": "3-session candidate + accept -> provisional (reviewer-accept, below 20).",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "rationale",
       "norm_label": "3-session candidate + accept -> provisional (reviewer-accept, below 20).",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -7902,7 +7990,7 @@
       "label": "30-session candidate + accept -> validated.",
       "_origin": "ast",
       "community": 103,
-      "community_name": "PromoteFixture",
+      "community_name": "promote.py",
       "file_type": "rationale",
       "norm_label": "30-session candidate + accept -> validated.",
       "source_file": "session-to-skill-extractor/tests/test_promote.py",
@@ -8195,6 +8283,17 @@
       "source_location": "L1"
     },
     {
+      "id": "session_to_skill_extractor_scripts_filter_sessions_rationale_147",
+      "label": "Gate, score, and rank sessions. Returns (filtered, dropped): filtered: admitted\u2026",
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "rationale",
+      "norm_label": "gate, score, and rank sessions. returns (filtered, dropped): filtered: admitted...",
+      "source_file": "session-to-skill-extractor/scripts/filter_sessions.py",
+      "source_location": "L147"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_filter_rationale_119",
       "label": "E3-1: trivial 2-turn no-tool Q&A session is dropped at the gate.",
       "_origin": "ast",
@@ -8228,6 +8327,17 @@
       "source_location": "L148"
     },
     {
+      "id": "session_to_skill_extractor_tests_test_filter_rationale_163",
+      "label": "d: 3 sessions pass, max_sessions_per_run=2 -> capped to 2, highest score first.",
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "rationale",
+      "norm_label": "d: 3 sessions pass, max_sessions_per_run=2 -> capped to 2, highest score first.",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L163"
+    },
+    {
       "id": "session_to_skill_extractor_tests_test_filter_rationale_178",
       "label": "e: every admitted entry's admitted_by is non-empty and a subset of the four\u2026",
       "_origin": "ast",
@@ -8237,6 +8347,17 @@
       "norm_label": "e: every admitted entry's admitted_by is non-empty and a subset of the four...",
       "source_file": "session-to-skill-extractor/tests/test_filter.py",
       "source_location": "L178"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_rationale_197",
+      "label": "Adapters may leave stats/outcome_signals fields null; the filter must not crash.",
+      "_origin": "ast",
+      "community": 106,
+      "community_name": "test_filter.py",
+      "file_type": "rationale",
+      "norm_label": "adapters may leave stats/outcome_signals fields null; the filter must not crash.",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L197"
     },
     {
       "id": "session_to_skill_extractor_tests_test_filter_rationale_29",
@@ -8261,110 +8382,22 @@
       "source_location": "L41"
     },
     {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen",
-      "label": "dedup_prescreen.py",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "code",
-      "norm_label": "dedup_prescreen.py",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L1"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_dedup",
       "label": "test_dedup.py",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "code",
       "norm_label": "test_dedup.py",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
       "source_location": "L1"
     },
     {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_101",
-      "label": "Yield (skill_name, path, tokens) for every registry skills{} entry. A\u2026",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "yield (skill_name, path, tokens) for every registry skills{} entry. a...",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L101"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_113",
-      "label": "Score candidate vs every existing SKILL.md + registry entry; return entries\u2026",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "score candidate vs every existing skill.md + registry entry; return entries...",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L113"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_2",
-      "label": "Stage 3 dedup pre-screen: cheap Jaccard token-overlap check before any LLM call\u2026",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "stage 3 dedup pre-screen: cheap jaccard token-overlap check before any llm call...",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L2"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_28",
-      "label": "Lowercase, split on non-alnum, drop stopwords and empty strings. Returns a set.",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "lowercase, split on non-alnum, drop stopwords and empty strings. returns a set.",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L28"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_35",
-      "label": "|a & b| / |a | b|; 0.0 if either set is empty.",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "|a & b| / |a | b|; 0.0 if either set is empty.",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L35"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_53",
-      "label": "YAML-lite frontmatter between the first two '---' lines: plain 'key: value'\u2026",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "yaml-lite frontmatter between the first two '---' lines: plain 'key: value'...",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L53"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_82",
-      "label": "Yield (skill_name, path, tokens) for every */SKILL.md under each skill dir.\u2026",
-      "_origin": "ast",
-      "community": 107,
-      "community_name": "dedup_prescreen.py",
-      "file_type": "rationale",
-      "norm_label": "yield (skill_name, path, tokens) for every */skill.md under each skill dir....",
-      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
-      "source_location": "L82"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_dedup_rationale_121",
       "label": "Item G: --skill-dirs omitted must fall back to config skill_dirs (config flows\u2026",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "rationale",
       "norm_label": "item g: --skill-dirs omitted must fall back to config skill_dirs (config flows...",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -8375,7 +8408,7 @@
       "label": "E3-5: good.json vs a near-identical fixture SKILL.md scores >= 0.3 and is\u2026",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "rationale",
       "norm_label": "e3-5: good.json vs a near-identical fixture skill.md scores >= 0.3 and is...",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -8386,7 +8419,7 @@
       "label": "An unrelated SKILL.md (different domain entirely) produces an empty shortlist.",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "rationale",
       "norm_label": "an unrelated skill.md (different domain entirely) produces an empty shortlist.",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -8397,7 +8430,7 @@
       "label": "Nonexistent skill dirs and a missing registry are skipped silently, no crash.",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "rationale",
       "norm_label": "nonexistent skill dirs and a missing registry are skipped silently, no crash.",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -8408,7 +8441,7 @@
       "label": "A registry skill entry (name + trigger_description) participates in scoring too.",
       "_origin": "ast",
       "community": 107,
-      "community_name": "dedup_prescreen.py",
+      "community_name": "test_dedup.py",
       "file_type": "rationale",
       "norm_label": "a registry skill entry (name + trigger_description) participates in scoring too.",
       "source_file": "session-to-skill-extractor/tests/test_dedup.py",
@@ -9152,6 +9185,28 @@
       "source_location": "L25"
     },
     {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_decision_points_description",
+      "label": "description",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "description",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L112"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_decision_points_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L92"
+    },
+    {
       "id": "session_to_skill_extractor_schemas_candidate_schema_expected_output_description",
       "label": "description",
       "_origin": "ast",
@@ -9196,6 +9251,39 @@
       "source_location": "L227"
     },
     {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_description",
+      "label": "description",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "description",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L65"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_items",
+      "label": "items",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "items",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L62"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L61"
+    },
+    {
       "id": "session_to_skill_extractor_schemas_candidate_schema_properties",
       "label": "properties",
       "_origin": "ast",
@@ -9218,6 +9306,17 @@
       "source_location": "L24"
     },
     {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_decision_points",
+      "label": "decision_points",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "decision_points",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L91"
+    },
+    {
       "id": "session_to_skill_extractor_schemas_candidate_schema_properties_expected_output",
       "label": "expected_output",
       "_origin": "ast",
@@ -9238,6 +9337,17 @@
       "norm_label": "linear",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L226"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_prerequisites",
+      "label": "prerequisites",
+      "_origin": "ast",
+      "community": 112,
+      "community_name": "properties",
+      "file_type": "code",
+      "norm_label": "prerequisites",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L60"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_properties_requires_human_review",
@@ -9271,17 +9381,6 @@
       "norm_label": "task_type",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L38"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_version",
-      "label": "version",
-      "_origin": "ast",
-      "community": 112,
-      "community_name": "properties",
-      "file_type": "code",
-      "norm_label": "version",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L221"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_requires_human_review_type",
@@ -9337,39 +9436,6 @@
       "norm_label": "type",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L39"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_version_description",
-      "label": "description",
-      "_origin": "ast",
-      "community": 112,
-      "community_name": "properties",
-      "file_type": "code",
-      "norm_label": "description",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L224"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_version_pattern",
-      "label": "pattern",
-      "_origin": "ast",
-      "community": 112,
-      "community_name": "properties",
-      "file_type": "code",
-      "norm_label": "pattern",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L223"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_version_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 112,
-      "community_name": "properties",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L222"
     },
     {
       "id": "session_to_skill_extractor_scripts_adapters_base",
@@ -9548,22 +9614,11 @@
       "source_location": "L56"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill",
-      "label": "render_skill.py",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "code",
-      "norm_label": "render_skill.py",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L1"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_render_skill_rationale_171",
       "label": "Load findings from an optional --dedup-findings file: a bare list, or a dict\u2026",
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "rationale",
       "norm_label": "load findings from an optional --dedup-findings file: a bare list, or a dict...",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
@@ -9574,55 +9629,33 @@
       "label": "accept' iff no finding has a blocking relation (duplicate/overlap/superset/\u2026",
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "rationale",
       "norm_label": "accept' iff no finding has a blocking relation (duplicate/overlap/superset/...",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L192"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_rationale_2",
-      "label": "Stage 6 renderer (spec D3): a D2 CandidateSkill JSON -> review-queue folder\u2026",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "rationale",
-      "norm_label": "stage 6 renderer (spec d3): a d2 candidateskill json -> review-queue folder...",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L2"
-    },
-    {
       "id": "session_to_skill_extractor_scripts_render_skill_rationale_206",
       "label": "Build the REVIEW.md text (rubric table, quality checklist, evidence, dedup\u2026",
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "rationale",
       "norm_label": "build the review.md text (rubric table, quality checklist, evidence, dedup...",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L206"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_rationale_70",
-      "label": "1. Action \u2014 why' when why is present, else '1. Action'; one per line.",
+      "id": "session_to_skill_extractor_tests_test_render_rationale_282",
+      "label": "Fix round 1, item 3: findings that are all 'distinct' don't block accept; any\u2026",
       "_origin": "ast",
       "community": 115,
-      "community_name": "render_skill.py",
+      "community_name": "render_review_md",
       "file_type": "rationale",
-      "norm_label": "1. action \u2014 why' when why is present, else '1. action'; one per line.",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L70"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_render_skill_rationale_85",
-      "label": "Decision-point lines, or the linear-procedure note when there are none.",
-      "_origin": "ast",
-      "community": 115,
-      "community_name": "render_skill.py",
-      "file_type": "rationale",
-      "norm_label": "decision-point lines, or the linear-procedure note when there are none.",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L85"
+      "norm_label": "fix round 1, item 3: findings that are all 'distinct' don't block accept; any...",
+      "source_file": "session-to-skill-extractor/tests/test_render.py",
+      "source_location": "L282"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_checked_against_items",
@@ -9647,17 +9680,6 @@
       "source_location": "L193"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_decision_points_description",
-      "label": "description",
-      "_origin": "ast",
-      "community": 116,
-      "community_name": "type",
-      "file_type": "code",
-      "norm_label": "description",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L112"
-    },
-    {
       "id": "session_to_skill_extractor_schemas_candidate_schema_decision_points_items",
       "label": "items",
       "_origin": "ast",
@@ -9669,7 +9691,29 @@
       "source_location": "L93"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_decision_points_type",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_additionalproperties",
+      "label": "additionalProperties",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "type",
+      "file_type": "code",
+      "norm_label": "additionalproperties",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L190"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_properties",
+      "label": "properties",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "type",
+      "file_type": "code",
+      "norm_label": "properties",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L191"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_type",
       "label": "type",
       "_origin": "ast",
       "community": 116,
@@ -9677,7 +9721,7 @@
       "file_type": "code",
       "norm_label": "type",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L92"
+      "source_location": "L189"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_edge_cases_items",
@@ -9711,6 +9755,17 @@
       "norm_label": "items",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L198"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_findings_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "type",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L197"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_items_additionalproperties",
@@ -9757,15 +9812,15 @@
       "source_location": "L192"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_decision_points",
-      "label": "decision_points",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_dedup",
+      "label": "dedup",
       "_origin": "ast",
       "community": 116,
       "community_name": "type",
       "file_type": "code",
-      "norm_label": "decision_points",
+      "norm_label": "dedup",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L91"
+      "source_location": "L188"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_properties_edge_cases",
@@ -9779,6 +9834,17 @@
       "source_location": "L118"
     },
     {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_findings",
+      "label": "findings",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "type",
+      "file_type": "code",
+      "norm_label": "findings",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L196"
+    },
+    {
       "id": "session_to_skill_extractor_schemas_candidate_schema_properties_steps",
       "label": "steps",
       "_origin": "ast",
@@ -9788,6 +9854,17 @@
       "norm_label": "steps",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L67"
+    },
+    {
+      "id": "session_to_skill_extractor_schemas_candidate_schema_sessions_items",
+      "label": "items",
+      "_origin": "ast",
+      "community": 116,
+      "community_name": "type",
+      "file_type": "code",
+      "norm_label": "items",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L158"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_steps_items",
@@ -9832,6 +9909,28 @@
       "norm_label": "item e, discriminating case: retry_count only credits a retry when the tool...",
       "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
       "source_location": "L121"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_adapter_claude_rationale_72",
+      "label": "Item E: tool_results[].name must be the real tool name (looked up via\u2026",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "rationale",
+      "norm_label": "item e: tool_results[].name must be the real tool name (looked up via...",
+      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
+      "source_location": "L72"
+    },
+    {
+      "id": "session_to_skill_extractor_tests_test_filter_rationale_215",
+      "label": "Item E: with tool_results[].name correctly mapped to the erroring tool (fixed\u2026",
+      "_origin": "ast",
+      "community": 117,
+      "community_name": "ClaudeCodeAdapter",
+      "file_type": "rationale",
+      "norm_label": "item e: with tool_results[].name correctly mapped to the erroring tool (fixed...",
+      "source_file": "session-to-skill-extractor/tests/test_filter.py",
+      "source_location": "L215"
     },
     {
       "id": "session_to_skill_extractor_schemas_registry_schema_at_description",
@@ -11934,17 +12033,6 @@
       "source_location": "L67"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_adapter_claude_rationale_72",
-      "label": "Item E: tool_results[].name must be the real tool name (looked up via\u2026",
-      "_origin": "ast",
-      "community": 136,
-      "community_name": "TestClaudeCodeAdapterLoad",
-      "file_type": "rationale",
-      "norm_label": "item e: tool_results[].name must be the real tool name (looked up via...",
-      "source_file": "session-to-skill-extractor/tests/test_adapter_claude.py",
-      "source_location": "L72"
-    },
-    {
       "id": "code_review_multi_axis_reference_code_review_multi_axis_reference",
       "label": "code-review-multi-axis \u2014 Reference",
       "_origin": "ast",
@@ -11978,7 +12066,7 @@
       "node_kind": "heading",
       "norm_label": "config schema",
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L277"
+      "source_location": "L247"
     },
     {
       "id": "code_review_multi_axis_reference_error_handling",
@@ -11990,7 +12078,7 @@
       "node_kind": "heading",
       "norm_label": "error handling",
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L316"
+      "source_location": "L286"
     },
     {
       "id": "code_review_multi_axis_reference_gh_commands",
@@ -12014,7 +12102,7 @@
       "node_kind": "heading",
       "norm_label": "identity ack",
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L263"
+      "source_location": "L233"
     },
     {
       "id": "code_review_multi_axis_reference_pre_check_thresholds_config_driven",
@@ -12038,19 +12126,7 @@
       "node_kind": "heading",
       "norm_label": "re-review dedupe",
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L251"
-    },
-    {
-      "id": "code_review_multi_axis_reference_state_directory",
-      "label": "State directory",
-      "_origin": "ast",
-      "community": 137,
-      "community_name": "code-review-multi-axis \u2014 Reference",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "state directory",
-      "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L184"
+      "source_location": "L221"
     },
     {
       "id": "code_review_multi_axis_reference_state_file",
@@ -12062,7 +12138,7 @@
       "node_kind": "heading",
       "norm_label": "state file",
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L214"
+      "source_location": "L184"
     },
     {
       "id": "code_review_multi_axis_reference_summary_body_final_grouped_review",
@@ -12260,17 +12336,6 @@
       "norm_label": "supporting_sessions",
       "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
       "source_location": "L153"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_sessions_items",
-      "label": "items",
-      "_origin": "ast",
-      "community": 139,
-      "community_name": "evidence",
-      "file_type": "code",
-      "norm_label": "items",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L158"
     },
     {
       "id": "session_to_skill_extractor_schemas_candidate_schema_sessions_type",
@@ -12493,22 +12558,11 @@
       "source_location": "L18"
     },
     {
-      "id": "session_to_skill_extractor_scripts_render_skill_rationale_237",
-      "label": "Render one candidate into\u2026",
-      "_origin": "ast",
-      "community": 142,
-      "community_name": "render_candidate",
-      "file_type": "rationale",
-      "norm_label": "render one candidate into...",
-      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
-      "source_location": "L237"
-    },
-    {
       "id": "session_to_skill_extractor_tests_test_render_rationale_247",
       "label": "Fix round 1, item 2a: a candidate JSON missing candidate_id must not crash with\u2026",
       "_origin": "ast",
       "community": 142,
-      "community_name": "render_candidate",
+      "community_name": "TestRenderSkillCliMissingCandidateId",
       "file_type": "rationale",
       "norm_label": "fix round 1, item 2a: a candidate json missing candidate_id must not crash with...",
       "source_file": "session-to-skill-extractor/tests/test_render.py",
@@ -12752,7 +12806,7 @@
       "node_kind": "heading",
       "norm_label": "license",
       "source_file": "code-review-multi-axis/README.md",
-      "source_location": "L137"
+      "source_location": "L133"
     },
     {
       "id": "code_review_multi_axis_readme_manual_installation",
@@ -12787,18 +12841,6 @@
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "scope (v1)",
-      "source_file": "code-review-multi-axis/README.md",
-      "source_location": "L133"
-    },
-    {
-      "id": "code_review_multi_axis_readme_state",
-      "label": "State",
-      "_origin": "ast",
-      "community": 145,
-      "community_name": "code-review-multi-axis",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "state",
       "source_file": "code-review-multi-axis/README.md",
       "source_location": "L129"
     },
@@ -13020,7 +13062,7 @@
       "node_kind": "heading",
       "norm_label": "config",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L87"
+      "source_location": "L85"
     },
     {
       "id": "code_review_multi_axis_skill_one_time_identity_ack",
@@ -13032,7 +13074,7 @@
       "node_kind": "heading",
       "norm_label": "one-time identity ack",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L43"
+      "source_location": "L41"
     },
     {
       "id": "code_review_multi_axis_skill_phase_1_approval_loop",
@@ -13044,7 +13086,7 @@
       "node_kind": "heading",
       "norm_label": "phase 1 \u2014 approval loop",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L65"
+      "source_location": "L63"
     },
     {
       "id": "code_review_multi_axis_skill_phase_1_deep_review",
@@ -13056,7 +13098,7 @@
       "node_kind": "heading",
       "norm_label": "phase 1 \u2014 deep review",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L57"
+      "source_location": "L55"
     },
     {
       "id": "code_review_multi_axis_skill_phase_1_pre_check_3_arms_all_gated_by_force",
@@ -13068,7 +13110,7 @@
       "node_kind": "heading",
       "norm_label": "phase 1 \u2014 pre-check (3 arms, all gated by `--force`)",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L47"
+      "source_location": "L45"
     },
     {
       "id": "code_review_multi_axis_skill_phase_2_submit",
@@ -13080,7 +13122,7 @@
       "node_kind": "heading",
       "norm_label": "phase 2 \u2014 submit",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L71"
+      "source_location": "L69"
     },
     {
       "id": "code_review_multi_axis_skill_preflight_fail_fast",
@@ -13116,7 +13158,7 @@
       "node_kind": "heading",
       "norm_label": "re-review (pr head moved)",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L83"
+      "source_location": "L81"
     },
     {
       "id": "code_review_multi_axis_skill_scope",
@@ -13128,7 +13170,7 @@
       "node_kind": "heading",
       "norm_label": "scope",
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L91"
+      "source_location": "L89"
     },
     {
       "id": "session_to_skill_extractor_schemas_registry_schema",
@@ -14163,39 +14205,6 @@
       "source_location": "L3"
     },
     {
-      "id": "session_to_skill_extractor_scripts_filter_sessions_rationale_147",
-      "label": "Gate, score, and rank sessions. Returns (filtered, dropped): filtered: admitted\u2026",
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "rationale",
-      "norm_label": "gate, score, and rank sessions. returns (filtered, dropped): filtered: admitted...",
-      "source_file": "session-to-skill-extractor/scripts/filter_sessions.py",
-      "source_location": "L147"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_rationale_197",
-      "label": "Adapters may leave stats/outcome_signals fields null; the filter must not crash.",
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "rationale",
-      "norm_label": "adapters may leave stats/outcome_signals fields null; the filter must not crash.",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L197"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_rationale_215",
-      "label": "Item E: with tool_results[].name correctly mapped to the erroring tool (fixed\u2026",
-      "_origin": "ast",
-      "community": 165,
-      "community_name": "filter_sessions",
-      "file_type": "rationale",
-      "norm_label": "item e: with tool_results[].name correctly mapped to the erroring tool (fixed...",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L215"
-    },
-    {
       "id": "code_review_multi_axis_skill",
       "label": "code-review-multi-axis/SKILL.md",
       "_origin": "ast",
@@ -14518,48 +14527,48 @@
       "source_location": "L23"
     },
     {
-      "id": "session_to_skill_extractor_scripts_load_sessions",
-      "label": "load_sessions.py",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_version",
+      "label": "version",
       "_origin": "ast",
       "community": 170,
-      "community_name": "write_json",
+      "community_name": "version",
       "file_type": "code",
-      "norm_label": "load_sessions.py",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L1"
+      "norm_label": "version",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L221"
     },
     {
-      "id": "session_to_skill_extractor_scripts_load_sessions_rationale_2",
-      "label": "CLI: locate and load sessions for one host adapter, writing a sessions+errors\u2026",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_version_description",
+      "label": "description",
       "_origin": "ast",
       "community": 170,
-      "community_name": "write_json",
-      "file_type": "rationale",
-      "norm_label": "cli: locate and load sessions for one host adapter, writing a sessions+errors...",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L2"
+      "community_name": "version",
+      "file_type": "code",
+      "norm_label": "description",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L224"
     },
     {
-      "id": "session_to_skill_extractor_scripts_load_sessions_rationale_27",
-      "label": "Expand glob patterns into a deduplicated list of matches, newest first.",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_version_pattern",
+      "label": "pattern",
       "_origin": "ast",
       "community": 170,
-      "community_name": "write_json",
-      "file_type": "rationale",
-      "norm_label": "expand glob patterns into a deduplicated list of matches, newest first.",
-      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
-      "source_location": "L27"
+      "community_name": "version",
+      "file_type": "code",
+      "norm_label": "pattern",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L223"
     },
     {
-      "id": "session_to_skill_extractor_scripts_s2s_common_rationale_24",
-      "label": "Write obj as pretty-printed JSON to path.",
+      "id": "session_to_skill_extractor_schemas_candidate_schema_version_type",
+      "label": "type",
       "_origin": "ast",
       "community": 170,
-      "community_name": "write_json",
-      "file_type": "rationale",
-      "norm_label": "write obj as pretty-printed json to path.",
-      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
-      "source_location": "L24"
+      "community_name": "version",
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
+      "source_location": "L222"
     },
     {
       "id": "session_to_skill_extractor_schemas_registry_schema_properties_version",
@@ -14817,15 +14826,70 @@
       "source_location": "L1"
     },
     {
+      "id": "session_to_skill_extractor_scripts_render_skill",
+      "label": "render_skill.py",
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "code",
+      "norm_label": "render_skill.py",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_rationale_2",
+      "label": "Stage 6 renderer (spec D3): a D2 CandidateSkill JSON -> review-queue folder\u2026",
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "rationale",
+      "norm_label": "stage 6 renderer (spec d3): a d2 candidateskill json -> review-queue folder...",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L2"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_rationale_237",
+      "label": "Render one candidate into\u2026",
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "rationale",
+      "norm_label": "render one candidate into...",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L237"
+    },
+    {
       "id": "session_to_skill_extractor_scripts_render_skill_rationale_62",
       "label": "Bullet-list block, one '- item' per line; 'none' placeholder if empty.",
       "_origin": "ast",
       "community": 179,
-      "community_name": "_bullets",
+      "community_name": "render_skill.py",
       "file_type": "rationale",
       "norm_label": "bullet-list block, one '- item' per line; 'none' placeholder if empty.",
       "source_file": "session-to-skill-extractor/scripts/render_skill.py",
       "source_location": "L62"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_rationale_70",
+      "label": "1. Action \u2014 why' when why is present, else '1. Action'; one per line.",
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "rationale",
+      "norm_label": "1. action \u2014 why' when why is present, else '1. action'; one per line.",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L70"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_render_skill_rationale_85",
+      "label": "Decision-point lines, or the linear-procedure note when there are none.",
+      "_origin": "ast",
+      "community": 179,
+      "community_name": "render_skill.py",
+      "file_type": "rationale",
+      "norm_label": "decision-point lines, or the linear-procedure note when there are none.",
+      "source_file": "session-to-skill-extractor/scripts/render_skill.py",
+      "source_location": "L85"
     },
     {
       "id": "docs_superpowers_specs_2026_04_20_skill_sync_utility_design",
@@ -15180,70 +15244,92 @@
       "source_location": "L6"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_additionalproperties",
-      "label": "additionalProperties",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen",
+      "label": "dedup_prescreen.py",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
+      "community_name": "dedup_prescreen.py",
       "file_type": "code",
-      "norm_label": "additionalproperties",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L190"
+      "norm_label": "dedup_prescreen.py",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L1"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_properties",
-      "label": "properties",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_101",
+      "label": "Yield (skill_name, path, tokens) for every registry skills{} entry. A\u2026",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
-      "file_type": "code",
-      "norm_label": "properties",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L191"
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "yield (skill_name, path, tokens) for every registry skills{} entry. a...",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L101"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_dedup_type",
-      "label": "type",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_113",
+      "label": "Score candidate vs every existing SKILL.md + registry entry; return entries\u2026",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L189"
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "score candidate vs every existing skill.md + registry entry; return entries...",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L113"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_findings_type",
-      "label": "type",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_2",
+      "label": "Stage 3 dedup pre-screen: cheap Jaccard token-overlap check before any LLM call\u2026",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L197"
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "stage 3 dedup pre-screen: cheap jaccard token-overlap check before any llm call...",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L2"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_dedup",
-      "label": "dedup",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_28",
+      "label": "Lowercase, split on non-alnum, drop stopwords and empty strings. Returns a set.",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
-      "file_type": "code",
-      "norm_label": "dedup",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L188"
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "lowercase, split on non-alnum, drop stopwords and empty strings. returns a set.",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L28"
     },
     {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_findings",
-      "label": "findings",
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_35",
+      "label": "|a & b| / |a | b|; 0.0 if either set is empty.",
       "_origin": "ast",
       "community": 181,
-      "community_name": "dedup",
-      "file_type": "code",
-      "norm_label": "findings",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L196"
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "|a & b| / |a | b|; 0.0 if either set is empty.",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L35"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_53",
+      "label": "YAML-lite frontmatter between the first two '---' lines: plain 'key: value'\u2026",
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "yaml-lite frontmatter between the first two '---' lines: plain 'key: value'...",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L53"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_dedup_prescreen_rationale_82",
+      "label": "Yield (skill_name, path, tokens) for every */SKILL.md under each skill dir.\u2026",
+      "_origin": "ast",
+      "community": 181,
+      "community_name": "dedup_prescreen.py",
+      "file_type": "rationale",
+      "norm_label": "yield (skill_name, path, tokens) for every */skill.md under each skill dir....",
+      "source_file": "session-to-skill-extractor/scripts/dedup_prescreen.py",
+      "source_location": "L82"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_rationale_174",
@@ -15312,6 +15398,17 @@
       "source_location": "L95"
     },
     {
+      "id": "session_to_skill_extractor_scripts_load_sessions",
+      "label": "load_sessions.py",
+      "_origin": "ast",
+      "community": 184,
+      "community_name": "load_config",
+      "file_type": "code",
+      "norm_label": "load_sessions.py",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L1"
+    },
+    {
       "id": "session_to_skill_extractor_scripts_report_usage",
       "label": "report_usage.py",
       "_origin": "ast",
@@ -15334,15 +15431,26 @@
       "source_location": "L1"
     },
     {
-      "id": "session_to_skill_extractor_scripts_report_usage_rationale_19",
-      "label": "Append {\"skill\",\"outcome\",\"note\",\"at\"} to F/usage-log.jsonl, creating the\u2026",
+      "id": "session_to_skill_extractor_scripts_load_sessions_rationale_2",
+      "label": "CLI: locate and load sessions for one host adapter, writing a sessions+errors\u2026",
       "_origin": "ast",
       "community": 184,
       "community_name": "load_config",
       "file_type": "rationale",
-      "norm_label": "append {\"skill\",\"outcome\",\"note\",\"at\"} to f/usage-log.jsonl, creating the...",
-      "source_file": "session-to-skill-extractor/scripts/report_usage.py",
-      "source_location": "L19"
+      "norm_label": "cli: locate and load sessions for one host adapter, writing a sessions+errors...",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L2"
+    },
+    {
+      "id": "session_to_skill_extractor_scripts_load_sessions_rationale_27",
+      "label": "Expand glob patterns into a deduplicated list of matches, newest first.",
+      "_origin": "ast",
+      "community": 184,
+      "community_name": "load_config",
+      "file_type": "rationale",
+      "norm_label": "expand glob patterns into a deduplicated list of matches, newest first.",
+      "source_file": "session-to-skill-extractor/scripts/load_sessions.py",
+      "source_location": "L27"
     },
     {
       "id": "session_to_skill_extractor_scripts_report_usage_rationale_2",
@@ -15367,6 +15475,17 @@
       "source_location": "L1"
     },
     {
+      "id": "session_to_skill_extractor_scripts_s2s_common_rationale_24",
+      "label": "Write obj as pretty-printed JSON to path.",
+      "_origin": "ast",
+      "community": 184,
+      "community_name": "load_config",
+      "file_type": "rationale",
+      "norm_label": "write obj as pretty-printed json to path.",
+      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
+      "source_location": "L24"
+    },
+    {
       "id": "session_to_skill_extractor_scripts_s2s_common_rationale_31",
       "label": "Recursively merge override onto a copy of base; override wins.",
       "_origin": "ast",
@@ -15387,17 +15506,6 @@
       "norm_label": "load the bundled config.example.json, deep-merged with an optional user config.",
       "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
       "source_location": "L42"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_s2s_common_rationale_51",
-      "label": "Current UTC time as an ISO-8601 string.",
-      "_origin": "ast",
-      "community": 184,
-      "community_name": "load_config",
-      "file_type": "rationale",
-      "norm_label": "current utc time as an iso-8601 string.",
-      "source_file": "session-to-skill-extractor/scripts/s2s_common.py",
-      "source_location": "L51"
     },
     {
       "id": "session_to_skill_extractor_scripts_validate_candidate_rationale_176",
@@ -15444,15 +15552,15 @@
       "source_location": "L86"
     },
     {
-      "id": "session_to_skill_extractor_tests_test_render_rationale_282",
-      "label": "Fix round 1, item 3: findings that are all 'distinct' don't block accept; any\u2026",
+      "id": "session_to_skill_extractor_scripts_report_usage_rationale_19",
+      "label": "Append {\"skill\",\"outcome\",\"note\",\"at\"} to F/usage-log.jsonl, creating the\u2026",
       "_origin": "ast",
       "community": 186,
-      "community_name": "TestRecommendedActionDistinctFindings",
+      "community_name": "append_usage",
       "file_type": "rationale",
-      "norm_label": "fix round 1, item 3: findings that are all 'distinct' don't block accept; any...",
-      "source_file": "session-to-skill-extractor/tests/test_render.py",
-      "source_location": "L282"
+      "norm_label": "append {\"skill\",\"outcome\",\"note\",\"at\"} to f/usage-log.jsonl, creating the...",
+      "source_file": "session-to-skill-extractor/scripts/report_usage.py",
+      "source_location": "L19"
     },
     {
       "id": "session_to_skill_extractor_tests_test_validator_rationale_113",
@@ -15836,61 +15944,6 @@
       "norm_label": "evidence.supporting_sessions == 1 with requires_human_review false must fail.",
       "source_file": "session-to-skill-extractor/tests/test_validator.py",
       "source_location": "L65"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_description",
-      "label": "description",
-      "_origin": "ast",
-      "community": 191,
-      "community_name": "prerequisites",
-      "file_type": "code",
-      "norm_label": "description",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L65"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_items",
-      "label": "items",
-      "_origin": "ast",
-      "community": 191,
-      "community_name": "prerequisites",
-      "file_type": "code",
-      "norm_label": "items",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L62"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_prerequisites_type",
-      "label": "type",
-      "_origin": "ast",
-      "community": 191,
-      "community_name": "prerequisites",
-      "file_type": "code",
-      "norm_label": "type",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L61"
-    },
-    {
-      "id": "session_to_skill_extractor_schemas_candidate_schema_properties_prerequisites",
-      "label": "prerequisites",
-      "_origin": "ast",
-      "community": 191,
-      "community_name": "prerequisites",
-      "file_type": "code",
-      "norm_label": "prerequisites",
-      "source_file": "session-to-skill-extractor/schemas/candidate.schema.json",
-      "source_location": "L60"
-    },
-    {
-      "id": "session_to_skill_extractor_tests_test_filter_rationale_163",
-      "label": "d: 3 sessions pass, max_sessions_per_run=2 -> capped to 2, highest score first.",
-      "_origin": "ast",
-      "community": 192,
-      "community_name": ".test_capped_at_max_sessions_per_run",
-      "file_type": "rationale",
-      "norm_label": "d: 3 sessions pass, max_sessions_per_run=2 -> capped to 2, highest score first.",
-      "source_file": "session-to-skill-extractor/tests/test_filter.py",
-      "source_location": "L163"
     },
     {
       "id": "code_review_multi_axis_reference_10_scope_discipline",
@@ -22008,83 +22061,6 @@
       "norm_label": "when to use",
       "source_file": "setup-pre-commit/README.md",
       "source_location": "L11"
-    },
-    {
-      "id": "exception",
-      "label": "Exception",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "exception",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote",
-      "label": "promote.py",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "code",
-      "norm_label": "promote.py",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L1"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_rationale_2",
-      "label": "Stage 5 promote/reject (spec C6, D4): move a review-queue candidate into the\u2026",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "rationale",
-      "norm_label": "stage 5 promote/reject (spec c6, d4): move a review-queue candidate into the...",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L2"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_rationale_39",
-      "label": "Raised for CLI-facing failures: missing candidate id, missing queue folder,\u2026",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "rationale",
-      "norm_label": "raised for cli-facing failures: missing candidate id, missing queue folder,...",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L39"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_rationale_45",
-      "label": "C6 ladder: >=validated_min -> validated; >=provisional_min -> provisional;\u2026",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "rationale",
-      "norm_label": "c6 ladder: >=validated_min -> validated; >=provisional_min -> provisional;...",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L45"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_rationale_60",
-      "label": "Patch the metadata `status:` frontmatter line in place to the ladder status.",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "rationale",
-      "norm_label": "patch the metadata `status:` frontmatter line in place to the ladder status.",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L60"
-    },
-    {
-      "id": "session_to_skill_extractor_scripts_promote_rationale_87",
-      "label": "read_json wrapped so a malformed candidate.json is a clean PromoteError (CLI:\u2026",
-      "_origin": "ast",
-      "community": 63,
-      "community_name": "promote.py",
-      "file_type": "rationale",
-      "norm_label": "read_json wrapped so a malformed candidate.json is a clean promoteerror (cli:...",
-      "source_file": "session-to-skill-extractor/scripts/promote.py",
-      "source_location": "L87"
     },
     {
       "id": "wisdom_capture_reference",
@@ -33527,7 +33503,7 @@
     },
     {
       "source": "code_review_multi_axis_readme_code_review_multi_axis",
-      "target": "code_review_multi_axis_readme_state",
+      "target": "code_review_multi_axis_readme_scope_v1",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -33538,24 +33514,13 @@
     },
     {
       "source": "code_review_multi_axis_readme_code_review_multi_axis",
-      "target": "code_review_multi_axis_readme_scope_v1",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "code-review-multi-axis/README.md",
-      "source_location": "L133",
-      "weight": 1.0
-    },
-    {
-      "source": "code_review_multi_axis_readme_code_review_multi_axis",
       "target": "code_review_multi_axis_readme_license",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/README.md",
-      "source_location": "L137",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -33626,7 +33591,7 @@
     },
     {
       "source": "code_review_multi_axis_reference_code_review_multi_axis_reference",
-      "target": "code_review_multi_axis_reference_state_directory",
+      "target": "code_review_multi_axis_reference_state_file",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -33637,24 +33602,13 @@
     },
     {
       "source": "code_review_multi_axis_reference_code_review_multi_axis_reference",
-      "target": "code_review_multi_axis_reference_state_file",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L214",
-      "weight": 1.0
-    },
-    {
-      "source": "code_review_multi_axis_reference_code_review_multi_axis_reference",
       "target": "code_review_multi_axis_reference_re_review_dedupe",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L251",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -33665,7 +33619,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L263",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -33676,7 +33630,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L277",
+      "source_location": "L247",
       "weight": 1.0
     },
     {
@@ -33687,7 +33641,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/REFERENCE.md",
-      "source_location": "L316",
+      "source_location": "L286",
       "weight": 1.0
     },
     {
@@ -33929,7 +33883,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L43",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -33940,7 +33894,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L47",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -33951,7 +33905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L57",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -33962,7 +33916,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L65",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -33973,7 +33927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L71",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -33984,7 +33938,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L83",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -33995,7 +33949,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L87",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -34006,7 +33960,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L91",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -53410,7 +53364,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "code-review-multi-axis/SKILL.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -57903,5 +57857,5 @@
       "source_file": "prd-review-panel/SKILL.md"
     }
   ],
-  "built_at_commit": "13d50d916806ad815e13024fe832b3579e065287"
+  "built_at_commit": "889377ed20001d545dd26f7ae75fe90767c406b8"
 }

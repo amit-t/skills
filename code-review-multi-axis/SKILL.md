@@ -38,9 +38,11 @@ Everything below is the **post-PR** mode; the pre-PR process lives whole in [PRE
 
 Verify, in order: `gh --version`, `gh auth status`, `gh repo view`, PR id resolves. Bail with install/auth hint on any failure.
 
+Resolve `<state-dir>` (default `~/.local/state/code-review-multi-axis`), outside the skill folder so reinstalls and updates never delete it. If a legacy `<skill-dir>/state/` exists, migrate it first. See [REFERENCE.md](REFERENCE.md#state-directory).
+
 ## One-time identity ack
 
-On first use per skill install, print the safety banner and require `I understand`. Persist to `state/.acknowledged`. See [REFERENCE.md](REFERENCE.md#identity-ack).
+On first use on this machine, print the safety banner and require `I understand`. Persist to `<state-dir>/.acknowledged`. See [REFERENCE.md](REFERENCE.md#identity-ack).
 
 ## Phase 1 — Pre-check (3 arms, all gated by `--force`)
 
@@ -54,7 +56,7 @@ If all pass (or `--force`), continue to deep review.
 
 ## Phase 1 — Deep review
 
-Fetch the PR head into a worktree: `git worktree add <skill-dir>/state/worktree-pr-<num> <head_sha>`. Read every changed file in full + grep top-3 callers for each new/changed public symbol + read schema files if migrations touched. Skip files matching `size.exclude_globs`.
+Fetch the PR head into a worktree: `git worktree add <state-dir>/worktree-pr-<num> <head_sha>`. Read every changed file in full + grep top-3 callers for each new/changed public symbol + read schema files if migrations touched. Skip files matching `size.exclude_globs`.
 
 Generate findings across the 11-dimension rubric: correctness, design, security, reliability, performance, testing, api_contract, observability, readability, scope_discipline, data_migration. See [REFERENCE.md](REFERENCE.md#rubric) for what each dimension catches and the principles that ground each (Pragmatic Programmer / DDD / Ousterhout). Each finding has: severity (`blocker` / `major` / `minor` / `nit`), dimension, file, line, suggested comment text, optional principle reference.
 
@@ -74,7 +76,7 @@ Verdict per `verdict.policy` (config): `comment` always COMMENT; `request_change
 
 POST one grouped Review via `gh api -X POST /repos/{owner}/{repo}/pulls/{num}/reviews` with `event` and `comments[]` (each with `path`, `line`, `body` + hidden marker `<!-- code-review-skill:<finding-hash> -->`). Description-quality bail uses `gh pr comment` (issue-level, no line anchor). Summary body format in [REFERENCE.md](REFERENCE.md#summary-body-final-grouped-review).
 
-Archive state to `state/archive/pr-<num>-<timestamp>.json`. Remove worktree.
+Archive state to `<state-dir>/archive/pr-<num>-<timestamp>.json`. Remove worktree.
 
 Posted-comment markers keep the historical `code-review-skill:` prefix so re-review dedupe still matches reviews posted before the skill was renamed.
 
