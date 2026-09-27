@@ -36,6 +36,15 @@ Whenever you add, remove, rename, or meaningfully modify a skill, you **must** u
 - `skill-name/SKILL.md` — the skill instructions (required)
 - `skill-name/README.md` — install guide following the existing template (required)
 
+### Third-party entries
+
+A skill maintained in another repo can be listed without copying it, which is required when its license does not clearly permit redistribution:
+
+- `skills.json`: add `source` (`owner/repo`), `sourceUrl` (`https://github.com/owner/repo`), and `skillPath` (skill directory inside that repo) to the usual fields. `site.js` then installs from and links to upstream.
+- `README.md`: link the row to `sourceUrl` instead of `./slug`, start the description with `Third-party (not vendored).`, and include the `npx skills@latest add <source> --skill <slug>` command.
+- No local `skill-name/` directory. Never copy upstream files into this repo.
+- Changelogs as usual. `zsh tests/catalog.test.zsh` checks all of this.
+
 ## Category → CSS Class Mapping (for reference)
 
 If you ever touch `site.js` rendering logic, these are the category-to-class mappings:

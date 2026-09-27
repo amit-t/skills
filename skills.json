@@ -79,16 +79,8 @@
       "name": "tdd",
       "category": "Engineering",
       "tagline": "Test-driven development via the red-green loop — seams, anti-patterns, and vertical slices.",
-      "detail": "Fits feature work and bug fixes where the user wants test-first implementation with pre-agreed seams and tracer-bullet vertical slices. Refactoring is deliberately out of the loop — it belongs to the review stage handled by two-axis-review.",
+      "detail": "Fits feature work and bug fixes where the user wants test-first implementation with pre-agreed seams and tracer-bullet vertical slices. Refactoring is deliberately out of the loop — it belongs to the review stage handled by the pre-PR mode of code-review-multi-axis (/code-review-multi-axis <ref>).",
       "usage": "/tdd"
-    },
-    {
-      "slug": "two-axis-review",
-      "name": "two-axis-review",
-      "category": "Engineering",
-      "tagline": "Review a diff since a fixed point along two axes — repo standards and spec fidelity — via parallel sub-agents.",
-      "detail": "Pins a fixed point (commit, branch, tag), takes the three-dot diff against the merge-base, then runs two parallel sub-agents: Standards (documented repo standards plus a fixed Fowler code-smell baseline) and Spec (missing or partial requirements, scope creep, wrong implementations). Reports both axes side by side without merging or reranking, so a pass on one axis can't mask a failure on the other. Ported from Matt Pocock's engineering/code-review.",
-      "usage": "/two-axis-review <fixed-point>"
     },
     {
       "slug": "git-guardrails-claude-code",
@@ -297,6 +289,17 @@
       "tagline": "Sync an existing skill from a source path, or scaffold a new one via claude/codex/devin.",
       "detail": "Wraps the skill-sync zsh utility (in ai-utils/skill-sync). Sync mode mirrors a source skill into the current repo and upserts catalog entries (README, site.js, CHANGELOG, skills-lock). Build mode hands a runtime prompt to claude/codex/devin to scaffold a new skill from raw source material. Idempotent on rerun.",
       "usage": "/skill-sync"
+    },
+    {
+      "slug": "here-now",
+      "name": "here-now",
+      "category": "AI Agent",
+      "tagline": "Publish files and sites to live here.now URLs, and keep agent files in here.now Drives. Third-party, maintained upstream at heredotnow/skill.",
+      "detail": "Third-party skill by here.now, listed here but not vendored: install it from its upstream repo with npx skills@latest add heredotnow/skill --skill here-now. Bundles scripts/publish.sh (publish a file or directory to {slug}.here.now or a custom domain, with password or restricted access, workspaces, and version rollback) and scripts/drive.sh (private cloud Drives that agents share across sessions and tools). Model-invocable by design: it fires on requests like \"publish this\" or \"save this to my Drive\". Upstream declares MIT in its README but ships no LICENSE file, so this catalog links to it instead of copying it.",
+      "usage": "/here-now",
+      "source": "heredotnow/skill",
+      "sourceUrl": "https://github.com/heredotnow/skill",
+      "skillPath": "here-now"
     },
     {
       "slug": "session-to-skill-extractor",

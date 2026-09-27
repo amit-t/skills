@@ -54,7 +54,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
-| [`code-review-multi-axis`](./code-review-multi-axis) | Slash-only principal-engineer review in two modes — pre-PR: Standards + Spec axes side by side vs a fixed point (nothing posted); post-PR: two-phase GitHub review walking 11-dimension findings one at a time before posting. Formerly `code-review` |
+| [`code-review-multi-axis`](./code-review-multi-axis) | Slash-only. Principal-engineer review in two modes — pre-PR: Standards + Spec axes side by side vs a fixed point (nothing posted); post-PR: two-phase GitHub review walking 11-dimension findings one at a time before posting. Formerly `code-review` |
 | [`docs-from-prs`](./docs-from-prs) | Survey merged PRs, fill doc gaps in README and other user-facing docs, audit drift hot spots, and run a grammar/casing/alignment pass |
 | [`domain-grill`](./domain-grill) | Slash-only. Engineering-only stress-test of an eng spec / TDD / refactor / tech design against `CONTEXT.md` — pick a depth (`quick` / `standard` / `deep`, default `deep`) at start; use `/grill-me` for PRDs and non-technical plans |
 | [`e2e-audit`](./e2e-audit) | Playwright PRD audit + persona screenshot demo + auto-emit one ralph task per bug to `fix_plan.md` |
@@ -73,8 +73,7 @@ npx skills@latest add amit-t/skills -g
 | [`resume-tailoring`](./resume-tailoring) | Tailor a resume to a specific job — research, branching discovery, confidence-scored matching, MD+DOCX+PDF+report |
 | [`setup-amit-skills`](./setup-amit-skills) | Configure a repo for `amit-t/skills` conventions via a guided 3-decision setup (agent instruction surface, context layout, catalog/category mode) — modeled on Matt Pocock's `setup-matt-pocock-skills` |
 | [`setup-pre-commit`](./setup-pre-commit) | Set up Husky + lint-staged + Prettier pre-commit hooks (typecheck + test) in a JS/TS repo — ported from Matt Pocock's `misc/setup-pre-commit` |
-| [`tdd`](./tdd) | Test-driven development via the red-green loop — seams, anti-patterns, and vertical slices; refactoring moved to `two-axis-review` |
-| [`two-axis-review`](./two-axis-review) | Review a diff since a fixed point along two parallel axes — repo standards (incl. a Fowler code-smell baseline) and spec fidelity — reported side by side; ported from Matt Pocock's `engineering/code-review` |
+| [`tdd`](./tdd) | Test-driven development via the red-green loop — seams, anti-patterns, and vertical slices; refactoring belongs to `/code-review-multi-axis <ref>` |
 | [`ubiquitous-language`](./ubiquitous-language) | **Deprecated** — superseded by `/repo-context-scan` (build) and `/domain-grill` (stress-test) |
 
 ### UX Design
@@ -108,6 +107,7 @@ npx skills@latest add amit-t/skills -g
 
 | Skill | Description |
 |-------|-------------|
+| [`here-now`](https://github.com/heredotnow/skill) | Third-party (not vendored). Publish files and sites to live `{slug}.here.now` URLs and keep agent files in here.now Drives. Install from upstream: `npx skills@latest add heredotnow/skill --skill here-now` |
 | [`session-to-skill-extractor`](./session-to-skill-extractor) | Mine completed agent sessions for non-obvious, recurring procedures and turn them into reviewable SKILL.md candidates (Claude Code, Codex, Devin, Copilot, generic) |
 | [`write-a-skill`](./write-a-skill) | Create new agent skills with proper structure |
 
@@ -116,6 +116,8 @@ npx skills@latest add amit-t/skills -g
 Skills are self-contained units of functionality that teach AI coding agents how to perform specific tasks. Each skill is a `SKILL.md` file (with optional companion files) that gets loaded into the agent's context when invoked.
 
 Skills can be invoked by name (e.g., `/tdd`, `/prd-draft`) or automatically triggered by the agent when relevant. Skills marked **Slash-only** set `disable-model-invocation: true`: they stay out of the agent's automatic skill listing (saving context tokens every session) and run only when you type `/<name>`.
+
+Rows marked **Third-party** link to a skill maintained in another repo. This catalog lists it but does not copy it, so `npx skills@latest add amit-t/skills` does not install it; use the install command in its row.
 
 ## Manual Installation
 

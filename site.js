@@ -185,6 +185,12 @@ function openDrawer(skill, fromHash) {
   if (!fromHash) {
     history.replaceState(null, "", `#skill=${skill.slug}`);
   }
+  // Third-party entries (`source` set) are catalogued here but live upstream:
+  // install from their repo and link their files there, never this repo.
+  const external = typeof skill.source === "string" && skill.source !== "";
+  const installSource = external ? skill.source : "amit-t/skills";
+  const filesBase = external ? skill.sourceUrl : repoUrl;
+  const skillDir = external ? skill.skillPath : skill.slug;
   drawerContent.innerHTML = `
     <span class="section-eyebrow ${catClass(skill.category)}">Skill Detail</span>
     <h2>${skill.name}</h2>
@@ -192,6 +198,7 @@ function openDrawer(skill, fromHash) {
     <div class="drawer-meta">
       <span class="meta-pill meta-category">${skill.category}</span>
       <span class="meta-pill meta-usage">Invoke: ${skill.usage}</span>
+      ${external ? `<span class="meta-pill meta-source">Third-party: ${skill.source}</span>` : ""}
     </div>
 
     <section class="drawer-section">
@@ -202,28 +209,30 @@ function openDrawer(skill, fromHash) {
 
     <section class="drawer-section">
       <h3>Install with CLI</h3>
-      <pre><code>npx skills@latest add amit-t/skills --skill ${skill.slug}</code></pre>
-      <p style="margin-top:0.5rem;font-size:0.82rem;color:var(--muted-light)">Or install all skills at once:</p>
-      <pre><code>npx skills@latest add amit-t/skills</code></pre>
+      <pre><code>npx skills@latest add ${installSource} --skill ${skill.slug}</code></pre>
+      ${external ? `<p style="margin-top:0.5rem;font-size:0.82rem;color:var(--muted-light)">Installs from the upstream repo; <code>npx skills@latest add amit-t/skills</code> does not include it.</p>` : `<p style="margin-top:0.5rem;font-size:0.82rem;color:var(--muted-light)">Or install all skills at once:</p>
+      <pre><code>npx skills@latest add amit-t/skills</code></pre>`}
     </section>
 
     <section class="drawer-section">
       <h3>Install for specific agents</h3>
-      <pre><code>npx skills@latest add amit-t/skills --skill ${skill.slug} --agent claude-code cursor</code></pre>
-      <pre style="margin-top:0.5rem"><code>npx skills@latest add amit-t/skills --skill ${skill.slug} -g</code></pre>
+      <pre><code>npx skills@latest add ${installSource} --skill ${skill.slug} --agent claude-code cursor</code></pre>
+      <pre style="margin-top:0.5rem"><code>npx skills@latest add ${installSource} --skill ${skill.slug} -g</code></pre>
     </section>
 
     <section class="drawer-section">
       <h3>Manual installation</h3>
-      ${renderManualInstalls(skill.slug)}
+      ${external ? `<pre><code>git clone ${skill.sourceUrl}.git</code></pre>
+      <p style="font-size:0.82rem;color:var(--muted-light)">Then copy <code>${skill.sourceUrl.split("/").pop()}/${skillDir}</code> as shown below.</p>` : ""}
+      ${renderManualInstalls(skill.slug, external ? `${skill.sourceUrl.split("/").pop()}/${skillDir}` : skill.slug)}
     </section>
 
     <section class="drawer-section">
       <h3>Source files</h3>
       <div class="drawer-links">
-        <a class="neo-btn" href="${repoUrl}/blob/main/${skill.slug}/README.md" target="_blank" rel="noreferrer">README</a>
-        <a class="neo-btn" href="${repoUrl}/blob/main/${skill.slug}/SKILL.md" target="_blank" rel="noreferrer">SKILL.md</a>
-        <a class="neo-btn" href="${repoUrl}/tree/main/${skill.slug}" target="_blank" rel="noreferrer">Directory</a>
+        <a class="neo-btn" href="${external ? `${filesBase}#readme` : `${filesBase}/blob/main/${skillDir}/README.md`}" target="_blank" rel="noreferrer">README</a>
+        <a class="neo-btn" href="${filesBase}/blob/main/${skillDir}/SKILL.md" target="_blank" rel="noreferrer">SKILL.md</a>
+        <a class="neo-btn" href="${filesBase}/tree/main/${skillDir}" target="_blank" rel="noreferrer">Directory</a>
       </div>
     </section>
 
@@ -265,55 +274,55 @@ function closeDrawer() {
   }
 }
 
-function renderManualInstalls(slug) {
+function renderManualInstalls(slug, src = slug) {
   return `
     <details class="install-expand">
       <summary>Devin / Windsurf</summary>
       <pre><code># Project-level
-cp -r ${slug} .cognition/skills/${slug}
+cp -r ${src} .cognition/skills/${slug}
 # or
-cp -r ${slug} .windsurf/skills/${slug}
+cp -r ${src} .windsurf/skills/${slug}
 
 # Global
-cp -r ${slug} ~/.config/cognition/skills/${slug}</code></pre>
+cp -r ${src} ~/.config/cognition/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
       <summary>Claude Code</summary>
       <pre><code># Project-level
-cp -r ${slug} .claude/skills/${slug}
+cp -r ${src} .claude/skills/${slug}
 
 # Global
-cp -r ${slug} ~/.claude/skills/${slug}</code></pre>
+cp -r ${src} ~/.claude/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
       <summary>Cursor</summary>
       <pre><code># Project-level
-cp -r ${slug} .cursor/skills/${slug}</code></pre>
+cp -r ${src} .cursor/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
       <summary>Codex</summary>
       <pre><code># Project-level
-cp -r ${slug} .agents/skills/${slug}
+cp -r ${src} .agents/skills/${slug}
 
 # Global
-cp -r ${slug} ~/.agents/skills/${slug}</code></pre>
+cp -r ${src} ~/.agents/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
       <summary>GitHub Copilot</summary>
       <pre><code># Project-level
-cp -r ${slug} .github/skills/${slug}
+cp -r ${src} .github/skills/${slug}
 
 # Global
-cp -r ${slug} ~/.copilot/skills/${slug}</code></pre>
+cp -r ${src} ~/.copilot/skills/${slug}</code></pre>
     </details>
 
     <details class="install-expand">
       <summary>Gemini CLI</summary>
-      <pre><code>cat ${slug}/SKILL.md >> GEMINI.md</code></pre>
+      <pre><code>cat ${src}/SKILL.md >> GEMINI.md</code></pre>
     </details>
   `;
 }

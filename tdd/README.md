@@ -4,7 +4,7 @@
 
 **Category:** Engineering
 
-The red → green loop, made to produce tests worth keeping. Defines what a good test is (verifies behavior through public interfaces, survives refactors), where tests go (**seams** — pre-agreed public boundaries, confirmed with the user before any test is written), and the anti-patterns to catch: implementation-coupled tests, tautological assertions, and horizontal slicing (writing all tests before any implementation). Work proceeds in **vertical slices** — one test → one minimal implementation → repeat — each test a tracer bullet informed by the last cycle. Refactoring is deliberately out of the loop; it belongs to the review stage, handled by this repo's [`two-axis-review`](../two-axis-review) skill.
+The red → green loop, made to produce tests worth keeping. Defines what a good test is (verifies behavior through public interfaces, survives refactors), where tests go (**seams** — pre-agreed public boundaries, confirmed with the user before any test is written), and the anti-patterns to catch: implementation-coupled tests, tautological assertions, and horizontal slicing (writing all tests before any implementation). Work proceeds in **vertical slices** — one test → one minimal implementation → repeat — each test a tracer bullet informed by the last cycle. Refactoring is deliberately out of the loop; it belongs to the review stage, handled by the pre-PR mode of this repo's [`code-review-multi-axis`](../code-review-multi-axis) skill (`/code-review-multi-axis <ref>`).
 
 Synced from [`mattpocock/skills` → `engineering/tdd`](https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd).
 

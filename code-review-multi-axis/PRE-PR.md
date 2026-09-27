@@ -91,4 +91,4 @@ Reporting them separately stops one axis from masking the other.
 
 ---
 
-_Adapted from this catalog's [`two-axis-review`](../two-axis-review), itself ported from [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md)._
+_Absorbed from this catalog's retired `two-axis-review` skill, itself ported from [`mattpocock/skills` → `engineering/code-review`](https://github.com/mattpocock/skills/blob/main/skills/engineering/code-review/SKILL.md)._
