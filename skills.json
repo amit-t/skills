@@ -267,6 +267,14 @@
       "usage": "/concise-reporting"
     },
     {
+      "slug": "distill-project",
+      "name": "distill-project",
+      "category": "Agent Behavior",
+      "tagline": "Distill project history into durable instructions and context.",
+      "detail": "Read project decisions and past outputs to capture approved rules and exact reusable output templates.",
+      "usage": "/distill-project"
+    },
+    {
       "slug": "precision-mode",
       "name": "precision-mode",
       "category": "Agent Behavior",

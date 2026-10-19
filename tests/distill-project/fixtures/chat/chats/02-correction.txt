@@ -1,0 +1,3 @@
+2026-10-11
+Assistant: I drafted slide titles in title case.
+User: Use sentence case for slide titles from now on.

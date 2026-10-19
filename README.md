@@ -97,6 +97,7 @@ npx skills@latest add amit-t/skills -g
 |-------|-------------|
 | [`compact-conversation`](./compact-conversation) | Compact the current conversation into a concise summary to reduce context window usage |
 | [`concise-reporting`](./concise-reporting) | Ultra-concise status/progress reporting; full verbosity preserved for written artifacts |
+| [`distill-project`](./distill-project) | Distill past project work into short rules and a context file with exact output templates |
 | [`precision-mode`](./precision-mode) | Universal conciseness directive — makes every LLM response shorter, denser, and more precise |
 | [`resume-session-handoff`](./resume-session-handoff) | Slash-only. Pick up where a previous session left off — loads the newest open handoff written by `/session-handoff`, runs an environment preflight, marks the file resumed on confirm, and **asks what to do next** (no auto-execute). Named `resume-session-handoff` to avoid shadowing agents' built-in `/resume` and Devin's built-in `/handoff` |
 | [`session-feedback`](./session-feedback) | Slash-only. Mine the current conversation for every correction, preference, and do-differently lesson; write a dated feedback file the next session reloads as memory |

@@ -1,0 +1,3 @@
+Test 1: Learn from this repo and write project instructions so future sessions follow the same rules.
+Test 2: Turn everything we've done in this project into project instructions and context.
+Test 3: Update the project context with what changed.
