@@ -1,0 +1,3 @@
+2026-10-10
+Assistant: Which layout should future slide decks use? Option A: title, data, appendix. Option B: title, evidence, decision, sources. Option C: title, appendix, data.
+User: Choose option B. Use it as the default for future decks.

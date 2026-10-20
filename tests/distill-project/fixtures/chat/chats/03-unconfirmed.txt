@@ -1,0 +1,4 @@
+2026-10-12
+Assistant: We could add animated transitions to future decks.
+User: Please send the current deck outline.
+Assistant: Here is the outline.

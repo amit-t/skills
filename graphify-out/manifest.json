@@ -6,15 +6,15 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1790474098.69537,
-    "seen": 1790474099.796272,
-    "ast_hash": "3239a319a771b90554375ff9503ef02a",
+    "mtime": 1792381492.3209682,
+    "seen": 1792382643.15665,
+    "ast_hash": "661764e817b333121ee00f6508c1a282",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790473911.6760101,
-    "seen": 1790474076.9152598,
-    "ast_hash": "c7dc063f9b55ed2a2f1f2b5ab341a844",
+    "mtime": 1792381492.3172505,
+    "seen": 1792382643.156651,
+    "ast_hash": "e4c442b4c607849779173cb79d24156a",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -318,9 +318,9 @@
     "semantic_hash": ""
   },
   "changelog.json": {
-    "mtime": 1790474098.6957073,
-    "seen": 1790474099.796243,
-    "ast_hash": "4d5003a44afd225301a67a89322487ac",
+    "mtime": 1792381492.3197854,
+    "seen": 1792382643.1566138,
+    "ast_hash": "c7c0f7c15790bbc10ec5afcdc0b16998",
     "semantic_hash": ""
   },
   "gh-pages-neo-brutalist/templates/assets/js/site.js": {
@@ -348,9 +348,9 @@
     "semantic_hash": ""
   },
   "skills.json": {
-    "mtime": 1790473911.6903496,
-    "seen": 1790474076.915255,
-    "ast_hash": "b5d81200f670211f163aef7abe47f8b7",
+    "mtime": 1792381492.3182917,
+    "seen": 1792382643.156644,
+    "ast_hash": "f3256dcfefb7acee37324323b6cb2dc4",
     "semantic_hash": ""
   },
   ".agents/skills/docs-from-prs/SKILL.md": {
@@ -402,20 +402,20 @@
     "semantic_hash": ""
   },
   "code-review-multi-axis/README.md": {
-    "mtime": 1790474098.695091,
-    "seen": 1790474099.796274,
+    "mtime": 1790474265.2491863,
+    "seen": 1792382643.156652,
     "ast_hash": "847abb47988df2498a4893eb120536d6",
     "semantic_hash": ""
   },
   "code-review-multi-axis/REFERENCE.md": {
-    "mtime": 1790474062.9659002,
-    "seen": 1790474076.915261,
+    "mtime": 1790474265.2494812,
+    "seen": 1792382643.156652,
     "ast_hash": "0b7ec53ccbc7a8762203eb2603880fea",
     "semantic_hash": ""
   },
   "code-review-multi-axis/SKILL.md": {
-    "mtime": 1790474028.1438942,
-    "seen": 1790474076.915262,
+    "mtime": 1790474265.2498093,
+    "seen": 1792382643.1566532,
     "ast_hash": "8e52e77b4bdfaeb377f6815118285bb9",
     "semantic_hash": ""
   },
@@ -426,8 +426,8 @@
     "semantic_hash": ""
   },
   "code-review-multi-axis/config.example.yaml": {
-    "mtime": 1790474028.1483583,
-    "seen": 1790474076.915262,
+    "mtime": 1790474265.2500181,
+    "seen": 1792382643.1566541,
     "ast_hash": "28594048a853d2751305868e12f63f77",
     "semantic_hash": ""
   },
@@ -1269,6 +1269,120 @@
     "mtime": 1789642293.5030923,
     "seen": 1789642403.149292,
     "ast_hash": "de8713ea7438134ba2f7759ed492a899",
+    "semantic_hash": ""
+  },
+  "distill-project/scripts/check_style.py": {
+    "mtime": 1792382756.2492964,
+    "seen": 1792382774.003542,
+    "ast_hash": "aa7535f2437c271f39e4b82801135a55",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/grade.py": {
+    "mtime": 1792382690.9368522,
+    "seen": 1792382774.003571,
+    "ast_hash": "b2d3b57287aaa17ae227734acc620dd2",
+    "semantic_hash": ""
+  },
+  "distill-project/README.md": {
+    "mtime": 1792382571.7982025,
+    "seen": 1792382643.156661,
+    "ast_hash": "b9c70aee5a612cc70bfc588f1d6060aa",
+    "semantic_hash": ""
+  },
+  "distill-project/SKILL.md": {
+    "mtime": 1792382660.7144935,
+    "seen": 1792382774.0035892,
+    "ast_hash": "599abe9de01803e00173f626069c7370",
+    "semantic_hash": ""
+  },
+  "distill-project/references/file-templates.md": {
+    "mtime": 1792382503.4671323,
+    "seen": 1792382643.156662,
+    "ast_hash": "9b04129e7f6f1f106f27aa353dd3b4a2",
+    "semantic_hash": ""
+  },
+  "distill-project/references/output-extraction.md": {
+    "mtime": 1792381475.608316,
+    "seen": 1792382643.156663,
+    "ast_hash": "518b70d865653ad49aae2c1f86daf69b",
+    "semantic_hash": ""
+  },
+  "distill-project/references/surfaces.md": {
+    "mtime": 1792382418.5814855,
+    "seen": 1792382643.156663,
+    "ast_hash": "cd97e38e226e4b008fa49783fc4c5f17",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/banned.txt": {
+    "mtime": 1792381299.2196429,
+    "seen": 1792382643.156724,
+    "ast_hash": "2700cbec0d33e6c25ccd8d8045763478",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/chat/chats/01-options.txt": {
+    "mtime": 1792381299.219054,
+    "seen": 1792382643.156724,
+    "ast_hash": "d323ee53f26f7697a7cdb9985dac9d69",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/chat/chats/02-correction.txt": {
+    "mtime": 1792381299.2191958,
+    "seen": 1792382643.156725,
+    "ast_hash": "b3ab2f5b800316313404ca4318bade43",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/chat/chats/03-unconfirmed.txt": {
+    "mtime": 1792381299.2193258,
+    "seen": 1792382643.156725,
+    "ast_hash": "9721bf0b926e210eedc5220972424669",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/chat/outputs/deck-outline.md": {
+    "mtime": 1792381299.2195153,
+    "seen": 1792382643.1567261,
+    "ast_hash": "73192b81020a072213d18bb432c6e53f",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/code/README.md": {
+    "mtime": 1792381299.2180097,
+    "seen": 1792382643.1567261,
+    "ast_hash": "7b45a068887668e368f766e82ef8f66a",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/code/reports/october.html": {
+    "mtime": 1792381299.2184532,
+    "seen": 1792382643.156727,
+    "ast_hash": "58e1a49415e873b0770400509d914397",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/code/reports/september.html": {
+    "mtime": 1792381299.218304,
+    "seen": 1792382643.156727,
+    "ast_hash": "823cd1a77f48c6f6ba49718b6ec44aef",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/update/new-section.html": {
+    "mtime": 1792381299.2186954,
+    "seen": 1792382643.156728,
+    "ast_hash": "593327bee8c11d1ed1b1e34f69fcf46c",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/fixtures/update/rule-break.html": {
+    "mtime": 1792381299.2188265,
+    "seen": 1792382643.156728,
+    "ast_hash": "c6d1b0ba1f4a88046256110a47ca85c7",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/prompts.txt": {
+    "mtime": 1792381299.2197678,
+    "seen": 1792382643.156729,
+    "ast_hash": "502fa743785a7d4ee9d60b6d944a09f2",
+    "semantic_hash": ""
+  },
+  "tests/distill-project/check_style_test.py": {
+    "mtime": 1792382745.5153136,
+    "seen": 1792382774.003571,
+    "ast_hash": "20a655ee172c04f08ee4de03c070b402",
     "semantic_hash": ""
   }
 }
